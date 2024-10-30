@@ -9,38 +9,44 @@ public class HordeMovement : MonoBehaviour
     
     //Work with how loud the horde is? The faster it is, the more they get noticed
 
-    [SerializeField] private float currentHordeSpeed;
+    public float CurrentHordeSpeed { get; private set; }
+    public bool StopMovement { get; set; }
 
     [SerializeField] private float minHordeSpeed;
     [SerializeField] private float hordeSpeedIncreaseOnClick;
     [SerializeField] private float maxHordeSpeed;
     [SerializeField] private AnimationCurve movementSpeedDecrease;
+    
+    
 
     private void Update()
     {
+        if(StopMovement)
+            return;
+        
         MoveHordeToMouse();
     }
 
     private void MoveHordeToMouse()
     {
-        if (currentHordeSpeed > minHordeSpeed)
+        if (CurrentHordeSpeed > minHordeSpeed)
         {
-            currentHordeSpeed -= Time.deltaTime * movementSpeedDecrease.Evaluate(currentHordeSpeed);
+            CurrentHordeSpeed -= Time.deltaTime * movementSpeedDecrease.Evaluate(CurrentHordeSpeed);
         }
         else
         {
-            currentHordeSpeed = minHordeSpeed;
+            CurrentHordeSpeed = minHordeSpeed;
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(currentHordeSpeed < maxHordeSpeed)
+            if(CurrentHordeSpeed < maxHordeSpeed)
             {
-                currentHordeSpeed += hordeSpeedIncreaseOnClick;
+                CurrentHordeSpeed += hordeSpeedIncreaseOnClick;
             }
             else
             {
-                currentHordeSpeed = maxHordeSpeed;
+                CurrentHordeSpeed = maxHordeSpeed;
             }
         }
         
@@ -49,16 +55,16 @@ public class HordeMovement : MonoBehaviour
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 10;
             
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, Time.deltaTime * currentHordeSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, mousePos, Time.deltaTime * CurrentHordeSpeed);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, Time.deltaTime * currentHordeSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, mousePos, Time.deltaTime * CurrentHordeSpeed);
         }
 
         if (Vector3.Distance(transform.position, mousePos) < Mathf.Epsilon)
         {
-            currentHordeSpeed = minHordeSpeed;
+            CurrentHordeSpeed = minHordeSpeed;
         }
     }
 }
