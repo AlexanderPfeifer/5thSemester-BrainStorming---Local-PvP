@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,15 +7,27 @@ public class ZombieAutoAttack : MonoBehaviour
     [SerializeField] private float attackHumanRadius;
     [SerializeField] private float keepDistanceFromZombiesRadius;
     [SerializeField] private float closeEnoughToHordeRadius;
-    [SerializeField] private LayerMask humanLayer;
+    [FormerlySerializedAs("zombieOtherTeam")] [FormerlySerializedAs("humanLayer")] [SerializeField] private LayerMask zombieOtherTeamLayer;
     [SerializeField] private LayerMask zombieLayer;
     [SerializeField] private HordeMovement hordeMovement;
-    [SerializeField] private Sprite zombieSprite;
-    private Transform closestHuman;
-    private Transform closestZombie;
-    private Collider2D[] humanHit;
 
-    private void Start() => hordeMovement = GetComponentInParent<HordeMovement>();
+    [SerializeField] private int damage;
+    
+    private Transform closestZombieOtherTeam;
+    private Transform closestZombieOwnTeam;
+    private Collider2D[] zombieHitOtherTeam;
+
+    private Animator animator;
+    
+    private float maxTimeUntilNextAttack;
+    private float currentTimeUntilNextAttack;
+    
+    private void Start()
+    {
+        hordeMovement = GetComponentInParent<HordeMovement>();
+
+        animator = GetComponentInChildren<Animator>();
+    }
 
     private void Update()
     {
@@ -31,7 +42,7 @@ public class ZombieAutoAttack : MonoBehaviour
         Collider2D[] zombieHitCloseToHorde = Physics2D.OverlapCircleAll(transform.position, closeEnoughToHordeRadius, zombieLayer);
 
         //Asks if zombieHitCloseToHorde is smaller than 2 because the first hit is always itself
-        if (zombieHitCloseToHorde.Length < 2 && humanHit.Length == 0)
+        if (zombieHitCloseToHorde.Length < 2 && zombieHitOtherTeam.Length == 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, 
                 hordeMovement.CurrentHordeSpeed * Time.deltaTime);
@@ -40,55 +51,76 @@ public class ZombieAutoAttack : MonoBehaviour
         {
             foreach (Collider2D zombie in zombieHitTooNear)
             {
-                if (closestZombie != null && (zombie.transform.position - transform.position).sqrMagnitude < (closestZombie.transform.position - transform.position).sqrMagnitude)
+                if (closestZombieOwnTeam != null && (zombie.transform.position - transform.position).sqrMagnitude < (closestZombieOwnTeam.transform.position - transform.position).sqrMagnitude)
                 {
-                    closestZombie = zombie.transform;
+                    closestZombieOwnTeam = zombie.transform;
                 }
                 else
                 {
-                    closestZombie = zombie.transform;
+                    closestZombieOwnTeam = zombie.transform;
                 }
             }
 
-            closestZombie.transform.position = new Vector3(closestZombie.transform.position.x, closestZombie.transform.position.y, 0);
+            closestZombieOwnTeam.transform.position = new Vector3(closestZombieOwnTeam.transform.position.x, closestZombieOwnTeam.transform.position.y, 0);
         
             //Moves away from the closest zombie
-            transform.position = Vector3.MoveTowards(transform.position,  closestZombie.position, 
+            transform.position = Vector3.MoveTowards(transform.position,  closestZombieOwnTeam.position, 
                 -1 * hordeMovement.CurrentHordeSpeed * Time.deltaTime);
         }
     }
 
     private void AutoAttack()
     {
-        humanHit = Physics2D.OverlapCircleAll(transform.position, detectHumanRadius, humanLayer);
+        zombieHitOtherTeam = Physics2D.OverlapCircleAll(transform.position, detectHumanRadius, zombieOtherTeamLayer);
+        
+        Debug.Log(zombieHitOtherTeam.Length);
 
-        if (humanHit.Length == 0)
+        if (zombieHitOtherTeam.Length == 0)
         {
             hordeMovement.StopMovement = false;
             return;   
         }
 
-        closestHuman = humanHit[0].transform;
+        closestZombieOtherTeam = zombieHitOtherTeam[0].transform;
 
-        foreach (Collider2D human in humanHit)
+        foreach (Collider2D human in zombieHitOtherTeam)
         {
-            if ((human.transform.position - transform.position).sqrMagnitude < (closestHuman.transform.position - transform.position).sqrMagnitude)
+            if ((human.transform.position - transform.position).sqrMagnitude < (closestZombieOtherTeam.transform.position - transform.position).sqrMagnitude)
             {
-                closestHuman = human.transform;
+                closestZombieOtherTeam = human.transform;
             }
         }
 
         hordeMovement.StopMovement = true;
 
-        transform.position = Vector3.MoveTowards(transform.position, closestHuman.position, 
+        transform.position = Vector3.MoveTowards(transform.position, closestZombieOtherTeam.position, 
             Time.deltaTime * hordeMovement.CurrentHordeSpeed);
 
-        if ((transform.position - closestHuman.position).sqrMagnitude < 0.1f)
+        if ((transform.position - closestZombieOtherTeam.position).sqrMagnitude < 0.1f)
         {
-            closestHuman.GetComponent<ZombieAutoAttack>().enabled = true;
-            closestHuman.gameObject.layer = gameObject.layer;
-            closestHuman.GetComponentInChildren<SpriteRenderer>().sprite = zombieSprite;
-            closestHuman.SetParent(transform.parent);
+            currentTimeUntilNextAttack -= Time.deltaTime;
+
+            if (currentTimeUntilNextAttack < 0)
+            {
+                animator.SetTrigger("attack");
+                currentTimeUntilNextAttack = maxTimeUntilNextAttack;
+            }
+        }
+    }
+
+    public void AttackEnemyAnimationEvent()
+    {
+        if(closestZombieOtherTeam == null)
+            return;
+        
+        
+        if (closestZombieOtherTeam.gameObject.layer == gameObject.layer)
+        {
+            closestZombieOtherTeam = null;
+        }
+        else
+        {
+            closestZombieOtherTeam.GetComponent<Health>().DamageIncome(gameObject, damage);
         }
     }
     
