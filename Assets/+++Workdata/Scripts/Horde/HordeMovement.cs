@@ -1,14 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class HordeMovement : MonoBehaviour
 {
     [SerializeField] private Camera mainCam;
     private Vector3 mousePos;
     
-    //Work with how loud the horde is? The faster it is, the more they get noticed
-
     public float CurrentHordeSpeed { get; private set; }
     public bool StopMovement { get; set; }
 
@@ -17,8 +13,6 @@ public class HordeMovement : MonoBehaviour
     [SerializeField] private float maxHordeSpeed;
     [SerializeField] private AnimationCurve movementSpeedDecrease;
     
-    
-
     private void Update()
     {
         if(StopMovement)

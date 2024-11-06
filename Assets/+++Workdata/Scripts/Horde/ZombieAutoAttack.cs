@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ZombieAutoAttack : MonoBehaviour
 {
     [SerializeField] private float detectHumanRadius;
     [SerializeField] private float attackHumanRadius;
     [SerializeField] private float keepDistanceFromZombiesRadius;
+    [SerializeField] private float closeEnoughToHordeRadius;
     [SerializeField] private LayerMask humanLayer;
     [SerializeField] private LayerMask zombieLayer;
     [SerializeField] private HordeMovement hordeMovement;
@@ -12,7 +15,9 @@ public class ZombieAutoAttack : MonoBehaviour
     private Transform closestHuman;
     private Transform closestZombie;
     private Collider2D[] humanHit;
-    
+
+    private void Start() => hordeMovement = GetComponentInParent<HordeMovement>();
+
     private void Update()
     {
         AutoAttack();
@@ -22,40 +27,47 @@ public class ZombieAutoAttack : MonoBehaviour
 
     private void KeepDistanceFromOtherZombies()
     {
-        Collider2D[] zombieHit = Physics2D.OverlapCircleAll(transform.position, keepDistanceFromZombiesRadius, zombieLayer);
+        Collider2D[] zombieHitTooNear = Physics2D.OverlapCircleAll(transform.position, keepDistanceFromZombiesRadius, zombieLayer);
+        Collider2D[] zombieHitCloseToHorde = Physics2D.OverlapCircleAll(transform.position, closeEnoughToHordeRadius, zombieLayer);
 
-        if (humanHit.Length == 0 && zombieHit.Length == 1 && zombieHit[0] == GetComponent<Collider2D>())
+        //Asks if zombieHitCloseToHorde is smaller than 2 because the first hit is always itself
+        if (zombieHitCloseToHorde.Length < 2 && humanHit.Length == 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, 
                 hordeMovement.CurrentHordeSpeed * Time.deltaTime);
-            return;
         }
-
-        foreach (Collider2D zombie in zombieHit)
+        else if(zombieHitTooNear.Length > 1)
         {
-            if (closestZombie != null && (zombie.transform.position - transform.position).sqrMagnitude < (closestZombie.transform.position - transform.position).sqrMagnitude)
+            foreach (Collider2D zombie in zombieHitTooNear)
             {
-                closestZombie = zombie.transform;
+                if (closestZombie != null && (zombie.transform.position - transform.position).sqrMagnitude < (closestZombie.transform.position - transform.position).sqrMagnitude)
+                {
+                    closestZombie = zombie.transform;
+                }
+                else
+                {
+                    closestZombie = zombie.transform;
+                }
             }
-            else
-            {
-                closestZombie = zombie.transform;
-            }
-        }
 
-        closestZombie.transform.position = new Vector3(closestZombie.transform.position.x, closestZombie.transform.position.y, 0);
+            closestZombie.transform.position = new Vector3(closestZombie.transform.position.x, closestZombie.transform.position.y, 0);
         
-        transform.position = Vector3.MoveTowards(transform.position,  closestZombie.position, 
-            -1 * hordeMovement.CurrentHordeSpeed * Time.deltaTime);
+            //Moves away from the closest zombie
+            transform.position = Vector3.MoveTowards(transform.position,  closestZombie.position, 
+                -1 * hordeMovement.CurrentHordeSpeed * Time.deltaTime);
+        }
     }
 
     private void AutoAttack()
     {
         humanHit = Physics2D.OverlapCircleAll(transform.position, detectHumanRadius, humanLayer);
 
-        if(humanHit.Length == 0)
-            return;
-            
+        if (humanHit.Length == 0)
+        {
+            hordeMovement.StopMovement = false;
+            return;   
+        }
+
         closestHuman = humanHit[0].transform;
 
         foreach (Collider2D human in humanHit)
@@ -65,6 +77,8 @@ public class ZombieAutoAttack : MonoBehaviour
                 closestHuman = human.transform;
             }
         }
+
+        hordeMovement.StopMovement = true;
 
         transform.position = Vector3.MoveTowards(transform.position, closestHuman.position, 
             Time.deltaTime * hordeMovement.CurrentHordeSpeed);
@@ -87,6 +101,9 @@ public class ZombieAutoAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackHumanRadius);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, keepDistanceFromZombiesRadius);
+        Gizmos.DrawWireSphere(transform.position, keepDistanceFromZombiesRadius);        
+        
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, closeEnoughToHordeRadius);
     }
 }
