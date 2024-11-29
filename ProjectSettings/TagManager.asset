@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Human
-  - Zombie
-  - 
-  - 
+  - BlueZombie
+  - RedZombie
+  - NPCZombie
+  - Grave
   - 
   - 
   - 

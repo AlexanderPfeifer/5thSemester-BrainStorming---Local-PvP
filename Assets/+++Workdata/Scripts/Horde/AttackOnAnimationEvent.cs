@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AttackOnAnimationEvent : MonoBehaviour
 {
-    [SerializeField] private ZombieAutoAttack zombieAutoAttack;
+   [SerializeField] private AutoAttack autoAttack;
 
     public void AttackEnemy()
     {
-        zombieAutoAttack.AttackEnemyAnimationEvent();
+        autoAttack.AttackEnemyAnimationEvent();
     }
 }

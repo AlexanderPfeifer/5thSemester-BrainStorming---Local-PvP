@@ -119,46 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &14015814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 332183965183132805, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-  m_PrefabInstance: {fileID: 3450530581558318469}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &14015817
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14015814}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f59aec301babfe428869852ff95a2c5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &14015818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14015814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf342f6b8c38664aa494316b04dcb49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieAutoAttack: {fileID: 2130561375}
 --- !u!1 &61152459
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,8 +129,10 @@ GameObject:
   m_Component:
   - component: {fileID: 61152460}
   - component: {fileID: 61152461}
-  m_Layer: 6
-  m_Name: Visual
+  - component: {fileID: 61152462}
+  - component: {fileID: 61152463}
+  m_Layer: 0
+  m_Name: HumanVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,6 +208,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &61152462
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61152459}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f59aec301babfe428869852ff95a2c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &61152463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61152459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf342f6b8c38664aa494316b04dcb49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAttack: {fileID: 822846227}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,9 +475,10 @@ GameObject:
   - component: {fileID: 822846225}
   - component: {fileID: 822846227}
   - component: {fileID: 822846228}
+  - component: {fileID: 822846229}
   - component: {fileID: 822846226}
-  m_Layer: 6
-  m_Name: Human (1)
+  m_Layer: 8
+  m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,13 +492,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822846224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.4, y: 0.68, z: 0.027594116}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.52, y: -1.64, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 61152460}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1589414618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &822846226
 CapsuleCollider2D:
@@ -546,23 +544,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822846224}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77d4431f727c9040a1a54498797882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectHumanRadius: 4
-  attackHumanRadius: 1.4
-  keepDistanceFromZombiesRadius: 1.15
-  closeEnoughToHordeRadius: 1.46
-  humanLayer:
+  moveToEnemySpeed: 6
+  attackableZombieLayer:
     serializedVersion: 2
-    m_Bits: 64
-  zombieLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  hordeMovement: {fileID: 0}
-  damage: 0
+    m_Bits: 192
+  attackRadius: 1.4
+  damage: 1
+  detectEnemyZombiesRadius: 4
+  maxTimeUntilNextAttack: 0.5
+  isAttacking: 0
 --- !u!114 &822846228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,32 +570,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
   maxHealth: 2
---- !u!1 &1095489692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
-  m_PrefabInstance: {fileID: 2075835189385357566}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1095489696
+  changeColorOnHitTime: 0.3
+  sr: {fileID: 61152461}
+  isDead: 0
+  isPlayer: 0
+  graveLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
+--- !u!114 &822846229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095489692}
-  m_Enabled: 1
+  m_GameObject: {fileID: 822846224}
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
-  maxHealth: 2
+  mainCam: {fileID: 519420031}
+  speed: 6
+  ownZombieLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  ownZombiesRadius: 1.85
+  closeEnoughToMousePositionRadius: 2.05
+--- !u!4 &1095489700 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 2075835189385357566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1190600481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
   m_PrefabInstance: {fileID: 3450530581558318469}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1589414616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589414618}
+  m_Layer: 0
+  m_Name: SmallHorde
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589414618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589414616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.58, y: -4.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1095489700}
+  - {fileID: 822846225}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1908661793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 2075835189385357566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1908661797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908661793}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 519420031}
+  speed: 6
+  ownZombieLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  ownZombiesRadius: 1.85
+  closeEnoughToMousePositionRadius: 2.05
 --- !u!1 &2060867519
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,9 +674,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060867521}
-  - component: {fileID: 2060867522}
   m_Layer: 0
-  m_Name: Horde
+  m_Name: PlayerHordeRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,78 +697,25 @@ Transform:
   - {fileID: 1190600481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2060867522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060867519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCam: {fileID: 519420031}
-  zombieAnimatorList:
-  - {fileID: 14015817}
-  minHordeSpeed: 4
-  hordeSpeedIncreaseOnClick: 1.3
-  maxHordeSpeed: 10
-  movementSpeedDecrease:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 4
-      value: 1
-      inSlope: 2
-      outSlope: 1.2922823
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.055621784
-    - serializedVersion: 3
-      time: 10
-      value: 3
-      inSlope: 0.6534667
-      outSlope: 0
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.06090339
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &2130561375 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-  m_PrefabInstance: {fileID: 3450530581558318469}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77d4431f727c9040a1a54498797882d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2075835189385357566
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1589414618}
     m_Modifications:
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.027594116
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -713,15 +723,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -736,28 +746,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1579187242385607930, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
-      propertyPath: zombieSprite
-      value: 
-      objectReference: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
-    - target: {fileID: 1579187242385607930, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
-      propertyPath: hordeMovement
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579187242385607930, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
-      propertyPath: closeEnoughToHordeRadius
-      value: 1.46
+      propertyPath: maxTimeUntilNextAttack
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       propertyPath: m_Name
       value: Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1095489696}
+      insertIndex: 3
+      addedObject: {fileID: 1908661797}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!1001 &3450530581558318469
 PrefabInstance:
@@ -767,29 +773,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2060867521}
     m_Modifications:
-    - target: {fileID: 332183965183132805, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      propertyPath: m_Name
-      value: ZombieVisual
-      objectReference: {fileID: 0}
-    - target: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      propertyPath: zombieSprite
+    - target: {fileID: 1188612617845254575, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
+      propertyPath: mainCam
       value: 
-      objectReference: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
+      objectReference: {fileID: 519420031}
     - target: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      propertyPath: hordeMovement
-      value: 
+      propertyPath: maxTimeUntilNextAttack
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      propertyPath: closeEnoughToHordeRadius
-      value: 1.46
+      propertyPath: attackableZombieLayer.m_Bits
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803796370132681381, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
+      propertyPath: maxHealth
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -801,7 +799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -838,13 +836,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 332183965183132805, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 14015817}
-    - targetCorrespondingSourceObject: {fileID: 332183965183132805, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 14015818}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -853,5 +845,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 2060867521}
-  - {fileID: 2075835189385357566}
-  - {fileID: 822846225}
+  - {fileID: 1589414618}

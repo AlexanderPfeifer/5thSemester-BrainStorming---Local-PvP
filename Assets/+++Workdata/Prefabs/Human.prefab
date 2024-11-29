@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1418794477348867743}
   - component: {fileID: 1579187242385607930}
+  - component: {fileID: 5058734882583348532}
   - component: {fileID: 2255697500849417424}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,21 +42,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6211258549479967278}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77d4431f727c9040a1a54498797882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectHumanRadius: 4
-  attackHumanRadius: 1.4
-  keepDistanceFromZombiesRadius: 1.15
-  humanLayer:
+  moveToEnemySpeed: 6
+  attackableZombieLayer:
     serializedVersion: 2
-    m_Bits: 64
-  zombieLayer:
+    m_Bits: 192
+  attackRadius: 1.35
+  damage: 1
+  detectEnemyZombiesRadius: 4
+  maxTimeUntilNextAttack: 0.75
+  isAttacking: 0
+--- !u!114 &5058734882583348532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211258549479967278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  changeColorOnHitTime: 0.3
+  sr: {fileID: 7534718355048947093}
+  isDead: 0
+  isPlayer: 0
+  graveLayer:
     serializedVersion: 2
-    m_Bits: 128
-  hordeMovement: {fileID: 0}
+    m_Bits: 512
+  graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
 --- !u!70 &2255697500849417424
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -103,8 +124,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4614343323560700649}
   - component: {fileID: 7534718355048947093}
-  m_Layer: 6
-  m_Name: Visual
+  - component: {fileID: 1447361714882594548}
+  - component: {fileID: 5342587921655818429}
+  m_Layer: 0
+  m_Name: HumanVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,3 +203,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1447361714882594548
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7620712483033362276}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f59aec301babfe428869852ff95a2c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5342587921655818429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7620712483033362276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf342f6b8c38664aa494316b04dcb49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAttack: {fileID: 1579187242385607930}

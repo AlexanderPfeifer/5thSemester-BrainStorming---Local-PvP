@@ -3,36 +3,62 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private Sprite zombieSprite;
-    private int currentHealth;
+    [Header("Health")]
     [SerializeField] private int maxHealth;
+    private int currentHealth;
+
+    [Header("Hit")] 
+    [SerializeField] private float changeColorOnHitTime = .3f;
+    [SerializeField] private SpriteRenderer sr;
+    
+    [Header("Death")]
+    [HideInInspector] public bool isDead;
+    [SerializeField] private bool isPlayer;
+    [SerializeField] private LayerMask graveLayer;
+    [SerializeField] private Sprite graveSprite;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void DamageIncome(GameObject zombieDealingDamage, int damageDealt)
+    public void DamageIncome(int damageDealt)
     {
         currentHealth -= damageDealt;
 
-        StartCoroutine(ChangeColorToRedOnHitCoroutine());
-        
         if (currentHealth <= 0)
         {
-            GetComponent<ZombieAutoAttack>().enabled = true;
-            gameObject.layer = zombieDealingDamage.layer;
-            GetComponentInChildren<SpriteRenderer>().sprite = zombieSprite;
-            transform.SetParent(zombieDealingDamage.transform.parent);
+            Die();
+        }
+        
+        StartCoroutine(ChangeColorOnHitCoroutine());
+    }
+
+    private void Die()
+    {
+        if (!isPlayer)
+        {
+            isDead = true;
+            sr.sprite = graveSprite;
+            GetComponentInChildren<Animator>().enabled = false;
+            gameObject.layer = LayerMask.NameToLayer("Grave"); 
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    private IEnumerator ChangeColorToRedOnHitCoroutine()
+    private IEnumerator ChangeColorOnHitCoroutine()
     {
-        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        if (sr.enabled)
+        {
+            sr.color = Color.red;
 
-        yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(changeColorOnHitTime);
         
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            sr.color = Color.white;   
+        }
     }
 }

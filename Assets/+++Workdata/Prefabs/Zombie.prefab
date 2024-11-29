@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8955060060310094414}
   - component: {fileID: 2906981431720752086}
-  m_Layer: 7
-  m_Name: Visual
+  - component: {fileID: 404467323620228639}
+  - component: {fileID: 3268806596205845906}
+  m_Layer: 0
+  m_Name: ZombieVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93962264, g: 0.5088145, b: 0.5088145, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,6 +89,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &404467323620228639
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332183965183132805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f59aec301babfe428869852ff95a2c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3268806596205845906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332183965183132805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf342f6b8c38664aa494316b04dcb49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAttack: {fileID: 1611462732262452701}
 --- !u!1 &6841753504191881558
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +133,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2307749173123086301}
+  - component: {fileID: 1188612617845254575}
+  - component: {fileID: 1803796370132681381}
   - component: {fileID: 1611462732262452701}
+  - component: {fileID: 4571232963195432432}
   - component: {fileID: 4284451828696447888}
   m_Layer: 7
   m_Name: Zombie
@@ -113,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6841753504191881558}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -121,6 +161,43 @@ Transform:
   - {fileID: 8955060060310094414}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188612617845254575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841753504191881558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  speed: 6
+  ownZombieLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  ownZombiesRadius: 1.85
+  closeEnoughToMousePositionRadius: 2.05
+--- !u!114 &1803796370132681381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841753504191881558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  changeColorOnHitTime: 0.3
+  sr: {fileID: 2906981431720752086}
+  gravePrefab: {fileID: 2307749173123086301, guid: 2e3e0b23c55168945a98daa3d9e79570, type: 3}
+  isDead: 0
+  isPlayer: 1
 --- !u!114 &1611462732262452701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,16 +210,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77d4431f727c9040a1a54498797882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectHumanRadius: 4
-  attackHumanRadius: 1.4
-  keepDistanceFromZombiesRadius: 1.15
-  humanLayer:
+  moveToEnemySpeed: 6
+  maxTimeUntilNextAttack: 0.75
+  attackRadius: 1.35
+  attackableZombieLayer:
     serializedVersion: 2
     m_Bits: 64
-  zombieLayer:
+  damage: 1
+  detectEnemyZombiesRadius: 4.5
+--- !u!114 &4571232963195432432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841753504191881558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18cfcd94972849f48b6fe6f458e35fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
+  detectNecromancableHordeRadius: 6
+  graveLayer:
     serializedVersion: 2
-    m_Bits: 128
-  hordeMovement: {fileID: 0}
+    m_Bits: 512
 --- !u!70 &4284451828696447888
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
