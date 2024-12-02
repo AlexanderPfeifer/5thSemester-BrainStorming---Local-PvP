@@ -25,19 +25,27 @@ public class Necromance : MonoBehaviour
             {
                 for (int i = 0; i < zombieHorde.childCount; i++)
                 {
-                    AutoAttack hordeChildAutoAttack = zombieHorde.GetChild(i).GetComponent<AutoAttack>();
-                    hordeChildAutoAttack.attackableZombieLayer = GetComponent<AutoAttack>().attackableZombieLayer;
-                    hordeChildAutoAttack.gameObject.layer = gameObject.layer;
+                    AutoAttack necromancableHordeAutoAttack = zombieHorde.GetChild(i).GetComponent<AutoAttack>();
+                    necromancableHordeAutoAttack.attackableZombieLayer = GetComponent<AutoAttack>().attackableZombieLayer;
+                    necromancableHordeAutoAttack.gameObject.layer = gameObject.layer;
 
-                    ZombieMovement hordeChildZombieMovement = zombieHorde.GetChild(i).GetComponent<ZombieMovement>();
-                    hordeChildZombieMovement.enabled = true;
-                    //hordeChildZombieMovement.ownZombieLayer = GetComponent<ZombieMovement>().ownZombieLayer;
+                    ZombieMovement necromancableHordeZombieMovement = zombieHorde.GetChild(i).GetComponent<ZombieMovement>();
+                    necromancableHordeZombieMovement.enabled = true;
+                    necromancableHordeZombieMovement.ownZombieLayer = GetComponent<ZombieMovement>().ownZombieLayer;
+                    //We can get the same zombie layer of this object because the zombie is going to join this zombies team
                     
-                    SpriteRenderer hordeChildSr = zombieHorde.GetChild(i).GetComponentInChildren<SpriteRenderer>();
-                    hordeChildSr.sprite = zombieSprite;
-                    hordeChildSr.enabled = true;
+                    SpriteRenderer necromancableHordeSr = zombieHorde.GetChild(i).GetComponentInChildren<SpriteRenderer>();
+                    necromancableHordeSr.sprite = zombieSprite;
+                    necromancableHordeSr.enabled = true;
                     
-                    zombieHorde.GetChild(i).GetComponentInChildren<Animator>().enabled = true;
+                    Health necromancableHordeHealth = zombieHorde.GetChild(i).GetComponent<Health>();
+                    necromancableHordeHealth.isDead = false;
+                    
+                    Necromance necromancableHordeNecromance = zombieHorde.GetChild(i).GetComponent<Necromance>();
+                    necromancableHordeNecromance.enabled = true;
+                    
+                    Animator necromancableHordeAnim = zombieHorde.GetChild(i).GetComponentInChildren<Animator>();
+                    necromancableHordeAnim.enabled = true;
                 }
             }
         }

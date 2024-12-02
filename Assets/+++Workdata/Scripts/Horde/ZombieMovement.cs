@@ -14,10 +14,10 @@ public class ZombieMovement : MonoBehaviour
     private Vector3 lastPosition;
     private float currentSpeed;
 
+    [Header("Seperation")]
     [SerializeField] public LayerMask ownZombieLayer;
-    [SerializeField] private float ownZombiesRadius;
-    [SerializeField] private float closeEnoughToMousePositionRadius;
-    private Transform closestZombieOwnTeam;
+    [SerializeField] private float seperationRadius;
+    [SerializeField] private float seperationSpeed = 1;
 
     private void Start()
     {
@@ -28,58 +28,82 @@ public class ZombieMovement : MonoBehaviour
     {
         if(GetComponent<Health>().isDead)
             return;
-        
-        if(!GetComponent<AutoAttack>().isAttacking)
-            MoveHordeToMouse();
-        
-        KeepDistanceToOwnZombies();
 
-        MoveAnimationUpdate();
+        MoveZombie();
     }
 
-    private void MoveHordeToMouse()
+    private void LateUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (GetComponent<Health>().isDead)
+            return;
+
+        MoveAnimationLateUpdate();
+    }
+
+    private void MoveZombie()
+    {
+        transform.position += (CalculateMoveToMouseForce() + (CalculateSeparationForce() * seperationSpeed)) * Time.deltaTime * speed;
+    }
+
+    private Vector3 CalculateMoveToMouseForce()
+    {
+        if (GetComponent<AutoAttack>().isAttacking)
+        {
+            // Set mouseposition to transformPosition because it shouldn't move after having defeated the enemy
+            mousePos = transform.position; 
+            return Vector3.zero;
+        }
+        else if (Input.GetMouseButtonDown(0))
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 10;
         }
-        
-        transform.position = Vector3.MoveTowards(transform.position, mousePos, Time.deltaTime * speed);
-    }
-    
-    private void KeepDistanceToOwnZombies()
-    {
-        Collider2D[] zombieTooCloseHit = Physics2D.OverlapCircleAll(transform.position, ownZombiesRadius, ownZombieLayer);
 
-        //Compares length to 1, because the OverlapCircleAll always hits itself first, then other zombies
-        if (zombieTooCloseHit.Length > 1)
+        // Stop moving if close enough to the mouse position
+        float stopDistance = 0.1f; // Adjust this threshold as needed
+        if (Vector3.Distance(transform.position, mousePos) <= stopDistance)
         {
-            closestZombieOwnTeam = zombieTooCloseHit[0].transform;
-
-            foreach (Collider2D zombie in zombieTooCloseHit)
-            {
-                if (zombie == GetComponent<Collider2D>()) 
-                    continue; // Skip the current object's collider
-                
-                if ((zombie.transform.position - transform.position).sqrMagnitude < (closestZombieOwnTeam.transform.position - transform.position).sqrMagnitude)
-                {
-                    closestZombieOwnTeam = zombie.transform;
-                }
-            }
-            
-            //Moves away from the closest zombie
-            transform.position = Vector3.MoveTowards(transform.position,  closestZombieOwnTeam.position, -1 * speed * Time.deltaTime);
+            return Vector3.zero;
         }
+
+        return (mousePos - transform.position).normalized;
     }
 
-    private void MoveAnimationUpdate()
+    private Vector3 CalculateSeparationForce()
     {
-        // Calculate the speed based on the distance moved
-        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-        currentSpeed = distanceMoved / Time.deltaTime;  // Speed = distance / time
+        Collider2D[] zombieTooCloseHit = Physics2D.OverlapCircleAll(transform.position, seperationRadius, ownZombieLayer);
 
-        // Store the current position for the next frame
+        Vector3 _separationForce = Vector3.zero;
+
+        // Ignore separation if there's no other zombie nearby and compare to one because overlapCircle always hits itself
+        if (zombieTooCloseHit.Length <= 1)
+        {
+            return _separationForce;
+        }
+
+        foreach (Collider2D zombie in zombieTooCloseHit)
+        {
+            if (zombie == GetComponent<Collider2D>())
+                continue; 
+
+            Vector3 oppositeDirectionToNearZombie = transform.position - zombie.transform.position;
+
+            // Compare to more than 0 to avoid division by 0
+            if (oppositeDirectionToNearZombie.magnitude > 0) 
+            {
+                //Adds all the directions opposite of the near zombies to get the best path of where to go
+                _separationForce += oppositeDirectionToNearZombie.normalized / oppositeDirectionToNearZombie.magnitude; // Stronger repulsion when closer
+            }
+        }
+
+        return _separationForce.normalized;
+    }
+
+    private void MoveAnimationLateUpdate()
+    {
+        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
+        currentSpeed = distanceMoved / Time.deltaTime;  
+
         lastPosition = transform.position;
 
         anim.SetFloat("moveSpeed", currentSpeed);
@@ -88,9 +112,10 @@ public class ZombieMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, ownZombiesRadius);        
-        
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, closeEnoughToMousePositionRadius);
+        Gizmos.DrawWireSphere(transform.position, seperationRadius);
+
+        // Draw the stop distance
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(mousePos, 0.1f); // Same as stopDistance
     }
 }

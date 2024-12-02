@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 822846227}
   - component: {fileID: 822846228}
   - component: {fileID: 822846229}
+  - component: {fileID: 822846230}
   - component: {fileID: 822846226}
   m_Layer: 8
   m_Name: Human
@@ -573,12 +574,9 @@ MonoBehaviour:
   maxHealth: 2
   changeColorOnHitTime: 0.3
   sr: {fileID: 61152461}
-  isDead: 0
   isPlayer: 0
-  graveLayer:
-    serializedVersion: 2
-    m_Bits: 512
   graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
+  isDead: 0
 --- !u!114 &822846229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,8 +594,25 @@ MonoBehaviour:
   ownZombieLayer:
     serializedVersion: 2
     m_Bits: 128
-  ownZombiesRadius: 1.85
-  closeEnoughToMousePositionRadius: 2.05
+  seperationRadius: 2
+  seperationSpeed: 1
+--- !u!114 &822846230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822846224}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18cfcd94972849f48b6fe6f458e35fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
+  detectNecromancableHordeRadius: 6
+  graveLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!4 &1095489700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
@@ -663,8 +678,25 @@ MonoBehaviour:
   ownZombieLayer:
     serializedVersion: 2
     m_Bits: 128
-  ownZombiesRadius: 1.85
-  closeEnoughToMousePositionRadius: 2.05
+  seperationRadius: 2
+  seperationSpeed: 1
+--- !u!114 &1908661801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908661793}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18cfcd94972849f48b6fe6f458e35fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
+  detectNecromancableHordeRadius: 6
+  graveLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &2060867519
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +796,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1908661797}
+    - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1908661801}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!1001 &3450530581558318469
 PrefabInstance:
@@ -777,6 +812,18 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1188612617845254575, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
+      propertyPath: ownZombiesRadius
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188612617845254575, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
+      propertyPath: seperationRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188612617845254575, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
+      propertyPath: closeEnoughToMousePositionRadius
+      value: 1.82
+      objectReference: {fileID: 0}
     - target: {fileID: 1611462732262452701, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: maxTimeUntilNextAttack
       value: 0.5

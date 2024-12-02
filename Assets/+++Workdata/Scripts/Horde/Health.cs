@@ -10,21 +10,25 @@ public class Health : MonoBehaviour
     [Header("Hit")] 
     [SerializeField] private float changeColorOnHitTime = .3f;
     [SerializeField] private SpriteRenderer sr;
-    
+
     [Header("Death")]
-    [HideInInspector] public bool isDead;
     [SerializeField] private bool isPlayer;
-    [SerializeField] private LayerMask graveLayer;
     [SerializeField] private Sprite graveSprite;
+    [HideInInspector] public bool isDead;
+    private Vector3 startScale;
 
     private void Start()
     {
         currentHealth = maxHealth;
         sr = GetComponentInChildren<SpriteRenderer>();
+        startScale = transform.localScale;
     }
 
     public void DamageIncome(int damageDealt)
     {
+        if(sr.sprite == graveSprite)
+            return;
+        
         currentHealth -= damageDealt;
 
         if (currentHealth <= 0)
@@ -40,9 +44,15 @@ public class Health : MonoBehaviour
         if (!isPlayer)
         {
             isDead = true;
+            
             sr.sprite = graveSprite;
             GetComponentInChildren<Animator>().enabled = false;
-            gameObject.layer = LayerMask.NameToLayer("Grave"); 
+            //Need to reset the animator because it still has effect on the rotation even after disabling it
+            GetComponentInChildren<Animator>().Rebind();
+            GetComponentInChildren<Transform>().localRotation = Quaternion.identity;
+            transform.localScale = startScale;
+
+            gameObject.layer = LayerMask.NameToLayer("Grave");
         }
         else
         {
@@ -52,13 +62,10 @@ public class Health : MonoBehaviour
 
     private IEnumerator ChangeColorOnHitCoroutine()
     {
-        if (sr.enabled)
-        {
-            sr.color = Color.red;
+        sr.color = Color.red;
 
-            yield return new WaitForSeconds(changeColorOnHitTime);
+        yield return new WaitForSeconds(changeColorOnHitTime);
         
-            sr.color = Color.white;   
-        }
+        sr.color = Color.white;
     }
 }
