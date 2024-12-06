@@ -6,7 +6,7 @@ public class Necromance : MonoBehaviour
 {
     [Header("Necromance")]
     [SerializeField] private Sprite zombieSprite;
-    [SerializeField] private float detectNecromancableHordeRadius;
+    [DisplayColorAbove(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
     private List<Transform> necromancableZombieHorde = new List<Transform>();
     [SerializeField] public LayerMask graveLayer;
 
@@ -33,14 +33,18 @@ public class Necromance : MonoBehaviour
                     necromancableHordeZombieMovement.enabled = true;
                     necromancableHordeZombieMovement.ownZombieLayer = GetComponent<ZombieMovement>().ownZombieLayer;
                     //We can get the same zombie layer of this object because the zombie is going to join this zombies team
-                    
+                    necromancableHordeZombieMovement.targetGroup = GetComponent<ZombieMovement>().targetGroup;
+                    necromancableHordeZombieMovement.zombieManager = GetComponent<ZombieMovement>().zombieManager;
+
                     SpriteRenderer necromancableHordeSr = zombieHorde.GetChild(i).GetComponentInChildren<SpriteRenderer>();
                     necromancableHordeSr.sprite = zombieSprite;
                     necromancableHordeSr.enabled = true;
                     
                     Health necromancableHordeHealth = zombieHorde.GetChild(i).GetComponent<Health>();
                     necromancableHordeHealth.isDead = false;
-                    
+                    necromancableHordeHealth.isPlayer = true;
+
+
                     Necromance necromancableHordeNecromance = zombieHorde.GetChild(i).GetComponent<Necromance>();
                     necromancableHordeNecromance.enabled = true;
                     

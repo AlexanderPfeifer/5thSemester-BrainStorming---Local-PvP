@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
-  m_Color: {r: 0.93962264, g: 0.5088145, b: 0.5088145, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,12 +174,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
-  speed: 6
+  baseMoveSpeed: 8
+  randomMoveSpeed: 0.5
+  speedSmoothTime: 0.2
   ownZombieLayer:
     serializedVersion: 2
     m_Bits: 128
-  ownZombiesRadius: 1.85
-  closeEnoughToMousePositionRadius: 2.05
+  seperationRadius: 1.5
+  seperationSpeed: 2
+  groupCenterSpeed: 2
+  groupingRangeThreshold: 2
 --- !u!114 &1803796370132681381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,12 +196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 8
   changeColorOnHitTime: 0.3
   sr: {fileID: 2906981431720752086}
-  gravePrefab: {fileID: 2307749173123086301, guid: 2e3e0b23c55168945a98daa3d9e79570, type: 3}
-  isDead: 0
   isPlayer: 1
+  graveSprite: {fileID: 0}
+  isDead: 0
 --- !u!114 &1611462732262452701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,13 +215,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToEnemySpeed: 6
-  maxTimeUntilNextAttack: 0.75
-  attackRadius: 1.35
   attackableZombieLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
+  attackRadius: 1.35
   damage: 1
-  detectEnemyZombiesRadius: 4.5
+  detectEnemyZombiesRadius: 4.96
+  maxTimeUntilNextAttack: 0.5
+  isAttacking: 0
 --- !u!114 &4571232963195432432
 MonoBehaviour:
   m_ObjectHideFlags: 0

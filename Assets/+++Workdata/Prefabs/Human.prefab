@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1418794477348867743}
   - component: {fileID: 1579187242385607930}
   - component: {fileID: 5058734882583348532}
+  - component: {fileID: 4950491148410360105}
+  - component: {fileID: 4023335032673320161}
   - component: {fileID: 2255697500849417424}
   m_Layer: 8
   m_Name: Human
@@ -54,7 +56,7 @@ MonoBehaviour:
   attackRadius: 1.35
   damage: 1
   detectEnemyZombiesRadius: 4
-  maxTimeUntilNextAttack: 0.75
+  maxTimeUntilNextAttack: 0.5
   isAttacking: 0
 --- !u!114 &5058734882583348532
 MonoBehaviour:
@@ -71,12 +73,49 @@ MonoBehaviour:
   maxHealth: 2
   changeColorOnHitTime: 0.3
   sr: {fileID: 7534718355048947093}
-  isDead: 0
   isPlayer: 0
+  graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
+  isDead: 0
+--- !u!114 &4950491148410360105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211258549479967278}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  baseMoveSpeed: 5
+  randomMoveSpeed: 1
+  speedSmoothTime: 0.1
+  ownZombieLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  seperationRadius: 1.5
+  seperationSpeed: 3
+  groupCenterSpeed: 3
+  groupingRangeThreshold: 3
+--- !u!114 &4023335032673320161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211258549479967278}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18cfcd94972849f48b6fe6f458e35fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
+  detectNecromancableHordeRadius: 6
   graveLayer:
     serializedVersion: 2
     m_Bits: 512
-  graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
 --- !u!70 &2255697500849417424
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

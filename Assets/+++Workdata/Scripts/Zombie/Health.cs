@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
 
     [Header("Death")]
-    [SerializeField] private bool isPlayer;
+    [SerializeField] public bool isPlayer;
     [SerializeField] private Sprite graveSprite;
     [HideInInspector] public bool isDead;
     private Vector3 startScale;
