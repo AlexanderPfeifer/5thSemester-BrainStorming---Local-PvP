@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161962963}
   m_Layer: 0
-  m_Name: SmallHorde (1)
+  m_Name: SmallHorde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,6 +246,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
   m_PrefabInstance: {fileID: 210589742}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &490983861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 490983862}
+  m_Layer: 0
+  m_Name: '[Red] CAMERA'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &490983862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490983861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 519420032}
+  - {fileID: 631559212}
+  - {fileID: 554026616}
+  m_Father: {fileID: 2114662826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +292,8 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  m_Layer: 11
-  m_Name: Main Camera
+  m_Layer: 0
+  m_Name: '[Red] MainCam'
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,12 +402,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: -1e-45, y: -0.000000025083098, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -1e-45, y: -0.000000025083098, z: -0, w: 1}
+  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: -9.969791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2060867521}
+  m_Father: {fileID: 490983862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -391,7 +425,7 @@ MonoBehaviour:
   ShowCameraFrustum: 1
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
+  ChannelMask: 2
   UpdateMethod: 2
   BlendUpdateMethod: 1
   LensModeOverride:
@@ -418,7 +452,7 @@ GameObject:
   - component: {fileID: 554026616}
   - component: {fileID: 554026617}
   m_Layer: 0
-  m_Name: Target Group
+  m_Name: '[Red] CamTargetGroup'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -433,11 +467,11 @@ Transform:
   m_GameObject: {fileID: 554026615}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: 0.03020857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2060867521}
+  m_Father: {fileID: 490983862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &554026617
 MonoBehaviour:
@@ -554,7 +588,7 @@ GameObject:
   - component: {fileID: 631559215}
   - component: {fileID: 631559213}
   m_Layer: 0
-  m_Name: CinemachineCamera
+  m_Name: '[Red] CinemachineCam'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,11 +603,11 @@ Transform:
   m_GameObject: {fileID: 631559211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: -9.969791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2060867521}
+  m_Father: {fileID: 490983862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &631559213
 MonoBehaviour:
@@ -659,7 +693,7 @@ MonoBehaviour:
   Priority:
     Enabled: 0
     m_Value: 0
-  OutputChannel: 1
+  OutputChannel: 2
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
@@ -698,7 +732,7 @@ GameObject:
   - component: {fileID: 698164238}
   - component: {fileID: 698164237}
   m_Layer: 0
-  m_Name: ZombieManagerBlue
+  m_Name: '[PLAYER BLUE] Horde'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,7 +763,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1503345136}
+  - {fileID: 1890308385}
+  - {fileID: 1508310350}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &705321613
@@ -845,7 +880,7 @@ GameObject:
   - component: {fileID: 1182961420}
   - component: {fileID: 1182961419}
   m_Layer: 0
-  m_Name: CinemachineCamera
+  m_Name: '[Blue] CinemachineCam'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -859,12 +894,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182961417}
   serializedVersion: 2
-  m_LocalRotation: {x: -1e-45, y: -0.000000025083098, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -1e-45, y: -0.000000025083098, z: -0, w: 1}
+  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: -9.969791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1503345136}
+  m_Father: {fileID: 1890308385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1182961419
 MonoBehaviour:
@@ -950,7 +985,7 @@ MonoBehaviour:
   Priority:
     Enabled: 0
     m_Value: 0
-  OutputChannel: 1
+  OutputChannel: 4
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
@@ -996,8 +1031,8 @@ GameObject:
   - component: {fileID: 1467395968}
   - component: {fileID: 1467395967}
   - component: {fileID: 1467395966}
-  m_Layer: 10
-  m_Name: Main Camera
+  m_Layer: 0
+  m_Name: '[Blue] MainCam'
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1011,12 +1046,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467395964}
   serializedVersion: 2
-  m_LocalRotation: {x: -1e-45, y: -0.000000025083098, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -1e-45, y: -0.000000025083098, z: -0, w: 1}
+  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: -9.969791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1503345136}
+  m_Father: {fileID: 1890308385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1467395966
 MonoBehaviour:
@@ -1034,7 +1069,7 @@ MonoBehaviour:
   ShowCameraFrustum: 1
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
+  ChannelMask: 4
   UpdateMethod: 2
   BlendUpdateMethod: 1
   LensModeOverride:
@@ -1153,48 +1188,13 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1503345135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1503345136}
-  m_Layer: 0
-  m_Name: '[PLAYER] HordeBlue'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1503345136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503345135}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: 0.03020857}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1467395965}
-  - {fileID: 1182961418}
-  - {fileID: 1734915156}
-  - {fileID: 1508310350}
-  m_Father: {fileID: 698164238}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1508310349
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1503345136}
+    m_TransformParent: {fileID: 698164238}
     m_Modifications:
     - target: {fileID: 1188612617845254575, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: mainCam
@@ -1210,15 +1210,15 @@ PrefabInstance:
       objectReference: {fileID: 698164237}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.653553
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.5769877
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 10.030209
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1250,7 +1250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841753504191881558, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_Name
-      value: Zombie
+      value: '[Blue] Zombie'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1433,7 +1433,7 @@ GameObject:
   - component: {fileID: 1734915156}
   - component: {fileID: 1734915157}
   m_Layer: 0
-  m_Name: Target Group
+  m_Name: '[Blue] CamTargetGroup'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1448,11 +1448,11 @@ Transform:
   m_GameObject: {fileID: 1734915155}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: 0.03020857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1503345136}
+  m_Father: {fileID: 1890308385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1734915157
 MonoBehaviour:
@@ -1471,7 +1471,7 @@ MonoBehaviour:
   UpdateMethod: 2
   Targets: []
   m_LegacyTargets: []
---- !u!1 &2060867519
+--- !u!1 &1890308384
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1479,32 +1479,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2060867521}
+  - component: {fileID: 1890308385}
   m_Layer: 0
-  m_Name: '[PLAYER] HordeRed'
+  m_Name: '[Blue] CAMERA'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2060867521
+--- !u!4 &1890308385
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060867519}
+  m_GameObject: {fileID: 1890308384}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.653553, y: -3.5769877, z: 0.03020857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 519420032}
-  - {fileID: 631559212}
-  - {fileID: 554026616}
-  - {fileID: 1190600481}
-  m_Father: {fileID: 2114662826}
+  - {fileID: 1467395965}
+  - {fileID: 1182961418}
+  - {fileID: 1734915156}
+  m_Father: {fileID: 698164238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114662824
 GameObject:
@@ -1517,7 +1516,7 @@ GameObject:
   - component: {fileID: 2114662826}
   - component: {fileID: 2114662825}
   m_Layer: 0
-  m_Name: ZombieManagerRed
+  m_Name: '[PLAYER RED] Horde'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1548,7 +1547,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2060867521}
+  - {fileID: 490983862}
+  - {fileID: 1190600481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2075835189385357566
@@ -1646,7 +1646,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2060867521}
+    m_TransformParent: {fileID: 2114662826}
     m_Modifications:
     - target: {fileID: 1188612617845254575, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: mainCam
@@ -1662,15 +1662,15 @@ PrefabInstance:
       objectReference: {fileID: 2114662825}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.5769877
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 10.030209
       objectReference: {fileID: 0}
     - target: {fileID: 2307749173123086301, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1702,7 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841753504191881558, guid: 88d8784e55e79d548b2cc92e27144ecd, type: 3}
       propertyPath: m_Name
-      value: Zombie
+      value: '[Red] Zombie'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

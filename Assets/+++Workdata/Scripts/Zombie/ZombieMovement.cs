@@ -13,8 +13,7 @@ public class ZombieMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float baseMoveSpeed;
-    [SerializeField] private float randomMoveSpeed = 1.0f; // How much the speed should vary each frame
-    [SerializeField] private float speedSmoothTime = 1.0f; // How much the speed should vary each frame
+    [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
 
