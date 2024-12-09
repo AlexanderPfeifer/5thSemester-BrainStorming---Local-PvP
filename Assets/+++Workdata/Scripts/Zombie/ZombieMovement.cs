@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
-using UnityEditor;
 using UnityEngine;
 
 public class ZombieMovement : MonoBehaviour
