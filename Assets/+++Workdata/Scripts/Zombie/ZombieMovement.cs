@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 public class ZombieMovement : MonoBehaviour
 {
@@ -15,10 +16,11 @@ public class ZombieMovement : MonoBehaviour
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
+    private Vector3 stickInput;
 
     [Header("Seperation")]
     [SerializeField] public LayerMask ownZombieLayer;
-    [DisplayColorAbove(0, 0, 1), SerializeField] public float seperationRadius;
+    [DisplayColor(0, 0, 1), SerializeField] public float seperationRadius;
     [SerializeField] private float seperationSpeed = 1;
 
     [Header("Grouping")]
@@ -27,7 +29,7 @@ public class ZombieMovement : MonoBehaviour
     [SerializeField] public ZombieManager zombieManager;
 
 
-    private void OnEnable()
+    void OnEnable()
     {
         zombieManager.RegisterZombie(gameObject);
         targetGroup.AddMember(gameObject.transform, 1, .5f);
@@ -54,9 +56,9 @@ public class ZombieMovement : MonoBehaviour
         MoveAnimationLateUpdate();
     }
 
-    private void MoveZombie()
+    void MoveZombie()
     {
-        Vector3 moveDirection = (CalculateMoveWithStickForce() * baseMoveSpeed) + (CalculateSeparationForce() * seperationSpeed);
+        Vector3 moveDirection = (stickInput * baseMoveSpeed) + (SeparationForce() * seperationSpeed);
 
         float distanceToGroupCenter = (GetGroupCenter() - transform.position).magnitude;
 
@@ -68,21 +70,17 @@ public class ZombieMovement : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, transform.position + moveDirection.normalized, ref currentVelocity, speedSmoothTime);
     }
 
-    private Vector3 CalculateMoveWithStickForce()
+    public void JoystickMovement(CallbackContext context)
     {
         if (GetComponent<AutoAttack>().isAttacking)
         {
-            return Vector3.zero;
+            stickInput = Vector3.zero;
         }
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 stickInput = new Vector3(horizontal, vertical, 0);
-
-        return stickInput.normalized;
+        stickInput = context.ReadValue<Vector2>().normalized;
     }
 
-    private Vector3 CalculateSeparationForce()
+    Vector3 SeparationForce()
     {
         Collider2D[] nearbyZombies = Physics2D.OverlapCircleAll(transform.position, seperationRadius, ownZombieLayer);
 
@@ -111,7 +109,7 @@ public class ZombieMovement : MonoBehaviour
         return _separationForce;
     }
 
-    private Vector3 GetGroupCenter()
+    Vector3 GetGroupCenter()
     {
         if(zombieManager.Zombies.Count == 1)
         {
@@ -138,7 +136,7 @@ public class ZombieMovement : MonoBehaviour
         return new Vector3(medianX, medianY, transform.position.z);
     }
 
-    private void MoveAnimationLateUpdate()
+    void MoveAnimationLateUpdate()
     {
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
         var currentSpeed = distanceMoved / Time.deltaTime;  
@@ -148,13 +146,13 @@ public class ZombieMovement : MonoBehaviour
         anim.SetFloat("moveSpeed", currentSpeed);
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         zombieManager.UnregisterZombie(gameObject);
         targetGroup.AddMember(gameObject.transform, 1, .5f);
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, seperationRadius);

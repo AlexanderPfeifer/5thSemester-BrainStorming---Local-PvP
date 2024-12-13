@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - BlueZombie
-  - RedZombie
+  - Player1Zombie
+  - Player2Zombie
   - NPCZombie
   - Grave
   - 

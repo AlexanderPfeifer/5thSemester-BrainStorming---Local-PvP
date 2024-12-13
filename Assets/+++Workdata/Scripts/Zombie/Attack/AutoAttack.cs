@@ -10,9 +10,9 @@ public class AutoAttack : MonoBehaviour
     
     [Header("Attack")]
     [SerializeField] public LayerMask attackableZombieLayer;
-    [DisplayColorAbove(1, 0, 0), SerializeField] private float attackRadius;
+    [DisplayColor(1, 0, 0), SerializeField] private float attackRadius;
     [SerializeField] private int damage;
-    [DisplayColorAbove(1, 1, 0), SerializeField] private float detectEnemyZombiesRadius;
+    [DisplayColor(1, 1, 0), SerializeField] private float detectEnemyZombiesRadius;
     [SerializeField] private float maxTimeUntilNextAttack;
     [HideInInspector] public bool isAttacking;
     private float currentTimeUntilNextAttack;

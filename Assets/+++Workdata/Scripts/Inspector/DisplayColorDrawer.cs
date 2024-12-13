@@ -1,15 +1,14 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(DisplayColorAboveAttribute))]
-public class DisplayColorAboveDrawer : PropertyDrawer
+[CustomPropertyDrawer(typeof(DisplayColorAttribute))]
+public class DisplayColorDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        // Correctly cast the attribute to DisplayColorAboveAttribute
-        DisplayColorAboveAttribute displayColorAbove = (DisplayColorAboveAttribute)attribute;
+        DisplayColorAttribute displayColorAbove = (DisplayColorAttribute)attribute;
 
-        // Set the color of the input field
+        // Set color of the input field
         Color inputColor = displayColorAbove.color;
 
         // Set up the style for the input field

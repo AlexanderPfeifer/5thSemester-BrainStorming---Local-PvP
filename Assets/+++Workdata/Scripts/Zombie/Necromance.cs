@@ -5,7 +5,7 @@ public class Necromance : MonoBehaviour
 {
     [Header("Necromance")]
     [SerializeField] private Sprite zombieSprite;
-    [DisplayColorAbove(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
+    [DisplayColor(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
     private List<Transform> necromancableZombieHorde = new List<Transform>();
     [SerializeField] public LayerMask graveLayer;
     [SerializeField] public GameObject necromanceText;
