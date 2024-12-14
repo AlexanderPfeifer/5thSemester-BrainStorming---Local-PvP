@@ -28,7 +28,7 @@ public class PlayerRegistryManager : MonoBehaviour
     public void HandlePlayerJoin(PlayerInput playerInput)
     {
         Debug.Log("Player " + playerInput.playerIndex + " Joined!");
-        playerInput.transform.SetParent(transform);
+        //playerInput.transform.SetParent(transform);
         if (!playerRegistry.Any(player => player.PlayerIndex == playerInput.playerIndex))
         {
             playerRegistry.Add(new PlayerRegistry(playerInput));

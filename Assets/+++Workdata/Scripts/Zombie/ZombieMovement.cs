@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
 public class ZombieMovement : MonoBehaviour
@@ -70,14 +71,14 @@ public class ZombieMovement : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, transform.position + moveDirection.normalized, ref currentVelocity, speedSmoothTime);
     }
 
-    public void JoystickMovement(CallbackContext context)
+    public void OnMove(InputValue inputValue)
     {
         if (GetComponent<AutoAttack>().isAttacking)
         {
             stickInput = Vector3.zero;
         }
 
-        stickInput = context.ReadValue<Vector2>().normalized;
+        stickInput = inputValue.Get<Vector2>().normalized;
     }
 
     Vector3 SeparationForce()

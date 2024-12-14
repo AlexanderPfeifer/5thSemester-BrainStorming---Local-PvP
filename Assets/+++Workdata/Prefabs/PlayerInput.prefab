@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7168426310652609802}
   - component: {fileID: 8660610874829107076}
-  - component: {fileID: 5674099776730102146}
+  - component: {fileID: 7324346870090085903}
   m_Layer: 0
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -60,9 +60,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7324346870090085903}
         m_TargetAssemblyTypeName: ZombieMovement, Assembly-CSharp
-        m_MethodName: JoystickMovement
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5674099776730102146
+--- !u!114 &7324346870090085903
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,8 +160,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9208819188529636683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd78576ca91fa147ab33d6efd847f93, type: 3}
+  m_Script: {fileID: 11500000, guid: f0b0ac0babfe6e242b6af9eb1d7dd9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 113935404979712046, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
-  playerInput: {fileID: 0}

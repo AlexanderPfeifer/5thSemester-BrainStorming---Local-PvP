@@ -218,7 +218,7 @@ MonoBehaviour:
   moveToEnemySpeed: 6
   attackableZombieLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 320
   attackRadius: 1.35
   damage: 1
   detectEnemyZombiesRadius: 4.96
