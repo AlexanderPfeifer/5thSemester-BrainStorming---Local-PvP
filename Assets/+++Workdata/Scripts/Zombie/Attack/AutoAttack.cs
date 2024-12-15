@@ -37,30 +37,29 @@ public class AutoAttack : MonoBehaviour
 
         if (attackableZombieHit.Length > 0)
         {
-            isAttacking = true;
-
-            closestAttackableZombie = attackableZombieHit[0].transform; // Start with the first zombie
-
-            foreach (Collider2D zombie in attackableZombieHit)
+            if(!isAttacking)
             {
-                if ((zombie.transform.position - transform.position).sqrMagnitude < (closestAttackableZombie.position - transform.position).sqrMagnitude)
+                closestAttackableZombie = attackableZombieHit[0].transform; // Start with the first zombie
+
+                foreach (Collider2D zombie in attackableZombieHit)
                 {
-                    closestAttackableZombie = zombie.transform;
+                    if ((zombie.transform.position - transform.position).sqrMagnitude < (closestAttackableZombie.position - transform.position).sqrMagnitude)
+                    {
+                        closestAttackableZombie = zombie.transform;
+                    }
                 }
             }
 
             Attack();
         }
-        else
-        {
-            isAttacking = false;
-        }
     }
     
     private void Attack()
     {
-        if ((transform.position - closestAttackableZombie.position).sqrMagnitude < attackRadius)
+        if ((transform.position - closestAttackableZombie.position).sqrMagnitude < attackRadius && closestAttackableZombie.GetComponent<Health>().isDead == false)
         {
+            isAttacking = true;
+
             currentTimeUntilNextAttack -= Time.deltaTime;
 
             if (currentTimeUntilNextAttack < 0)
@@ -71,6 +70,8 @@ public class AutoAttack : MonoBehaviour
         }
         else
         {
+            isAttacking = false;
+
             transform.position = Vector3.MoveTowards(transform.position, closestAttackableZombie.position, Time.deltaTime * moveToEnemySpeed);
         }
     }

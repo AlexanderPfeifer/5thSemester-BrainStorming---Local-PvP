@@ -24,6 +24,8 @@ public class Necromance : MonoBehaviour
     {
         foreach (Transform zombieHorde in necromancableZombieHorde)
         {
+            var zombieWithWrongParentList = new List<Transform>();
+
             foreach (Transform zombie in zombieHorde.transform)
             {
                 AutoAttack necromancableHordeAutoAttack = zombie.GetComponent<AutoAttack>();
@@ -53,8 +55,14 @@ public class Necromance : MonoBehaviour
                 Animator necromancableHordeAnim = zombie.GetComponentInChildren<Animator>();
                 necromancableHordeAnim.enabled = true;
 
-                zombie.parent = transform.parent;
+                zombieWithWrongParentList.Add(zombie);
+                //zombie.parent = transform.parent;
                 zombie.name = transform.name;
+            }
+
+            foreach(var zombieWithWrongParent in zombieWithWrongParentList)
+            {
+                zombieWithWrongParent.parent = transform.parent;
             }
         }
     }
