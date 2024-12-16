@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 public class ZombieMovement : MonoBehaviour
 {
@@ -10,42 +9,40 @@ public class ZombieMovement : MonoBehaviour
     private Animator anim;
     
     [Header("Cam")]
-    [SerializeField] public CinemachineTargetGroup targetGroup;
+    public CinemachineTargetGroup TargetGroup;
 
     [Header("Movement")]
     [SerializeField] private float baseMoveSpeed;
+    [SerializeField] private float baseSpeedOffset;
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
     private Vector3 stickInput;
 
     [Header("Seperation")]
-    [SerializeField] public LayerMask ownZombieLayer;
-    [DisplayColor(0, 0, 1), SerializeField] public float seperationRadius;
     [SerializeField] private float seperationSpeed = 1;
+    [DisplayColor(0, 0, 1), SerializeField] private float seperationRadius;
 
     [Header("Grouping")]
     [SerializeField] private float groupCenterSpeed = 1;
     [SerializeField] private float groupingRangeThreshold;
-    [SerializeField] public ZombieManager zombieManager;
+    public ZombiePlayerHordeRegistry ZombiePlayerHordeRegistry;
 
 
     void OnEnable()
     {
-        zombieManager.RegisterZombie(gameObject);
-        targetGroup.AddMember(gameObject.transform, 1, .5f);
+        ZombiePlayerHordeRegistry.RegisterZombie(gameObject);
+        TargetGroup.AddMember(gameObject.transform, 1, .5f);
     }
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        baseMoveSpeed -= Random.Range(-baseSpeedOffset, baseSpeedOffset);
     }
 
     private void Update()
     {
-        if(GetComponent<Health>().isDead)
-            return;
-
         MoveZombie();
     }
 
@@ -73,17 +70,19 @@ public class ZombieMovement : MonoBehaviour
 
     public void OnMove(InputValue inputValue)
     {
-        if (GetComponent<AutoAttack>().isAttacking)
+        if (GetComponent<AutoAttack>().isAttacking || GetComponent<Health>().isDead)
         {
             stickInput = Vector3.zero;
         }
-
-        stickInput = inputValue.Get<Vector2>().normalized;
+        else
+        {
+            stickInput = inputValue.Get<Vector2>().normalized;
+        }
     }
 
     Vector3 SeparationForce()
     {
-        Collider2D[] nearbyZombies = Physics2D.OverlapCircleAll(transform.position, seperationRadius, ownZombieLayer);
+        Collider2D[] nearbyZombies = Physics2D.OverlapCircleAll(transform.position, seperationRadius, 1 << gameObject.layer);
 
         Vector3 _separationForce = Vector3.zero;
 
@@ -112,7 +111,7 @@ public class ZombieMovement : MonoBehaviour
 
     Vector3 GetGroupCenter()
     {
-        if(zombieManager.Zombies.Count == 1)
+        if(ZombiePlayerHordeRegistry.Zombies.Count == 1)
         {
             return transform.position;
         }
@@ -120,7 +119,7 @@ public class ZombieMovement : MonoBehaviour
         List<float> xPositions = new List<float>();
         List<float> yPositions = new List<float>();
 
-        foreach (GameObject zombie in zombieManager.Zombies)
+        foreach (GameObject zombie in ZombiePlayerHordeRegistry.Zombies)
         {
             xPositions.Add(zombie.transform.position.x);
             yPositions.Add(zombie.transform.position.y);
@@ -139,8 +138,7 @@ public class ZombieMovement : MonoBehaviour
 
     void MoveAnimationLateUpdate()
     {
-        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-        var currentSpeed = distanceMoved / Time.deltaTime;  
+        var currentSpeed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;  
 
         lastPosition = transform.position;
 
@@ -149,8 +147,8 @@ public class ZombieMovement : MonoBehaviour
 
     void OnDisable()
     {
-        zombieManager.UnregisterZombie(gameObject);
-        targetGroup.AddMember(gameObject.transform, 1, .5f);
+        ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
+        TargetGroup.AddMember(gameObject.transform, 1, .5f);
     }
 
     void OnDrawGizmos()

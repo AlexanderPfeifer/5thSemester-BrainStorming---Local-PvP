@@ -145,10 +145,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1418794477348867743}
-  - component: {fileID: 1579187242385607930}
-  - component: {fileID: 5058734882583348532}
   - component: {fileID: 4950491148410360105}
+  - component: {fileID: 5058734882583348532}
+  - component: {fileID: 1579187242385607930}
   - component: {fileID: 4023335032673320161}
+  - component: {fileID: 3507419464144256148}
   - component: {fileID: 2255697500849417424}
   m_Layer: 8
   m_Name: NPC
@@ -174,6 +175,45 @@ Transform:
   - {fileID: 280998584355622616}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4950491148410360105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211258549479967278}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetGroup: {fileID: 0}
+  baseMoveSpeed: 8
+  baseSpeedOffset: 0
+  speedSmoothTime: 0.2
+  seperationSpeed: 2
+  seperationRadius: 1.5
+  groupCenterSpeed: 2
+  groupingRangeThreshold: 2
+  ZombiePlayerHordeRegistry: {fileID: 0}
+--- !u!114 &5058734882583348532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211258549479967278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  changeColorOnHitTime: 0.3
+  sr: {fileID: 7534718355048947093}
+  isPlayer: 0
+  graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
+  isDead: 0
 --- !u!114 &1579187242385607930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,47 +235,6 @@ MonoBehaviour:
   detectEnemyZombiesRadius: 4
   maxTimeUntilNextAttack: 0.5
   isAttacking: 0
---- !u!114 &5058734882583348532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6211258549479967278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 2
-  changeColorOnHitTime: 0.3
-  sr: {fileID: 7534718355048947093}
-  isPlayer: 0
-  graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
-  isDead: 0
---- !u!114 &4950491148410360105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6211258549479967278}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetGroup: {fileID: 0}
-  baseMoveSpeed: 8
-  speedSmoothTime: 0.2
-  ownZombieLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  seperationRadius: 1.5
-  seperationSpeed: 2
-  groupCenterSpeed: 2
-  groupingRangeThreshold: 2
-  zombieManager: {fileID: 0}
 --- !u!114 &4023335032673320161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +253,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   necromanceText: {fileID: 4223336344030806735}
+--- !u!114 &3507419464144256148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211258549479967278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f53a65506aee3249a2f2ad36187414c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoAttack: {fileID: 0}
+  ZombieMovement: {fileID: 0}
+  SpriteRenderer: {fileID: 0}
+  Health: {fileID: 0}
+  Necromance: {fileID: 0}
+  Animator: {fileID: 0}
 --- !u!70 &2255697500849417424
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

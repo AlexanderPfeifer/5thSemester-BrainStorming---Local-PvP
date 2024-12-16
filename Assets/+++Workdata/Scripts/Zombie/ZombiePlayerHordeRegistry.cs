@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieManager : MonoBehaviour
+public class ZombiePlayerHordeRegistry : MonoBehaviour
 {
     public List<GameObject> Zombies { get; private set; } = new List<GameObject>();
 
@@ -20,6 +20,11 @@ public class ZombieManager : MonoBehaviour
         if (Zombies.Contains(zombie))
         {
             Zombies.Remove(zombie);
+
+            if(Zombies.Count == 0 )
+            {
+                FindAnyObjectByType<ResurrectZombieHorde>().ResurrectNumberOfZombies(1, zombie);
+            }
         }
     }
 

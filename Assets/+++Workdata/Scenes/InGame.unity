@@ -563,11 +563,23 @@ PrefabInstance:
       value: '[Player 1] Zombie'
       objectReference: {fileID: 0}
     - target: {fileID: 469473731487977889, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
-      propertyPath: targetGroup
+      propertyPath: TargetGroup
       value: 
       objectReference: {fileID: 1734915157}
     - target: {fileID: 469473731487977889, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
-      propertyPath: zombieManager
+      propertyPath: ZombieManager
+      value: 
+      objectReference: {fileID: 698164237}
+    - target: {fileID: 469473731487977889, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
+      propertyPath: baseSpeedOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 469473731487977889, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
+      propertyPath: seperationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 469473731487977889, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
+      propertyPath: ZombiePlayerHordeRegistry
       value: 
       objectReference: {fileID: 698164237}
     - target: {fileID: 6947129287817147828, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
@@ -610,12 +622,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7527185742211387899, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
-      propertyPath: attackableZombieLayer.m_Bits
-      value: 384
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6399833515552516472, guid: 7dabdbf283750734481fa0923ae01e70, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -789,7 +796,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.75
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1117,7 +1124,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 8.75
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1183,24 +1190,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3068693589010071472, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
-      propertyPath: attackableZombieLayer.m_Bits
-      value: 320
-      objectReference: {fileID: 0}
     - target: {fileID: 6275303910555427244, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
-      propertyPath: targetGroup
+      propertyPath: TargetGroup
       value: 
       objectReference: {fileID: 554026617}
     - target: {fileID: 6275303910555427244, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
-      propertyPath: zombieManager
+      propertyPath: ZombieManager
       value: 
-      objectReference: {fileID: 2114662825}
+      objectReference: {fileID: 2114662827}
+    - target: {fileID: 6275303910555427244, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
+      propertyPath: baseSpeedOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275303910555427244, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
+      propertyPath: seperationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275303910555427244, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
+      propertyPath: ZombiePlayerHordeRegistry
+      value: 
+      objectReference: {fileID: 2114662827}
     - target: {fileID: 7558006863435989279, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
       propertyPath: m_Name
       value: '[Player 2] Zombie'
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7201123317963659977, guid: 251285b6bb6a50949b5765e5f6db2684, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1220,6 +1234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698164238}
   - component: {fileID: 698164237}
+  - component: {fileID: 698164239}
   m_Layer: 0
   m_Name: PLAYER 1
   m_TagString: Untagged
@@ -1236,7 +1251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 698164236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f29cc6ac084d74bba0d0558741e4cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fb0efe5077ed1e41b5feb13b14044cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
@@ -1257,6 +1272,18 @@ Transform:
   - {fileID: 509483369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698164239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698164236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea5724aaec309b4d9d647d01dc420f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &705321613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1453,7 +1480,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 8.75
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1704,7 +1731,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.75
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2081,7 +2108,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114662826}
-  - component: {fileID: 2114662825}
+  - component: {fileID: 2114662827}
+  - component: {fileID: 2114662828}
   m_Layer: 0
   m_Name: PLAYER 2
   m_TagString: Untagged
@@ -2089,19 +2117,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2114662825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114662824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f29cc6ac084d74bba0d0558741e4cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 1
 --- !u!4 &2114662826
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,6 +2134,31 @@ Transform:
   - {fileID: 135049976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2114662827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114662824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb0efe5077ed1e41b5feb13b14044cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 1
+--- !u!114 &2114662828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114662824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea5724aaec309b4d9d647d01dc420f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2075835189385357566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2232,6 +2272,18 @@ PrefabInstance:
       propertyPath: Player2ReadyText
       value: 
       objectReference: {fileID: 1846371668}
+    - target: {fileID: 2475809842901101868, guid: f2e1ec2105ba5504fa0a56615dcd883d, type: 3}
+      propertyPath: playerReadyTexts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475809842901101868, guid: f2e1ec2105ba5504fa0a56615dcd883d, type: 3}
+      propertyPath: 'playerReadyTexts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 31622629}
+    - target: {fileID: 2475809842901101868, guid: f2e1ec2105ba5504fa0a56615dcd883d, type: 3}
+      propertyPath: 'playerReadyTexts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1846371668}
     - target: {fileID: 6339263180785335794, guid: f2e1ec2105ba5504fa0a56615dcd883d, type: 3}
       propertyPath: m_Name
       value: PlayerInputManager
@@ -2249,7 +2301,7 @@ SceneRoots:
   - {fileID: 698164238}
   - {fileID: 2114662826}
   - {fileID: 1679212429}
+  - {fileID: 419292741}
   - {fileID: 6178324184870544820}
   - {fileID: 1391558622}
-  - {fileID: 419292741}
   - {fileID: 125642322}

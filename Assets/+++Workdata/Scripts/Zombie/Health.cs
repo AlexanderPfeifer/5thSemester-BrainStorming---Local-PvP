@@ -19,12 +19,12 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        ResetHealth();
         sr = GetComponentInChildren<SpriteRenderer>();
         startScale = transform.localScale;
     }
 
-    public void DamageIncome(int damageDealt)
+    public void DamageIncome(int damageDealt, AutoAttack autoAttack)
     {
         if(sr.sprite == graveSprite)
             return;
@@ -34,6 +34,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            autoAttack.ResetAttack();
         }
         
         StartCoroutine(ChangeColorOnHitCoroutine());
@@ -58,6 +59,11 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
     }
 
     private IEnumerator ChangeColorOnHitCoroutine()

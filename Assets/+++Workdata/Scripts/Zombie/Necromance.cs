@@ -7,57 +7,27 @@ public class Necromance : MonoBehaviour
     [SerializeField] private Sprite zombieSprite;
     [DisplayColor(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
     private List<Transform> necromancableZombieHorde = new List<Transform>();
-    [SerializeField] public LayerMask graveLayer;
-    [SerializeField] public GameObject necromanceText;
+    [SerializeField] private LayerMask graveLayer;
+    [SerializeField] private GameObject necromanceText;
+    private List<Transform> zombieWithWrongParentList;
 
     private void Update()
     {
         IdentifyNecromancableHorde();
-
-        if (necromancableZombieHorde.Count > 0 && Input.GetKeyDown(KeyCode.E))
-        {
-            NecromanceZombieHorde();
-        }
     }
     
-    private void NecromanceZombieHorde()
+    public void OnNecromance()
     {
+        if (necromancableZombieHorde.Count == 0)
+            return;
+
         foreach (Transform zombieHorde in necromancableZombieHorde)
         {
-            var zombieWithWrongParentList = new List<Transform>();
+            zombieWithWrongParentList = new List<Transform>();
 
             foreach (Transform zombie in zombieHorde.transform)
             {
-                AutoAttack necromancableHordeAutoAttack = zombie.GetComponent<AutoAttack>();
-                necromancableHordeAutoAttack.attackableZombieLayer = GetComponent<AutoAttack>().attackableZombieLayer;
-                necromancableHordeAutoAttack.gameObject.layer = gameObject.layer;
-
-                ZombieMovement necromancableHordeZombieMovement = zombie.GetComponent<ZombieMovement>();
-                //We can get the same zombie layer of this object because the zombie is going to join this zombies team
-                necromancableHordeZombieMovement.ownZombieLayer = GetComponent<ZombieMovement>().ownZombieLayer;
-                necromancableHordeZombieMovement.targetGroup = GetComponent<ZombieMovement>().targetGroup;
-                necromancableHordeZombieMovement.zombieManager = GetComponent<ZombieMovement>().zombieManager;
-
-                necromancableHordeZombieMovement.enabled = true;
-
-                SpriteRenderer necromancableHordeSr = zombie.GetComponentInChildren<SpriteRenderer>();
-                necromancableHordeSr.sprite = zombieSprite;
-                necromancableHordeSr.enabled = true;
-
-                Health necromancableHordeHealth = zombie.GetComponent<Health>();
-                necromancableHordeHealth.isDead = false;
-                necromancableHordeHealth.isPlayer = true;
-
-                Necromance necromancableHordeNecromance = zombie.GetComponent<Necromance>();
-                necromancableHordeNecromance.enabled = true;
-                necromancableHordeNecromance.necromanceText.SetActive(false);
-
-                Animator necromancableHordeAnim = zombie.GetComponentInChildren<Animator>();
-                necromancableHordeAnim.enabled = true;
-
-                zombieWithWrongParentList.Add(zombie);
-                //zombie.parent = transform.parent;
-                zombie.name = transform.name;
+                NecromanceZombie(zombie, gameObject);
             }
 
             foreach(var zombieWithWrongParent in zombieWithWrongParentList)
@@ -65,6 +35,48 @@ public class Necromance : MonoBehaviour
                 zombieWithWrongParent.parent = transform.parent;
             }
         }
+    }
+
+    public void NecromanceZombie(Transform necromancableZombie, GameObject zombieOfHorde)
+    {
+        var zombieOfHordeCachedData = zombieOfHorde.GetComponent<CachedZombieData>();
+        var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
+
+        necromancableZombieCachedData.AutoAttack.attackableZombieLayer = zombieOfHordeCachedData.AutoAttack.attackableZombieLayer;
+        necromancableZombieCachedData.AutoAttack.gameObject.layer = zombieOfHorde.layer;
+        necromancableZombieCachedData.AutoAttack.ResetAttack();
+
+
+
+        //We can get the same zombie layer of this object because the zombie is going to join this zombies team
+        necromancableZombieCachedData.ZombieMovement.TargetGroup = zombieOfHordeCachedData.ZombieMovement.TargetGroup;
+        necromancableZombieCachedData.ZombieMovement.ZombiePlayerHordeRegistry = zombieOfHordeCachedData.ZombieMovement.ZombiePlayerHordeRegistry;
+        necromancableZombieCachedData.ZombieMovement.enabled = true;
+
+
+
+        necromancableZombieCachedData.SpriteRenderer.sprite = zombieOfHordeCachedData.Necromance.zombieSprite;
+        necromancableZombieCachedData.SpriteRenderer.enabled = true;
+
+
+
+        necromancableZombieCachedData.Health.ResetHealth();
+        necromancableZombieCachedData.Health.isDead = false;
+        necromancableZombieCachedData.Health.isPlayer = true;
+
+
+
+        necromancableZombieCachedData.Necromance.enabled = true;
+        necromancableZombieCachedData.Necromance.necromanceText.SetActive(false);
+
+
+
+        necromancableZombieCachedData.Animator.enabled = true;
+
+
+
+        zombieWithWrongParentList.Add(necromancableZombie);
+        necromancableZombie.name = zombieOfHorde.name;
     }
 
     private void IdentifyNecromancableHorde()
