@@ -4,9 +4,6 @@ public class AutoAttack : MonoBehaviour
 {
     [Header("Speed")] 
     [SerializeField] private float moveToEnemySpeed;
-
-    [Header("Animation")]
-    private Animator animator;
     
     [Header("Attack")]
     [SerializeField] public LayerMask attackableZombieLayer;
@@ -18,9 +15,11 @@ public class AutoAttack : MonoBehaviour
     private float currentTimeUntilNextAttack;
     private Transform closestAttackableZombie;
 
+    private CachedZombieData cachedZombieData;
+
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        cachedZombieData = GetComponent<CachedZombieData>();
     }
 
     private void Update()
@@ -67,7 +66,7 @@ public class AutoAttack : MonoBehaviour
 
             if (currentTimeUntilNextAttack <= 0)
             {
-                animator.SetTrigger("attack");
+                cachedZombieData.Animator.SetTrigger("attack");
                 currentTimeUntilNextAttack = maxTimeUntilNextAttack;
             }
         }

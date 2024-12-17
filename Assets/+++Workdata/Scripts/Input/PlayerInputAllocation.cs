@@ -7,14 +7,34 @@ public class PlayerInputAllocation : MonoBehaviour
 {
     private PlayerInput playerInput;
 
+    private ZombiePlayerHordeRegistry zombiePlayerHordeRegistry;
+    private NecromanceHorde necromanceHorde;
+
+    private bool canTakeInput;
+
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
     }
 
+    private void Start()
+    {
+        zombiePlayerHordeRegistry = FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex);
+
+        necromanceHorde = FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex).necromanceHorde;
+
+        necromanceHorde.SpawnPlayerZombies();
+
+        canTakeInput = true;   
+    }
+
     public void OnMove(InputValue inputValue)
     {
-        foreach (GameObject zombieMovement in GetAllZombiesByPlayerIndex())
+        if(!canTakeInput) 
+            return;
+
+        foreach (GameObject zombieMovement in zombiePlayerHordeRegistry.Zombies)
         {
             zombieMovement.GetComponent<ZombieMovement>().OnMove(inputValue);
         }
@@ -22,14 +42,9 @@ public class PlayerInputAllocation : MonoBehaviour
 
     public void OnNecromance()
     {
-        foreach (GameObject zombieNecromance in new List<GameObject>(GetAllZombiesByPlayerIndex()))
-        {
-            zombieNecromance.GetComponent<Necromance>().OnNecromance();
-        }
-    }
+        if (!canTakeInput)
+            return;
 
-    List<GameObject> GetAllZombiesByPlayerIndex()
-    {
-        return FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex).Zombies;
+        necromanceHorde.OnNecromance();
     }
 }

@@ -174,15 +174,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetGroup: {fileID: 0}
   baseMoveSpeed: 8
-  baseSpeedOffset: 0
+  baseSpeedOffset: 1
   speedSmoothTime: 0.2
-  seperationSpeed: 2
+  seperationSpeed: 10
   seperationRadius: 1.5
-  groupCenterSpeed: 2
+  groupCenterSpeed: 6
   groupingRangeThreshold: 2
-  ZombiePlayerHordeRegistry: {fileID: 0}
 --- !u!114 &1318773016690747867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,11 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsPlayer: 1
   maxHealth: 8
   changeColorOnHitTime: 0.3
-  sr: {fileID: 8450449656933772201}
-  isPlayer: 1
   graveSprite: {fileID: 0}
+  SpriteBeforeDeath: {fileID: 0}
   isDead: 0
 --- !u!114 &3068693589010071472
 MonoBehaviour:
@@ -231,15 +229,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7558006863435989279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cfcd94972849f48b6fe6f458e35fde, type: 3}
+  m_Script: {fileID: 11500000, guid: 10e508d2c8a7b7649a019e22babfeabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieSprite: {fileID: -5782521184205631276, guid: 979e5857ad8315143b87cb2552df010a, type: 3}
-  detectNecromancableHordeRadius: 6
   graveLayer:
     serializedVersion: 2
     m_Bits: 512
-  necromanceText: {fileID: 0}
+  detectNecromancableHordeRadius: 6
+  NecromanceText: {fileID: 0}
 --- !u!114 &6544918899431571075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +249,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f53a65506aee3249a2f2ad36187414c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoAttack: {fileID: 0}
+  ZombieMovement: {fileID: 0}
+  SpriteRenderer: {fileID: 0}
+  Health: {fileID: 0}
+  DetectNecromanceZombies: {fileID: 0}
+  Animator: {fileID: 0}
+  NecromanceHorde: {fileID: 0}
+  ZombiePlayerHordeRegistry: {fileID: 0}
 --- !u!70 &7601952026544584375
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

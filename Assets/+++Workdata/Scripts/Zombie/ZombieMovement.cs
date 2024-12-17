@@ -1,16 +1,9 @@
 using System.Collections.Generic;
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ZombieMovement : MonoBehaviour
 {
-    [Header("Animations")]
-    private Animator anim;
-    
-    [Header("Cam")]
-    public CinemachineTargetGroup TargetGroup;
-
     [Header("Movement")]
     [SerializeField] private float baseMoveSpeed;
     [SerializeField] private float baseSpeedOffset;
@@ -26,18 +19,12 @@ public class ZombieMovement : MonoBehaviour
     [Header("Grouping")]
     [SerializeField] private float groupCenterSpeed = 1;
     [SerializeField] private float groupingRangeThreshold;
-    public ZombiePlayerHordeRegistry ZombiePlayerHordeRegistry;
 
-
-    void OnEnable()
-    {
-        ZombiePlayerHordeRegistry.RegisterZombie(gameObject);
-        TargetGroup.AddMember(gameObject.transform, 1, .5f);
-    }
+    private CachedZombieData cachedZombieData;
 
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        cachedZombieData = GetComponent<CachedZombieData>();
         baseMoveSpeed -= Random.Range(-baseSpeedOffset, baseSpeedOffset);
     }
 
@@ -48,7 +35,7 @@ public class ZombieMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (GetComponent<Health>().isDead)
+        if (cachedZombieData.Health.isDead)
             return;
 
         MoveAnimationLateUpdate();
@@ -70,7 +57,7 @@ public class ZombieMovement : MonoBehaviour
 
     public void OnMove(InputValue inputValue)
     {
-        if (GetComponent<AutoAttack>().isAttacking || GetComponent<Health>().isDead)
+        if (cachedZombieData.AutoAttack.isAttacking || cachedZombieData.Health.isDead)
         {
             stickInput = Vector3.zero;
         }
@@ -111,7 +98,7 @@ public class ZombieMovement : MonoBehaviour
 
     Vector3 GetGroupCenter()
     {
-        if(ZombiePlayerHordeRegistry.Zombies.Count == 1)
+        if(cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count <= 1)
         {
             return transform.position;
         }
@@ -119,7 +106,7 @@ public class ZombieMovement : MonoBehaviour
         List<float> xPositions = new List<float>();
         List<float> yPositions = new List<float>();
 
-        foreach (GameObject zombie in ZombiePlayerHordeRegistry.Zombies)
+        foreach (GameObject zombie in cachedZombieData.ZombiePlayerHordeRegistry.Zombies)
         {
             xPositions.Add(zombie.transform.position.x);
             yPositions.Add(zombie.transform.position.y);
@@ -142,13 +129,7 @@ public class ZombieMovement : MonoBehaviour
 
         lastPosition = transform.position;
 
-        anim.SetFloat("moveSpeed", currentSpeed);
-    }
-
-    void OnDisable()
-    {
-        ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
-        TargetGroup.AddMember(gameObject.transform, 1, .5f);
+        cachedZombieData.Animator.SetFloat("moveSpeed", currentSpeed);
     }
 
     void OnDrawGizmos()

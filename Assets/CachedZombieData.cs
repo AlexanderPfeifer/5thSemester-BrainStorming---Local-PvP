@@ -6,16 +6,20 @@ public class CachedZombieData : MonoBehaviour
     [HideInInspector] public ZombieMovement ZombieMovement;
     [HideInInspector] public SpriteRenderer SpriteRenderer;
     [HideInInspector] public Health Health;
-    [HideInInspector] public Necromance Necromance;
+    [HideInInspector] public DetectNecromancableZombies DetectNecromanceZombies;
     [HideInInspector] public Animator Animator;
+    [HideInInspector] public NecromanceHorde NecromanceHorde;
+    [HideInInspector] public ZombiePlayerHordeRegistry ZombiePlayerHordeRegistry;
 
-    private void Start()
+    private void OnEnable()
     {
-        AutoAttack = transform.GetComponent<AutoAttack>();
-        ZombieMovement = transform.GetComponent<ZombieMovement>();
-        Health = transform.GetComponent<Health>();
-        Necromance = transform.GetComponent<Necromance>();
-        Animator = transform.GetComponentInChildren<Animator>();
-        SpriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
+        AutoAttack = GetComponent<AutoAttack>();
+        ZombieMovement = GetComponent<ZombieMovement>();
+        Health = GetComponent<Health>();
+        DetectNecromanceZombies = GetComponent<DetectNecromancableZombies>();
+        Animator = GetComponentInChildren<Animator>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        NecromanceHorde = GetComponentInParent<NecromanceHorde>();
+        ZombiePlayerHordeRegistry = GetComponentInParent<ZombiePlayerHordeRegistry>();
     }
 }
