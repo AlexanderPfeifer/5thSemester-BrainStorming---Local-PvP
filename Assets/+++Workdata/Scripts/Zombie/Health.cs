@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [Header("Player Toggle")]
     [SerializeField] public bool IsPlayer;
 
     [Header("Health")]
@@ -83,33 +84,3 @@ public class Health : MonoBehaviour
         cachedZombieData.SpriteRenderer.color = Color.white;
     }
 }
-
-[CustomEditor(typeof(Health))]
-public class Health_Editor : Editor
-{
-    //I created the script because I want to hide variables depending on if the bool IsPlayer is enabled or disabled
-
-    SerializedProperty isPlayerProperty;
-
-    private void OnEnable()
-    {
-        isPlayerProperty = serializedObject.FindProperty("IsPlayer");
-    }
-
-    public override void OnInspectorGUI()
-    {
-        SerializedProperty property = serializedObject.GetIterator();
-        property.NextVisible(true); 
-
-        while (property.NextVisible(false))
-        {
-            if (property.name == "graveSprite" && isPlayerProperty.boolValue)
-                continue;
-
-            EditorGUILayout.PropertyField(property, true);
-        }
-
-        serializedObject.ApplyModifiedProperties();
-    }
-}
-

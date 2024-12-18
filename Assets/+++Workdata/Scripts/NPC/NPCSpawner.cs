@@ -1,16 +1,25 @@
+using System.Collections;
 using UnityEngine;
 
 public class NPCSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject smallHordePrefab;
+    [SerializeField] private float smallHordeSpawnTime = 5;
+
+    private void Start()
     {
-        
+        StartCoroutine(SpawnSmallHordesOverTime());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnSmallHordesOverTime()
     {
-        
+        Vector3 spawnPos = Vector3.zero;
+
+        while (true)
+        {
+            yield return new WaitForSeconds(smallHordeSpawnTime);
+
+            Instantiate(smallHordePrefab, spawnPos, Quaternion.identity);
+        }
     }
 }

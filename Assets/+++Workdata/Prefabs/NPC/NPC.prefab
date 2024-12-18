@@ -188,11 +188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMoveSpeed: 8
-  baseSpeedOffset: 0
+  baseSpeedOffset: 1
   speedSmoothTime: 0.2
-  seperationSpeed: 2
+  seperationSpeed: 10
   seperationRadius: 1.5
-  groupCenterSpeed: 2
+  groupCenterSpeed: 6
   groupingRangeThreshold: 2
 --- !u!114 &5058734882583348532
 MonoBehaviour:
