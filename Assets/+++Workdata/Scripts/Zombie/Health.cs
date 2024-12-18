@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
 
     [Header("Death")]
     public Sprite graveSprite;
-    [HideInInspector] public Sprite SpriteBeforeDeath;
     [HideInInspector] public bool isDead;
     private Vector3 startScale;
 
@@ -29,7 +28,6 @@ public class Health : MonoBehaviour
 
         if(!IsPlayer)
         {
-            SpriteBeforeDeath = cachedZombieData.SpriteRenderer.sprite;
             startScale = transform.localScale;
         }
     }

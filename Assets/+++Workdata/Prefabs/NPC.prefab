@@ -210,7 +210,6 @@ MonoBehaviour:
   maxHealth: 2
   changeColorOnHitTime: 0.3
   graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
-  SpriteBeforeDeath: {fileID: 0}
   isDead: 0
 --- !u!114 &1579187242385607930
 MonoBehaviour:
@@ -230,7 +229,7 @@ MonoBehaviour:
     m_Bits: 192
   attackRadius: 1.35
   damage: 1
-  detectEnemyZombiesRadius: 4
+  detectEnemyZombiesRadius: 3
   maxTimeUntilNextAttack: 0.5
   isAttacking: 0
 --- !u!114 &4023335032673320161
@@ -249,7 +248,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   detectNecromancableHordeRadius: 6
-  NecromanceText: {fileID: 0}
 --- !u!114 &3507419464144256148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,14 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f53a65506aee3249a2f2ad36187414c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoAttack: {fileID: 0}
-  ZombieMovement: {fileID: 0}
-  SpriteRenderer: {fileID: 0}
-  Health: {fileID: 0}
-  DetectNecromanceZombies: {fileID: 0}
-  Animator: {fileID: 0}
-  NecromanceHorde: {fileID: 0}
-  ZombiePlayerHordeRegistry: {fileID: 0}
 --- !u!70 &2255697500849417424
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -22,14 +22,13 @@ public class DetectNecromancableZombies : MonoBehaviour
     {
         var necromancableZombieHit = Physics2D.OverlapCircleAll(transform.position, detectNecromancableHordeRadius, graveLayer);
 
-        // Create a temporary list to store parents to add to the horde list
+        // Create a temporary list to store parents because otherwise the loop gets cancelled, resulting in an error
         var necromancableHordeSet = new HashSet<Transform>(cachedZombieData.NecromanceHorde.necromancableZombieHorde);
 
         foreach (var necromancableZombie in necromancableZombieHit)
         {
             var parent = necromancableZombie.transform.parent;
 
-            // Check if the parent is already in the horde set
             if (necromancableHordeSet.Contains(parent))
                 continue;
 
@@ -45,19 +44,17 @@ public class DetectNecromancableZombies : MonoBehaviour
 
             if (allDead)
             {
-                foreach (Transform zombie in parent)
-                {
-                    zombie.GetComponent<ShowNecromanceText>().wholeHordeDead = true;
-                }
-
+                parent.GetComponent<ShowNecromanceText>().wholeHordeDead = true;
                 necromancableHordeSet.Add(parent);
             }
         }
 
-        // Add all new hordes to the main list after the loop is complete
         foreach (var horde in necromancableHordeSet)
         {
-            cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(horde);
+            if (!cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(horde))
+            {
+                cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(horde);
+            }
         }
     }
     

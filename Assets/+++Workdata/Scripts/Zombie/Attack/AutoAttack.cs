@@ -26,7 +26,7 @@ public class AutoAttack : MonoBehaviour
     {
         if(GetComponent<Health>().isDead)
             return;
-        
+
         IdentifyAttackableZombie();
     }
 
@@ -51,6 +51,10 @@ public class AutoAttack : MonoBehaviour
 
             HandleAttackBehaviour();
         }
+        else
+        {
+            isAttacking = false;
+        }
     }
     
     private void HandleAttackBehaviour()
@@ -60,8 +64,6 @@ public class AutoAttack : MonoBehaviour
 
         if (Vector3.Distance(transform.position, closestAttackableZombie.position) < attackRadius)
         {
-            isAttacking = true;
-
             currentTimeUntilNextAttack -= Time.deltaTime;
 
             if (currentTimeUntilNextAttack <= 0)
@@ -78,15 +80,15 @@ public class AutoAttack : MonoBehaviour
 
     private void MoveTowardsClosestEnemy()
     {
-        isAttacking = false;
-
         Vector3 directionToEnemy = closestAttackableZombie.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToEnemy, directionToEnemy.magnitude, 1 << gameObject.layer);
 
-        if (closestAttackableZombie == null || closestAttackableZombie.GetComponent<Health>().isDead )
+        if (closestAttackableZombie == null || closestAttackableZombie.GetComponent<Health>().isDead || hit.collider.gameObject != gameObject)
         {
             return;
         }
+
+        isAttacking = true;
 
         transform.position = Vector3.MoveTowards(transform.position, closestAttackableZombie.position, Time.deltaTime * moveToEnemySpeed);
     }
@@ -101,7 +103,6 @@ public class AutoAttack : MonoBehaviour
 
     public void ResetAttack()
     {
-        isAttacking = false;
         closestAttackableZombie = null;
     }
     

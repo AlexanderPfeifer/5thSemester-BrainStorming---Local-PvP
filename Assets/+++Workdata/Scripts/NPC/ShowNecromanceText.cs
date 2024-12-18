@@ -1,15 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class ShowNecromanceText : MonoBehaviour
 {
-    [HideInInspector] public GameObject NecromanceText;
+    public Canvas[] NecromanceTextCanvas;
     [SerializeField] private LayerMask playerLayers;
     [SerializeField] private float detectPlayerRadius;
     [HideInInspector] public bool wholeHordeDead;
 
     private void Start()
     {
-        NecromanceText = GetComponentInChildren<Canvas>().transform.GetChild(0).gameObject;
+        NecromanceTextCanvas = GetComponentsInChildren<Canvas>();
     }
 
     private void Update()
@@ -20,10 +21,20 @@ public class ShowNecromanceText : MonoBehaviour
     private void CheckPlayerInRange()
     {
         if(!wholeHordeDead)
+        {
             return;
+        }
 
-        var playerHit = Physics2D.OverlapCircleAll(transform.position, detectPlayerRadius, playerLayers);
+        bool isPlayerNearby = Physics2D.OverlapCircleAll(transform.position, detectPlayerRadius, playerLayers).Length > 0;
 
-        NecromanceText.SetActive(playerHit.Length > 0);
+        foreach (var canvas in NecromanceTextCanvas)
+        {
+            canvas.transform.GetChild(0).gameObject.SetActive(isPlayerNearby);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
     }
 }

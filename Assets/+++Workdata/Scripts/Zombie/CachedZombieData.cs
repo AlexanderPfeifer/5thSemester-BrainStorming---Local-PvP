@@ -10,7 +10,6 @@ public class CachedZombieData : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private NecromanceHorde _necromanceHorde;
     private ZombiePlayerHordeRegistry _zombiePlayerHordeRegistry;
-    private ShowNecromanceText _showNecromanceText;
 
     //I use Lazy Initialization to have both performance - this allows the script to get components only when they are needed, reducing the risk of frame drops
     public AutoAttack AutoAttack => _autoAttack ??= GetComponent<AutoAttack>();
@@ -20,8 +19,13 @@ public class CachedZombieData : MonoBehaviour
     public Animator Animator => _animator ??= GetComponentInChildren<Animator>();
     public SpriteRenderer SpriteRenderer => _spriteRenderer ??= GetComponentInChildren<SpriteRenderer>();
     public NecromanceHorde NecromanceHorde => _necromanceHorde ??= GetComponentInParent<NecromanceHorde>();
-    public ZombiePlayerHordeRegistry ZombiePlayerHordeRegistry => _zombiePlayerHordeRegistry ??= GetComponentInParent<ZombiePlayerHordeRegistry>();
-    public ShowNecromanceText ShowNecromanceText => _showNecromanceText ??= GetComponent<ShowNecromanceText>();
+
+    //Make zombiePlayerHordeRegistry as traditional getter/setter to pass a reference inside NecromanceHorde to an NPC
+    public ZombiePlayerHordeRegistry ZombiePlayerHordeRegistry
+    {
+        get => _zombiePlayerHordeRegistry ??= GetComponentInParent<ZombiePlayerHordeRegistry>();
+        set => _zombiePlayerHordeRegistry = value;
+    }
 
     //If I ever need components to be cached on initialization, I can use this method
     public void PreCacheComponents()
@@ -34,6 +38,5 @@ public class CachedZombieData : MonoBehaviour
         _ = SpriteRenderer;
         _ = NecromanceHorde;
         _ = ZombiePlayerHordeRegistry;
-        _ = ShowNecromanceText;
     }
 }

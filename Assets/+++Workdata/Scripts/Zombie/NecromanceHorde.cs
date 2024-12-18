@@ -11,15 +11,32 @@ public class NecromanceHorde : MonoBehaviour
     [SerializeField] private LayerMask ownZombieLayer;
     [SerializeField] private GameObject zombiePrefab;
     public Transform ParentObject;
+    [SerializeField] private Sprite zombieVisual;
 
     public void OnNecromance()
     {
+        var necromancableHordeSet = new HashSet<Transform>();
+        var necromancedZombie = new HashSet<GameObject>();
+
         foreach (Transform zombieHorde in necromancableZombieHorde)
         {
-            foreach (Transform zombie in zombieHorde.transform)
+            foreach(Transform zombie in zombieHorde)
             {
                 NecromanceZombie(zombie.gameObject);
+                necromancedZombie.Add(zombie.gameObject);
             }
+  
+            necromancableHordeSet.Add(zombieHorde);
+        }
+
+        foreach (var horde in necromancableHordeSet)
+        {
+            necromancableZombieHorde.Remove(horde);
+        }
+
+        foreach(var zombie in necromancedZombie)
+        {
+            zombie.transform.parent = ParentObject;
         }
     }
 
@@ -28,10 +45,14 @@ public class NecromanceHorde : MonoBehaviour
         var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
 
         necromancableZombieCachedData.DetectNecromanceZombies.enabled = true;
-        
-        necromancableZombie.transform.parent = ParentObject;
+
+        Destroy(necromancableZombie.transform.parent.GetComponent<ShowNecromanceText>());
+        Destroy(necromancableZombieCachedData.transform.GetComponentInChildren<Canvas>().gameObject);
+
         necromancableZombie.name = necromantedZombieName;
-                
+
+        necromancableZombieCachedData.ZombiePlayerHordeRegistry = GetComponent<ZombiePlayerHordeRegistry>();
+
         necromancableZombieCachedData.ZombiePlayerHordeRegistry.RegisterZombie(necromancableZombie);
         
         necromancableZombieCachedData.AutoAttack.attackableZombieLayer = attackableZombieLayer;
@@ -42,15 +63,12 @@ public class NecromanceHorde : MonoBehaviour
         //We can get the same zombie layer of this object because the zombie is going to join this zombies team
         necromancableZombieCachedData.ZombieMovement.enabled = true;
         
-        necromancableZombieCachedData.SpriteRenderer.sprite = necromancableZombieCachedData.Health.SpriteBeforeDeath;
+        necromancableZombieCachedData.SpriteRenderer.sprite = zombieVisual;
         necromancableZombieCachedData.SpriteRenderer.enabled = true;
         
         necromancableZombieCachedData.Health.ResetHealth();
         necromancableZombieCachedData.Health.isDead = false;
         necromancableZombieCachedData.Health.IsPlayer = true;
-
-        Destroy(necromancableZombieCachedData.ShowNecromanceText);
-        Destroy(necromancableZombieCachedData.transform.GetComponentInChildren<Canvas>().gameObject);
 
         necromancableZombieCachedData.Animator.enabled = true;
     }

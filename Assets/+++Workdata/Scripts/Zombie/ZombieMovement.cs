@@ -10,7 +10,7 @@ public class ZombieMovement : MonoBehaviour
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
-    private Vector3 stickInput;
+    private Vector3 moveInput;
 
     [Header("Seperation")]
     [SerializeField] private float seperationSpeed = 1;
@@ -43,7 +43,7 @@ public class ZombieMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        Vector3 moveDirection = (stickInput * baseMoveSpeed) + (SeparationForce() * seperationSpeed);
+        Vector3 moveDirection = (moveInput * baseMoveSpeed) + (SeparationForce() * seperationSpeed);
 
         float distanceToGroupCenter = (GetGroupCenter() - transform.position).magnitude;
 
@@ -59,11 +59,11 @@ public class ZombieMovement : MonoBehaviour
     {
         if (cachedZombieData.AutoAttack.isAttacking || cachedZombieData.Health.isDead)
         {
-            stickInput = Vector3.zero;
+            moveInput = Vector3.zero;
         }
         else
         {
-            stickInput = inputValue.Get<Vector2>().normalized;
+            moveInput = inputValue.Get<Vector2>().normalized;
         }
     }
 
