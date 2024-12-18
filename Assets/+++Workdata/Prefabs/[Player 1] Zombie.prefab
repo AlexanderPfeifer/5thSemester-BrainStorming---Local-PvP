@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer: 1
-  maxHealth: 1
+  maxHealth: 8
   changeColorOnHitTime: 0.3
   graveSprite: {fileID: 0}
   NecromanceText: {fileID: 0}

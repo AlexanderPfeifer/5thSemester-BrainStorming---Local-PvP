@@ -408,12 +408,20 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 680447018}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!4 &210589743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
   m_PrefabInstance: {fileID: 210589742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &250464634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 1635864241}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &419292737
 GameObject:
@@ -1027,6 +1035,29 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1 &680447011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 210589742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &680447018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680447011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457b3cf6f2418140ae99370441c3bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NecromanceText: {fileID: 0}
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  detectPlayerRadius: 6
+  wholeHordeDead: 0
 --- !u!1 &698164236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1185,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 2074504584}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!4 &705321614 stripped
 Transform:
@@ -1650,13 +1684,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 1635864249}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!4 &1635864242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
   m_PrefabInstance: {fileID: 1635864241}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635864249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250464634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457b3cf6f2418140ae99370441c3bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NecromanceText: {fileID: 0}
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  detectPlayerRadius: 6
+  wholeHordeDead: 0
 --- !u!1 &1679212428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1745,29 @@ Transform:
   - {fileID: 161962963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1732578587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 2075835189385357566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1732578594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732578587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457b3cf6f2418140ae99370441c3bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NecromanceText: {fileID: 0}
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  detectPlayerRadius: 6
+  wholeHordeDead: 0
 --- !u!1 &1734915155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1992,29 @@ Transform:
   - {fileID: 1734915156}
   m_Father: {fileID: 698164238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2074504577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 705321613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2074504584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074504577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e457b3cf6f2418140ae99370441c3bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NecromanceText: {fileID: 0}
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  detectPlayerRadius: 6
+  wholeHordeDead: 0
 --- !u!1 &2114662824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2142,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6211258549479967278, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 1732578594}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!1001 &6178324184870544820
 PrefabInstance:

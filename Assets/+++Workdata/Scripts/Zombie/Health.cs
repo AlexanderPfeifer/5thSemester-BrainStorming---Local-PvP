@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
 
     [Header("Death")]
     public Sprite graveSprite;
-    [HideInInspector] public GameObject NecromanceText;
     [HideInInspector] public Sprite SpriteBeforeDeath;
     [HideInInspector] public bool isDead;
     private Vector3 startScale;
@@ -32,7 +31,6 @@ public class Health : MonoBehaviour
         {
             SpriteBeforeDeath = cachedZombieData.SpriteRenderer.sprite;
             startScale = transform.localScale;
-            NecromanceText = GetComponentInChildren<Canvas>().transform.GetChild(0).gameObject;
         }
     }
 
@@ -70,7 +68,6 @@ public class Health : MonoBehaviour
         else
         {
             cachedZombieData.ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
-            Destroy(gameObject);
         }
     }
 

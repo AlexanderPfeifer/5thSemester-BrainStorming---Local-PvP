@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class DetectNecromancableZombies : MonoBehaviour
@@ -17,48 +16,50 @@ public class DetectNecromancableZombies : MonoBehaviour
     private void Update()
     {
         IdentifyNecromancableHorde();
-
-        ShowNecromanceText();
     }
 
     private void IdentifyNecromancableHorde()
     {
-        var necromancableHordeHit = Physics2D.OverlapCircleAll(transform.position, detectNecromancableHordeRadius, graveLayer);
+        var necromancableZombieHit = Physics2D.OverlapCircleAll(transform.position, detectNecromancableHordeRadius, graveLayer);
 
-        foreach (var graveHit in necromancableHordeHit)
+        // Create a temporary list to store parents to add to the horde list
+        var necromancableHordeSet = new HashSet<Transform>(cachedZombieData.NecromanceHorde.necromancableZombieHorde);
+
+        foreach (var necromancableZombie in necromancableZombieHit)
         {
-            int _graveCount = 0;
+            var parent = necromancableZombie.transform.parent;
 
-            for (int i = 0; i < graveHit.transform.parent.childCount; i++)
+            // Check if the parent is already in the horde set
+            if (necromancableHordeSet.Contains(parent))
+                continue;
+
+            bool allDead = true;
+            foreach (Transform zombie in parent)
             {
-                if (!graveHit.transform.parent.GetChild(i).GetComponent<Health>().isDead)
+                if (!zombie.GetComponent<Health>().isDead)
                 {
-                    _graveCount = 0;
+                    allDead = false;
                     break;
                 }
-
-                _graveCount++;
-
-                if(_graveCount == graveHit.transform.parent.childCount && !cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(graveHit.transform.parent))
-                {
-                    cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(graveHit.transform.parent);
-                }
             }
-        }
-    }
 
-    private void ShowNecromanceText()
-    {
-        foreach (var zombieHorde in cachedZombieData.NecromanceHorde.necromancableZombieHorde)
-        {
-            foreach (Transform zombie in zombieHorde.transform)
+            if (allDead)
             {
-                zombie.GetComponent<Health>().NecromanceText.SetActive(true);
+                foreach (Transform zombie in parent)
+                {
+                    zombie.GetComponent<ShowNecromanceText>().wholeHordeDead = true;
+                }
+
+                necromancableHordeSet.Add(parent);
             }
         }
-    }
-    
 
+        // Add all new hordes to the main list after the loop is complete
+        foreach (var horde in necromancableHordeSet)
+        {
+            cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(horde);
+        }
+    }
     
     private void OnDrawGizmos()
     {

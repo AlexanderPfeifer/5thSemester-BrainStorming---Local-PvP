@@ -31,9 +31,7 @@ public class NecromanceHorde : MonoBehaviour
         
         necromancableZombie.transform.parent = ParentObject;
         necromancableZombie.name = necromantedZombieName;
-        
-        necromancableZombieCachedData.ZombiePlayerHordeRegistry = transform.root.GetComponent<ZombiePlayerHordeRegistry>();
-        
+                
         necromancableZombieCachedData.ZombiePlayerHordeRegistry.RegisterZombie(necromancableZombie);
         
         necromancableZombieCachedData.AutoAttack.attackableZombieLayer = attackableZombieLayer;
@@ -50,7 +48,9 @@ public class NecromanceHorde : MonoBehaviour
         necromancableZombieCachedData.Health.ResetHealth();
         necromancableZombieCachedData.Health.isDead = false;
         necromancableZombieCachedData.Health.IsPlayer = true;
-        necromancableZombieCachedData.Health.NecromanceText.SetActive(false);
+
+        Destroy(necromancableZombieCachedData.ShowNecromanceText);
+        Destroy(necromancableZombieCachedData.transform.GetComponentInChildren<Canvas>().gameObject);
 
         necromancableZombieCachedData.Animator.enabled = true;
     }
