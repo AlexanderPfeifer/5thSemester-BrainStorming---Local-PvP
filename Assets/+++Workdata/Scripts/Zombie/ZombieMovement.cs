@@ -4,21 +4,23 @@ using UnityEngine.InputSystem;
 
 public class ZombieMovement : MonoBehaviour
 {
+    [SerializeField] private bool isPlayer;
+
     [Header("Movement")]
     [SerializeField] private float baseMoveSpeed;
     [SerializeField] private float baseSpeedOffset;
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
-    private Vector3 moveInput;
+    private Vector2 moveInput;
 
     [Header("Seperation")]
     [SerializeField] private float seperationSpeed = 1;
     [DisplayColor(0, 0, 1), SerializeField] private float seperationRadius;
+    private Collider2D[] seperationZombies;
 
     [Header("Grouping")]
     [SerializeField] private float groupCenterSpeed = 1;
-    [SerializeField] private float groupingRangeThreshold;
 
     private CachedZombieData cachedZombieData;
 
@@ -43,23 +45,21 @@ public class ZombieMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        Vector3 moveDirection = (moveInput * baseMoveSpeed) + (SeparationForce() * seperationSpeed);
+        Vector2 moveDirection = (moveInput * baseMoveSpeed) + (SeparationForce() * seperationSpeed);
 
-        float distanceToGroupCenter = (GetGroupCenter() - transform.position).magnitude;
-
-        if (distanceToGroupCenter > groupingRangeThreshold)
+        if (IsOutOfSeperationDeadZone())
         {
-            moveDirection += (GetGroupCenter() - transform.position).normalized * groupCenterSpeed;
+            moveDirection += (GetGroupCenter() - (Vector2)transform.position).normalized * groupCenterSpeed;
         }
 
-        transform.position = Vector3.SmoothDamp(transform.position, transform.position + moveDirection.normalized, ref currentVelocity, speedSmoothTime);
+        transform.position = Vector3.SmoothDamp(transform.position, (Vector2)transform.position + moveDirection.normalized, ref currentVelocity, speedSmoothTime);
     }
 
     public void OnMove(InputValue inputValue)
     {
         if (cachedZombieData.AutoAttack.isAttacking || cachedZombieData.Health.isDead)
         {
-            moveInput = Vector3.zero;
+            moveInput = Vector2.zero;
         }
         else
         {
@@ -67,24 +67,24 @@ public class ZombieMovement : MonoBehaviour
         }
     }
 
-    Vector3 SeparationForce()
+    Vector2 SeparationForce()
     {
-        Collider2D[] nearbyZombies = Physics2D.OverlapCircleAll(transform.position, seperationRadius, 1 << gameObject.layer);
+        seperationZombies = Physics2D.OverlapCircleAll(transform.position, seperationRadius, 1 << gameObject.layer);
 
-        Vector3 _separationForce = Vector3.zero;
+        Vector2 _separationForce = Vector2.zero;
 
         // Ignore separation if there's no other zombie nearby and compare to one because overlapCircle always hits itself
-        if (nearbyZombies.Length <= 1)
+        if (seperationZombies.Length <= 1)
         {
             return _separationForce;
         }
 
-        foreach (Collider2D zombie in nearbyZombies)
+        foreach (Collider2D zombie in seperationZombies)
         {
             if (zombie == GetComponent<Collider2D>())
                 continue; 
 
-            Vector3 oppositeDirectionToNearZombie = transform.position - zombie.transform.position;
+            Vector2 oppositeDirectionToNearZombie = transform.position - zombie.transform.position;
 
             // Compare to more than 0 to avoid division by 0
             if (oppositeDirectionToNearZombie.magnitude > 0) 
@@ -96,11 +96,32 @@ public class ZombieMovement : MonoBehaviour
         return _separationForce;
     }
 
-    Vector3 GetGroupCenter()
+    bool IsOutOfSeperationDeadZone()
     {
-        if(cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count <= 1)
+        foreach (Collider2D zombie in seperationZombies)
         {
-            return transform.position;
+            if (zombie == GetComponent<Collider2D>())
+                continue;
+
+            float distance = Vector2.Distance(transform.position, zombie.transform.position);
+
+            // Return true if zombies are within 80% of the separation radius (dead zone)
+            if (distance <= seperationRadius * 0.8f)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    Vector2 GetGroupCenter()
+    {
+        var _zombies = cachedZombieData.ZombiePlayerHordeRegistry.Zombies;
+
+        if (!isPlayer)
+        {
+            //_zombies = 
         }
 
         List<float> xPositions = new List<float>();
@@ -120,7 +141,7 @@ public class ZombieMovement : MonoBehaviour
         float medianY = (yPositions.Count % 2 == 1) ? yPositions[yPositions.Count / 2] : (yPositions[yPositions.Count / 2 - 1] + yPositions[yPositions.Count / 2]) / 2;
 
 
-        return new Vector3(medianX, medianY, transform.position.z);
+        return new Vector2(medianX, medianY);
     }
 
     void MoveAnimationLateUpdate()

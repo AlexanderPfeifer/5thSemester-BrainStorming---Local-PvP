@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ZombiePlayerHordeRegistry : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
     [HideInInspector] public NecromanceHorde necromanceHorde;
 
     public CinemachineTargetGroup TargetGroup;
+
+    [SerializeField] private int deathCountToLoose;
 
     private void Start()
     {
@@ -35,6 +38,11 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
             if (Zombies.Count == 0 )
             {
                 necromanceHorde.SpawnPlayerZombies();
+                deathCountToLoose--;
+                if (deathCountToLoose == 0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
             }
 
             Destroy(zombie);

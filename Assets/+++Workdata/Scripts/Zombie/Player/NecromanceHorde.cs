@@ -12,7 +12,7 @@ public class NecromanceHorde : MonoBehaviour
     [SerializeField] private GameObject zombiePrefab;
     public Transform ParentObject;
     [SerializeField] private Sprite zombieVisual;
-
+     
     public void OnNecromance()
     {
         var necromancableHordeSet = new HashSet<Transform>();
@@ -75,7 +75,7 @@ public class NecromanceHorde : MonoBehaviour
 
     public void SpawnPlayerZombies()
     {
-        var necromancableZombie = Instantiate(zombiePrefab, ParentObject);
+        var necromancableZombie = Instantiate(zombiePrefab, transform.position, Quaternion.identity, ParentObject);
 
         var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
 
