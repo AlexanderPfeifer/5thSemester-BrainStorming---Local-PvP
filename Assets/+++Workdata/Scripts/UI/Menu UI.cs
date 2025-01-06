@@ -28,6 +28,8 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private GameObject pauseControlsPanel;
 
     [SerializeField] private GameObject winPanel;
+
+    [SerializeField] private GameObject creditsPanel;
     
     public void Start()
     {
@@ -35,6 +37,7 @@ public class MenuUI : MonoBehaviour
         pauseSettingsPanel.SetActive(false);
         pauseControlsPanel.SetActive(false);
         winPanel.SetActive(false);
+        creditsPanel.SetActive(false);
         
         
         SetMasterVolume();
@@ -60,6 +63,7 @@ public class MenuUI : MonoBehaviour
             pausePanel.SetActive(false);
             pauseSettingsPanel.SetActive(false);
             pauseControlsPanel.SetActive(false);
+            creditsPanel.SetActive(false);
         }
     }
 
@@ -180,6 +184,15 @@ public class MenuUI : MonoBehaviour
     }
 
     #endregion
-    
+
+    public void OpenCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+    }
  
 }
