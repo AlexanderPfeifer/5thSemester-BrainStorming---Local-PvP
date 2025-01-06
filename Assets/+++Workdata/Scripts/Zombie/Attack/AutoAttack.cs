@@ -32,16 +32,18 @@ public class AutoAttack : MonoBehaviour
 
     private void IdentifyAttackableZombie()
     {
-        Collider2D[] attackableZombieHit = Physics2D.OverlapCircleAll(transform.position, detectEnemyZombiesRadius, attackableZombieLayer);
+        Collider[] attackableZombieHit = Physics.OverlapSphere(transform.position, detectEnemyZombiesRadius, attackableZombieLayer);
 
         if (attackableZombieHit.Length > 0)
         {
-            if(!isAttacking)
+            if (!isAttacking)
             {
-                closestAttackableZombie = attackableZombieHit[0].transform; // Start with the first zombie
+                // Start with the first zombie
+                closestAttackableZombie = attackableZombieHit[0].transform;
 
-                foreach (Collider2D zombie in attackableZombieHit)
+                foreach (Collider zombie in attackableZombieHit)
                 {
+                    // Compare squared distances to avoid unnecessary square root calculations
                     if ((zombie.transform.position - transform.position).sqrMagnitude < (closestAttackableZombie.position - transform.position).sqrMagnitude)
                     {
                         closestAttackableZombie = zombie.transform;
@@ -81,11 +83,14 @@ public class AutoAttack : MonoBehaviour
     private void MoveTowardsClosestEnemy()
     {
         Vector3 directionToEnemy = closestAttackableZombie.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToEnemy, directionToEnemy.magnitude, 1 << gameObject.layer);
 
-        if (closestAttackableZombie == null || closestAttackableZombie.GetComponent<Health>().isDead || hit.collider.gameObject != gameObject)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, directionToEnemy.normalized, out hit, directionToEnemy.magnitude, 1 << gameObject.layer))
         {
-            return;
+            if (hit.collider.gameObject != gameObject || closestAttackableZombie.GetComponent<Health>().isDead)
+            {
+                return;
+            }
         }
 
         isAttacking = true;

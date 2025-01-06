@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(DisplayColorAttribute))]
 public class DisplayColorDrawer : PropertyDrawer
 {
@@ -11,3 +12,4 @@ public class DisplayColorDrawer : PropertyDrawer
         EditorGUI.PropertyField(new Rect(position.x, position.y, position.width, position.height), property, label, true);
     }
 }
+#endif

@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
     public Sprite graveSprite;
     [HideInInspector] public bool isDead;
     private Vector3 startScale;
+    private Quaternion startRotation;
 
     private CachedZombieData cachedZombieData;
 
@@ -26,6 +27,7 @@ public class Health : MonoBehaviour
     {
         ResetHealth();
         cachedZombieData = GetComponent<CachedZombieData>();
+        startRotation = GetComponentInChildren<Transform>().rotation;
 
         if(!IsPlayer)
         {
@@ -35,7 +37,7 @@ public class Health : MonoBehaviour
 
     public void DamageIncome(int damageDealt, AutoAttack autoAttack)
     {
-        if (cachedZombieData.SpriteRenderer.sprite == graveSprite)
+        if (!IsPlayer && cachedZombieData.MeshRenderer.material.mainTexture as Texture2D == graveSprite.texture)
             return;
         
         currentHealth -= damageDealt;
@@ -55,11 +57,11 @@ public class Health : MonoBehaviour
         {
             isDead = true;
 
-            cachedZombieData.SpriteRenderer.sprite = graveSprite;
+            cachedZombieData.MeshRenderer.material.mainTexture = graveSprite.texture;
             cachedZombieData.Animator.enabled = false;
             //Need to reset the animator because it still has effect on the rotation even after disabling it
             cachedZombieData.Animator.Rebind();
-            GetComponentInChildren<Transform>().localRotation = Quaternion.identity;
+            GetComponentInChildren<Transform>().localRotation = startRotation;
             transform.localScale = startScale;
 
             gameObject.layer = LayerMask.NameToLayer("Grave");
@@ -77,10 +79,10 @@ public class Health : MonoBehaviour
 
     private IEnumerator ChangeColorOnHitCoroutine()
     {
-        cachedZombieData.SpriteRenderer.color = Color.red;
+        cachedZombieData.MeshRenderer.material.color = Color.red;
 
         yield return new WaitForSeconds(changeColorOnHitTime);
         
-        cachedZombieData.SpriteRenderer.color = Color.white;
+        cachedZombieData.MeshRenderer.material.color = Color.white;
     }
 }

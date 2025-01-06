@@ -63,8 +63,8 @@ public class NecromanceHorde : MonoBehaviour
         //We can get the same zombie layer of this object because the zombie is going to join this zombies team
         necromancableZombieCachedData.ZombieMovement.enabled = true;
         
-        necromancableZombieCachedData.SpriteRenderer.sprite = zombieVisual;
-        necromancableZombieCachedData.SpriteRenderer.enabled = true;
+        necromancableZombieCachedData.MeshRenderer.material.mainTexture = zombieVisual.texture;
+        necromancableZombieCachedData.MeshRenderer.enabled = true;
         
         necromancableZombieCachedData.Health.ResetHealth();
         necromancableZombieCachedData.Health.isDead = false;

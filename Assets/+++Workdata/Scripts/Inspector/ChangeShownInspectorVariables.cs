@@ -1,5 +1,6 @@
 using UnityEditor;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Health))]
 public class Health_Editor : Editor
 {
@@ -34,3 +35,4 @@ public class Health_Editor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

@@ -7,7 +7,7 @@ public class CachedZombieData : MonoBehaviour
     private Health _health;
     private DetectNecromancableZombies _detectNecromanceZombies;
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
+    private MeshRenderer _meshRenderer;
     private NecromanceHorde _necromanceHorde;
     private ZombiePlayerHordeRegistry _zombiePlayerHordeRegistry;
 
@@ -17,7 +17,7 @@ public class CachedZombieData : MonoBehaviour
     public Health Health => _health ??= GetComponent<Health>();
     public DetectNecromancableZombies DetectNecromanceZombies => _detectNecromanceZombies ??= GetComponent<DetectNecromancableZombies>();
     public Animator Animator => _animator ??= GetComponentInChildren<Animator>();
-    public SpriteRenderer SpriteRenderer => _spriteRenderer ??= GetComponentInChildren<SpriteRenderer>();
+    public MeshRenderer MeshRenderer => _meshRenderer ??= GetComponentInChildren<MeshRenderer>();
     public NecromanceHorde NecromanceHorde => _necromanceHorde ??= GetComponentInParent<NecromanceHorde>();
 
     //Make zombiePlayerHordeRegistry as traditional getter/setter to pass a reference inside NecromanceHorde to an NPC
@@ -35,7 +35,7 @@ public class CachedZombieData : MonoBehaviour
         _ = Health;
         _ = DetectNecromanceZombies;
         _ = Animator;
-        _ = SpriteRenderer;
+        _ = MeshRenderer;
         _ = NecromanceHorde;
         _ = ZombiePlayerHordeRegistry;
     }

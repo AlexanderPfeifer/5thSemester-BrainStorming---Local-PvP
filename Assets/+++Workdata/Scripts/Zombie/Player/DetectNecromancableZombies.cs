@@ -20,7 +20,7 @@ public class DetectNecromancableZombies : MonoBehaviour
 
     private void IdentifyNecromancableHorde()
     {
-        var necromancableZombieHit = Physics2D.OverlapCircleAll(transform.position, detectNecromancableHordeRadius, graveLayer);
+        var necromancableZombieHit = Physics.OverlapSphere(transform.position, detectNecromancableHordeRadius, graveLayer);
 
         // Create a temporary list to store parents because otherwise the loop gets cancelled, resulting in an error
         var necromancableHordeSet = new HashSet<Transform>(cachedZombieData.NecromanceHorde.necromancableZombieHorde);

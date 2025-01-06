@@ -17,7 +17,7 @@ public class ZombieMovement : MonoBehaviour
     [Header("Seperation")]
     [SerializeField] private float seperationSpeed = 1;
     [DisplayColor(0, 0, 1), SerializeField] private float seperationRadius;
-    private Collider2D[] seperationZombies;
+    private Collider[] seperationZombies;
 
     [Header("Grouping")]
     [SerializeField] private float groupCenterSpeed = 1;
@@ -69,7 +69,7 @@ public class ZombieMovement : MonoBehaviour
 
     Vector2 SeparationForce()
     {
-        seperationZombies = Physics2D.OverlapCircleAll(transform.position, seperationRadius, 1 << gameObject.layer);
+        seperationZombies = Physics.OverlapSphere(transform.position, seperationRadius, 1 << gameObject.layer);
 
         Vector2 _separationForce = Vector2.zero;
 
@@ -79,9 +79,9 @@ public class ZombieMovement : MonoBehaviour
             return _separationForce;
         }
 
-        foreach (Collider2D zombie in seperationZombies)
+        foreach (Collider zombie in seperationZombies)
         {
-            if (zombie == GetComponent<Collider2D>())
+            if (zombie == GetComponent<Collider>())
                 continue; 
 
             Vector2 oppositeDirectionToNearZombie = transform.position - zombie.transform.position;
@@ -98,9 +98,9 @@ public class ZombieMovement : MonoBehaviour
 
     bool IsOutOfSeperationDeadZone()
     {
-        foreach (Collider2D zombie in seperationZombies)
+        foreach (Collider zombie in seperationZombies)
         {
-            if (zombie == GetComponent<Collider2D>())
+            if (zombie == GetComponent<Collider>())
                 continue;
 
             float distance = Vector2.Distance(transform.position, zombie.transform.position);
