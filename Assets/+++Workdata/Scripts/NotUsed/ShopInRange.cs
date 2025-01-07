@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ShopInRange : MonoBehaviour
 {
+    //Script not being used 
+
     [SerializeField] private CanvasGroup shopCanvas;
     [SerializeField] private LayerMask playerLayer;
 

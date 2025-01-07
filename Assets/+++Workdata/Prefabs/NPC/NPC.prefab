@@ -182,18 +182,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6211258549479967278}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Script: {fileID: 11500000, guid: a88502727aec47d4cbde0e9ff2cf2728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  baseMoveSpeed: 8
-  baseSpeedOffset: 1
-  speedSmoothTime: 0.2
-  seperationSpeed: 10
-  seperationRadius: 1.5
-  groupCenterSpeed: 6
+  baseMoveSpeed: 4
+  baseSpeedOffset: 2
+  speedSmoothTime: 1
+  groupingSpeed: 6
+  collisionDetectionRadius: 1
 --- !u!114 &5058734882583348532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +208,6 @@ MonoBehaviour:
   maxHealth: 2
   changeColorOnHitTime: 0.3
   graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
-  isDead: 0
 --- !u!114 &1579187242385607930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +228,7 @@ MonoBehaviour:
   damage: 1
   detectEnemyZombiesRadius: 3
   maxTimeUntilNextAttack: 0.5
-  isAttacking: 0
+  attackSeperationRadius: 0
 --- !u!114 &4023335032673320161
 MonoBehaviour:
   m_ObjectHideFlags: 0

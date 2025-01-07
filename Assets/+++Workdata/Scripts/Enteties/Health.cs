@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEditor;
@@ -17,7 +18,7 @@ public class Health : MonoBehaviour
 
     [Header("Death")]
     public Sprite graveSprite;
-    [HideInInspector] public bool isDead;
+    [NonSerialized] public bool isDead;
     private Vector3 startScale;
     private Quaternion startRotation;
 

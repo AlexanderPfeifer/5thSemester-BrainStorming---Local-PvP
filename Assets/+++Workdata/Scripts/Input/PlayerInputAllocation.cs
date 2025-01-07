@@ -34,10 +34,7 @@ public class PlayerInputAllocation : MonoBehaviour
         if(!canTakeInput) 
             return;
 
-        foreach (GameObject zombieMovement in zombiePlayerHordeRegistry.Zombies)
-        {
-            zombieMovement.GetComponent<ZombieMovement>().OnMove(inputValue);
-        }
+        zombiePlayerHordeRegistry.mainZombie.transform.GetComponent<PlayerMovement>().OnMove(inputValue);
     }
 
     public void OnNecromance()

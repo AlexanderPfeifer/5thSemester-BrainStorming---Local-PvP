@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6947129287817147828}
-  - component: {fileID: 469473731487977889}
+  - component: {fileID: 8369570769428025853}
   - component: {fileID: 4412931018522182503}
   - component: {fileID: 7527185742211387899}
   - component: {fileID: 1189449685714138403}
@@ -32,13 +32,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.225, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4629991167538806421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &469473731487977889
+--- !u!114 &8369570769428025853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,16 +47,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 113935404979712046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 924bb0216c1f275478bc43df6dad0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  baseMoveSpeed: 8
-  baseSpeedOffset: 1
-  speedSmoothTime: 0.2
-  seperationSpeed: 10
-  seperationRadius: 1.5
-  groupCenterSpeed: 6
+  groupingRadius: 6
+  baseMoveSpeed: 32
+  speedSmoothTime: 0.15
 --- !u!114 &4412931018522182503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,10 +66,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer: 1
-  maxHealth: 20
+  maxHealth: 999999999
   changeColorOnHitTime: 0.3
   graveSprite: {fileID: 0}
-  isDead: 0
 --- !u!114 &7527185742211387899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,11 +85,11 @@ MonoBehaviour:
   attackableZombieLayer:
     serializedVersion: 2
     m_Bits: 384
-  attackRadius: 1.35
+  attackRadius: 2.5
   damage: 1
-  detectEnemyZombiesRadius: 3
+  detectEnemyZombiesRadius: 5.5
   maxTimeUntilNextAttack: 0.5
-  isAttacking: 0
+  attackSeperationRadius: 0
 --- !u!114 &1189449685714138403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +105,7 @@ MonoBehaviour:
   graveLayer:
     serializedVersion: 2
     m_Bits: 512
-  detectNecromancableHordeRadius: 6
+  detectNecromancableHordeRadius: 8
 --- !u!114 &7381364575695507651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +139,7 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 4
   m_Height: 10
-  m_Direction: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3102975726192436781
 GameObject:

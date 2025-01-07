@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1071958940738075370}
-  - component: {fileID: 6275303910555427244}
+  - component: {fileID: 611727657618661292}
   - component: {fileID: 1318773016690747867}
   - component: {fileID: 3068693589010071472}
   - component: {fileID: 8793422471454182286}
@@ -155,13 +155,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.225, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1689761535178802629}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6275303910555427244
+--- !u!114 &611727657618661292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,16 +170,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7558006863435989279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc4f1e3e7c2f564e86715f732f9e0f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 924bb0216c1f275478bc43df6dad0e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  baseMoveSpeed: 8
-  baseSpeedOffset: 1
-  speedSmoothTime: 0.2
-  seperationSpeed: 10
-  seperationRadius: 1.5
-  groupCenterSpeed: 6
+  groupingRadius: 6
+  baseMoveSpeed: 32
+  speedSmoothTime: 0.15
 --- !u!114 &1318773016690747867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,10 +189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer: 1
-  maxHealth: 8
+  maxHealth: 999999999
   changeColorOnHitTime: 0.3
   graveSprite: {fileID: 0}
-  isDead: 0
 --- !u!114 &3068693589010071472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,11 +208,11 @@ MonoBehaviour:
   attackableZombieLayer:
     serializedVersion: 2
     m_Bits: 320
-  attackRadius: 1.35
+  attackRadius: 2.5
   damage: 1
-  detectEnemyZombiesRadius: 3
+  detectEnemyZombiesRadius: 5.5
   maxTimeUntilNextAttack: 0.5
-  isAttacking: 0
+  attackSeperationRadius: 0
 --- !u!114 &8793422471454182286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +228,7 @@ MonoBehaviour:
   graveLayer:
     serializedVersion: 2
     m_Bits: 512
-  detectNecromancableHordeRadius: 6
+  detectNecromancableHordeRadius: 8
 --- !u!114 &6544918899431571075
 MonoBehaviour:
   m_ObjectHideFlags: 0

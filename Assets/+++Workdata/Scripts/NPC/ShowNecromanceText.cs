@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class ShowNecromanceText : MonoBehaviour
     public Canvas[] NecromanceTextCanvas;
     [SerializeField] private LayerMask playerLayers;
     [SerializeField] private float detectPlayerRadius;
-    [HideInInspector] public bool wholeHordeDead;
+    [NonSerialized] public bool wholeHordeDead;
 
     private void Start()
     {

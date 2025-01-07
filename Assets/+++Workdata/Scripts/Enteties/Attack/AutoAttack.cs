@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AutoAttack : MonoBehaviour
@@ -11,9 +12,14 @@ public class AutoAttack : MonoBehaviour
     [SerializeField] private int damage;
     [DisplayColor(1, 1, 0), SerializeField] private float detectEnemyZombiesRadius;
     [SerializeField] private float maxTimeUntilNextAttack;
-    [HideInInspector] public bool isAttacking;
+    [NonSerialized] public bool isAttacking;
     private float currentTimeUntilNextAttack;
     private Transform closestAttackableZombie;
+
+    [Header("Seperation")]
+    float updateTimer = 0f;
+    Collider[] cachedGroupingZombies;
+    [DisplayColor(0, 0, 1), SerializeField] private float attackSeperationRadius;
 
     private CachedZombieData cachedZombieData;
 
@@ -44,7 +50,8 @@ public class AutoAttack : MonoBehaviour
                 foreach (Collider zombie in attackableZombieHit)
                 {
                     // Compare squared distances to avoid unnecessary square root calculations
-                    if ((zombie.transform.position - transform.position).sqrMagnitude < (closestAttackableZombie.position - transform.position).sqrMagnitude)
+                    if ((zombie.transform.position - transform.position).sqrMagnitude < 
+                        (closestAttackableZombie.position - transform.position).sqrMagnitude)
                     {
                         closestAttackableZombie = zombie.transform;
                     }
@@ -61,8 +68,11 @@ public class AutoAttack : MonoBehaviour
     
     private void HandleAttackBehaviour()
     {
-        if (closestAttackableZombie == null || closestAttackableZombie.GetComponent<Health>().isDead)
+        if (closestAttackableZombie == null) 
+        { 
+            isAttacking = false;
             return;
+        }
 
         if (Vector3.Distance(transform.position, closestAttackableZombie.position) < attackRadius)
         {
@@ -85,17 +95,57 @@ public class AutoAttack : MonoBehaviour
         Vector3 directionToEnemy = closestAttackableZombie.position - transform.position;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, directionToEnemy.normalized, out hit, directionToEnemy.magnitude, 1 << gameObject.layer))
+
+        if (closestAttackableZombie.GetComponent<Health>().isDead ||
+            (Physics.Raycast(transform.position, directionToEnemy.normalized, out hit, directionToEnemy.magnitude, 1 << gameObject.layer) && 
+            hit.collider.gameObject != gameObject))
         {
-            if (hit.collider.gameObject != gameObject || closestAttackableZombie.GetComponent<Health>().isDead)
-            {
-                return;
-            }
+            isAttacking = false;
+            return; 
         }
 
         isAttacking = true;
 
-        transform.position = Vector3.MoveTowards(transform.position, closestAttackableZombie.position, Time.deltaTime * moveToEnemySpeed);
+        transform.position = Vector3.MoveTowards(transform.position, (Vector2)closestAttackableZombie.position + SeparationForce(), Time.deltaTime * moveToEnemySpeed);
+    }
+
+    Vector2 SeparationForce()
+    {
+        cachedGroupingZombies = Physics.OverlapSphere(transform.position, attackSeperationRadius * 0.8f, 1 << gameObject.layer);
+
+        Vector2 _separationForce = Vector2.zero;
+
+        // Ignore separation if there's no other zombie nearby and compare to one because overlapCircle always hits itself
+        if (cachedGroupingZombies.Length <= 1)
+        {
+            return _separationForce;
+        }
+
+        foreach (Collider zombie in cachedGroupingZombies)
+        {
+            if (zombie == GetComponent<Collider>())
+                continue; 
+
+            Vector2 oppositeDirectionToNearZombie = transform.position - zombie.transform.position;
+
+            // Compare to more than 0 to avoid division by 0
+            if (oppositeDirectionToNearZombie.magnitude > 0) 
+            {
+                _separationForce += oppositeDirectionToNearZombie / oppositeDirectionToNearZombie.magnitude; // Stronger repulsion when closer
+            }
+        }
+
+        return _separationForce;
+    }
+
+    void UpdateCachedZombies()
+    {
+        if (updateTimer <= 0f)
+        {
+            cachedGroupingZombies = Physics.OverlapSphere(transform.position, attackSeperationRadius, 1 << gameObject.layer);
+            updateTimer = 0.1f; // Update every 0.1s
+        }
+        updateTimer -= Time.deltaTime;
     }
 
     public void AttackEnemyAnimationEvent()

@@ -1,18 +1,20 @@
+using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ZombiePlayerHordeRegistry : MonoBehaviour
 {
     public List<GameObject> Zombies { get; private set; } = new List<GameObject>();
 
     [SerializeField] private int playerIndex;
-    [HideInInspector] public NecromanceHorde necromanceHorde;
+    [NonSerialized] public NecromanceHorde necromanceHorde;
 
     public CinemachineTargetGroup TargetGroup;
 
     [SerializeField] private int deathCountToLoose;
+
+    [NonSerialized] public GameObject mainZombie;
 
     private void Start()
     {
@@ -23,6 +25,10 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
     {
         if(!Zombies.Contains(zombie))
         {
+            if (mainZombie == null)
+            {
+                mainZombie = zombie;
+            }
             Zombies.Add(zombie);
             TargetGroup.AddMember(zombie.transform, 1, .5f);
         }
@@ -38,11 +44,14 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
             if (Zombies.Count == 0 )
             {
                 necromanceHorde.SpawnPlayerZombies();
+
+                /*
                 deathCountToLoose--;
                 if (deathCountToLoose == 0)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
+                */
             }
 
             Destroy(zombie);

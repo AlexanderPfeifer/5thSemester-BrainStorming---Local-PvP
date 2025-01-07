@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NecromanceHorde : MonoBehaviour
 {
-    [HideInInspector] public List<Transform> necromancableZombieHorde = new List<Transform>();
+    [NonSerialized] public List<Transform> necromancableZombieHorde = new List<Transform>();
 
     [SerializeField] private string necromantedZombieName;
 
@@ -59,12 +60,12 @@ public class NecromanceHorde : MonoBehaviour
         //Use this weird function, because if I just set the gameobject.layer equal to the ownZombieLayer, it throws an error trying to set 2 different layers
         necromancableZombieCachedData.AutoAttack.gameObject.layer = Mathf.RoundToInt(Mathf.Log(ownZombieLayer.value, 2));
         necromancableZombieCachedData.AutoAttack.ResetAttack();
-        
+
         //We can get the same zombie layer of this object because the zombie is going to join this zombies team
-        necromancableZombieCachedData.ZombieMovement.enabled = true;
-        
+        necromancableZombieCachedData.NPCMovement.mainZombieMovement = necromancableZombieCachedData.ZombiePlayerHordeRegistry.mainZombie.GetComponent<PlayerMovement>();
+        necromancableZombieCachedData.NPCMovement.isNecromanced = true;
+
         necromancableZombieCachedData.MeshRenderer.material.mainTexture = zombieVisual.texture;
-        necromancableZombieCachedData.MeshRenderer.enabled = true;
         
         necromancableZombieCachedData.Health.ResetHealth();
         necromancableZombieCachedData.Health.isDead = false;
@@ -80,6 +81,5 @@ public class NecromanceHorde : MonoBehaviour
         var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
 
         necromancableZombieCachedData.ZombiePlayerHordeRegistry.RegisterZombie(necromancableZombie);
-
     }
 }
