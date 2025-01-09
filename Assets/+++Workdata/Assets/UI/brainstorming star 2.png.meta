@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fd56552914b6f674bbe24b28da077f72
+guid: 95533e2c801672d41a4031a24682be23
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8276316573171400133
-    second: brainstorming star_0
+      213: -7741143234250882037
+    second: brainstorming star 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming star_0
+      name: brainstorming star 2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 5072
-        height: 4859
+        width: 4948
+        height: 4735
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cd3f80d2126bd270800000000000000
-      internalID: 8276316573171400133
+      spriteID: b04ce072e3fe19490800000000000000
+      internalID: -7741143234250882037
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      brainstorming star_0: 8276316573171400133
+      brainstorming star 2_0: -7741143234250882037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
