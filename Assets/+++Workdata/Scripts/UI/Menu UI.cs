@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering.UI;
-using UnityEngine.Rendering.Universal;
 
 public class MenuUI : MonoBehaviour
 {
@@ -30,6 +30,11 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private GameObject winPanel;
 
     [SerializeField] private GameObject creditsPanel;
+
+    [SerializeField] private Resolution[] resolutions;
+    [SerializeField] private List<TextMeshProUGUI> resolutionsText;
+    [SerializeField] private int currentResolutionIndex = 0;
+    [SerializeField] private int currentResolutionsText = 0;
     
     public void Start()
     {
@@ -39,12 +44,23 @@ public class MenuUI : MonoBehaviour
         winPanel.SetActive(false);
         creditsPanel.SetActive(false);
         
-        
         SetMasterVolume();
         SetMusicVolume();
         SetSFXVolume();
 
         fullscreenEnabled = false;
+
+        resolutions = Screen.resolutions;
+        Screen.SetResolution(Mathf.RoundToInt(resolutions[0].width), Mathf.RoundToInt(resolutions[0].height), fullscreenEnabled);
+        currentResolutionIndex = 0;
+        
+        foreach (TextMeshProUGUI resText in resolutionsText)
+        {
+            resText.gameObject.SetActive(false);
+        }
+        
+        resolutionsText[0].gameObject.SetActive(true);
+
     }
 
     public void Update()
@@ -120,6 +136,32 @@ public class MenuUI : MonoBehaviour
             button.gameObject.GetComponent<EventTrigger>().enabled = true;
             button.gameObject.GetComponent<Animator>().enabled = true;
         }
+    }
+
+    public void ChangeResolution()
+    {
+        
+        currentResolutionIndex = (currentResolutionIndex + 1) % resolutions.Length;
+            
+
+            if (currentResolutionIndex > resolutions.Length)
+            {
+                currentResolutionIndex = 0;
+            }
+            
+        Debug.Log(resolutions.Length);    
+        
+        Debug.Log(Screen.currentResolution);
+        
+        resolutionsText[currentResolutionsText].gameObject.SetActive(false);
+        currentResolutionsText = (currentResolutionsText + 1) % resolutionsText.Count;
+        resolutionsText[currentResolutionsText].gameObject.SetActive(true);
+        
+        if (currentResolutionsText > resolutionsText.Count)
+        {
+            currentResolutionsText = 0;
+        }
+        
     }
 
     public void FullScreenToggle()
