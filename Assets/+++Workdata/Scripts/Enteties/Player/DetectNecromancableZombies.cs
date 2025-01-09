@@ -4,7 +4,7 @@ using UnityEngine;
 public class DetectNecromancableZombies : MonoBehaviour
 {
     [Header("Detect Necromance")]
-    [SerializeField] private LayerMask graveLayer;
+    [SerializeField] private LayerMask humanLayer;
     [DisplayColor(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
     private CachedZombieData cachedZombieData;
 
@@ -20,7 +20,7 @@ public class DetectNecromancableZombies : MonoBehaviour
 
     private void IdentifyNecromancableHorde()
     {
-        var necromancableZombieHit = Physics.OverlapSphere(transform.position, detectNecromancableHordeRadius, graveLayer);
+        var necromancableZombieHit = Physics.OverlapSphere(transform.position, detectNecromancableHordeRadius, humanLayer);
 
         // Create a temporary list to store parents because otherwise the loop gets cancelled, resulting in an error
         var necromancableHordeSet = new HashSet<Transform>(cachedZombieData.NecromanceHorde.necromancableZombieHorde);
@@ -32,21 +32,8 @@ public class DetectNecromancableZombies : MonoBehaviour
             if (necromancableHordeSet.Contains(parent))
                 continue;
 
-            bool allDead = true;
-            foreach (Transform zombie in parent)
-            {
-                if (!zombie.GetComponent<Health>().isDead)
-                {
-                    allDead = false;
-                    break;
-                }
-            }
-
-            if (allDead)
-            {
-                parent.GetComponent<ShowNecromanceText>().wholeHordeDead = true;
-                necromancableHordeSet.Add(parent);
-            }
+            parent.GetComponent<ShowNecromanceText>().wholeHordeDead = true;
+            necromancableHordeSet.Add(parent);
         }
 
         foreach (var horde in necromancableHordeSet)

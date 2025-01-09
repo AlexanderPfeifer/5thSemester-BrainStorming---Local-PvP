@@ -1,15 +1,26 @@
+using System;
 using System.Collections;
-using Unity.Cinemachine;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject smallHordePrefab;
-    [SerializeField] private float smallHordeSpawnTime = 5;
+    [SerializeField] private float smallHordeSpawnTime = 3;
     [SerializeField] private float spawnDistance = 10f;
     [SerializeField] Camera[] playerCams;
 
-    private void Start()
+    private void OnEnable()
+    {
+        PlayerRegistryManager.Instance.AllPlayersReady += OnSpawnSmallHordesOverTime;
+    }
+
+    private void OnDisable()
+    {
+        PlayerRegistryManager.Instance.AllPlayersReady -= OnSpawnSmallHordesOverTime;
+    }
+
+    private void OnSpawnSmallHordesOverTime()
     {
         StartCoroutine(SpawnSmallHordesOverTime());
     }
@@ -31,11 +42,20 @@ public class NPCSpawner : MonoBehaviour
             //Subtract .5 of the distanceFromCamera because otherwise the NPCs clip half inside and hald outside the cameraFarClipPlane
             float distanceFromCamera = cam.farClipPlane - .5f;
 
-            Vector3[] frustunCornerCoordinates = GetFrustumCorners(distanceFromCamera, cam);
+            Vector3[] frustumCornerCoordinates = GetFrustumCorners(distanceFromCamera, cam);
 
-            Vector3 spawnPosition = GetRandomSpawnPositionOutsideFrustum(frustunCornerCoordinates, distanceFromCamera, cam);
+            Vector3 spawnPosition = GetRandomPositionOfFrustum(frustumCornerCoordinates);
 
-            Instantiate(smallHordePrefab, spawnPosition, Quaternion.identity, transform);
+            var horde = Instantiate(smallHordePrefab, spawnPosition, Quaternion.identity, transform);
+            
+            var moveDir = cam.transform.position - spawnPosition;
+
+            moveDir.z = 0;
+            
+            foreach (Transform child in horde.transform)
+            {
+                child.GetComponent<NPCMovement>().moveDirection = moveDir;
+            }
         }
     }
 
@@ -52,18 +72,15 @@ public class NPCSpawner : MonoBehaviour
         return corners;
     }
 
-    Vector3 GetRandomSpawnPositionOutsideFrustum(Vector3[] frustumCorners, float distance, Camera cam)
+    Vector3 GetRandomPositionOfFrustum(Vector3[] frustumCorners)
     {
         int edgeIndex1 = Random.Range(0, 4);
         int edgeIndex2 = (edgeIndex1 + 1) % 4;
 
         Vector3 edgePoint = Vector3.Lerp(frustumCorners[edgeIndex1], frustumCorners[edgeIndex2], Random.Range(0f, 1f));
 
-        Vector3 frustumCenter = (frustumCorners[0] + frustumCorners[1] + frustumCorners[2] + frustumCorners[3]) / 4; 
-        Vector3 directionAwayFromFrustum = (edgePoint - frustumCenter).normalized;
+        Vector3 frustumCenter = (frustumCorners[0] + frustumCorners[1] + frustumCorners[2] + frustumCorners[3]) / 4;
 
-        Vector3 spawnPosition = edgePoint + directionAwayFromFrustum * spawnDistance;
-
-        return spawnPosition;
+        return edgePoint + (edgePoint - frustumCenter).normalized * spawnDistance;
     }
 }

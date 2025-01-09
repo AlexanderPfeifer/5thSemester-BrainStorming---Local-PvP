@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
 using System;
+using System.Collections;
 
 public class PlayerRegistryManager : MonoBehaviour
 {
@@ -21,6 +22,19 @@ public class PlayerRegistryManager : MonoBehaviour
 
     void Awake()
     {
+        //Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Trying to create another Instance of PlayerRegistryManager!");
+            Destroy(gameObject);
+        }
+
+
+
         playerInputManager = GetComponent<PlayerInputManager>();
 
 
@@ -29,19 +43,6 @@ public class PlayerRegistryManager : MonoBehaviour
         playerReadyTextMap = playerReadyTexts
             .Select((text, index) => new { Index = index, Text = text })
             .ToDictionary(entry => entry.Index, entry => entry.Text);
-
-
-
-        //Singleton
-        if (Instance == null)
-        { 
-            Instance = this; 
-        }
-        else
-        {
-            Debug.LogWarning("Trying to create another Instance of PlayerRegistryManager!");
-            Destroy(gameObject);
-        }
     }
 
     public void HandlePlayerJoin(PlayerInput playerInput)
@@ -70,18 +71,26 @@ public class PlayerRegistryManager : MonoBehaviour
 
         if (playerRegistry.Count == playerInputManager.maxPlayerCount)
         {
-            AllPlayersReady?.Invoke();
+            StartCoroutine(DelayedAllPlayersReady());
         }
+    }
+
+    private IEnumerator DelayedAllPlayersReady()
+    {
+        //delay it to give the second playerMovement some time to subscribe to this event on OnEnable
+        yield return new WaitForSeconds(.5f);
+        AllPlayersReady?.Invoke();
     }
 }
 
-public class PlayerRegistry
-{
-    public PlayerRegistry(PlayerInput playerInput)
+    public class PlayerRegistry
     {
-        PlayerIndex = playerInput.playerIndex;
-        PlayerInput = playerInput;
+        public PlayerRegistry(PlayerInput playerInput)
+        {
+            PlayerIndex = playerInput.playerIndex;
+            PlayerInput = playerInput;
+        }
+        public PlayerInput PlayerInput { get; set; }
+        public int PlayerIndex { get; set; }
     }
-    public PlayerInput PlayerInput { get; set; }
-    public int PlayerIndex { get; set; }
-}
+    

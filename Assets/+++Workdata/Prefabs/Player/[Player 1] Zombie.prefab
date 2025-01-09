@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6947129287817147828}
   - component: {fileID: 8369570769428025853}
   - component: {fileID: 4412931018522182503}
-  - component: {fileID: 7527185742211387899}
   - component: {fileID: 1189449685714138403}
   - component: {fileID: 7381364575695507651}
   - component: {fileID: 2028295604201025392}
@@ -52,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groupingRadius: 6
   baseMoveSpeed: 32
-  speedSmoothTime: 0.15
+  speedSmoothTime: 0.1
 --- !u!114 &4412931018522182503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,27 +68,6 @@ MonoBehaviour:
   maxHealth: 999999999
   changeColorOnHitTime: 0.3
   graveSprite: {fileID: 0}
---- !u!114 &7527185742211387899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113935404979712046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77d4431f727c9040a1a54498797882d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveToEnemySpeed: 6
-  attackableZombieLayer:
-    serializedVersion: 2
-    m_Bits: 384
-  attackRadius: 2.5
-  damage: 1
-  detectEnemyZombiesRadius: 5.5
-  maxTimeUntilNextAttack: 0.5
-  attackSeperationRadius: 0
 --- !u!114 &1189449685714138403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,9 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e508d2c8a7b7649a019e22babfeabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graveLayer:
+  humanLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   detectNecromancableHordeRadius: 8
 --- !u!114 &7381364575695507651
 MonoBehaviour:
@@ -263,4 +241,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf342f6b8c38664aa494316b04dcb49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoAttack: {fileID: 7527185742211387899}
+  autoAttack: {fileID: 0}

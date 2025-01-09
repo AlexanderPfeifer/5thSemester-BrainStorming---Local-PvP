@@ -4,18 +4,22 @@ using UnityEngine;
 public class NPCMovement : MonoBehaviour
 {
     [NonSerialized] public bool isNecromanced;
+    [SerializeField] private LayerMask zombie;
 
     [Header("Movement")]
+    private float currentSpeed;
     [SerializeField] private float baseMoveSpeed;
+    [SerializeField] private float runMoveSpeed;
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
     [NonSerialized] public Vector2 moveDirection;
+    [DisplayColor(0, 1, 0), SerializeField] float detectZombiesRadius;
 
     [Header("Grouping")]
     [SerializeField] private float groupingSpeed;
     [NonSerialized] public PlayerMovement mainZombieMovement;
-
+    
     [Header("Collision")]
     [SerializeField] private float collisionDetectionRadius;
 
@@ -23,6 +27,7 @@ public class NPCMovement : MonoBehaviour
 
     private void Start()
     {
+        currentSpeed = baseMoveSpeed;
         isNecromanced = false;
         cachedZombieData = GetComponent<CachedZombieData>();
     }
@@ -45,10 +50,18 @@ public class NPCMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        if(isNecromanced && mainZombieMovement.groupingRadius < Vector2.Distance(transform.position, mainZombieMovement.transform.position))
+        Collider[] zombieHit = Physics.OverlapSphere(transform.position, detectZombiesRadius, zombie);
+
+        switch (isNecromanced)
         {
-            GroupWithMainZombie();
-            return;
+            case true when mainZombieMovement.groupingRadius < Vector2.Distance(transform.position, mainZombieMovement.transform.position):
+                GroupWithMainZombie();
+                return;
+            case false when zombieHit.Length > 0:
+                currentSpeed = runMoveSpeed;
+                transform.position = Vector2.MoveTowards(transform.position, transform.position + (transform.position - zombieHit[0].transform.position), Time.deltaTime * currentSpeed);
+                moveDirection = transform.position + (transform.position - zombieHit[0].transform.position);
+                return;
         }
 
         Vector2 moveDirectionNormalized = moveDirection.normalized;
@@ -64,8 +77,6 @@ public class NPCMovement : MonoBehaviour
             ~0                                    // Layer mask (all layers by default)
         );
 
-        Debug.Log(collisionDetected);
-
         if (collisionDetected)
         {
             moveDirectionNormalized = Vector2.Reflect(moveDirectionNormalized, hit.normal);
@@ -73,7 +84,7 @@ public class NPCMovement : MonoBehaviour
 
         transform.position = Vector3.SmoothDamp(
             transform.position,
-            (Vector2)transform.position + (moveDirectionNormalized * baseMoveSpeed),
+            (Vector2)transform.position + (moveDirectionNormalized * currentSpeed) + GetComponent<AutoAttack>().SeparationForce(),
             ref currentVelocity,
             speedSmoothTime
         );
@@ -81,7 +92,7 @@ public class NPCMovement : MonoBehaviour
 
     void GroupWithMainZombie()
     {
-        transform.position = Vector3.MoveTowards(transform.position, (Vector2)mainZombieMovement.transform.position, Time.deltaTime * baseMoveSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, (Vector2)mainZombieMovement.transform.position, Time.deltaTime * currentSpeed);
         moveDirection = mainZombieMovement.transform.position - transform.position;
     }
 
@@ -91,6 +102,12 @@ public class NPCMovement : MonoBehaviour
 
         lastPosition = transform.position;
 
-        cachedZombieData.Animator.SetFloat("moveSpeed", currentSpeed);
+        cachedZombieData.Animator.SetFloat("moveSpeed", 5);
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectZombiesRadius);
     }
 }

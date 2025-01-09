@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new Vector3(0, 0, 0);
+    private bool movementAllowed;
 
 
     private CachedZombieData cachedZombieData;
@@ -21,22 +24,45 @@ public class PlayerMovement : MonoBehaviour
         cachedZombieData = GetComponent<CachedZombieData>();
     }
 
+    private void OnEnable()
+    {
+        PlayerRegistryManager.Instance.AllPlayersReady += OnAllowMovement;
+    }
+    
+    private void OnDisable()
+    {
+        PlayerRegistryManager.Instance.AllPlayersReady -= OnAllowMovement;
+    }
+
     private void Update()
     {
-        MoveZombie();
+        if(movementAllowed)
+            MoveZombie();
     }
 
     private void LateUpdate()
     {
-        if (cachedZombieData.Health.isDead)
+        if (!movementAllowed || cachedZombieData.Health.isDead)
             return;
 
         MoveAnimationLateUpdate();
     }
 
+    private void OnAllowMovement()
+    {
+        StartCoroutine(DelayedMovementAllowance());
+    }
+
+    private IEnumerator DelayedMovementAllowance()
+    {
+        yield return new WaitForSeconds(3);
+
+        movementAllowed = true;
+    }
+
     public void OnMove(InputValue inputValue)
     {
-        if (cachedZombieData.AutoAttack.isAttacking || cachedZombieData.Health.isDead)
+        if (cachedZombieData.Health.isDead)
         {
             moveInput = Vector2.zero;
         }

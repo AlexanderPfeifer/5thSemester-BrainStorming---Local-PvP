@@ -10,7 +10,6 @@ public class NecromanceHorde : MonoBehaviour
 
     [SerializeField] private LayerMask attackableZombieLayer;
     [SerializeField] private LayerMask ownZombieLayer;
-    [SerializeField] private GameObject zombiePrefab;
     public Transform ParentObject;
     [SerializeField] private Sprite zombieVisual;
      
@@ -45,8 +44,6 @@ public class NecromanceHorde : MonoBehaviour
     {
         var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
 
-        necromancableZombieCachedData.DetectNecromanceZombies.enabled = true;
-
         Destroy(necromancableZombie.transform.parent.GetComponent<ShowNecromanceText>());
         Destroy(necromancableZombieCachedData.transform.GetComponentInChildren<Canvas>().gameObject);
 
@@ -60,6 +57,7 @@ public class NecromanceHorde : MonoBehaviour
         //Use this weird function, because if I just set the gameobject.layer equal to the ownZombieLayer, it throws an error trying to set 2 different layers
         necromancableZombieCachedData.AutoAttack.gameObject.layer = Mathf.RoundToInt(Mathf.Log(ownZombieLayer.value, 2));
         necromancableZombieCachedData.AutoAttack.ResetAttack();
+        necromancableZombieCachedData.AutoAttack.enabled = true;
 
         //We can get the same zombie layer of this object because the zombie is going to join this zombies team
         necromancableZombieCachedData.NPCMovement.mainZombieMovement = necromancableZombieCachedData.ZombiePlayerHordeRegistry.mainZombie.GetComponent<PlayerMovement>();
@@ -72,14 +70,5 @@ public class NecromanceHorde : MonoBehaviour
         necromancableZombieCachedData.Health.IsPlayer = true;
 
         necromancableZombieCachedData.Animator.enabled = true;
-    }
-
-    public void SpawnPlayerZombies()
-    {
-        var necromancableZombie = Instantiate(zombiePrefab, transform.position, Quaternion.identity, ParentObject);
-
-        var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
-
-        necromancableZombieCachedData.ZombiePlayerHordeRegistry.RegisterZombie(necromancableZombie);
     }
 }

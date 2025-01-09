@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 4950491148410360105}
   - component: {fileID: 5058734882583348532}
   - component: {fileID: 1579187242385607930}
-  - component: {fileID: 4023335032673320161}
   - component: {fileID: 3507419464144256148}
   - component: {fileID: 4503433368194696750}
   m_Layer: 8
@@ -187,9 +186,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88502727aec47d4cbde0e9ff2cf2728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombie:
+    serializedVersion: 2
+    m_Bits: 192
   baseMoveSpeed: 4
-  baseSpeedOffset: 2
+  runMoveSpeed: 7
   speedSmoothTime: 1
+  detectZombiesRadius: 7
   groupingSpeed: 6
   collisionDetectionRadius: 1
 --- !u!114 &5058734882583348532
@@ -215,7 +218,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6211258549479967278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77d4431f727c9040a1a54498797882d, type: 3}
   m_Name: 
@@ -228,23 +231,7 @@ MonoBehaviour:
   damage: 1
   detectEnemyZombiesRadius: 3
   maxTimeUntilNextAttack: 0.5
-  attackSeperationRadius: 0
---- !u!114 &4023335032673320161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6211258549479967278}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e508d2c8a7b7649a019e22babfeabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graveLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  detectNecromancableHordeRadius: 6
+  attackSeperationRadius: 2
 --- !u!114 &3507419464144256148
 MonoBehaviour:
   m_ObjectHideFlags: 0

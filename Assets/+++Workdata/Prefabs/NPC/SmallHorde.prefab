@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5098404059698774870}
   - component: {fileID: 1447590347142952023}
-  - component: {fileID: 7389341682901699219}
   m_Layer: 0
   m_Name: SmallHorde
   m_TagString: Untagged
@@ -52,18 +51,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   detectPlayerRadius: 6
---- !u!114 &7389341682901699219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6747331741517636422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3d83a0ac2d8be4bbd48adf3b2e1ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2064216962026406501
 PrefabInstance:
   m_ObjectHideFlags: 0

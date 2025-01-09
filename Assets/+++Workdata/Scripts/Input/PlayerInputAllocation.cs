@@ -24,7 +24,7 @@ public class PlayerInputAllocation : MonoBehaviour
 
         necromanceHorde = FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex).necromanceHorde;
 
-        necromanceHorde.SpawnPlayerZombies();
+        necromanceHorde.GetComponent<ZombiePlayerHordeRegistry>().SpawnPlayerZombie();
 
         canTakeInput = true;   
     }

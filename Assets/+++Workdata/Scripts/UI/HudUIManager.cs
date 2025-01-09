@@ -1,19 +1,41 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class HudUIManager : MonoBehaviour
 {
-    void Start()
+    [SerializeField] private TextMeshProUGUI countDownText;
+
+    void OnEnable()
     {
         PlayerRegistryManager.Instance.AllPlayersReady += StartGameCountdown;
+    }
+    
+    void OnDisable()
+    {
+        PlayerRegistryManager.Instance.AllPlayersReady -= StartGameCountdown;
     }
 
     private void StartGameCountdown()
     {
-        //StartGame 3..2..1 countdown -> let players only move after that
+        StartCoroutine(CountDownCoroutine());
     }
 
-    private void OnDestroy()
+    private IEnumerator CountDownCoroutine()
     {
-        PlayerRegistryManager.Instance.AllPlayersReady -= StartGameCountdown;
+        countDownText.text = "3";
+        yield return new WaitForSeconds(1);
+        
+        countDownText.text = "2";
+        yield return new WaitForSeconds(1);
+        
+        countDownText.text = "1";
+        yield return new WaitForSeconds(1);
+        
+        countDownText.text = "GO!";
+        yield return new WaitForSeconds(1);
+
+        countDownText.text = "";
     }
 }

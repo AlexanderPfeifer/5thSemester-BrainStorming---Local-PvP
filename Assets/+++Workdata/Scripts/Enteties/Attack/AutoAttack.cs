@@ -109,7 +109,7 @@ public class AutoAttack : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, (Vector2)closestAttackableZombie.position + SeparationForce(), Time.deltaTime * moveToEnemySpeed);
     }
 
-    Vector2 SeparationForce()
+    public Vector2 SeparationForce()
     {
         cachedGroupingZombies = Physics.OverlapSphere(transform.position, attackSeperationRadius * 0.8f, 1 << gameObject.layer);
 
@@ -168,5 +168,8 @@ public class AutoAttack : MonoBehaviour
         
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackSeperationRadius);
     }
 }

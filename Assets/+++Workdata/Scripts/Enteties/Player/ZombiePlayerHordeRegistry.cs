@@ -9,12 +9,12 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
 
     [SerializeField] private int playerIndex;
     [NonSerialized] public NecromanceHorde necromanceHorde;
-
-    public CinemachineTargetGroup TargetGroup;
-
-    [SerializeField] private int deathCountToLoose;
-
+    
     [NonSerialized] public GameObject mainZombie;
+    
+    [SerializeField] private GameObject zombiePrefab;
+
+    [SerializeField] private CinemachineCamera cineCam;
 
     private void Start()
     {
@@ -30,7 +30,6 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
                 mainZombie = zombie;
             }
             Zombies.Add(zombie);
-            TargetGroup.AddMember(zombie.transform, 1, .5f);
         }
     }
 
@@ -39,23 +38,16 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
         if (Zombies.Contains(zombie))
         {
             Zombies.Remove(zombie);
-            TargetGroup.RemoveMember(zombie.transform);
-
-            if (Zombies.Count == 0 )
-            {
-                necromanceHorde.SpawnPlayerZombies();
-
-                /*
-                deathCountToLoose--;
-                if (deathCountToLoose == 0)
-                {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                }
-                */
-            }
 
             Destroy(zombie);
         }
+    }
+
+    public void SpawnPlayerZombie()
+    {
+        var player = Instantiate(zombiePrefab, transform.position, Quaternion.identity, necromanceHorde.ParentObject);
+        RegisterZombie(player);
+        cineCam.Target.TrackingTarget = player.transform;
     }
 
     public int GetPlayerIndex()
