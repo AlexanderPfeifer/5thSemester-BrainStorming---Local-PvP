@@ -21,7 +21,8 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private List<GameObject> buttonList;
 
     [SerializeField] private bool fullscreenEnabled;
-
+    [SerializeField] private GameObject fullscreenCrossed;
+    
     [SerializeField] private GameObject pausePanel;
     
     [SerializeField] private GameObject pauseSettingsPanel;
@@ -49,6 +50,7 @@ public class MenuUI : MonoBehaviour
         SetSFXVolume();
 
         fullscreenEnabled = false;
+        fullscreenCrossed.SetActive(false);
 
         resolutions = Screen.resolutions;
         Screen.SetResolution(Mathf.RoundToInt(resolutions[0].width), Mathf.RoundToInt(resolutions[0].height), fullscreenEnabled);
@@ -68,10 +70,13 @@ public class MenuUI : MonoBehaviour
         if (fullscreenEnabled)
         {
             Screen.fullScreen = true;
+            fullscreenCrossed.SetActive(true);
+            
         }
         else
         {
             Screen.fullScreen = false;
+            fullscreenCrossed.SetActive(false);
         }
 
         if (winPanel.activeSelf == true)
