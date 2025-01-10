@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ea650deed850554799785b2999b904d
+guid: c7a25685d9c65464c97439db7b537fe7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8500025225912575444
-    second: brainstorming_main_menu_0
+      213: 4546641980387929097
+    second: brainstorming_sidebar_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_main_menu_0
+      name: brainstorming_sidebar_bg_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2276
-        height: 2160
+        x: 976
+        y: 3
+        width: 1719
+        height: 2157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d5e06c68e726f570800000000000000
-      internalID: 8500025225912575444
+      spriteID: 90ca6e1cacae81f30800000000000000
+      internalID: 4546641980387929097
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      brainstorming_main_menu_0: 8500025225912575444
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
