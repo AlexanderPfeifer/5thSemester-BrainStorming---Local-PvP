@@ -29,7 +29,8 @@ public class ShowNecromanceText : MonoBehaviour
 
         foreach (var canvas in NecromanceTextCanvas)
         {
-            canvas.transform.GetChild(0).gameObject.SetActive(isPlayerNearby);
+            if(canvas != null)
+                canvas.transform.GetChild(0).gameObject.SetActive(isPlayerNearby);
         }
     }
 

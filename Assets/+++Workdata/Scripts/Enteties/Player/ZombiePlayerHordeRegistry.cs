@@ -45,9 +45,9 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
 
     public void SpawnPlayerZombie()
     {
-        var player = Instantiate(zombiePrefab, transform.position, Quaternion.identity, necromanceHorde.ParentObject);
-        RegisterZombie(player);
-        cineCam.Target.TrackingTarget = player.transform;
+        var _player = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, necromanceHorde.ParentObject);
+        RegisterZombie(_player);
+        cineCam.Target.TrackingTarget = _player.transform;
     }
 
     public int GetPlayerIndex()

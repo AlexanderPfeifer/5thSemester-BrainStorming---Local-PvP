@@ -193,7 +193,9 @@ MonoBehaviour:
   runMoveSpeed: 7
   speedSmoothTime: 1
   detectZombiesRadius: 7
-  groupingSpeed: 6
+  notInCameraRange: 15
+  maxTimeUntilDespawn: 60
+  groupingSpeed: 15
   collisionDetectionRadius: 1
 --- !u!114 &5058734882583348532
 MonoBehaviour:
@@ -231,7 +233,7 @@ MonoBehaviour:
   damage: 1
   detectEnemyZombiesRadius: 3
   maxTimeUntilNextAttack: 0.5
-  attackSeperationRadius: 2
+  attackSeparationRadius: 2
 --- !u!114 &3507419464144256148
 MonoBehaviour:
   m_ObjectHideFlags: 0

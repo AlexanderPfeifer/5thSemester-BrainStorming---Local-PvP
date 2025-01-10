@@ -42,8 +42,7 @@ public class WinningArea : MonoBehaviour
             if (currentTimeToGetPoints < 0)
             {
                 player1Points++;
-                Debug.Log(player1Points / pointsToWin);
-                player1PointsSlider.value = (float)player1Points / (float)pointsToWin;
+                player1PointsSlider.value = (float)player1Points / pointsToWin;
 
                 if (player1Points >= pointsToWin)
                 {
@@ -59,13 +58,14 @@ public class WinningArea : MonoBehaviour
             if (currentTimeToGetPoints < 0)
             {
                 player2Points++;
-                player2PointsSlider.value = player2Points / pointsToWin;
-                currentTimeToGetPoints = maxTimeToGetPoints;
+                player2PointsSlider.value = (float)player2Points / pointsToWin;
 
                 if (player1Points >= pointsToWin)
                 {
                     winScreen.SetActive(true);
                 }
+                
+                currentTimeToGetPoints = maxTimeToGetPoints;
             }
         }
         else

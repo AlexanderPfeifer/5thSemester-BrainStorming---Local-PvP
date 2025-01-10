@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 public class Health : MonoBehaviour

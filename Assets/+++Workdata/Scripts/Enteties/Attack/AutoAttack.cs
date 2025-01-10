@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AutoAttack : MonoBehaviour
 {
@@ -16,10 +17,10 @@ public class AutoAttack : MonoBehaviour
     private float currentTimeUntilNextAttack;
     private Transform closestAttackableZombie;
 
-    [Header("Seperation")]
-    float updateTimer = 0f;
+    [Header("Separation")]
+    float updateTimer;
     Collider[] cachedGroupingZombies;
-    [DisplayColor(0, 0, 1), SerializeField] private float attackSeperationRadius;
+    [DisplayColor(0, 0, 1), SerializeField] private float attackSeparationRadius;
 
     private CachedZombieData cachedZombieData;
 
@@ -38,22 +39,24 @@ public class AutoAttack : MonoBehaviour
 
     private void IdentifyAttackableZombie()
     {
-        Collider[] attackableZombieHit = Physics.OverlapSphere(transform.position, detectEnemyZombiesRadius, attackableZombieLayer);
+        Collider[] _attackableZombieHit = Physics.OverlapSphere(transform.position, detectEnemyZombiesRadius, attackableZombieLayer);
 
-        if (attackableZombieHit.Length > 0)
+        if (_attackableZombieHit.Length > 0)
         {
             if (!isAttacking)
             {
-                // Start with the first zombie
-                closestAttackableZombie = attackableZombieHit[0].transform;
-
-                foreach (Collider zombie in attackableZombieHit)
+                foreach (Collider _zombie in _attackableZombieHit)
                 {
-                    // Compare squared distances to avoid unnecessary square root calculations
-                    if ((zombie.transform.position - transform.position).sqrMagnitude < 
-                        (closestAttackableZombie.position - transform.position).sqrMagnitude)
+                    if (_zombie.TryGetComponent(out NPCMovement _npcMovement))
                     {
-                        closestAttackableZombie = zombie.transform;
+                        closestAttackableZombie = _attackableZombieHit[0].transform;
+                            
+                        // Compare squared distances to avoid unnecessary square root calculations
+                        if ((_zombie.transform.position - transform.position).sqrMagnitude < 
+                            (closestAttackableZombie.position - transform.position).sqrMagnitude) 
+                        {
+                            closestAttackableZombie = _zombie.transform;
+                        }
                     }
                 }
             }
@@ -92,13 +95,11 @@ public class AutoAttack : MonoBehaviour
 
     private void MoveTowardsClosestEnemy()
     {
-        Vector3 directionToEnemy = closestAttackableZombie.position - transform.position;
-
-        RaycastHit hit;
+        Vector3 _directionToEnemy = closestAttackableZombie.position - transform.position;
 
         if (closestAttackableZombie.GetComponent<Health>().isDead ||
-            (Physics.Raycast(transform.position, directionToEnemy.normalized, out hit, directionToEnemy.magnitude, 1 << gameObject.layer) && 
-            hit.collider.gameObject != gameObject))
+            (Physics.Raycast(transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 1 << gameObject.layer) && 
+             _hit.collider.gameObject != gameObject))
         {
             isAttacking = false;
             return; 
@@ -106,14 +107,14 @@ public class AutoAttack : MonoBehaviour
 
         isAttacking = true;
 
-        transform.position = Vector3.MoveTowards(transform.position, (Vector2)closestAttackableZombie.position + SeparationForce(), Time.deltaTime * moveToEnemySpeed);
+        transform.position = Vector3.MoveTowards(transform.position, closestAttackableZombie.position + SeparationForce(), Time.deltaTime * moveToEnemySpeed);
     }
 
-    public Vector2 SeparationForce()
+    public Vector3 SeparationForce()
     {
-        cachedGroupingZombies = Physics.OverlapSphere(transform.position, attackSeperationRadius * 0.8f, 1 << gameObject.layer);
+        cachedGroupingZombies = Physics.OverlapSphere(transform.position, attackSeparationRadius * 0.8f, 1 << gameObject.layer);
 
-        Vector2 _separationForce = Vector2.zero;
+        Vector3 _separationForce = Vector3.zero;
 
         // Ignore separation if there's no other zombie nearby and compare to one because overlapCircle always hits itself
         if (cachedGroupingZombies.Length <= 1)
@@ -121,31 +122,22 @@ public class AutoAttack : MonoBehaviour
             return _separationForce;
         }
 
-        foreach (Collider zombie in cachedGroupingZombies)
+        foreach (Collider _zombie in cachedGroupingZombies)
         {
-            if (zombie == GetComponent<Collider>())
+            if (_zombie == GetComponent<Collider>())
                 continue; 
 
-            Vector2 oppositeDirectionToNearZombie = transform.position - zombie.transform.position;
+            Vector3 _oppositeDirectionToNearZombie = transform.position - _zombie.transform.position;
+            _oppositeDirectionToNearZombie.y = 0;
 
             // Compare to more than 0 to avoid division by 0
-            if (oppositeDirectionToNearZombie.magnitude > 0) 
+            if (_oppositeDirectionToNearZombie.magnitude > 0) 
             {
-                _separationForce += oppositeDirectionToNearZombie / oppositeDirectionToNearZombie.magnitude; // Stronger repulsion when closer
+                _separationForce += _oppositeDirectionToNearZombie / _oppositeDirectionToNearZombie.magnitude; // Stronger repulsion when closer
             }
         }
 
         return _separationForce;
-    }
-
-    void UpdateCachedZombies()
-    {
-        if (updateTimer <= 0f)
-        {
-            cachedGroupingZombies = Physics.OverlapSphere(transform.position, attackSeperationRadius, 1 << gameObject.layer);
-            updateTimer = 0.1f; // Update every 0.1s
-        }
-        updateTimer -= Time.deltaTime;
     }
 
     public void AttackEnemyAnimationEvent()
@@ -170,6 +162,6 @@ public class AutoAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attackSeperationRadius);
+        Gizmos.DrawWireSphere(transform.position, attackSeparationRadius);
     }
 }

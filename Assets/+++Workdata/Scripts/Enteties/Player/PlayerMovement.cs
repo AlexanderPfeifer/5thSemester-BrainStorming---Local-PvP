@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     [DisplayColor(0, 0, 1), SerializeField] public float groupingRadius;
 
-    [Header("Movement")]
+    [Header("Movement")] 
+    private float currentMoveSpeed;
     [SerializeField] private float baseMoveSpeed;
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
@@ -74,16 +74,20 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, (Vector2)transform.position + (moveInput * baseMoveSpeed).normalized, ref currentVelocity, speedSmoothTime);
+        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .5f;
+
+        currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, baseMoveSpeed - 3);
+        
+        transform.position = Vector3.SmoothDamp(transform.position, transform.position + (new Vector3(moveInput.x, 0, moveInput.y) * currentMoveSpeed).normalized, ref currentVelocity, speedSmoothTime);
     }
 
     void MoveAnimationLateUpdate()
     {
-        var currentSpeed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;
+        var _currentSpeed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;
 
         lastPosition = transform.position;
 
-        cachedZombieData.Animator.SetFloat("moveSpeed", currentSpeed);
+        cachedZombieData.Animator.SetFloat("moveSpeed", _currentSpeed);
     }
 
     void OnDrawGizmos()
