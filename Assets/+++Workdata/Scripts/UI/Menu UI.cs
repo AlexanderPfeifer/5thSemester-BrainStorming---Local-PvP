@@ -193,21 +193,27 @@ public class MenuUI : MonoBehaviour
     public void OpenSettings()
     {
         pauseSettingsPanel.SetActive(true);
+        pauseSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+        Debug.Log("Pressed");
     }
 
     public void CloseSettings()
     {
         pauseSettingsPanel.SetActive(false);
+        pauseSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
     }
     
     public void OpenControls()
     {
         pauseControlsPanel.SetActive(true);
+        pauseControlsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+        Debug.Log("Pressed");
     }
 
     public void CloseControls()
     {
         pauseControlsPanel.SetActive(false);
+        pauseControlsPanel.GetComponent<Animator>().SetTrigger("Pressed");
     }
 
     public void BackToMain()
