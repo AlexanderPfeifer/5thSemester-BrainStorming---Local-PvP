@@ -33,6 +33,7 @@ public class NPCMovement : MonoBehaviour
         currentSpeed = baseMoveSpeed;
         isNecromanced = false;
         cachedZombieData = GetComponent<CachedZombieData>();
+        currentTimeUntilDespawn = maxTimeUntilDespawn;
     }
 
     private void Update()

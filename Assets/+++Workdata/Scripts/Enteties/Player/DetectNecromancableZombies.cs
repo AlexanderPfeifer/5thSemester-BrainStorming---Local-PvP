@@ -7,6 +7,8 @@ public class DetectNecromancableZombies : MonoBehaviour
     [SerializeField] private LayerMask humanLayer;
     [DisplayColor(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
     private CachedZombieData cachedZombieData;
+    private HashSet<Transform> necromancableHordeSet = new();
+    private List<Transform> necromancableZombie = new();
 
     private void Start()
     {
@@ -17,30 +19,76 @@ public class DetectNecromancableZombies : MonoBehaviour
     {
         IdentifyNecromancableHorde();
     }
+    
+    private void ShowNecromanceTextOnHordeGroups(Transform horde, float visibility)
+    {
+        horde.GetComponent<ShowNecromanceText>().CanvasGroupVisibility(visibility);
+    }
 
     private void IdentifyNecromancableHorde()
     {
-        var necromancableZombieHit = Physics.OverlapSphere(transform.position, detectNecromancableHordeRadius, humanLayer);
+        var _necromancableZombieHit = Physics.OverlapSphere(transform.position, detectNecromancableHordeRadius, humanLayer);
 
-        // Create a temporary list to store parents because otherwise the loop gets cancelled, resulting in an error
-        var necromancableHordeSet = new HashSet<Transform>(cachedZombieData.NecromanceHorde.necromancableZombieHorde);
-
-        foreach (var necromancableZombie in necromancableZombieHit)
+        foreach (var _necromancableZombie in _necromancableZombieHit)
         {
-            var parent = necromancableZombie.transform.parent;
+            var _parent = _necromancableZombie.transform.parent;
+            
+            if(!necromancableZombie.Contains(_necromancableZombie.transform))
+                necromancableZombie.Add(_necromancableZombie.transform);
 
-            if (necromancableHordeSet.Contains(parent))
+            if (necromancableHordeSet.Contains(_parent))
                 continue;
 
-            parent.GetComponent<ShowNecromanceText>().wholeHordeDead = true;
-            necromancableHordeSet.Add(parent);
+            necromancableHordeSet.Add(_parent);
+        }
+        
+        // Create a temporary list to store parents because otherwise if the loop gets cancelled, it would result in an error
+        var _removableHordeSet = new HashSet<Transform>();
+        
+        //Make the same for the hordeSets for the same reason as above
+        var _tempHordeSet = new HashSet<Transform>(necromancableHordeSet);
+
+        foreach (var _horde in _tempHordeSet)
+        {
+            bool _isZombieInRange  = false;
+            
+            foreach (Transform _zombie in necromancableZombie)
+            {
+                if (_zombie == null)
+                {
+                    break;
+                }
+ 
+                if (Vector3.Distance(_zombie.position, transform.position) < detectNecromancableHordeRadius)
+                {
+                    _isZombieInRange = true; 
+                    break; 
+                }
+            }
+
+            if (_isZombieInRange)
+            {
+                if (!cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde))
+                {
+                    cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(_horde);
+                    ShowNecromanceTextOnHordeGroups(_horde, 1);
+                }
+            }
+            else
+            {
+                if (cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde))
+                {
+                    cachedZombieData.NecromanceHorde.necromancableZombieHorde.Remove(_horde);
+                    ShowNecromanceTextOnHordeGroups(_horde, 0); 
+                }
+            }
         }
 
-        foreach (var horde in necromancableHordeSet)
+        foreach (var _removableHorde in _removableHordeSet)
         {
-            if (!cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(horde))
+            if (necromancableHordeSet.Contains(_removableHorde))
             {
-                cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(horde);
+                necromancableHordeSet.Remove(_removableHorde);
             }
         }
     }

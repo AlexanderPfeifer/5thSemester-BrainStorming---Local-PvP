@@ -1,36 +1,14 @@
-using System;
 using UnityEngine;
 
 public class ShowNecromanceText : MonoBehaviour
 {
-    public Canvas[] NecromanceTextCanvas;
-    [SerializeField] private LayerMask playerLayers;
-    [SerializeField] private float detectPlayerRadius;
-    [NonSerialized] public bool wholeHordeDead;
+    [SerializeField] private CanvasGroup[] canvasGroup;
 
-    private void Start()
+    public void CanvasGroupVisibility(float canvasGroupVisibility)
     {
-        NecromanceTextCanvas = GetComponentsInChildren<Canvas>();
-    }
-
-    private void Update()
-    {
-        CheckPlayerInRange();
-    }
-
-    private void CheckPlayerInRange()
-    {
-        if(!wholeHordeDead)
+        foreach (var _canvasGroup in canvasGroup)
         {
-            return;
-        }
-
-        bool isPlayerNearby = Physics2D.OverlapCircleAll(transform.position, detectPlayerRadius, playerLayers).Length > 0;
-
-        foreach (var canvas in NecromanceTextCanvas)
-        {
-            if(canvas != null)
-                canvas.transform.GetChild(0).gameObject.SetActive(isPlayerNearby);
+            _canvasGroup.alpha = canvasGroupVisibility;
         }
     }
 

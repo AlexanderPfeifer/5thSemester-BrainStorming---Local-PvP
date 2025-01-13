@@ -12,7 +12,7 @@ public class NecromanceHorde : MonoBehaviour
     [SerializeField] private LayerMask ownZombieLayer;
     public Transform ParentObject;
     [SerializeField] private Sprite zombieVisual;
-     
+
     public void OnNecromance()
     {
         var necromancableHordeSet = new HashSet<Transform>();
@@ -40,7 +40,7 @@ public class NecromanceHorde : MonoBehaviour
         }
     }
 
-    public void NecromanceZombie(GameObject necromancableZombie)
+    private void NecromanceZombie(GameObject necromancableZombie)
     {
         var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
 
