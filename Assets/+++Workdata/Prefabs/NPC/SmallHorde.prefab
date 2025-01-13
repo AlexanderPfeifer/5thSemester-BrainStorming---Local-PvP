@@ -46,11 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e457b3cf6f2418140ae99370441c3bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NecromanceTextCanvas: []
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 192
-  detectPlayerRadius: 6
+  canvasGroup:
+  - {fileID: 2169902853067763725}
+  - {fileID: 8874943939712351973}
 --- !u!1001 &2064216962026406501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +111,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
   m_PrefabInstance: {fileID: 2064216962026406501}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &8874943939712351973 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7462376750620933248, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 2064216962026406501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3885287867696631944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,10 +171,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7383452106822225727, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2169902853067763725}
   m_SourcePrefab: {fileID: 100100000, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
 --- !u!4 &2764016876208725527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1418794477348867743, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
   m_PrefabInstance: {fileID: 3885287867696631944}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6024719166774108087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7383452106822225727, guid: 0d01098c85b15df43af94d11425f40e8, type: 3}
+  m_PrefabInstance: {fileID: 3885287867696631944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &2169902853067763725
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024719166774108087}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
