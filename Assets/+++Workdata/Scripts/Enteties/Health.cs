@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [Header("Player Toggle")]
-    [SerializeField] public bool IsPlayer;
+    [Header("Player Toggle")] 
+    public bool IsPlayerZombie;
 
     [Header("Health")]
     [SerializeField] private int maxHealth;
@@ -15,10 +14,10 @@ public class Health : MonoBehaviour
     [SerializeField] private float changeColorOnHitTime = .3f;
 
     [Header("Death")]
-    public Sprite graveSprite;
-    [NonSerialized] public bool isDead;
+    public bool IsDead;
     private Vector3 startScale;
     private Quaternion startRotation;
+    public Sprite graveSprite;
 
     private CachedZombieData cachedZombieData;
 
@@ -28,7 +27,7 @@ public class Health : MonoBehaviour
         cachedZombieData = GetComponent<CachedZombieData>();
         startRotation = GetComponentInChildren<Transform>().rotation;
 
-        if(!IsPlayer)
+        if(!IsPlayerZombie)
         {
             startScale = transform.localScale;
         }
@@ -36,7 +35,7 @@ public class Health : MonoBehaviour
 
     public void DamageIncome(int damageDealt, AutoAttack autoAttack)
     {
-        if (!IsPlayer && cachedZombieData.MeshRenderer.material.mainTexture as Texture2D == graveSprite.texture)
+        if (!IsPlayerZombie && cachedZombieData.MeshRenderer.material.mainTexture as Texture2D == graveSprite.texture)
             return;
         
         currentHealth -= damageDealt;
@@ -52,12 +51,13 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        if (!IsPlayer)
+        if (!IsPlayerZombie)
         {
-            isDead = true;
+            IsDead = true;
 
             cachedZombieData.MeshRenderer.material.mainTexture = graveSprite.texture;
             cachedZombieData.Animator.enabled = false;
+            
             //Need to reset the animator because it still has effect on the rotation even after disabling it
             cachedZombieData.Animator.Rebind();
             GetComponentInChildren<Transform>().localRotation = startRotation;

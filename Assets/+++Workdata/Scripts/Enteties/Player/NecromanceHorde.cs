@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NecromanceHorde : MonoBehaviour
 {
-    [NonSerialized] public List<Transform> necromancableZombieHorde = new List<Transform>();
+    public HashSet<Transform> NecromancableZombieHorde = new();
 
     [SerializeField] private string necromantedZombieName;
 
@@ -15,60 +14,64 @@ public class NecromanceHorde : MonoBehaviour
 
     public void OnNecromance()
     {
-        var necromancableHordeSet = new HashSet<Transform>();
-        var necromancedZombie = new HashSet<GameObject>();
+        var _necromancableHordeSet = new HashSet<Transform>();
+        var _necromancableZombieSet = new HashSet<GameObject>();
 
-        foreach (Transform zombieHorde in necromancableZombieHorde)
+        // Clear the sets to ensure they are reset each time the method is triggered
+        _necromancableHordeSet.Clear();
+        _necromancableZombieSet.Clear();
+        
+        foreach (Transform _zombieHorde in NecromancableZombieHorde)
         {
-            foreach(Transform zombie in zombieHorde)
+            _necromancableHordeSet.Add(_zombieHorde);
+
+            foreach(Transform _horde in _necromancableHordeSet)
             {
-                NecromanceZombie(zombie.gameObject);
-                necromancedZombie.Add(zombie.gameObject);
+                foreach (Transform _zombie in _horde)
+                {
+                    _necromancableZombieSet.Add(_zombie.gameObject);
+                }
             }
-  
-            necromancableHordeSet.Add(zombieHorde);
         }
 
-        foreach (var horde in necromancableHordeSet)
-        {
-            necromancableZombieHorde.Remove(horde);
-        }
+        NecromancableZombieHorde.Clear();
 
-        foreach(var zombie in necromancedZombie)
+        foreach(var _zombie in _necromancableZombieSet)
         {
-            zombie.transform.parent = ParentObject;
+            NecromanceZombie(_zombie);
+            _zombie.transform.parent = ParentObject;
         }
     }
 
     private void NecromanceZombie(GameObject necromancableZombie)
     {
-        var necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
+        var _necromancableZombieCachedData = necromancableZombie.GetComponent<CachedZombieData>();
 
         Destroy(necromancableZombie.transform.parent.GetComponent<ShowNecromanceText>());
-        Destroy(necromancableZombieCachedData.transform.GetComponentInChildren<Canvas>().gameObject);
+        Destroy(_necromancableZombieCachedData.transform.GetComponentInChildren<Canvas>().gameObject);
 
         necromancableZombie.name = necromantedZombieName;
 
-        necromancableZombieCachedData.ZombiePlayerHordeRegistry = GetComponent<ZombiePlayerHordeRegistry>();
+        _necromancableZombieCachedData.ZombiePlayerHordeRegistry = GetComponent<ZombiePlayerHordeRegistry>();
 
-        necromancableZombieCachedData.ZombiePlayerHordeRegistry.RegisterZombie(necromancableZombie);
+        _necromancableZombieCachedData.ZombiePlayerHordeRegistry.RegisterZombie(necromancableZombie);
         
-        necromancableZombieCachedData.AutoAttack.attackableZombieLayer = attackableZombieLayer;
+        _necromancableZombieCachedData.AutoAttack.attackableZombieLayer = attackableZombieLayer;
         //Use this weird function, because if I just set the gameobject.layer equal to the ownZombieLayer, it throws an error trying to set 2 different layers
-        necromancableZombieCachedData.AutoAttack.gameObject.layer = Mathf.RoundToInt(Mathf.Log(ownZombieLayer.value, 2));
-        necromancableZombieCachedData.AutoAttack.ResetAttack();
-        necromancableZombieCachedData.AutoAttack.enabled = true;
+        _necromancableZombieCachedData.AutoAttack.gameObject.layer = Mathf.RoundToInt(Mathf.Log(ownZombieLayer.value, 2));
+        _necromancableZombieCachedData.AutoAttack.ResetAttack();
+        _necromancableZombieCachedData.AutoAttack.enabled = true;
 
         //We can get the same zombie layer of this object because the zombie is going to join this zombies team
-        necromancableZombieCachedData.NPCMovement.mainZombieMovement = necromancableZombieCachedData.ZombiePlayerHordeRegistry.mainZombie.GetComponent<PlayerMovement>();
-        necromancableZombieCachedData.NPCMovement.isNecromanced = true;
+        _necromancableZombieCachedData.NPCMovement.MainZombieMovement = _necromancableZombieCachedData.ZombiePlayerHordeRegistry.mainZombie.GetComponent<PlayerMovement>();
+        _necromancableZombieCachedData.NPCMovement.IsNecromanced = true;
 
-        necromancableZombieCachedData.MeshRenderer.material.mainTexture = zombieVisual.texture;
+        _necromancableZombieCachedData.MeshRenderer.material.mainTexture = zombieVisual.texture;
         
-        necromancableZombieCachedData.Health.ResetHealth();
-        necromancableZombieCachedData.Health.isDead = false;
-        necromancableZombieCachedData.Health.IsPlayer = true;
+        _necromancableZombieCachedData.Health.ResetHealth();
+        _necromancableZombieCachedData.Health.IsDead = false;
+        _necromancableZombieCachedData.Health.IsPlayerZombie = true;
 
-        necromancableZombieCachedData.Animator.enabled = true;
+        _necromancableZombieCachedData.Animator.enabled = true;
     }
 }

@@ -1703,7 +1703,7 @@ MonoBehaviour:
   necromantedZombieName: '[Player 1] Zombie'
   attackableZombieLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   ownZombieLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4191,7 +4191,7 @@ MonoBehaviour:
   necromantedZombieName: '[Player 2] Zombie'
   attackableZombieLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 64
   ownZombieLayer:
     serializedVersion: 2
     m_Bits: 128

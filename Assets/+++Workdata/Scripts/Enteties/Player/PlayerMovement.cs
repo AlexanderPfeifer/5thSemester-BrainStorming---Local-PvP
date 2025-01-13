@@ -42,10 +42,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!movementAllowed || cachedZombieData.Health.isDead)
-            return;
-
-        MoveAnimationLateUpdate();
+        if(movementAllowed)
+            MoveAnimationLateUpdate();
     }
 
     private void OnAllowMovement()
@@ -62,14 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputValue inputValue)
     {
-        if (cachedZombieData.Health.isDead)
-        {
-            moveInput = Vector2.zero;
-        }
-        else
-        {
-            moveInput = inputValue.Get<Vector2>().normalized;
-        }
+        moveInput = inputValue.Get<Vector2>().normalized;
     }
 
     void MoveZombie()

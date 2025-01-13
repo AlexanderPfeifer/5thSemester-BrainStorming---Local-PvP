@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
-    [NonSerialized] public bool isNecromanced;
-    [SerializeField] private LayerMask zombie;
+    [NonSerialized] public bool IsNecromanced;
+    [SerializeField] private LayerMask zombieLayer;
 
     [Header("Movement")]
     private float currentSpeed;
@@ -12,8 +12,8 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private float runMoveSpeed;
     [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
-    private Vector3 currentVelocity = new Vector3(0, 0, 0);
-    [NonSerialized] public Vector3 moveDirection;
+    private Vector3 currentVelocity = new(0, 0, 0);
+    [NonSerialized] public Vector3 MoveDirection;
     [DisplayColor(0, 1, 0), SerializeField] float detectZombiesRadius;    
     [SerializeField] float notInCameraRange;
     [SerializeField] private float maxTimeUntilDespawn = 60;
@@ -21,7 +21,7 @@ public class NPCMovement : MonoBehaviour
 
     [Header("Grouping")]
     [SerializeField] private float groupingSpeed;
-    [NonSerialized] public PlayerMovement mainZombieMovement;
+    [NonSerialized] public PlayerMovement MainZombieMovement;
     
     [Header("Collision")]
     [SerializeField] private float collisionDetectionRadius;
@@ -31,96 +31,94 @@ public class NPCMovement : MonoBehaviour
     private void Start()
     {
         currentSpeed = baseMoveSpeed;
-        isNecromanced = false;
+        IsNecromanced = false;
         cachedZombieData = GetComponent<CachedZombieData>();
         currentTimeUntilDespawn = maxTimeUntilDespawn;
+        cachedZombieData.Animator.SetFloat("moveSpeed", 5);
     }
 
     private void Update()
     {
-        Collider[] _zombieHit = Physics.OverlapSphere(transform.position, notInCameraRange, zombie);
-
-        if(!isNecromanced)
-            currentTimeUntilDespawn -= Time.deltaTime;
-
-        if (currentTimeUntilDespawn <= 0 && _zombieHit.Length <= 0)
-        {
-            Destroy(gameObject);
-        }
+        ZombieDespawnTime();
         
-        if (cachedZombieData.Health.isDead || cachedZombieData.AutoAttack.isAttacking)
+        if (cachedZombieData.Health.IsDead || cachedZombieData.AutoAttack.IsAttacking)
             return;
 
         MoveZombie();
     }
 
-    private void LateUpdate()
+    void ZombieDespawnTime()
     {
-        if (cachedZombieData.Health.isDead)
-            return;
+        if (!IsNecromanced)
+        {
+            Collider[] _zombieHit = Physics.OverlapSphere(transform.position, notInCameraRange, zombieLayer);
 
-        MoveAnimationLateUpdate();
+            currentTimeUntilDespawn -= Time.deltaTime;
+
+            if (currentTimeUntilDespawn <= 0 && _zombieHit.Length <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void MoveZombie()
     {
-        Collider[] _zombieHit = Physics.OverlapSphere(transform.position, detectZombiesRadius, zombie);
+        var _position = transform.position;
 
-        switch (isNecromanced)
+        Collider[] _zombieHit = Physics.OverlapSphere(_position, detectZombiesRadius, 1 << gameObject.layer);
+        
+        switch (IsNecromanced)
         {
-            case true when mainZombieMovement.groupingRadius < Vector2.Distance(transform.position, mainZombieMovement.transform.position):
+            case true when Vector2.Distance(transform.position, MainZombieMovement.transform.position) > MainZombieMovement.groupingRadius:
                 GroupWithMainZombie();
                 return;
             case false when _zombieHit.Length > 0:
                 //Move away from zombies
                 currentSpeed = runMoveSpeed;
-                transform.position = Vector3.MoveTowards(transform.position, transform.position + (transform.position - _zombieHit[0].transform.position), Time.deltaTime * currentSpeed);
-                moveDirection = transform.position + (transform.position - _zombieHit[0].transform.position);
+                
+                _position = Vector3.MoveTowards(_position, 
+                    _position + (_position - _zombieHit[0].transform.position), 
+                    Time.deltaTime * currentSpeed);
+                
+                transform.position = _position;
+                
+                MoveDirection = _position + (_position - _zombieHit[0].transform.position);
                 return;
         }
 
-        Vector3 _moveDirectionNormalized = moveDirection.normalized;
+        Vector3 _moveDirectionNormalized = MoveDirection.normalized;
 
         // Detect collisions in front of the zombie using SphereCast
-        bool _zombieDetected = Physics.SphereCast(
-            transform.position,                   // Starting point of the cast
-            collisionDetectionRadius,             // Radius of the sphere
-            _moveDirectionNormalized,              // Direction of the sphere cast
-            out var _hit,                              // Output the collision information
-            collisionDetectionRadius,             // Max distance for the sphere cast
-            ~0                                    // Layer mask (all layers by default)
+        bool _collisionDetected = Physics.SphereCast(
+            transform.position,                    // Starting point of the cast
+            collisionDetectionRadius,                   // Radius of the sphere
+            _moveDirectionNormalized,                   // Direction of the sphere cast
+            out var _hit,                               // Output the collision information
+            collisionDetectionRadius,         // Max distance for the sphere cast
+            ~0                                  // Layer mask (all layers by default)
         );
 
-        if (_zombieDetected)
+        if (_collisionDetected) 
         {
             currentTimeUntilDespawn = maxTimeUntilDespawn;
             _moveDirectionNormalized = Vector3.Reflect(_moveDirectionNormalized, _hit.normal);
         }
         
-        transform.position = Vector3.SmoothDamp(
-            transform.position,
-            transform.position + (new Vector3(_moveDirectionNormalized.x, 0, _moveDirectionNormalized.z) * currentSpeed) + GetComponent<AutoAttack>().SeparationForce(),
-            ref currentVelocity,
-            speedSmoothTime
-        );
+        _position = Vector3.SmoothDamp(_position, 
+            _position + (new Vector3(_moveDirectionNormalized.x, 0, _moveDirectionNormalized.z) * currentSpeed)
+                      + GetComponent<AutoAttack>().SeparationForce(), ref currentVelocity, speedSmoothTime);
+        
+        transform.position = _position;
     }
 
     void GroupWithMainZombie()
     {
         currentSpeed = groupingSpeed;
-        transform.position = Vector3.MoveTowards(transform.position, (Vector2)mainZombieMovement.transform.position, Time.deltaTime * currentSpeed);
-        moveDirection = mainZombieMovement.transform.position - transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, MainZombieMovement.transform.position, Time.deltaTime * currentSpeed);
+        MoveDirection = MainZombieMovement.transform.position - transform.position;
     }
 
-    void MoveAnimationLateUpdate()
-    {
-        var currentSpeed = Vector3.Distance(transform.position, lastPosition) / Time.deltaTime;  
-
-        lastPosition = transform.position;
-
-        cachedZombieData.Animator.SetFloat("moveSpeed", 5);
-    }
-    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88502727aec47d4cbde0e9ff2cf2728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie:
+  zombieLayer:
     serializedVersion: 2
     m_Bits: 192
   baseMoveSpeed: 4
@@ -195,7 +195,7 @@ MonoBehaviour:
   detectZombiesRadius: 7
   notInCameraRange: 15
   maxTimeUntilDespawn: 60
-  groupingSpeed: 15
+  groupingSpeed: 10
   collisionDetectionRadius: 1
 --- !u!114 &5058734882583348532
 MonoBehaviour:
@@ -209,9 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPlayer: 0
+  IsPlayerZombie: 0
   maxHealth: 2
   changeColorOnHitTime: 0.3
+  IsDead: 0
   graveSprite: {fileID: -2071146890368960708, guid: 56084777da0857742adca680f1c9c705, type: 3}
 --- !u!114 &1579187242385607930
 MonoBehaviour:
@@ -229,10 +230,10 @@ MonoBehaviour:
   attackableZombieLayer:
     serializedVersion: 2
     m_Bits: 192
-  attackRadius: 1.35
   damage: 1
-  detectEnemyZombiesRadius: 3
   maxTimeUntilNextAttack: 0.5
+  attackRadius: 1.35
+  detectEnemyZombiesRadius: 3
   attackSeparationRadius: 2
 --- !u!114 &3507419464144256148
 MonoBehaviour:

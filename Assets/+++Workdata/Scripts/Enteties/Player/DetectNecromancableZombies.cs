@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DetectNecromancableZombies : MonoBehaviour
@@ -7,8 +8,9 @@ public class DetectNecromancableZombies : MonoBehaviour
     [SerializeField] private LayerMask humanLayer;
     [DisplayColor(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
     private CachedZombieData cachedZombieData;
-    private HashSet<Transform> necromancableHordeSet = new();
-    private List<Transform> necromancableZombie = new();
+    
+    private readonly HashSet<Transform> necromancableHordeSet = new();
+    private readonly HashSet<Transform> necromancableZombie = new();
 
     private void Start()
     {
@@ -31,66 +33,50 @@ public class DetectNecromancableZombies : MonoBehaviour
 
         foreach (var _necromancableZombie in _necromancableZombieHit)
         {
-            var _parent = _necromancableZombie.transform.parent;
+            var _zombieTransform = _necromancableZombie.transform;
+            var _zombieParent = _zombieTransform.parent;
+
+            if(necromancableZombie.Add(_zombieTransform))
+            {}
             
-            if(!necromancableZombie.Contains(_necromancableZombie.transform))
-                necromancableZombie.Add(_necromancableZombie.transform);
-
-            if (necromancableHordeSet.Contains(_parent))
-                continue;
-
-            necromancableHordeSet.Add(_parent);
+            if (_zombieParent != null && necromancableHordeSet.Add(_zombieParent))  // Add returns false if the item already exists
+            {}
         }
         
-        // Create a temporary list to store parents because otherwise if the loop gets cancelled, it would result in an error
-        var _removableHordeSet = new HashSet<Transform>();
-        
-        //Make the same for the hordeSets for the same reason as above
+        // Temporary hash set for safe iteration
         var _tempHordeSet = new HashSet<Transform>(necromancableHordeSet);
 
         foreach (var _horde in _tempHordeSet)
         {
-            bool _isZombieInRange  = false;
-            
-            foreach (Transform _zombie in necromancableZombie)
-            {
-                if (_zombie == null)
-                {
-                    break;
-                }
- 
-                if (Vector3.Distance(_zombie.position, transform.position) < detectNecromancableHordeRadius)
-                {
-                    _isZombieInRange = true; 
-                    break; 
-                }
-            }
+            bool _isZombieInRange = necromancableZombie.Any(_zombie =>
+                _zombie != null && Vector3.Distance(_zombie.position, transform.position) < detectNecromancableHordeRadius);
 
+            // Activate or deactivate necromance text based on zombies in range
             if (_isZombieInRange)
             {
-                if (!cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde) && _horde != null)
+                if (_horde != null && cachedZombieData.NecromanceHorde.NecromancableZombieHorde.Add(_horde))
                 {
-                    cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(_horde);
                     ShowNecromanceTextOnHordeGroups(_horde, 1);
                 }
             }
             else
             {
-                if (cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde) && _horde != null)
+                if (_horde != null && cachedZombieData.NecromanceHorde.NecromancableZombieHorde.Remove(_horde)) // Only remove if present
                 {
-                    cachedZombieData.NecromanceHorde.necromancableZombieHorde.Remove(_horde);
-                    ShowNecromanceTextOnHordeGroups(_horde, 0); 
+                    ShowNecromanceTextOnHordeGroups(_horde, 0);
                 }
             }
         }
+        
+        necromancableZombie.Clear();
+        
+        // Remove hordes marked as removable
+        necromancableHordeSet.RemoveWhere(_horde => !_tempHordeSet.Contains(_horde));
+    }
 
-        foreach (var _removableHorde in _removableHordeSet)
-        {
-            if (necromancableHordeSet.Contains(_removableHorde))
-            {
-                necromancableHordeSet.Remove(_removableHorde);
-            }
-        }
+    void RemoveNecromancableZombies()
+    {
+        
     }
     
     private void OnDrawGizmos()

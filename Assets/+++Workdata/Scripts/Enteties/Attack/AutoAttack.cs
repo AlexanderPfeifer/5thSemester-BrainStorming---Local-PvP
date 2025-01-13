@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AutoAttack : MonoBehaviour
 {
@@ -9,13 +8,13 @@ public class AutoAttack : MonoBehaviour
     
     [Header("Attack")]
     [SerializeField] public LayerMask attackableZombieLayer;
-    [DisplayColor(1, 0, 0), SerializeField] private float attackRadius;
     [SerializeField] private int damage;
-    [DisplayColor(1, 1, 0), SerializeField] private float detectEnemyZombiesRadius;
     [SerializeField] private float maxTimeUntilNextAttack;
-    [NonSerialized] public bool isAttacking;
+    [NonSerialized] public bool IsAttacking;
     private float currentTimeUntilNextAttack;
     private Transform closestAttackableZombie;
+    [DisplayColor(1, 0, 0), SerializeField] private float attackRadius;
+    [DisplayColor(1, 1, 0), SerializeField] private float detectEnemyZombiesRadius;
 
     [Header("Separation")]
     float updateTimer;
@@ -31,7 +30,7 @@ public class AutoAttack : MonoBehaviour
 
     private void Update()
     {
-        if(GetComponent<Health>().isDead)
+        if(GetComponent<Health>().IsDead)
             return;
 
         IdentifyAttackableZombie();
@@ -43,17 +42,16 @@ public class AutoAttack : MonoBehaviour
 
         if (_attackableZombieHit.Length > 0)
         {
-            if (!isAttacking)
+            if (!IsAttacking)
             {
                 foreach (Collider _zombie in _attackableZombieHit)
                 {
                     if (_zombie.TryGetComponent(out NPCMovement _npcMovement))
                     {
-                        closestAttackableZombie = _attackableZombieHit[0].transform;
+                        closestAttackableZombie = _zombie.transform;
                             
                         // Compare squared distances to avoid unnecessary square root calculations
-                        if ((_zombie.transform.position - transform.position).sqrMagnitude < 
-                            (closestAttackableZombie.position - transform.position).sqrMagnitude) 
+                        if ((_zombie.transform.position - transform.position).sqrMagnitude < (closestAttackableZombie.position - transform.position).sqrMagnitude) 
                         {
                             closestAttackableZombie = _zombie.transform;
                         }
@@ -65,7 +63,7 @@ public class AutoAttack : MonoBehaviour
         }
         else
         {
-            isAttacking = false;
+            IsAttacking = false;
         }
     }
     
@@ -73,7 +71,7 @@ public class AutoAttack : MonoBehaviour
     {
         if (closestAttackableZombie == null) 
         { 
-            isAttacking = false;
+            IsAttacking = false;
             return;
         }
 
@@ -96,16 +94,13 @@ public class AutoAttack : MonoBehaviour
     private void MoveTowardsClosestEnemy()
     {
         Vector3 _directionToEnemy = closestAttackableZombie.position - transform.position;
-
-        if (closestAttackableZombie.GetComponent<Health>().isDead ||
-            (Physics.Raycast(transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 1 << gameObject.layer) && 
-             _hit.collider.gameObject != gameObject))
+        if (closestAttackableZombie == null || closestAttackableZombie.GetComponent<Health>().IsDead || (Physics.Raycast(transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 1 << gameObject.layer) && _hit.collider.gameObject != gameObject))
         {
-            isAttacking = false;
+            IsAttacking = false;
             return; 
         }
 
-        isAttacking = true;
+        IsAttacking = true;
 
         transform.position = Vector3.MoveTowards(transform.position, closestAttackableZombie.position + SeparationForce(), Time.deltaTime * moveToEnemySpeed);
     }
@@ -142,7 +137,7 @@ public class AutoAttack : MonoBehaviour
 
     public void AttackEnemyAnimationEvent()
     {
-        if (closestAttackableZombie != null && !closestAttackableZombie.GetComponent<Health>().isDead)
+        if (closestAttackableZombie != null && !closestAttackableZombie.GetComponent<Health>().IsDead)
         {
             closestAttackableZombie.GetComponent<Health>().DamageIncome(damage, this);
         }

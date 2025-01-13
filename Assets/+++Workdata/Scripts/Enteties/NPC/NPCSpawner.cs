@@ -44,7 +44,7 @@ public class NPCSpawner : MonoBehaviour
             
             foreach (Transform _child in _horde.transform)
             {
-                _child.GetComponent<NPCMovement>().moveDirection = _moveDir;
+                _child.GetComponent<NPCMovement>().MoveDirection = _moveDir;
             }
         }
     }

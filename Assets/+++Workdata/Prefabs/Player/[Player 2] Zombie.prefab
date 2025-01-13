@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1071958940738075370}
   - component: {fileID: 611727657618661292}
-  - component: {fileID: 1318773016690747867}
   - component: {fileID: 8793422471454182286}
   - component: {fileID: 6544918899431571075}
   - component: {fileID: -4662664523626175061}
@@ -175,22 +174,6 @@ MonoBehaviour:
   groupingRadius: 4.5
   baseMoveSpeed: 32
   speedSmoothTime: 0.1
---- !u!114 &1318773016690747867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558006863435989279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d50261287ef2049bf5b7f3aec34d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsPlayer: 1
-  maxHealth: 999999999
-  changeColorOnHitTime: 0.3
-  graveSprite: {fileID: 0}
 --- !u!114 &8793422471454182286
 MonoBehaviour:
   m_ObjectHideFlags: 0

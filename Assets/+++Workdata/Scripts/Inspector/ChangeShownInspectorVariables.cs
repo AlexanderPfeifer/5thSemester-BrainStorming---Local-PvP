@@ -9,7 +9,7 @@ public class Health_Editor : Editor
 
     private void OnEnable()
     {
-        isPlayerProperty = serializedObject.FindProperty("IsPlayer");
+        isPlayerProperty = serializedObject.FindProperty("IsPlayerZombie");
     }
 
     public override void OnInspectorGUI()
@@ -26,7 +26,7 @@ public class Health_Editor : Editor
 
         while (property.NextVisible(false))
         {
-            if (property.name == "graveSprite" && isPlayerProperty.boolValue)
+            //if (property.name == "graveSprite" && isPlayerProperty.boolValue)
                 continue;
 
             EditorGUILayout.PropertyField(property, true);
