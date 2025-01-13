@@ -68,7 +68,7 @@ public class DetectNecromancableZombies : MonoBehaviour
 
             if (_isZombieInRange)
             {
-                if (!cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde))
+                if (!cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde) && _horde != null)
                 {
                     cachedZombieData.NecromanceHorde.necromancableZombieHorde.Add(_horde);
                     ShowNecromanceTextOnHordeGroups(_horde, 1);
@@ -76,7 +76,7 @@ public class DetectNecromancableZombies : MonoBehaviour
             }
             else
             {
-                if (cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde))
+                if (cachedZombieData.NecromanceHorde.necromancableZombieHorde.Contains(_horde) && _horde != null)
                 {
                     cachedZombieData.NecromanceHorde.necromancableZombieHorde.Remove(_horde);
                     ShowNecromanceTextOnHordeGroups(_horde, 0); 
