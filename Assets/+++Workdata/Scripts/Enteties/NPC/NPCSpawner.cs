@@ -39,7 +39,7 @@ public class NPCSpawner : MonoBehaviour
             var _horde = Instantiate(smallHordePrefab, _spawnPoint.transform.position, Quaternion.identity, transform);
             
             var _moveDir = Random.insideUnitSphere;
-
+            
             _moveDir.y = 0;
             
             foreach (Transform _child in _horde.transform)

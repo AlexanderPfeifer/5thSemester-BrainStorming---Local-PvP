@@ -105,11 +105,9 @@ public class NPCMovement : MonoBehaviour
             _moveDirectionNormalized = Vector3.Reflect(_moveDirectionNormalized, _hit.normal);
         }
         
-        _position = Vector3.SmoothDamp(_position, 
+        transform.position = Vector3.SmoothDamp(_position, 
             _position + (new Vector3(_moveDirectionNormalized.x, 0, _moveDirectionNormalized.z) * currentSpeed)
                       + GetComponent<AutoAttack>().SeparationForce(), ref currentVelocity, speedSmoothTime);
-        
-        transform.position = _position;
     }
 
     void GroupWithMainZombie()
