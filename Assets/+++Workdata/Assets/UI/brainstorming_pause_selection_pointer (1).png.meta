@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c7a25685d9c65464c97439db7b537fe7
+guid: d01105321befc2d4bbf54a6403e94d29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4546641980387929097
-    second: brainstorming_sidebar_bg_0
+      213: 4507586215835179887
+    second: brainstorming_pause_selection_pointer (1)_0
+  - first:
+      213: -3439025024853631812
+    second: brainstorming_pause_selection_pointer (1)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_sidebar_bg_0
+      name: brainstorming_pause_selection_pointer (1)_0
       rect:
         serializedVersion: 2
-        x: 976
-        y: 3
-        width: 1719
-        height: 2157
+        x: 10
+        y: 179
+        width: 17
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90ca6e1cacae81f30800000000000000
-      internalID: 4546641980387929097
+      spriteID: f6b9d45f7c92e8e30800000000000000
+      internalID: 4507586215835179887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_pause_selection_pointer (1)_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 25
+        width: 798
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc9bebe5f02640d0800000000000000
+      internalID: -3439025024853631812
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      brainstorming_sidebar_bg_0: 4546641980387929097
+      brainstorming_pause_selection_pointer (1)_0: 4507586215835179887
+      brainstorming_pause_selection_pointer (1)_1: -3439025024853631812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
