@@ -29,7 +29,7 @@ public class Health_Editor : Editor
             //if (property.name == "graveSprite" && isPlayerProperty.boolValue)
                 continue;
 
-            EditorGUILayout.PropertyField(property, true);
+            //EditorGUILayout.PropertyField(property, true);
         }
 
         serializedObject.ApplyModifiedProperties();

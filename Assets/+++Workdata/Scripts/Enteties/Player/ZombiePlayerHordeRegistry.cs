@@ -16,6 +16,10 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
 
     [SerializeField] private CinemachineCamera cineCam;
 
+    [SerializeField] private ShowDirectionOfWinArea showDirectionOfWinArea;
+
+    [SerializeField] private GameObject removableZombieAfterSpawn;
+
     private void Start()
     {
         necromanceHorde = GetComponent<NecromanceHorde>();
@@ -48,6 +52,18 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
         var _player = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, necromanceHorde.ParentObject);
         RegisterZombie(_player);
         cineCam.Target.TrackingTarget = _player.transform;
+
+        if (playerIndex == 0)
+        {
+            showDirectionOfWinArea.player1 = _player.transform;
+            Destroy(removableZombieAfterSpawn);
+        }
+        else
+        {
+            showDirectionOfWinArea.player2 = _player.transform;
+            showDirectionOfWinArea.showDirection = true;
+            Destroy(removableZombieAfterSpawn);
+        }
     }
 
     public int GetPlayerIndex()
