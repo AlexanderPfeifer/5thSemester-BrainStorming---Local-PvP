@@ -189,7 +189,7 @@ MonoBehaviour:
   humanLayer:
     serializedVersion: 2
     m_Bits: 256
-  detectNecromancableHordeRadius: 8
+  detectNecromancableHordeRadius: 5.5
 --- !u!114 &6544918899431571075
 MonoBehaviour:
   m_ObjectHideFlags: 0

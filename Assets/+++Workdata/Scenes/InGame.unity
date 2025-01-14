@@ -178,7 +178,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'READY?
 
-    PRESS X'
+    PRESS Triangle/E'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -813,6 +813,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1798963242}
+  - {fileID: 2104379421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490983861
@@ -4394,7 +4395,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'READY?
 
-    PRESS X'
+    PRESS Triangle/E'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4839,11 +4840,11 @@ Transform:
   m_GameObject: {fileID: 2104379420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.314354, y: -63.919918, z: 53.132347}
+  m_LocalPosition: {x: -39.79, y: 0.5, z: -5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 485203158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!73398921 &2104379422
 VFXRenderer:
@@ -4897,8 +4898,8 @@ VisualEffect:
   m_GameObject: {fileID: 2104379420}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 3331700350f25634885de156b2d2b6f7, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: 0
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_AllowInstancing: 1
@@ -5167,4 +5168,3 @@ SceneRoots:
   - {fileID: 4782819842219231979}
   - {fileID: 1391558622}
   - {fileID: 1212150280}
-  - {fileID: 2104379421}

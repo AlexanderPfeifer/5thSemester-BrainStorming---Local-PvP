@@ -66,7 +66,7 @@ public class NPCMovement : MonoBehaviour
     {
         var _position = transform.position;
 
-        Collider[] _zombieHit = Physics.OverlapSphere(_position, detectZombiesRadius, 1 << gameObject.layer);
+        Collider[] _zombieHit = Physics.OverlapSphere(_position, detectZombiesRadius, zombieLayer);
         
         switch (IsNecromanced)
         {
