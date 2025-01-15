@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      brainstorming_side_bar_bg (1)_0: 7840169433689973137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

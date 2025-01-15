@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 205ab2d00b5038a4aa0f9056523a75c4
+guid: 35903a339bc829341862070420bf6860
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -922305260955509452
-    second: brainstorming_pause_bg_0
+      213: 4412139021123094375
+    second: brainstorming_middle_spine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_pause_bg_0
+      name: brainstorming_middle_spine_0
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 0
-        width: 1350
-        height: 2160
+        x: 1748
+        y: 11
+        width: 344
+        height: 2104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43dd54270405333f0800000000000000
-      internalID: -922305260955509452
+      spriteID: 7678ead20111b3d30800000000000000
+      internalID: 4412139021123094375
       vertices: []
       indices: 
       edges: []

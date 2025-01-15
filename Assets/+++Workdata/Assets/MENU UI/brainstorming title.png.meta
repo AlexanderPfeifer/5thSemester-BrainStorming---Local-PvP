@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 596f47ca4ae9a08458333f429ee4a7d6
+guid: fc1b20dd4a964cd4ba9368d6b46fc1d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3973759373232214760
-    second: brainstorming_credits_bg_0
+      213: -159697605829503457
+    second: brainstorming title_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_credits_bg_0
+      name: brainstorming title_0
       rect:
         serializedVersion: 2
-        x: 746
+        x: 0
         y: 0
-        width: 2417
-        height: 2160
+        width: 9745
+        height: 2541
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e292689811a52730800000000000000
-      internalID: 3973759373232214760
+      spriteID: f165d05afd3a8cdf0800000000000000
+      internalID: -159697605829503457
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a8c87719b8d3f1249a7d87605e7741a9
+guid: 596f47ca4ae9a08458333f429ee4a7d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4093243464105099870
-    second: brainstorming title alt1_0
+      213: 3973759373232214760
+    second: brainstorming_credits_bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming title alt1_0
+      name: brainstorming_credits_bg_0
       rect:
         serializedVersion: 2
-        x: 1224
-        y: 970
-        width: 12922
-        height: 3082
+        x: 746
+        y: 0
+        width: 2417
+        height: 2160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e528c216e3f1ec830800000000000000
-      internalID: 4093243464105099870
+      spriteID: 8e292689811a52730800000000000000
+      internalID: 3973759373232214760
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      brainstorming title alt1_0: 4093243464105099870
+      brainstorming_credits_bg_0: 3973759373232214760
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
