@@ -19,9 +19,7 @@ public class Health : MonoBehaviour
     private Vector3 startScale;
     private Quaternion startRotation;
     public Sprite graveSprite;
-
-    private VisualEffect bloodEffect;
-
+    
     private CachedZombieData cachedZombieData;
 
     private void Start()
@@ -34,8 +32,6 @@ public class Health : MonoBehaviour
         {
             startScale = transform.localScale;
         }
-
-        bloodEffect = FindAnyObjectByType<VisualEffect>();
     }
 
     public void DamageIncome(int damageDealt, AutoAttack autoAttack)
@@ -54,9 +50,9 @@ public class Health : MonoBehaviour
 
         float _angle = Mathf.Atan2(_enemy.x, _enemy.z) * Mathf.Rad2Deg;
         
-        bloodEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
-        bloodEffect.transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
-        bloodEffect.Play();
+        GetComponentInParent<VisualEffect>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
+        GetComponentInParent<VisualEffect>().transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
+        GetComponentInParent<VisualEffect>().Play();
 
         if (currentHealth <= 0)
         {

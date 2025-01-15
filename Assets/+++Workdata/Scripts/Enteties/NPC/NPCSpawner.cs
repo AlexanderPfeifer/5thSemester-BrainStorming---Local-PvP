@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject smallHordePrefab;
     [SerializeField] private float smallHordeSpawnTime = 3;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private VisualEffect bloodEffect;
 
     private void OnEnable()
     {

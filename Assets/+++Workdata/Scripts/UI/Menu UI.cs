@@ -1,12 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class MenuUI : MonoBehaviour
 {
@@ -25,7 +25,8 @@ public class MenuUI : MonoBehaviour
     
     [SerializeField] private GameObject pausePanel;
     
-    [SerializeField] private GameObject pauseSettingsPanel;
+    [SerializeField] private GameObject audioSettingsPanel;
+    [SerializeField] private GameObject visualSettingsPanel;
     [SerializeField] private GameObject pauseControlsPanel;
 
     [SerializeField] private GameObject winPanel;
@@ -40,7 +41,9 @@ public class MenuUI : MonoBehaviour
     public void Start()
     {
         pausePanel.SetActive(false);
-        pauseSettingsPanel.SetActive(false);
+        visualSettingsPanel.SetActive(false);
+        audioSettingsPanel.SetActive(false);
+        
         pauseControlsPanel.SetActive(false);
         winPanel.SetActive(false);
         creditsPanel.SetActive(false);
@@ -62,7 +65,6 @@ public class MenuUI : MonoBehaviour
         }
         
         resolutionsText[0].gameObject.SetActive(true);
-
     }
 
     public void Update()
@@ -79,10 +81,10 @@ public class MenuUI : MonoBehaviour
             fullscreenCrossed.SetActive(false);
         }
 
-        if (winPanel.activeSelf == true)
+        if (winPanel.activeSelf)
         {
             pausePanel.SetActive(false);
-            pauseSettingsPanel.SetActive(false);
+            visualSettingsPanel.SetActive(false);
             pauseControlsPanel.SetActive(false);
             creditsPanel.SetActive(false);
         }
@@ -117,6 +119,14 @@ public class MenuUI : MonoBehaviour
     {
         float volume = sfxSlider.value;
         volumeMixer.SetFloat("SFX", Mathf.Log10(volume)*20);
+    }
+    
+    public void SetSelectedButton(GameObject gameObject)
+    {
+        var eventSystem = FindAnyObjectByType<EventSystem>();
+
+        eventSystem.SetSelectedGameObject(null);
+        eventSystem.SetSelectedGameObject(gameObject);
     }
 
     public void DisableButtons()
@@ -192,15 +202,15 @@ public class MenuUI : MonoBehaviour
     
     public void OpenSettings()
     {
-        pauseSettingsPanel.SetActive(true);
-        pauseSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+        audioSettingsPanel.SetActive(true);
+        audioSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
         Debug.Log("Pressed");
     }
 
     public void CloseSettings()
     {
-        pauseSettingsPanel.SetActive(false);
-        pauseSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+        audioSettingsPanel.SetActive(false);
+        audioSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
     }
     
     public void OpenControls()
