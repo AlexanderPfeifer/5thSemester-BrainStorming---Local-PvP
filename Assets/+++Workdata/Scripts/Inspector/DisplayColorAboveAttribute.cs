@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class DisplayColorAttribute : PropertyAttribute
 {
-    public Color color;
+    public Color Color;
 
     public DisplayColorAttribute(float r, float g, float b, float a = 1f)
     {
-        color = new Color(r, g, b, a);
+        Color = new Color(r, g, b, a);
     }
 }

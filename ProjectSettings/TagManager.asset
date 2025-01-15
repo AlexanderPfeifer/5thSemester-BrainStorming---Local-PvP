@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Player1Zombie
   - Player2Zombie
-  - NPCZombie
-  - Grave
+  - Human
+  - Lever
   - 
   - 
   - 
