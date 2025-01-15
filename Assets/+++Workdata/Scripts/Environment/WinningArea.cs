@@ -18,6 +18,8 @@ public class WinningArea : MonoBehaviour
     [SerializeField] private float maxTimeToGetPoints;
     [SerializeField] private GameObject winScreen;
 
+    public bool canObtainPoints;
+
 
     private void Start()
     {
@@ -26,6 +28,9 @@ public class WinningArea : MonoBehaviour
 
     private void Update()
     {
+        if(!canObtainPoints)
+            return;
+        
         PlayerPointsAllocation();
     }
 
@@ -41,7 +46,7 @@ public class WinningArea : MonoBehaviour
             currentTimeToGetPoints -= Time.deltaTime;
             if (currentTimeToGetPoints < 0)
             {
-                player1Points++;
+                player1Points += player1Zombies.Length;
                 player1PointsSlider.value = (float)player1Points / pointsToWin;
 
                 if (player1Points >= pointsToWin)
@@ -57,7 +62,7 @@ public class WinningArea : MonoBehaviour
             currentTimeToGetPoints -= Time.deltaTime;
             if (currentTimeToGetPoints < 0)
             {
-                player2Points++;
+                player2Points += player2Zombies.Length;
                 player2PointsSlider.value = (float)player2Points / pointsToWin;
 
                 if (player1Points >= pointsToWin)

@@ -1,14 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DetectNecromancableZombies : MonoBehaviour
 {
     [Header("Detect Necromance")]
     [SerializeField] private LayerMask humanLayer;
-    [DisplayColor(0, 1, 0), SerializeField] private float detectNecromancableHordeRadius;
+    [FormerlySerializedAs("detectNecromancableHordeRadius")] [DisplayColor(0, 1, 0), SerializeField] private float detectInteractableRadius;
     private CachedZombieData cachedZombieData;
     
+    [SerializeField] private LayerMask leverLayer;
+
     private readonly HashSet<Transform> necromancableHordeSet = new();
     private readonly HashSet<Transform> necromancableZombie = new();
 
@@ -20,6 +23,8 @@ public class DetectNecromancableZombies : MonoBehaviour
     private void Update()
     {
         IdentifyNecromancableHorde();
+        
+        DetectLever();
     }
     
     private void ShowNecromanceTextOnHordeGroups(Transform horde, float visibility)
@@ -29,7 +34,7 @@ public class DetectNecromancableZombies : MonoBehaviour
 
     private void IdentifyNecromancableHorde()
     {
-        var _necromancableZombieHit = Physics.OverlapSphere(transform.position, detectNecromancableHordeRadius, humanLayer);
+        var _necromancableZombieHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, humanLayer);
 
         foreach (var _necromancableZombie in _necromancableZombieHit)
         {
@@ -49,7 +54,7 @@ public class DetectNecromancableZombies : MonoBehaviour
         foreach (var _horde in _tempHordeSet)
         {
             bool _isZombieInRange = necromancableZombie.Any(_zombie =>
-                _zombie != null && Vector3.Distance(_zombie.position, transform.position) < detectNecromancableHordeRadius);
+                _zombie != null && Vector3.Distance(_zombie.position, transform.position) < detectInteractableRadius);
 
             // Activate or deactivate necromance text based on zombies in range
             if (_isZombieInRange)
@@ -74,14 +79,16 @@ public class DetectNecromancableZombies : MonoBehaviour
         necromancableHordeSet.RemoveWhere(_horde => !_tempHordeSet.Contains(_horde));
     }
 
-    void RemoveNecromancableZombies()
+    private void DetectLever()
     {
-        
+        var _leverHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, leverLayer);
+
+        cachedZombieData.NecromanceHorde.leverInRange = _leverHit.Length > 0;
     }
     
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, detectNecromancableHordeRadius);
+        Gizmos.DrawWireSphere(transform.position, detectInteractableRadius);
     }
 }

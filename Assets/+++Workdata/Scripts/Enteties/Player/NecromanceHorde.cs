@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class NecromanceHorde : MonoBehaviour
 {
@@ -11,6 +14,17 @@ public class NecromanceHorde : MonoBehaviour
     [SerializeField] private LayerMask ownZombieLayer;
     public Transform ParentObject;
     [SerializeField] private Sprite zombieVisual;
+
+    public bool leverInRange;
+
+    [SerializeField] private float maxLeverCooldown;
+    private float currentLeverCooldown;
+
+    private void Update()
+    {
+        if(currentLeverCooldown > 0)
+            currentLeverCooldown -= Time.deltaTime;
+    }
 
     public void OnNecromance()
     {
@@ -40,6 +54,34 @@ public class NecromanceHorde : MonoBehaviour
         {
             NecromanceZombie(_zombie);
             _zombie.transform.parent = ParentObject;
+        }
+
+        if (leverInRange && currentLeverCooldown < 0)
+        {
+            List<WinningArea> _deactivatedWinningArea = new();
+
+            foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+            {
+                if (_winningArea.canObtainPoints)
+                {
+                    _winningArea.canObtainPoints = false;
+                }
+                else
+                {
+                    _deactivatedWinningArea.Add(_winningArea);
+                }
+            }
+
+            if (Random.value > .5f)
+            {
+                _deactivatedWinningArea[0].canObtainPoints = true;
+            }
+            else
+            {
+                _deactivatedWinningArea[1].canObtainPoints = true;
+            }
+
+            currentLeverCooldown = maxLeverCooldown;
         }
     }
 

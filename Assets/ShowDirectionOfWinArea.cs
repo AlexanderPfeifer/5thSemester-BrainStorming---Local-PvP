@@ -8,7 +8,7 @@ public class ShowDirectionOfWinArea : MonoBehaviour
     public Transform player1;
     public Transform player2;
 
-    [SerializeField] private Transform winningArea;
+    [SerializeField] public WinningArea[] winningArea;
 
     public bool showDirection;
 
@@ -24,14 +24,29 @@ public class ShowDirectionOfWinArea : MonoBehaviour
 
     private void RotateArrowToWinningArea(Transform player, RectTransform playerArrow)
     {
-        Vector3 _winningArea = winningArea.position;
-        _winningArea.y = 0f;
+        Vector3 _winningAreaPosition = transform.position;
+            
+        foreach (var _winningArea in winningArea)
+        {
+            if (_winningArea.canObtainPoints)
+            {
+                _winningAreaPosition = _winningArea.transform.position;
+                _winningAreaPosition.y = 0f;
+                break;
+            }
+        }
+
+        if (_winningAreaPosition == transform.position)
+        {
+            Debug.Log("THERE IS NO WINNING AREA ASSIGNED");
+            return;
+        }
 
         Vector3 _player = player.transform.position;
-        _winningArea.x -= _player.x;
-        _winningArea.z -= _player.z;
+        _winningAreaPosition.x -= _player.x;
+        _winningAreaPosition.z -= _player.z;
 
-        float _angle = -Mathf.Atan2(_winningArea.x, _winningArea.z) * Mathf.Rad2Deg;
+        float _angle = -Mathf.Atan2(_winningAreaPosition.x, _winningAreaPosition.z) * Mathf.Rad2Deg;
         playerArrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
     }
 }
