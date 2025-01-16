@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ALL Rocks smooth NEW_DefaultMaterial_AlbedoTransparency_0: -1964200909451704224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

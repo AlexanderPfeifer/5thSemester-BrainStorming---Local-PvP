@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Environment_LevelBorder_NeleP_LevelBorder_MTL_AlbedoTransparency_0: -3942042957973264887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
