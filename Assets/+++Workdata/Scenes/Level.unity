@@ -5228,7 +5228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462801385}
   m_Layer: 0
-  m_Name: '[Prefab] Brain_Area_01'
+  m_Name: '[Prefab] Brain_Area'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5249,6 +5249,7 @@ Transform:
   m_Children:
   - {fileID: 1670607411}
   - {fileID: 1092421102}
+  - {fileID: 1012399687}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538735335
@@ -15790,19 +15791,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 462801385}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.17
+      value: -6.3186035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0002757614
+      value: 35.663704
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.08
+      value: -73.47585
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15810,7 +15811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_LocalRotation.y
@@ -15850,7 +15851,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5da259331eede514aa793a5da81d3015, type: 2}
     - target: {fileID: 919132149155446097, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_Name
-      value: Prop_BigBrain_NeleP (1)
+      value: Prop_BigBrain_NeleP
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15891,6 +15892,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 964820557318585576, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
+--- !u!4 &1012399687 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3531ccc6593c974f8e3361978ed0cba, type: 3}
+  m_PrefabInstance: {fileID: 1012399684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1029332447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16166,7 +16172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 52ce8a0eca3c2974e8f7b76a683fd356, type: 3}
       propertyPath: m_Name
-      value: Environment_Cactus_NeleP (1)
+      value: Environment_Cactus_NeleP
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 52ce8a0eca3c2974e8f7b76a683fd356, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16706,7 +16712,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5da259331eede514aa793a5da81d3015, type: 2}
     - target: {fileID: 919132149155446097, guid: 33b37f6826fdafd4580f73ed67850da0, type: 3}
       propertyPath: m_Name
-      value: Prop_Lever_TEXTURINGFBX_NeleP (1)
+      value: Prop_Lever_NeleP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16910,7 +16916,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5da259331eede514aa793a5da81d3015, type: 2}
     - target: {fileID: 919132149155446097, guid: f7071e44d7937954da33ea20a6552176, type: 3}
       propertyPath: m_Name
-      value: Prop_OilLantern_NeleP (1)
+      value: Prop_OilLantern_NeleP
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f7071e44d7937954da33ea20a6552176, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17273,7 +17279,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5da259331eede514aa793a5da81d3015, type: 2}
     - target: {fileID: 919132149155446097, guid: a1d7bca227ff19e4fa7289524765b2d5, type: 3}
       propertyPath: m_Name
-      value: Rock Formation 4
+      value: Prop_RockArch_BennyF
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a1d7bca227ff19e4fa7289524765b2d5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22695,4 +22701,3 @@ SceneRoots:
   - {fileID: 1239764666}
   - {fileID: 982162789}
   - {fileID: 462801385}
-  - {fileID: 1012399684}
