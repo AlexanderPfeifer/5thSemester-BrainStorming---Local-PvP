@@ -5,7 +5,7 @@ public class CachedZombieData : MonoBehaviour
     private AutoAttack _autoAttack;
     private NPCMovement _npcMovement;
     private Health _health;
-    private DetectNecromancableZombies _detectNecromanceZombies;
+    private DetectInteractable _detectNecromanceZombies;
     private Animator _animator;
     private MeshRenderer _meshRenderer;
     private NecromanceHorde _necromanceHorde;
@@ -15,7 +15,7 @@ public class CachedZombieData : MonoBehaviour
     public AutoAttack AutoAttack => _autoAttack ??= GetComponent<AutoAttack>();
     public NPCMovement NPCMovement => _npcMovement ??= GetComponent<NPCMovement>();
     public Health Health => _health ??= GetComponent<Health>();
-    public DetectNecromancableZombies DetectNecromanceZombies => _detectNecromanceZombies ??= GetComponent<DetectNecromancableZombies>();
+    public DetectInteractable DetectNecromanceZombies => _detectNecromanceZombies ??= GetComponent<DetectInteractable>();
     public Animator Animator => _animator ??= GetComponentInChildren<Animator>();
     public MeshRenderer MeshRenderer => _meshRenderer ??= GetComponentInChildren<MeshRenderer>();
     public NecromanceHorde NecromanceHorde => _necromanceHorde ??= GetComponentInParent<NecromanceHorde>();

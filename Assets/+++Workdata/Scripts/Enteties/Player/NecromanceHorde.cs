@@ -1,30 +1,18 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class NecromanceHorde : MonoBehaviour
 {
     public HashSet<Transform> NecromancableZombieHorde = new();
+    public Transform InteractableLever;
 
     [SerializeField] private string necromantedZombieName;
 
+    public Transform ParentObject;
     [SerializeField] private LayerMask attackableZombieLayer;
     [SerializeField] private LayerMask ownZombieLayer;
-    public Transform ParentObject;
     [SerializeField] private Sprite zombieVisual;
-
-    public bool leverInRange;
-
-    [SerializeField] private float maxLeverCooldown;
-    private float currentLeverCooldown;
-
-    private void Update()
-    {
-        if(currentLeverCooldown > 0)
-            currentLeverCooldown -= Time.deltaTime;
-    }
 
     public void OnNecromance()
     {
@@ -52,36 +40,24 @@ public class NecromanceHorde : MonoBehaviour
 
         foreach(var _zombie in _necromancableZombieSet)
         {
-            NecromanceZombie(_zombie);
-            _zombie.transform.parent = ParentObject;
+            _zombie.GetComponentInChildren<Image>().fillAmount += .25f;
+            if (_zombie.GetComponentInChildren<Image>().fillAmount >= 1)
+            {
+                AudioManager.Instance.Play("Necromance", true);
+                NecromanceZombie(_zombie);
+                _zombie.transform.parent = ParentObject;   
+            }
         }
+        
+        TryInteractingWithLever();
+    }
 
-        if (leverInRange && currentLeverCooldown < 0)
+    private void TryInteractingWithLever()
+    {
+        if (InteractableLever != null)
         {
-            List<WinningArea> _deactivatedWinningArea = new();
-
-            foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
-            {
-                if (_winningArea.canObtainPoints)
-                {
-                    _winningArea.canObtainPoints = false;
-                }
-                else
-                {
-                    _deactivatedWinningArea.Add(_winningArea);
-                }
-            }
-
-            if (Random.value > .5f)
-            {
-                _deactivatedWinningArea[0].canObtainPoints = true;
-            }
-            else
-            {
-                _deactivatedWinningArea[1].canObtainPoints = true;
-            }
-
-            currentLeverCooldown = maxLeverCooldown;
+            InteractableLever.GetComponentInChildren<Image>().fillAmount += .25f;
+            InteractableLever.GetComponentInChildren<Lever>().PullLever();
         }
     }
 

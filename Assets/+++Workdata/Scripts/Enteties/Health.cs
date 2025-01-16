@@ -56,6 +56,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            AudioManager.Instance.Play("ZombieDeath", true);
             Die();
             autoAttack.ResetAttack();
         }

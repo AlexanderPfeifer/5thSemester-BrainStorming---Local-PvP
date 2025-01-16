@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("WesternMusic");
+        Play("MainMenuMusic", false);
     }
 
     //I make this a singleton class and delete it if already existing, then I apply every option for the sound that is 
@@ -34,6 +35,8 @@ public class AudioManager : MonoBehaviour
             sound.audioSource = gameObject.AddComponent<AudioSource>();
             sound.audioSource.clip = sound.clip;
 
+            sound.audioSource.pitch = sound.pitch;
+
             sound.audioSource.volume = sound.volume;
 
             sound.audioSource.loop = sound.loop;
@@ -43,13 +46,18 @@ public class AudioManager : MonoBehaviour
     }
 
     //Here I Search for a sound in the sound array that has the according string as a name with lambda method, then I play the sound
-    public void Play(string soundName)
+    public void Play(string soundName, bool withRandomPitch)
     {
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
             Debug.LogWarning("Sound:" + soundName + "not found!");
             return;
+        }
+
+        if (withRandomPitch)
+        {
+            s.pitch = Random.Range(.2f, .8f);
         }
         
         s.audioSource.Play();
@@ -98,7 +106,7 @@ public class AudioManager : MonoBehaviour
 
         while (s.audioSource.volume > 0.01f)
         {
-            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 0, Time.deltaTime * 2);
+            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 0, Time.deltaTime);
             yield return null;
         }
 
@@ -124,9 +132,15 @@ public class AudioManager : MonoBehaviour
             yield break;        
         }
 
+        if (!IsPlaying(soundName))
+        {
+            Play(soundName, false);
+            s.volume = 0;
+        }
+        
         while (s.audioSource.volume < .9f)
         {
-            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 1, Time.deltaTime / 2);
+            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 1, Time.deltaTime);
             yield return null;
         }
     }

@@ -81,6 +81,7 @@ public class AutoAttack : MonoBehaviour
 
             if (currentTimeUntilNextAttack <= 0)
             {
+                AudioManager.Instance.Play("ZombieBite", true);
                 cachedZombieData.Animator.SetTrigger("attack");
                 currentTimeUntilNextAttack = maxTimeUntilNextAttack;
             }

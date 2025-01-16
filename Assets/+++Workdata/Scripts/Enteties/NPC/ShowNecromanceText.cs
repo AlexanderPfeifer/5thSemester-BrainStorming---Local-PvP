@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowNecromanceText : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ShowNecromanceText : MonoBehaviour
         foreach (var _canvasGroup in canvasGroup)
         {
             _canvasGroup.alpha = canvasGroupVisibility;
+            if(canvasGroupVisibility <= 0) 
+                _canvasGroup.GetComponentInChildren<Image>().fillAmount = 0;
         }
     }
 

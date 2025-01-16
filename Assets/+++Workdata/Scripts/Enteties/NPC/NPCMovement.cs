@@ -74,8 +74,9 @@ public class NPCMovement : MonoBehaviour
                 GroupWithMainZombie();
                 return;
             case false when _zombieHit.Length > 0:
-                //Move away from zombies
                 currentSpeed = runMoveSpeed;
+                
+                AudioManager.Instance.Play("HumanShocked", true);
                 
                 _position = Vector3.MoveTowards(_position, 
                     _position + (_position - _zombieHit[0].transform.position), 

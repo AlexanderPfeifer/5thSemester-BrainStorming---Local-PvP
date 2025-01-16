@@ -46,6 +46,7 @@ public class WinningArea : MonoBehaviour
             currentTimeToGetPoints -= Time.deltaTime;
             if (currentTimeToGetPoints < 0)
             {
+                AudioManager.Instance.Play("ObtainingPoints", true);
                 player1Points += player1Zombies.Length;
                 player1PointsSlider.value = (float)player1Points / pointsToWin;
 
@@ -62,6 +63,7 @@ public class WinningArea : MonoBehaviour
             currentTimeToGetPoints -= Time.deltaTime;
             if (currentTimeToGetPoints < 0)
             {
+                AudioManager.Instance.Play("ObtainingPoints", true);
                 player2Points += player2Zombies.Length;
                 player2PointsSlider.value = (float)player2Points / pointsToWin;
 

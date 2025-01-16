@@ -7342,6 +7342,18 @@ MonoBehaviour:
             m_StringArgument: Normal
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1212150279}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ButtonHover
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -7506,6 +7518,42 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1212150279}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtonClick
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1212150279}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenuMusic
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1212150279}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: InGameMusic
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &639223566
@@ -14422,11 +14470,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: WesternMusic
-    clip: {fileID: 8300000, guid: e15f237e5016874438c226aa88da5802, type: 3}
-    audioMixer: {fileID: 0}
+  - name: MainMenuMusic
+    clip: {fileID: 8300000, guid: f2f33b30e6f4b2b46b7a1247c7e78167, type: 3}
+    audioMixer: {fileID: -3158049787650878923, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
     volume: 1
     loop: 1
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: InGameMusic
+    clip: {fileID: 8300000, guid: 2d59fd81233c4a543adaa96590e41852, type: 3}
+    audioMixer: {fileID: -3158049787650878923, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 1
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: 66092aba27a21cc499ed07194a19c965, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 5201de616ff560c4e85bb7d8f26903b7, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: HumanShocked
+    clip: {fileID: 8300000, guid: 42fb9db035338404ab28a60db49ab24b, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: Necromance
+    clip: {fileID: 8300000, guid: 22355d3aaf074c84298ec0f789da2851, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: ObtainingPoints
+    clip: {fileID: 8300000, guid: 395d5efaef3913746835edc401b9e7d6, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: ZombieBite
+    clip: {fileID: 8300000, guid: cd35176afe80fae4c89af1cef8903d2d, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: ZombieDeath
+    clip: {fileID: 8300000, guid: 0038fbe265821414d9f70e7c3ae49e9e, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
     audioSource: {fileID: 0}
 --- !u!4 &1212150280
 Transform:
