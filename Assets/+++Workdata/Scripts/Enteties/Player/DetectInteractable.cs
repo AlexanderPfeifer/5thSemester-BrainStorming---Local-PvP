@@ -15,7 +15,12 @@ public class DetectInteractable : MonoBehaviour
     private readonly HashSet<Transform> necromancableHordeSet = new();
     private readonly HashSet<Transform> necromancableZombie = new();
 
+    [SerializeField] private ParticleSystem interactableInRange;
+    
     private Transform lever;
+
+    private bool leverDetected;
+    private bool humanDetected;
 
     private void Start()
     {
@@ -27,6 +32,21 @@ public class DetectInteractable : MonoBehaviour
         DetectNecromancableHorde();
         
         DetectLever();
+        
+        ShowInteractionParticles();
+    }
+
+    private void ShowInteractionParticles()
+    {
+        if (leverDetected && humanDetected)
+        {
+            if(!interactableInRange.isPlaying)
+                interactableInRange.Play();   
+        }
+        else
+        {
+            interactableInRange.Stop();
+        }
     }
     
     private void ShowInteractableImageOnZombies(Transform horde, float visibility)
@@ -50,7 +70,12 @@ public class DetectInteractable : MonoBehaviour
 
         if (_leverHit.Length > 0)
         {
+            leverDetected = true;            
             lever = _leverHit[0].transform;
+        }
+        else
+        {
+            leverDetected = false;
         }
         
         if(lever == null)
@@ -71,7 +96,8 @@ public class DetectInteractable : MonoBehaviour
     private void DetectNecromancableHorde()
     {
         var _necromancableZombieHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, humanLayer);
-
+        humanDetected = _necromancableZombieHit.Length > 0;
+        
         foreach (var _necromancableZombie in _necromancableZombieHit)
         {
             var _zombieTransform = _necromancableZombie.transform;

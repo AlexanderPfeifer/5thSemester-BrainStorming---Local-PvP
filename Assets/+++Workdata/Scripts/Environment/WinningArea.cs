@@ -20,6 +20,8 @@ public class WinningArea : MonoBehaviour
 
     public bool canObtainPoints;
 
+    [SerializeField] private float zombiesInRangeRadius;
+
 
     private void Start()
     {
@@ -37,7 +39,6 @@ public class WinningArea : MonoBehaviour
     private void PlayerPointsAllocation()
     {
         var player1Zombies = Physics.OverlapSphere(transform.position, transform.localScale.x, player1Layer);
-
         var player2Zombies = Physics.OverlapSphere(transform.position, transform.localScale.x, player2Layer);
 
         //Check if there are more than 1 zombie to get points because the first one could be only the main zombie, which does not count
@@ -79,5 +80,11 @@ public class WinningArea : MonoBehaviour
         {
             currentTimeToGetPoints = maxTimeToGetPoints;
         }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, zombiesInRangeRadius);   
     }
 }

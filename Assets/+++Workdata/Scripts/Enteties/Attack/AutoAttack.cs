@@ -21,11 +21,18 @@ public class AutoAttack : MonoBehaviour
     Collider[] cachedGroupingZombies;
     [DisplayColor(0, 0, 1), SerializeField] private float attackSeparationRadius;
 
+    [SerializeField] private ParticleSystem turnedToZombie;
+
     private CachedZombieData cachedZombieData;
 
     private void Start()
     {
         cachedZombieData = GetComponent<CachedZombieData>();
+    }
+
+    private void OnEnable()
+    {
+        turnedToZombie.Play();
     }
 
     private void Update()
