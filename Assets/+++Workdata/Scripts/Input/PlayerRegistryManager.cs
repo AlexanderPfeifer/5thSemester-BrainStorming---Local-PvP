@@ -10,11 +10,7 @@ public class PlayerRegistryManager : MonoBehaviour
     private List<PlayerRegistry> playerRegistry = new List<PlayerRegistry>();
 
     public static PlayerRegistryManager Instance;
-
-    [SerializeField] private GameObject[] playerReadyTexts;
-
-    private Dictionary<int, GameObject> playerReadyTextMap;
-
+    
     public event Action AllPlayersReady;
 
     private PlayerInputManager playerInputManager;
@@ -36,13 +32,6 @@ public class PlayerRegistryManager : MonoBehaviour
 
 
         playerInputManager = GetComponent<PlayerInputManager>();
-
-
-
-        // Initialize the mapping based on player indices
-        playerReadyTextMap = playerReadyTexts
-            .Select((text, index) => new { Index = index, Text = text })
-            .ToDictionary(entry => entry.Index, entry => entry.Text);
     }
 
     public void HandlePlayerJoin(PlayerInput playerInput)
@@ -57,18 +46,10 @@ public class PlayerRegistryManager : MonoBehaviour
             return;
         }
 
-        if (!playerReadyTextMap.ContainsKey(playerInput.playerIndex))
-        {
-            Debug.LogError($"No ReadyText mapped for Player {playerInput.playerIndex}");
-            return;
-        }
-
 
 
         playerRegistry.Add(new PlayerRegistry(playerInput));
-
-        playerReadyTextMap[playerInput.playerIndex].SetActive(false);
-
+        
         if (playerRegistry.Count == playerInputManager.maxPlayerCount)
         {
             StartCoroutine(DelayedAllPlayersReady());
