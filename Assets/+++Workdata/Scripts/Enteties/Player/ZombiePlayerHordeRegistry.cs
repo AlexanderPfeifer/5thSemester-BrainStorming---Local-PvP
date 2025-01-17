@@ -55,13 +55,12 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
 
         if (playerIndex == 0)
         {
-            showDirectionOfWinArea.player1 = _player.transform;
+            showDirectionOfWinArea.players.Add(_player.transform);
             Destroy(removableZombieAfterSpawn);
         }
         else
         {
-            showDirectionOfWinArea.player2 = _player.transform;
-            showDirectionOfWinArea.showDirection = true;
+            showDirectionOfWinArea.players.Add(_player.transform);
             Destroy(removableZombieAfterSpawn);
         }
     }

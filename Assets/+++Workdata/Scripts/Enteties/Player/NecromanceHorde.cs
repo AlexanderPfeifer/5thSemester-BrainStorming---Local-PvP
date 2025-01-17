@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,7 +6,12 @@ using UnityEngine.UI;
 public class NecromanceHorde : MonoBehaviour
 {
     public HashSet<Transform> NecromancableZombieHorde = new();
-    public Transform InteractableLever;
+    [HideInInspector] public Transform InteractableLever;
+    [HideInInspector] public Transform InteractableBrain;
+    [HideInInspector] public int zombiesNearBrainPlayer1;
+    [HideInInspector] public int zombiesNearBrainPlayer2;
+    [SerializeField] private ParticleSystem interactCircle;
+
 
     [SerializeField] private string necromantedZombieName;
 
@@ -13,6 +19,12 @@ public class NecromanceHorde : MonoBehaviour
     [SerializeField] private LayerMask attackableZombieLayer;
     [SerializeField] private LayerMask ownZombieLayer;
     [SerializeField] private Sprite zombieVisual;
+
+    private void Update()
+    {
+        if(GetComponentInChildren<DetectInteractable>())
+            interactCircle.transform.position = GetComponentInChildren<DetectInteractable>().transform.position;
+    }
 
     public void OnNecromance()
     {
@@ -43,13 +55,22 @@ public class NecromanceHorde : MonoBehaviour
             _zombie.GetComponentInChildren<Image>().fillAmount += .25f;
             if (_zombie.GetComponentInChildren<Image>().fillAmount >= 1)
             {
-                AudioManager.Instance.Play("Necromance", true);
+                PlayParticleEffect();
+                AudioManager.Instance.PlayWithRandomPitch("Necromance");
                 NecromanceZombie(_zombie);
                 _zombie.transform.parent = ParentObject;   
             }
         }
         
         TryInteractingWithLever();
+        
+        TryInteractingWithBrain();
+    }
+
+    void PlayParticleEffect()
+    {
+        if(!interactCircle.isPlaying)
+            interactCircle.Play();
     }
 
     private void TryInteractingWithLever()
@@ -57,7 +78,26 @@ public class NecromanceHorde : MonoBehaviour
         if (InteractableLever != null)
         {
             InteractableLever.GetComponentInChildren<Image>().fillAmount += .25f;
-            InteractableLever.GetComponentInChildren<Lever>().PullLever();
+            
+            if (InteractableBrain.GetComponentInChildren<Image>().fillAmount >= 1)
+            {
+                InteractableLever.GetComponentInChildren<Lever>().PullLever();
+                PlayParticleEffect();
+            }
+        }
+    }
+    
+    private void TryInteractingWithBrain()
+    {
+        if (InteractableBrain != null)
+        {
+            InteractableBrain.GetComponentInChildren<Image>().fillAmount += .25f;
+
+            if (InteractableBrain.GetComponentInChildren<Image>().fillAmount >= 1)
+            {
+                InteractableBrain.GetComponentInChildren<WinningArea>().PlayerPointsAllocation(zombiesNearBrainPlayer1, zombiesNearBrainPlayer2);
+                PlayParticleEffect();
+            }
         }
     }
 
@@ -87,7 +127,6 @@ public class NecromanceHorde : MonoBehaviour
         _necromancableZombieCachedData.MeshRenderer.material.mainTexture = zombieVisual.texture;
         
         _necromancableZombieCachedData.Health.ResetHealth();
-        _necromancableZombieCachedData.Health.IsDead = false;
         _necromancableZombieCachedData.Health.IsPlayerZombie = true;
 
         _necromancableZombieCachedData.Animator.enabled = true;

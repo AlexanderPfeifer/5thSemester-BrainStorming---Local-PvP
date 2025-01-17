@@ -25,7 +25,7 @@ public class Lever : MonoBehaviour
     {
         if (pullLeverImage.fillAmount >= 1 && currentLeverCooldown <= 0)
         {
-            AudioManager.Instance.Play("Necromance", true);
+            AudioManager.Instance.PlayWithRandomPitch("Necromance");
             
             List<WinningArea> _deactivatedWinningArea = new();
             

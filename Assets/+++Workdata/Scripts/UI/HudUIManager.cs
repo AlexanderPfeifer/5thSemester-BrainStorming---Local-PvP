@@ -35,6 +35,8 @@ public class HudUIManager : MonoBehaviour
         
         countDownText.text = "GO!";
         yield return new WaitForSeconds(1);
+        
+        StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
 
         countDownText.text = "";
     }

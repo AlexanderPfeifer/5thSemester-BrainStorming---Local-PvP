@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("MainMenuMusic", false);
+        Play("Music");
     }
 
     //I make this a singleton class and delete it if already existing, then I apply every option for the sound that is 
@@ -45,8 +45,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //Here I Search for a sound in the sound array that has the according string as a name with lambda method, then I play the sound
-    public void Play(string soundName, bool withRandomPitch)
+    public void PlayWithRandomPitch(string soundName)
     {
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
@@ -55,11 +54,24 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        if (withRandomPitch)
-        {
-            s.pitch = Random.Range(.2f, .8f);
-        }
+        s.pitch = Random.Range(.2f, .8f);
+
         
+        s.audioSource.Play();
+    }
+
+    //Here I Search for a sound in the sound array that has the according string as a name with lambda method, then I play the sound
+    public void Play(string soundName)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound:" + soundName + "not found!");
+            return;
+        }
+
+        s.pitch = Random.Range(.2f, .8f);
+
         s.audioSource.Play();
     }
     
@@ -134,7 +146,7 @@ public class AudioManager : MonoBehaviour
 
         if (!IsPlaying(soundName))
         {
-            Play(soundName, false);
+            Play(soundName);
             s.volume = 0;
         }
         

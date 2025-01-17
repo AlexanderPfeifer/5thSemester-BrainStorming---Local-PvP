@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class DetectInteractable : MonoBehaviour
@@ -9,17 +8,20 @@ public class DetectInteractable : MonoBehaviour
     [Header("Detect Necromance")]
     [SerializeField] private LayerMask humanLayer;
     [SerializeField] private LayerMask leverLayer;
+    [SerializeField] private LayerMask brainLayer;
+    [SerializeField] private LayerMask player1Layer;
+    [SerializeField] private LayerMask player2Layer;
     [FormerlySerializedAs("detectNecromancableHordeRadius")] [DisplayColor(0, 1, 0), SerializeField] private float detectInteractableRadius;
     private CachedZombieData cachedZombieData;
     
     private readonly HashSet<Transform> necromancableHordeSet = new();
     private readonly HashSet<Transform> necromancableZombie = new();
-
-    [SerializeField] private ParticleSystem interactableInRange;
     
     private Transform lever;
+    private Transform brain;
 
     private bool leverDetected;
+    private bool brainDetected;
     private bool humanDetected;
 
     private void Start()
@@ -33,22 +35,9 @@ public class DetectInteractable : MonoBehaviour
         
         DetectLever();
         
-        ShowInteractionParticles();
+        DetectBrain();
     }
 
-    private void ShowInteractionParticles()
-    {
-        if (leverDetected && humanDetected)
-        {
-            if(!interactableInRange.isPlaying)
-                interactableInRange.Play();   
-        }
-        else
-        {
-            interactableInRange.Stop();
-        }
-    }
-    
     private void ShowInteractableImageOnZombies(Transform horde, float visibility)
     {
         horde.GetComponent<ShowNecromanceText>().CanvasGroupVisibility(visibility);
@@ -61,6 +50,57 @@ public class DetectInteractable : MonoBehaviour
         if (resetFillAmout)
         {
             lever.GetComponent<Lever>().pullLeverImage.fillAmount = 0;
+        }
+    }
+    
+    private void ShowInteractableImageOnBrain(Transform brain, float visibility, bool resetFillAmout)
+    {
+        brain.GetComponent<WinningArea>().canvasGroup.alpha = visibility;
+
+        if (resetFillAmout)
+        {
+            brain.GetComponent<WinningArea>().obtainPointsImage.fillAmount = 0;
+        }
+    }
+    
+    private void DetectBrain()
+    {
+        var _brainHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, brainLayer);
+
+        if (_brainHit.Length > 0)
+        {
+            brainDetected = true;            
+            brain = _brainHit[0].transform;
+        }
+        else
+        {
+            brainDetected = false;
+            brain = null;
+        }
+        
+        if(brain == null)
+            return;
+        
+        var _player1Zombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player1Layer);
+        var _player2Zombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player2Layer);
+
+        //Check if there are more than 1 zombie to get points because the first one could be only the main zombie, which does not count
+        if ((_player1Zombies.Length > 1 && _player2Zombies.Length <= 1) || (_player2Zombies.Length > 1 && _player1Zombies.Length <= 1))
+        {
+            if (Vector3.Distance(transform.position, brain.position) < detectInteractableRadius)
+            {
+                ShowInteractableImageOnBrain(brain, 1, false);
+                cachedZombieData.NecromanceHorde.InteractableBrain = _brainHit[0].transform;
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = _player1Zombies.Length;
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2 = _player2Zombies.Length;
+            }
+            else
+            {
+                ShowInteractableImageOnBrain(brain, 0, true);
+                cachedZombieData.NecromanceHorde.InteractableBrain = null; 
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = 0;
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2 = 0;
+            }
         }
     }
 

@@ -41,7 +41,7 @@ public class NPCMovement : MonoBehaviour
     {
         ZombieDespawnTime();
         
-        if (cachedZombieData.Health.IsDead || cachedZombieData.AutoAttack.IsAttacking)
+        if (cachedZombieData.AutoAttack.IsAttacking)
             return;
 
         MoveZombie();
@@ -76,7 +76,7 @@ public class NPCMovement : MonoBehaviour
             case false when _zombieHit.Length > 0:
                 currentSpeed = runMoveSpeed;
                 
-                AudioManager.Instance.Play("HumanShocked", true);
+                AudioManager.Instance.PlayWithRandomPitch("HumanShocked");
                 
                 _position = Vector3.MoveTowards(_position, 
                     _position + (_position - _zombieHit[0].transform.position), 

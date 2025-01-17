@@ -65,11 +65,18 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .5f;
+        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * 1;
 
         currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, baseMoveSpeed - 3);
         
         transform.position = Vector3.SmoothDamp(transform.position, transform.position + (new Vector3(moveInput.x, 0, moveInput.y) * currentMoveSpeed).normalized, ref currentVelocity, speedSmoothTime);
+
+        /*
+        if (Physics.Raycast(transform.position, Vector3.left, 1))
+        {
+            
+        }
+        */
     }
 
     void MoveAnimationLateUpdate()

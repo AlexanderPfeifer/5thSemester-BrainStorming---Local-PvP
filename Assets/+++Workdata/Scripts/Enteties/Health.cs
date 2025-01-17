@@ -13,12 +13,11 @@ public class Health : MonoBehaviour
 
     [Header("Hit")] 
     [SerializeField] private float changeColorOnHitTime = .3f;
+    [SerializeField] private VisualEffect bloodEffect;
 
     [Header("Death")]
-    public bool IsDead;
     private Vector3 startScale;
     private Quaternion startRotation;
-    public Sprite graveSprite;
     
     private CachedZombieData cachedZombieData;
 
@@ -34,14 +33,14 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void DamageIncome(int damageDealt, AutoAttack autoAttack)
+    public void DamageIncome(int damageDealt, Transform sender)
     {
-        if (!IsPlayerZombie && cachedZombieData.MeshRenderer.material.mainTexture as Texture2D == graveSprite.texture)
+        if (!IsPlayerZombie)
             return;
         
         currentHealth -= damageDealt;
         
-        Vector3 _enemy = autoAttack.transform.position;
+        Vector3 _enemy = sender.position;
         _enemy.y = 0f;
 
         Vector3 _player = transform.position;
@@ -50,15 +49,16 @@ public class Health : MonoBehaviour
 
         float _angle = Mathf.Atan2(_enemy.x, _enemy.z) * Mathf.Rad2Deg;
         
-        GetComponentInParent<VisualEffect>().transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
-        GetComponentInParent<VisualEffect>().transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
-        GetComponentInParent<VisualEffect>().Play();
+        bloodEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
+        bloodEffect.transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
+        bloodEffect.Play();
 
         if (currentHealth <= 0)
         {
-            AudioManager.Instance.Play("ZombieDeath", true);
+            AudioManager.Instance.PlayWithRandomPitch("ZombieDeath");
             Die();
-            autoAttack.ResetAttack();
+            if(sender.TryGetComponent(out AutoAttack _autoAttack))
+                _autoAttack.ResetAttack();
         }
         
         StartCoroutine(ChangeColorOnHitCoroutine());
@@ -68,9 +68,6 @@ public class Health : MonoBehaviour
     {
         if (!IsPlayerZombie)
         {
-            IsDead = true;
-
-            cachedZombieData.MeshRenderer.material.mainTexture = graveSprite.texture;
             cachedZombieData.Animator.enabled = false;
             
             //Need to reset the animator because it still has effect on the rotation even after disabling it

@@ -37,9 +37,6 @@ public class AutoAttack : MonoBehaviour
 
     private void Update()
     {
-        if(GetComponent<Health>().IsDead)
-            return;
-
         IdentifyAttackableZombie();
     }
 
@@ -88,7 +85,7 @@ public class AutoAttack : MonoBehaviour
 
             if (currentTimeUntilNextAttack <= 0)
             {
-                AudioManager.Instance.Play("ZombieBite", true);
+                AudioManager.Instance.PlayWithRandomPitch("ZombieBite");
                 cachedZombieData.Animator.SetTrigger("attack");
                 currentTimeUntilNextAttack = maxTimeUntilNextAttack;
             }
@@ -102,7 +99,7 @@ public class AutoAttack : MonoBehaviour
     private void MoveTowardsClosestEnemy()
     {
         Vector3 _directionToEnemy = closestAttackableZombie.position - transform.position;
-        if (closestAttackableZombie == null || closestAttackableZombie.GetComponent<Health>().IsDead || (Physics.Raycast(transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 1 << gameObject.layer) && _hit.collider.gameObject != gameObject))
+        if (closestAttackableZombie == null || (Physics.Raycast(transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 1 << gameObject.layer) && _hit.collider.gameObject != gameObject))
         {
             IsAttacking = false;
             return; 
@@ -145,9 +142,9 @@ public class AutoAttack : MonoBehaviour
 
     public void AttackEnemyAnimationEvent()
     {
-        if (closestAttackableZombie != null && !closestAttackableZombie.GetComponent<Health>().IsDead)
+        if (closestAttackableZombie != null)
         {
-            closestAttackableZombie.GetComponent<Health>().DamageIncome(damage, this);
+            closestAttackableZombie.GetComponent<Health>().DamageIncome(damage, transform);
         }
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c3bcd6310d030b449ada63d233d11fde
+guid: 4a456428361f6e541994c485ca707896
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5258219890999129628
-    second: brainstorming_pointsslider_lever_0
+      213: -7488594705892711926
+    second: MoveParticlesColor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_pointsslider_lever_0
+      name: MoveParticlesColor_0
       rect:
         serializedVersion: 2
-        x: 1057
-        y: 300
-        width: 1923
-        height: 1442
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e98a1e4edc0707b0800000000000000
-      internalID: -5258219890999129628
+      spriteID: a02e4609aca231890800000000000000
+      internalID: -7488594705892711926
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      brainstorming_pointsslider_lever_0: -5258219890999129628
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

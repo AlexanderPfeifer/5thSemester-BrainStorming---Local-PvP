@@ -1,31 +1,20 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowDirectionOfWinArea : MonoBehaviour
 {
-    [SerializeField] private RectTransform player1Arrow;
-    [SerializeField] private RectTransform player2Arrow;
+    [SerializeField] private RectTransform[] brainArrow;
     
-    public Transform player1;
-    public Transform player2;
+    public List<Transform> players;
 
     [SerializeField] public WinningArea[] winningArea;
-
-    public bool showDirection;
-
-    private void Update()
-    {
-        if(!showDirection)
-            return;
-        
-        RotateArrowToWinningArea(player1, player1Arrow);
-        
-        RotateArrowToWinningArea(player2, player2Arrow);
-    }
-
-    private void RotateArrowToWinningArea(Transform player, RectTransform playerArrow)
+    
+    public IEnumerator RotateArrowToWinningArea()
     {
         Vector3 _winningAreaPosition = transform.position;
-            
+        
         foreach (var _winningArea in winningArea)
         {
             if (_winningArea.canObtainPoints)
@@ -35,18 +24,54 @@ public class ShowDirectionOfWinArea : MonoBehaviour
                 break;
             }
         }
-
+        
         if (_winningAreaPosition == transform.position)
         {
             Debug.Log("THERE IS NO WINNING AREA ASSIGNED");
-            return;
+            yield break;
+        }
+        
+        // Store initial and target rotations for each arrow because I want to rotate both arrows parallel
+        List<(Quaternion startRotation, Quaternion targetRotation, Transform arrowTransform)> _arrowData = new List<(Quaternion, Quaternion, Transform)>();
+        
+        for (int _i = 0; _i < players.Count; _i++)
+        {
+            var _player = players[_i];
+            var _brainArrow = brainArrow[_i];
+        
+            // Calculate the target rotation for this player and arrow
+            Vector3 _directionToTarget = _winningAreaPosition - _player.position;
+            float _angle = -Mathf.Atan2(_directionToTarget.x, _directionToTarget.z) * Mathf.Rad2Deg;
+        
+            Quaternion _startRotation = _brainArrow.transform.rotation;
+            Quaternion _targetRotation = Quaternion.Euler(new Vector3(0, 0, _angle));
+        
+            _arrowData.Add((_startRotation, _targetRotation, _brainArrow.transform));
+        }
+        
+        float _elapsedTime = 0f;
+        const float duration = .5f;
+
+        while (_elapsedTime < duration)
+        {
+            float t = _elapsedTime / duration;
+        
+            // Rotate all arrows simultaneously
+            foreach (var (_startRotation, _targetRotation, _arrowTransform) in _arrowData)
+            {
+                _arrowTransform.rotation = Quaternion.Lerp(_startRotation, _targetRotation, t);
+            }
+        
+            _elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        // Ensure all arrows reach their final rotation
+        foreach (var (_, _targetRotation, _arrowTransform) in _arrowData)
+        {
+            _arrowTransform.rotation = _targetRotation;
         }
 
-        Vector3 _player = player.transform.position;
-        _winningAreaPosition.x -= _player.x;
-        _winningAreaPosition.z -= _player.z;
-
-        float _angle = -Mathf.Atan2(_winningAreaPosition.x, _winningAreaPosition.z) * Mathf.Rad2Deg;
-        playerArrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
+        StartCoroutine(RotateArrowToWinningArea());
     }
 }
