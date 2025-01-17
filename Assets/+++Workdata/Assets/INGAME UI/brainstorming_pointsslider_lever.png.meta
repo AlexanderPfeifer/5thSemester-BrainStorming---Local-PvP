@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 15effe52e4ab3044fa2e40fc1588ff1e
+guid: c3bcd6310d030b449ada63d233d11fde
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8948282019761624854
-    second: brainstorming_direction_arrow_0
+      213: -5258219890999129628
+    second: brainstorming_pointsslider_lever_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_direction_arrow_0
+      name: brainstorming_pointsslider_lever_0
       rect:
         serializedVersion: 2
-        x: 1402
-        y: 683
-        width: 1036
-        height: 1269
+        x: 1057
+        y: 300
+        width: 1923
+        height: 1442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61718e1461fae2c70800000000000000
-      internalID: 8948282019761624854
+      spriteID: 4e98a1e4edc0707b0800000000000000
+      internalID: -5258219890999129628
       vertices: []
       indices: 
       edges: []
