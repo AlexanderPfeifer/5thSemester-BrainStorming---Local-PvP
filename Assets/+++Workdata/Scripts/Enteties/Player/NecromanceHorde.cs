@@ -8,8 +8,8 @@ public class NecromanceHorde : MonoBehaviour
     public HashSet<Transform> NecromancableZombieHorde = new();
     [HideInInspector] public Transform InteractableLever;
     [HideInInspector] public Transform InteractableBrain;
-    [HideInInspector] public int zombiesNearBrainPlayer1;
-    [HideInInspector] public int zombiesNearBrainPlayer2;
+    [HideInInspector] public Collider[] zombiesNearBrainPlayer1;
+    [HideInInspector] public Collider[] zombiesNearBrainPlayer2;
     [SerializeField] private ParticleSystem interactCircle;
 
 
@@ -27,6 +27,15 @@ public class NecromanceHorde : MonoBehaviour
     }
 
     public void OnNecromance()
+    {
+        TryNecromancing();
+
+        TryInteractingWithLever();
+        
+        TryInteractingWithBrain();
+    }
+
+    void TryNecromancing()
     {
         var _necromancableHordeSet = new HashSet<Transform>();
         var _necromancableZombieSet = new HashSet<GameObject>();
@@ -61,10 +70,6 @@ public class NecromanceHorde : MonoBehaviour
                 _zombie.transform.parent = ParentObject;   
             }
         }
-        
-        TryInteractingWithLever();
-        
-        TryInteractingWithBrain();
     }
 
     void PlayParticleEffect()
@@ -96,7 +101,7 @@ public class NecromanceHorde : MonoBehaviour
             if (InteractableBrain.GetComponentInChildren<Image>().fillAmount >= 1)
             {
                 InteractableBrain.GetComponentInChildren<WinningArea>().PlayerPointsAllocation(zombiesNearBrainPlayer1, zombiesNearBrainPlayer2);
-                PlayParticleEffect();
+                InteractableBrain.GetComponentInChildren<Image>().fillAmount = 0;
             }
         }
     }

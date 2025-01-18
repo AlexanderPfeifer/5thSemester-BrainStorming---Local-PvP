@@ -1,40 +1,34 @@
 fileFormatVersion: 2
-guid: 7bf90e8fab4ba7f4a9909a4f530198cf
+guid: 6e39e66292a102042acbdbf39149dfb5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2181442061643372306
-    second: Somby_test - Copy_0
+      213: 7258084932465792752
+    second: Prop_greenSomby_MaikeP_0
   - first:
-      213: 240247917621115415
-    second: Somby_test - Copy_1
+      213: 2930870212155003669
+    second: Prop_greenSomby_MaikeP_1
   - first:
-      213: 7983220048916339787
-    second: Somby_test - Copy_2
+      213: 581298566899377026
+    second: Prop_greenSomby_MaikeP_2
   - first:
-      213: 3096810084707327130
-    second: Somby_test - Copy_3
+      213: 1207773505308019507
+    second: Prop_greenSomby_MaikeP_3
   - first:
-      213: 7277716581713448603
-    second: Somby_test - Copy_4
+      213: 4213427576494164434
+    second: Prop_greenSomby_MaikeP_4
   - first:
-      213: -2377733906210990933
-    second: Somby_test - Copy_5
+      213: -641245717346775600
+    second: Prop_greenSomby_MaikeP_5
   - first:
-      213: -4789400614806569656
-    second: Somby_test - Copy_6
+      213: 8117354137848484745
+    second: Prop_greenSomby_MaikeP_6
   - first:
-      213: -3146307562634909569
-    second: Somby_test - Copy_7
+      213: -1580492934213919387
+    second: Prop_greenSomby_MaikeP_7
   - first:
-      213: -213454770016465890
-    second: Somby_test - Copy_8
-  - first:
-      213: 8490459806883255208
-    second: Somby_test - Copy_9
-  - first:
-      213: -5268323930430371234
-    second: Somby_test - Copy_10
+      213: 4383984334084336729
+    second: Prop_greenSomby_MaikeP_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -143,12 +137,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Somby_test - Copy_0
+      name: Prop_greenSomby_MaikeP_0
       rect:
         serializedVersion: 2
-        x: 453
-        y: 1652
-        width: 17
+        x: 21
+        y: 941
+        width: 123
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f61d358ac5e9b460800000000000000
+      internalID: 7258084932465792752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_greenSomby_MaikeP_1
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 953
+        width: 29
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 217595e4ff9064e10800000000000000
-      internalID: 2181442061643372306
+      spriteID: 513d546fdea8ca820800000000000000
+      internalID: 2930870212155003669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Somby_test - Copy_1
+      name: Prop_greenSomby_MaikeP_2
       rect:
         serializedVersion: 2
-        x: 455
-        y: 94
-        width: 964
-        height: 1816
+        x: 272
+        y: 4
+        width: 505
+        height: 979
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,41 +196,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71a75db4538855300800000000000000
-      internalID: 240247917621115415
+      spriteID: 2832b7c77ff211800800000000000000
+      internalID: 581298566899377026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Somby_test - Copy_2
+      name: Prop_greenSomby_MaikeP_3
       rect:
         serializedVersion: 2
-        x: 1414
-        y: 1494
-        width: 88
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b4c5f6b66581ace60800000000000000
-      internalID: 7983220048916339787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Somby_test - Copy_3
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 1319
-        width: 7
+        x: 586
+        y: 977
+        width: 11
         height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,19 +218,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9cd3db4d541afa20800000000000000
-      internalID: 3096810084707327130
+      spriteID: 33b4301aa9fd2c010800000000000000
+      internalID: 1207773505308019507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Somby_test - Copy_4
+      name: Prop_greenSomby_MaikeP_4
       rect:
         serializedVersion: 2
-        x: 566
-        y: 804
-        width: 8
+        x: 602
+        y: 975
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d905cf9e0a197a30800000000000000
+      internalID: 4213427576494164434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_greenSomby_MaikeP_5
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 973
+        width: 13
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -246,86 +262,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9e000d0ca4aff460800000000000000
-      internalID: 7277716581713448603
+      spriteID: 0dd0ec3ea66d917f0800000000000000
+      internalID: -641245717346775600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Somby_test - Copy_5
+      name: Prop_greenSomby_MaikeP_6
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 102
-        width: 25
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba454ed2c97900fd0800000000000000
-      internalID: -2377733906210990933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Somby_test - Copy_6
-      rect:
-        serializedVersion: 2
-        x: 1163
-        y: 98
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84dba632481a88db0800000000000000
-      internalID: -4789400614806569656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Somby_test - Copy_7
-      rect:
-        serializedVersion: 2
-        x: 1177
-        y: 98
-        width: 10
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f78650f01f11654d0800000000000000
-      internalID: -3146307562634909569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Somby_test - Copy_8
-      rect:
-        serializedVersion: 2
-        x: 1194
-        y: 94
+        x: 196
+        y: 776
         width: 23
-        height: 17
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,19 +284,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1c4e818408a90df0800000000000000
-      internalID: -213454770016465890
+      spriteID: 983918ea492a6a070800000000000000
+      internalID: 8117354137848484745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Somby_test - Copy_9
+      name: Prop_greenSomby_MaikeP_7
       rect:
         serializedVersion: 2
-        x: 1267
-        y: 104
-        width: 7
+        x: 196
+        y: 713
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d1a26dc06f01ae0800000000000000
+      internalID: -1580492934213919387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_greenSomby_MaikeP_8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 9
+        width: 13
         height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -356,30 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a31201c53c24d570800000000000000
-      internalID: 8490459806883255208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Somby_test - Copy_10
-      rect:
-        serializedVersion: 2
-        x: 1169
-        y: 94
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5a020d4c4723e6b0800000000000000
-      internalID: -5268323930430371234
+      spriteID: 95c69f5468a07dc30800000000000000
+      internalID: 4383984334084336729
       vertices: []
       indices: 
       edges: []
@@ -398,17 +348,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Somby_test - Copy_0: 2181442061643372306
-      Somby_test - Copy_1: 240247917621115415
-      Somby_test - Copy_10: -5268323930430371234
-      Somby_test - Copy_2: 7983220048916339787
-      Somby_test - Copy_3: 3096810084707327130
-      Somby_test - Copy_4: 7277716581713448603
-      Somby_test - Copy_5: -2377733906210990933
-      Somby_test - Copy_6: -4789400614806569656
-      Somby_test - Copy_7: -3146307562634909569
-      Somby_test - Copy_8: -213454770016465890
-      Somby_test - Copy_9: 8490459806883255208
+      Prop_greenSomby_MaikeP_0: 7258084932465792752
+      Prop_greenSomby_MaikeP_1: 2930870212155003669
+      Prop_greenSomby_MaikeP_2: 581298566899377026
+      Prop_greenSomby_MaikeP_3: 1207773505308019507
+      Prop_greenSomby_MaikeP_4: 4213427576494164434
+      Prop_greenSomby_MaikeP_5: -641245717346775600
+      Prop_greenSomby_MaikeP_6: 8117354137848484745
+      Prop_greenSomby_MaikeP_7: -1580492934213919387
+      Prop_greenSomby_MaikeP_8: 4383984334084336729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

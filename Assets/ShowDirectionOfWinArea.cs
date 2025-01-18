@@ -32,7 +32,7 @@ public class ShowDirectionOfWinArea : MonoBehaviour
         }
         
         // Store initial and target rotations for each arrow because I want to rotate both arrows parallel
-        List<(Quaternion startRotation, Quaternion targetRotation, Transform arrowTransform)> _arrowData = new List<(Quaternion, Quaternion, Transform)>();
+        List<(Quaternion startRotation, Quaternion targetRotation, Transform arrowTransform)> _arrowData = new();
         
         for (int _i = 0; _i < players.Count; _i++)
         {
@@ -50,7 +50,7 @@ public class ShowDirectionOfWinArea : MonoBehaviour
         }
         
         float _elapsedTime = 0f;
-        const float duration = .5f;
+        const float duration = .2f;
 
         while (_elapsedTime < duration)
         {

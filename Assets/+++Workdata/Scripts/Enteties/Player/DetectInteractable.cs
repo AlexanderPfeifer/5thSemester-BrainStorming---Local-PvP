@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -91,15 +92,15 @@ public class DetectInteractable : MonoBehaviour
             {
                 ShowInteractableImageOnBrain(brain, 1, false);
                 cachedZombieData.NecromanceHorde.InteractableBrain = _brainHit[0].transform;
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = _player1Zombies.Length;
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2 = _player2Zombies.Length;
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = _player1Zombies;
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2 = _player2Zombies;
             }
             else
             {
                 ShowInteractableImageOnBrain(brain, 0, true);
                 cachedZombieData.NecromanceHorde.InteractableBrain = null; 
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = 0;
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2 = 0;
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = Array.Empty<Collider>();
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = Array.Empty<Collider>();
             }
         }
     }

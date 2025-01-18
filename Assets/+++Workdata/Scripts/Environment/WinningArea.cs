@@ -22,47 +22,43 @@ public class WinningArea : MonoBehaviour
 
     [SerializeField] public CanvasGroup canvasGroup;
 
-    private void Update()
+    public void PlayerPointsAllocation(Collider[] player1Zombies, Collider[] player2Zombies)
     {
-        if (canObtainPoints)
+        if(!brainActiveParticles.isPlaying)
+            brainActiveParticles.Play();
+
+        AudioManager.Instance.PlayWithRandomPitch("ObtainingPoints");
+
+
+        if (player1Zombies.Length > 0)
         {
-            if(brainActiveParticles.isPlaying)
-                brainActiveParticles.Stop();
+            foreach (var _player1Zombie in player1Zombies)
+            {
+                if(_player1Zombie.TryGetComponent(out NPCMovement _npcMovement))
+                    _npcMovement.ObtainPointsParticles.Play();
+            }
+            player1Points += player1Zombies.Length;
+            player1PointsSlider.value = (float)player1Points / pointsToWin;
+
+            if (player1Points >= pointsToWin)
+            {
+                winScreen.SetActive(true);
+            }
         }
-    }
-
-    public void PlayerPointsAllocation(int player1Zombies, int player2Zombies)
-    {
-        if (obtainPointsImage.fillAmount >= 1)
+        else
         {
-            if(!brainActiveParticles.isPlaying)
-                brainActiveParticles.Play();
-
-            AudioManager.Instance.PlayWithRandomPitch("ObtainingPoints");
-
-
-            if (player1Zombies > 0)
+            foreach (var _player2Zombie in player2Zombies)
             {
-                player1Points += player1Zombies;
-                player1PointsSlider.value = (float)player1Points / pointsToWin;
-
-                if (player1Points >= pointsToWin)
-                {
-                    winScreen.SetActive(true);
-                }
+                if(_player2Zombie.TryGetComponent(out NPCMovement _npcMovement))
+                    _npcMovement.ObtainPointsParticles.Play();
             }
-            else
+            player2Points += player2Zombies.Length;
+            player2PointsSlider.value = (float)player2Points / pointsToWin;
+
+            if (player1Points >= pointsToWin)
             {
-                player2Points += player2Zombies;
-                player2PointsSlider.value = (float)player2Points / pointsToWin;
-
-                if (player1Points >= pointsToWin)
-                {
-                    winScreen.SetActive(true);
-                }    
-            }
-
-            obtainPointsImage.fillAmount = 0;
+                winScreen.SetActive(true);
+            }    
         }
     }
     

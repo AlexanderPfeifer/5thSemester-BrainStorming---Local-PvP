@@ -11,12 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")] 
     private float currentMoveSpeed;
     [SerializeField] private float baseMoveSpeed;
-    [SerializeField] private float speedSmoothTime = 1.0f;
     private Vector3 lastPosition;
-    private Vector3 currentVelocity = new Vector3(0, 0, 0);
     private bool movementAllowed;
-
-
+    
     private CachedZombieData cachedZombieData;
 
     private void Start()
@@ -65,18 +62,41 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * 1;
+        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .5f;
 
         currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, baseMoveSpeed - 3);
-        
-        transform.position = Vector3.SmoothDamp(transform.position, transform.position + (new Vector3(moveInput.x, 0, moveInput.y) * currentMoveSpeed).normalized, ref currentVelocity, speedSmoothTime);
 
-        /*
-        if (Physics.Raycast(transform.position, Vector3.left, 1))
+        float _moveDistance = currentMoveSpeed * Time.deltaTime;
+        
+        Vector3 _moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+        float _playerHeight = transform.localScale.z;
+        float _playerRadius = transform.localScale.x;
+
+        bool _canMove = !Physics.CapsuleCast(transform.position,transform.position + Vector3.up * _playerHeight, _playerRadius, _moveDirection, _moveDistance);
+
+        if (!_canMove)
         {
-            
+            Vector3 _moveDirectionX = new Vector3(_moveDirection.x, 0, 0);
+            _canMove = !Physics.CapsuleCast(transform.position,transform.position + Vector3.up * _playerHeight, _playerRadius, _moveDirectionX, _moveDistance);
+
+            if (_canMove)
+            {
+                _moveDirection = _moveDirectionX;
+            }
+            else
+            {
+                Vector3 _moveDirectionZ = new Vector3(0, 0, _moveDirection.z);
+                _canMove = !Physics.CapsuleCast(transform.position,transform.position + Vector3.up * _playerHeight, _playerRadius, _moveDirectionZ, _moveDistance);
+
+                if (_canMove)
+                {
+                    _moveDirection = _moveDirectionZ;
+                }
+            }
         }
-        */
+        
+        if(_canMove)
+            transform.position += _moveDirection * _moveDistance;
     }
 
     void MoveAnimationLateUpdate()

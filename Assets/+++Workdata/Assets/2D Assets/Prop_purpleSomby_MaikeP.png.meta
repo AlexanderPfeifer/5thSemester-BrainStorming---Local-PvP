@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: a04a6fae09879a44c85f51815719a68e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7896137708226002184
+    second: Prop_purpleSomby_MaikeP_0
+  - first:
+      213: -4013545282394216099
+    second: Prop_purpleSomby_MaikeP_1
+  - first:
+      213: -8243907912300923297
+    second: Prop_purpleSomby_MaikeP_2
+  - first:
+      213: 5120461824158249537
+    second: Prop_purpleSomby_MaikeP_3
+  - first:
+      213: 6033875348133585299
+    second: Prop_purpleSomby_MaikeP_4
+  - first:
+      213: 4651716977310483850
+    second: Prop_purpleSomby_MaikeP_5
+  - first:
+      213: -3938463157444772480
+    second: Prop_purpleSomby_MaikeP_6
+  - first:
+      213: -2570114313967668052
+    second: Prop_purpleSomby_MaikeP_7
+  - first:
+      213: 8668483658052245520
+    second: Prop_purpleSomby_MaikeP_8
+  - first:
+      213: 7260466289578701298
+    second: Prop_purpleSomby_MaikeP_9
+  - first:
+      213: 7399946825677416627
+    second: Prop_purpleSomby_MaikeP_10
+  - first:
+      213: -3450943241330284760
+    second: Prop_purpleSomby_MaikeP_11
+  - first:
+      213: -3306698793767620583
+    second: Prop_purpleSomby_MaikeP_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_0
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 616
+        height: 994
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f24f9307984b6290800000000000000
+      internalID: -7896137708226002184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_1
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 856
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59a2f094d50d48c0800000000000000
+      internalID: -4013545282394216099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_2
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 838
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56754e8e61c79d80800000000000000
+      internalID: -8243907912300923297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_3
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 788
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142b6e256e88f0740800000000000000
+      internalID: 5120461824158249537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 562
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3912d7809a1acb350800000000000000
+      internalID: 6033875348133585299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_5
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 528
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85ce3ce1f73e8040800000000000000
+      internalID: 4651716977310483850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_6
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 429
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d7a8b00a4c759c0800000000000000
+      internalID: -3938463157444772480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_7
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 286
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca47fc306ae155cd0800000000000000
+      internalID: -2570114313967668052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_8
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 278
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0189b7b95f3ac4870800000000000000
+      internalID: 8668483658052245520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_9
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 298
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f1790e6f9b52c460800000000000000
+      internalID: 7260466289578701298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_10
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 264
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8284d6e64e1b660800000000000000
+      internalID: 7399946825677416627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_11
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8272978e769cb10d0800000000000000
+      internalID: -3450943241330284760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_purpleSomby_MaikeP_12
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 2
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 910b44a77fe3c12d0800000000000000
+      internalID: -3306698793767620583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Prop_purpleSomby_MaikeP_0: -7896137708226002184
+      Prop_purpleSomby_MaikeP_1: -4013545282394216099
+      Prop_purpleSomby_MaikeP_10: 7399946825677416627
+      Prop_purpleSomby_MaikeP_11: -3450943241330284760
+      Prop_purpleSomby_MaikeP_12: -3306698793767620583
+      Prop_purpleSomby_MaikeP_2: -8243907912300923297
+      Prop_purpleSomby_MaikeP_3: 5120461824158249537
+      Prop_purpleSomby_MaikeP_4: 6033875348133585299
+      Prop_purpleSomby_MaikeP_5: 4651716977310483850
+      Prop_purpleSomby_MaikeP_6: -3938463157444772480
+      Prop_purpleSomby_MaikeP_7: -2570114313967668052
+      Prop_purpleSomby_MaikeP_8: 8668483658052245520
+      Prop_purpleSomby_MaikeP_9: 7260466289578701298
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

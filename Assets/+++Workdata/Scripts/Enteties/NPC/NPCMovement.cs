@@ -18,6 +18,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] float notInCameraRange;
     [SerializeField] private float maxTimeUntilDespawn = 60;
     private float currentTimeUntilDespawn;
+    public ParticleSystem ObtainPointsParticles;
 
     [Header("Grouping")]
     [SerializeField] private float groupingSpeed;
@@ -40,6 +41,8 @@ public class NPCMovement : MonoBehaviour
     private void Update()
     {
         ZombieDespawnTime();
+
+        ObtainPointsParticles.transform.position = new Vector3(transform.position.x, ObtainPointsParticles.transform.position.y, transform.position.z);
         
         if (cachedZombieData.AutoAttack.IsAttacking)
             return;
@@ -70,7 +73,7 @@ public class NPCMovement : MonoBehaviour
         
         switch (IsNecromanced)
         {
-            case true when Vector2.Distance(transform.position, MainZombieMovement.transform.position) > MainZombieMovement.groupingRadius:
+            case true when Vector3.Distance(transform.position, MainZombieMovement.transform.position) > MainZombieMovement.groupingRadius:
                 GroupWithMainZombie();
                 return;
             case false when _zombieHit.Length > 0:
@@ -87,7 +90,7 @@ public class NPCMovement : MonoBehaviour
                 MoveDirection = _position + (_position - _zombieHit[0].transform.position);
                 return;
         }
-
+        
         Vector3 _moveDirectionNormalized = MoveDirection.normalized;
 
         // Detect collisions in front of the zombie using SphereCast
@@ -113,6 +116,8 @@ public class NPCMovement : MonoBehaviour
 
     void GroupWithMainZombie()
     {
+        Debug.Log("Grouping");
+
         currentSpeed = groupingSpeed;
         transform.position = Vector3.MoveTowards(transform.position, MainZombieMovement.transform.position, Time.deltaTime * currentSpeed);
         MoveDirection = MainZombieMovement.transform.position - transform.position;
