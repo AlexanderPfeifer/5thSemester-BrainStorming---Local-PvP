@@ -24,23 +24,28 @@ public class HudUIManager : MonoBehaviour
 
     private IEnumerator CountDownCoroutine()
     {
+        for (int _i = 3; _i > 0; _i--)
+        {
+            // Update all countDownText elements simultaneously
+            foreach (var _countDownText in countDownText)
+            {
+                _countDownText.text = _i.ToString();
+            }
+            yield return new WaitForSeconds(1);
+        }
+
+        // Show "GO!" for all countDownText elements
         foreach (var _countDownText in countDownText)
         {
-            _countDownText.text = "3";
-            yield return new WaitForSeconds(1);
-        
-            _countDownText.text = "2";
-            yield return new WaitForSeconds(1);
-        
-            _countDownText.text = "1";
-            yield return new WaitForSeconds(1);
-        
             _countDownText.text = "GO!";
-            yield return new WaitForSeconds(1);
-        
-            StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
+        }
+        yield return new WaitForSeconds(1);
 
-            _countDownText.text = "";   
+        StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
+
+        foreach (var _countDownText in countDownText)
+        {
+            _countDownText.text = "";
         }
     }
 }

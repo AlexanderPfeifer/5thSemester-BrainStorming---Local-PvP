@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NPCSpawner : MonoBehaviour
 {
@@ -8,7 +10,8 @@ public class NPCSpawner : MonoBehaviour
     [SerializeField] private SpawnPoint[] spawnPoints;
     [SerializeField] private float zombiesInRangeRadius;
     [SerializeField] private LayerMask zombieLayer;
-    
+    [SerializeField] private Transform NPCParent;
+        
     private void OnEnable()
     {
         PlayerRegistryManager.Instance.AllPlayersReady += OnSpawnSmallHordesOverTime;
@@ -17,6 +20,22 @@ public class NPCSpawner : MonoBehaviour
     private void OnDisable()
     {
         PlayerRegistryManager.Instance.AllPlayersReady -= OnSpawnSmallHordesOverTime;
+    }
+
+    private void Update()
+    {
+        foreach (var _spawnPoint in spawnPoints)
+        {
+            for (int _i = 0; _i < _spawnPoint.spawnNPCCount; _i++)
+            {
+                if (_spawnPoint.lampLight == null)
+                {
+                    return;
+                }
+
+                _spawnPoint.lampLight.SetActive(!CheckZombiesInRange(_spawnPoint.transform));
+            }
+        }
     }
 
     private void OnSpawnSmallHordesOverTime()
@@ -45,7 +64,7 @@ public class NPCSpawner : MonoBehaviour
                     return;
                 }
             
-                var _horde = Instantiate(smallHordePrefab, _spawnPoint.transform.position + Random.insideUnitSphere, Quaternion.identity, transform);
+                var _horde = Instantiate(smallHordePrefab, _spawnPoint.transform.position + Random.insideUnitSphere, Quaternion.identity, NPCParent);
             
                 var _moveDir = Random.insideUnitSphere;
             
