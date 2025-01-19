@@ -641,12 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &81581606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1216,12 +1210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &120936334
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11817,7 +11805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &209087120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17385,12 +17373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &266514197
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33554,14 +33536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecf01f2764e0d646a918edcd9b23323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brainArrow:
-  - {fileID: 1888900009}
-  - {fileID: 1080364211}
-  players: []
-  winningArea:
-  - {fileID: 1365109852}
-  - {fileID: 1441552893}
-  - {fileID: 1227621282}
 --- !u!222 &419348887
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34044,8 +34018,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 45, y: 0}
+  m_SizeDelta: {x: 90, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449230228
 MonoBehaviour:
@@ -34067,11 +34041,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -8099228733531484066, guid: 5932f48c8d82d5141bfb091aa3b2c1fb, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -34243,12 +34217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &449598659
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34631,12 +34599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &461552171
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35281,12 +35243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &504449902
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46481,8 +46437,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1393161136}
   - {fileID: 1282395887}
   - {fileID: 1563805852}
+  - {fileID: 1769361180}
   - {fileID: 1024109212}
   m_Father: {fileID: 419292741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46869,12 +46827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &687304330
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47078,7 +47030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &695751174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62841,12 +62793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &798704603
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83320,7 +83266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &938009328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -84446,12 +84392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1046646986
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84774,12 +84714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1055537821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84904,12 +84838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1059978220
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85705,12 +85633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1097881609
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93710,7 +93632,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -93914,12 +93836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1308051560
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95343,6 +95259,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390843082}
   m_Mesh: {fileID: 7613677600035202147, guid: 6d93ef6c547ea7444a1606e586f2965c, type: 3}
+--- !u!1 &1393161135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393161136}
+  - component: {fileID: 1393161138}
+  - component: {fileID: 1393161137}
+  m_Layer: 5
+  m_Name: Slider Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1393161136
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393161135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 658406604}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1393161137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393161135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 4412139021123094375, guid: 68af05d58ec7c4e46928f84442e727e8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1393161138
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393161135}
+  m_CullTransparentMesh: 1
 --- !u!1 &1394785470
 GameObject:
   m_ObjectHideFlags: 0
@@ -95487,8 +95478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.00012207031}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -45, y: 0}
+  m_SizeDelta: {x: 90, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398389864
 MonoBehaviour:
@@ -95510,12 +95501,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 4642444609190953597, guid: 3681830b3f0322e4fb1324a90a4aa1c6, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 1
+  m_FillAmount: 0.576
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -95933,12 +95924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1421549783
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96204,7 +96189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1430900117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -102352,7 +102337,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.576
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -102598,12 +102583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1580430830
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -113420,12 +113399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1651791389
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -119676,6 +119649,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768699022}
   m_Mesh: {fileID: -344259101192070099, guid: 6d93ef6c547ea7444a1606e586f2965c, type: 3}
+--- !u!1 &1769361179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769361180}
+  - component: {fileID: 1769361182}
+  - component: {fileID: 1769361181}
+  m_Layer: 5
+  m_Name: Slider Overlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1769361180
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769361179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 658406604}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1769361181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769361179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3900290694743400563, guid: 17faeb92974424d48b89b0d9fec3fee5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1769361182
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769361179}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1779417661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130891,12 +130939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1892967074
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -131083,12 +131125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &1920480045
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -132041,12 +132077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &2004023825
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -142545,12 +142575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8049bc9a37311847be8934aac88ffc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealDamageRange: 1.3
-  zombiesLayer:
-    serializedVersion: 2
-    m_Bits: 192
-  maxDamageCooldown: 2
-  spikeParticles: {fileID: 0}
 --- !u!64 &2090161868
 MeshCollider:
   m_ObjectHideFlags: 0
