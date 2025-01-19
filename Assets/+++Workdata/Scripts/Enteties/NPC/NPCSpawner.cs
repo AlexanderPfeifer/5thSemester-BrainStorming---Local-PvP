@@ -5,7 +5,7 @@ public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject smallHordePrefab;
     [SerializeField] private float smallHordeSpawnTime = 3;
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private SpawnPoint[] spawnPoints;
     [SerializeField] private float zombiesInRangeRadius;
     [SerializeField] private LayerMask zombieLayer;
     
@@ -38,20 +38,23 @@ public class NPCSpawner : MonoBehaviour
     {
         foreach (var _spawnPoint in spawnPoints)
         {
-            if (CheckZombiesInRange(_spawnPoint))
+            for (int _i = 0; _i < _spawnPoint.spawnNPCCount; _i++)
             {
-                return;
-            }
+                if (CheckZombiesInRange(_spawnPoint.transform))
+                {
+                    return;
+                }
             
-            var _horde = Instantiate(smallHordePrefab, _spawnPoint.transform.position, Quaternion.identity, transform);
+                var _horde = Instantiate(smallHordePrefab, _spawnPoint.transform.position + Random.insideUnitSphere, Quaternion.identity, transform);
             
-            var _moveDir = Random.insideUnitSphere;
+                var _moveDir = Random.insideUnitSphere;
             
-            _moveDir.y = 0;
+                _moveDir.y = 0;
             
-            foreach (Transform _child in _horde.transform)
-            {
-                _child.GetComponent<NPCMovement>().MoveDirection = _moveDir;
+                foreach (Transform _child in _horde.transform)
+                {
+                    _child.GetComponent<NPCMovement>().MoveDirection = _moveDir;
+                }     
             }
         }
     }
@@ -74,7 +77,7 @@ public class NPCSpawner : MonoBehaviour
         foreach (var _spawnPoint in spawnPoints)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(_spawnPoint.position, zombiesInRangeRadius);   
+            Gizmos.DrawWireSphere(_spawnPoint.transform.position, zombiesInRangeRadius);   
         }
     }
 }

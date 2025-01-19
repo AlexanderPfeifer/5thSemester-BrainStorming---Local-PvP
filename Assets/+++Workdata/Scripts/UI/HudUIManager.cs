@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HudUIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI countDownText;
+    [SerializeField] private TextMeshProUGUI[] countDownText;
 
     void OnEnable()
     {
@@ -24,20 +24,23 @@ public class HudUIManager : MonoBehaviour
 
     private IEnumerator CountDownCoroutine()
     {
-        countDownText.text = "3";
-        yield return new WaitForSeconds(1);
+        foreach (var _countDownText in countDownText)
+        {
+            _countDownText.text = "3";
+            yield return new WaitForSeconds(1);
         
-        countDownText.text = "2";
-        yield return new WaitForSeconds(1);
+            _countDownText.text = "2";
+            yield return new WaitForSeconds(1);
         
-        countDownText.text = "1";
-        yield return new WaitForSeconds(1);
+            _countDownText.text = "1";
+            yield return new WaitForSeconds(1);
         
-        countDownText.text = "GO!";
-        yield return new WaitForSeconds(1);
+            _countDownText.text = "GO!";
+            yield return new WaitForSeconds(1);
         
-        StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
+            StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
 
-        countDownText.text = "";
+            _countDownText.text = "";   
+        }
     }
 }

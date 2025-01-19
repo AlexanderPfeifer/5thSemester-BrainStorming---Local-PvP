@@ -20,11 +20,7 @@ public class DetectInteractable : MonoBehaviour
     
     private Transform lever;
     private Transform brain;
-
-    private bool leverDetected;
-    private bool brainDetected;
-    private bool humanDetected;
-
+    
     private void Start()
     {
         cachedZombieData = GetComponent<CachedZombieData>();
@@ -70,12 +66,10 @@ public class DetectInteractable : MonoBehaviour
 
         if (_brainHit.Length > 0)
         {
-            brainDetected = true;            
             brain = _brainHit[0].transform;
         }
         else
         {
-            brainDetected = false;
             brain = null;
         }
         
@@ -111,14 +105,9 @@ public class DetectInteractable : MonoBehaviour
 
         if (_leverHit.Length > 0)
         {
-            leverDetected = true;            
             lever = _leverHit[0].transform;
         }
-        else
-        {
-            leverDetected = false;
-        }
-        
+
         if(lever == null)
             return;
         
@@ -137,7 +126,6 @@ public class DetectInteractable : MonoBehaviour
     private void DetectNecromancableHorde()
     {
         var _necromancableZombieHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, humanLayer);
-        humanDetected = _necromancableZombieHit.Length > 0;
         
         foreach (var _necromancableZombie in _necromancableZombieHit)
         {
