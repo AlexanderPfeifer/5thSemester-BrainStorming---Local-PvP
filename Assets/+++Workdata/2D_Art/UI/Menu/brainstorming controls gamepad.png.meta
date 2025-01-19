@@ -1,0 +1,2366 @@
+fileFormatVersion: 2
+guid: 0a1cab6a3f585ed46b15104353864d8d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6405096707988345799
+    second: brainstorming controls gamepad_0
+  - first:
+      213: -2541150124825026029
+    second: brainstorming controls gamepad_1
+  - first:
+      213: -4987700050296106267
+    second: brainstorming controls gamepad_2
+  - first:
+      213: 4303691260924574485
+    second: brainstorming controls gamepad_3
+  - first:
+      213: -9021954101370207276
+    second: brainstorming controls gamepad_4
+  - first:
+      213: 8955467702957880556
+    second: brainstorming controls gamepad_5
+  - first:
+      213: 5330734523602848634
+    second: brainstorming controls gamepad_6
+  - first:
+      213: 766909232560846054
+    second: brainstorming controls gamepad_7
+  - first:
+      213: -753602408090914186
+    second: brainstorming controls gamepad_8
+  - first:
+      213: -3220780152591012784
+    second: brainstorming controls gamepad_9
+  - first:
+      213: 2853959690583324609
+    second: brainstorming controls gamepad_10
+  - first:
+      213: -575511612738119630
+    second: brainstorming controls gamepad_11
+  - first:
+      213: -1150490337877152874
+    second: brainstorming controls gamepad_12
+  - first:
+      213: 2761438139473374127
+    second: brainstorming controls gamepad_13
+  - first:
+      213: 4631566885130770657
+    second: brainstorming controls gamepad_14
+  - first:
+      213: 9199400140765982605
+    second: brainstorming controls gamepad_15
+  - first:
+      213: -405500035872167992
+    second: brainstorming controls gamepad_16
+  - first:
+      213: -8839608011804090707
+    second: brainstorming controls gamepad_17
+  - first:
+      213: -9066103541344160873
+    second: brainstorming controls gamepad_18
+  - first:
+      213: 8302942031322096398
+    second: brainstorming controls gamepad_19
+  - first:
+      213: -7420613886905479890
+    second: brainstorming controls gamepad_20
+  - first:
+      213: -333319996092770355
+    second: brainstorming controls gamepad_21
+  - first:
+      213: -4875816664679973937
+    second: brainstorming controls gamepad_22
+  - first:
+      213: 2111328849820429908
+    second: brainstorming controls gamepad_23
+  - first:
+      213: 1776800177234184552
+    second: brainstorming controls gamepad_24
+  - first:
+      213: 8813714166723977004
+    second: brainstorming controls gamepad_25
+  - first:
+      213: 7820897708852978971
+    second: brainstorming controls gamepad_26
+  - first:
+      213: -5133244447821658940
+    second: brainstorming controls gamepad_27
+  - first:
+      213: 3942319141179400609
+    second: brainstorming controls gamepad_28
+  - first:
+      213: 1370077402120474193
+    second: brainstorming controls gamepad_29
+  - first:
+      213: -2932899488622999515
+    second: brainstorming controls gamepad_30
+  - first:
+      213: -6001855305440300254
+    second: brainstorming controls gamepad_31
+  - first:
+      213: -6314911137174291019
+    second: brainstorming controls gamepad_32
+  - first:
+      213: 1079539873332952049
+    second: brainstorming controls gamepad_33
+  - first:
+      213: -2040022421807934131
+    second: brainstorming controls gamepad_34
+  - first:
+      213: -1588574155526330254
+    second: brainstorming controls gamepad_35
+  - first:
+      213: -8268650894922956643
+    second: brainstorming controls gamepad_36
+  - first:
+      213: 8526217515271615450
+    second: brainstorming controls gamepad_37
+  - first:
+      213: -7836326753902921321
+    second: brainstorming controls gamepad_38
+  - first:
+      213: -3024093652155600343
+    second: brainstorming controls gamepad_39
+  - first:
+      213: 457348597866146385
+    second: brainstorming controls gamepad_40
+  - first:
+      213: 9028478447864717752
+    second: brainstorming controls gamepad_41
+  - first:
+      213: 3367819011664728894
+    second: brainstorming controls gamepad_42
+  - first:
+      213: 882280885920606244
+    second: brainstorming controls gamepad_43
+  - first:
+      213: -4902838084620191652
+    second: brainstorming controls gamepad_44
+  - first:
+      213: 4957045154155270324
+    second: brainstorming controls gamepad_45
+  - first:
+      213: -724014300793803951
+    second: brainstorming controls gamepad_46
+  - first:
+      213: 1204060963292363613
+    second: brainstorming controls gamepad_47
+  - first:
+      213: -8509685747822342666
+    second: brainstorming controls gamepad_48
+  - first:
+      213: 243467140673123363
+    second: brainstorming controls gamepad_49
+  - first:
+      213: -6974689642841853839
+    second: brainstorming controls gamepad_50
+  - first:
+      213: -5510301862226228112
+    second: brainstorming controls gamepad_51
+  - first:
+      213: -5083293881800674573
+    second: brainstorming controls gamepad_52
+  - first:
+      213: -955757553515935103
+    second: brainstorming controls gamepad_53
+  - first:
+      213: 249914232852912736
+    second: brainstorming controls gamepad_54
+  - first:
+      213: 5017122604112804874
+    second: brainstorming controls gamepad_55
+  - first:
+      213: 4293043440742250646
+    second: brainstorming controls gamepad_56
+  - first:
+      213: -4296908864709662672
+    second: brainstorming controls gamepad_57
+  - first:
+      213: -3763865592963329228
+    second: brainstorming controls gamepad_58
+  - first:
+      213: -5296890695095735952
+    second: brainstorming controls gamepad_59
+  - first:
+      213: 6671804991869625507
+    second: brainstorming controls gamepad_60
+  - first:
+      213: -8340034439511181867
+    second: brainstorming controls gamepad_61
+  - first:
+      213: -4251720909546679492
+    second: brainstorming controls gamepad_62
+  - first:
+      213: -5153216710694959173
+    second: brainstorming controls gamepad_63
+  - first:
+      213: -7451455072435782617
+    second: brainstorming controls gamepad_64
+  - first:
+      213: -8330844150767207209
+    second: brainstorming controls gamepad_65
+  - first:
+      213: 3739080836445834817
+    second: brainstorming controls gamepad_66
+  - first:
+      213: 8237793629619248229
+    second: brainstorming controls gamepad_67
+  - first:
+      213: -3861179527386042849
+    second: brainstorming controls gamepad_68
+  - first:
+      213: -7124566266484389042
+    second: brainstorming controls gamepad_69
+  - first:
+      213: 3102842012111635079
+    second: brainstorming controls gamepad_70
+  - first:
+      213: 4859549341492491633
+    second: brainstorming controls gamepad_71
+  - first:
+      213: 4415942424857210580
+    second: brainstorming controls gamepad_72
+  - first:
+      213: 6421037524116949919
+    second: brainstorming controls gamepad_73
+  - first:
+      213: -4232452369935870194
+    second: brainstorming controls gamepad_74
+  - first:
+      213: 7317903601982131394
+    second: brainstorming controls gamepad_75
+  - first:
+      213: -2049818699456032821
+    second: brainstorming controls gamepad_76
+  - first:
+      213: 5114873677533916178
+    second: brainstorming controls gamepad_77
+  - first:
+      213: 1101127303896769698
+    second: brainstorming controls gamepad_78
+  - first:
+      213: -8020604569310379838
+    second: brainstorming controls gamepad_79
+  - first:
+      213: 7239826075726912096
+    second: brainstorming controls gamepad_80
+  - first:
+      213: 3992976364535917189
+    second: brainstorming controls gamepad_81
+  - first:
+      213: 5382046325101735821
+    second: brainstorming controls gamepad_82
+  - first:
+      213: 7178543899068103486
+    second: brainstorming controls gamepad_83
+  - first:
+      213: 9104593825484534885
+    second: brainstorming controls gamepad_84
+  - first:
+      213: -1123976804935647807
+    second: brainstorming controls gamepad_85
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_0
+      rect:
+        serializedVersion: 2
+        x: 6033
+        y: 4223
+        width: 237
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c35baf258973e850800000000000000
+      internalID: 6405096707988345799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_1
+      rect:
+        serializedVersion: 2
+        x: 6252
+        y: 4245
+        width: 178
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3126dd0dc650cbcd0800000000000000
+      internalID: -2541150124825026029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_2
+      rect:
+        serializedVersion: 2
+        x: 6450
+        y: 4245
+        width: 173
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e217efea3128cab0800000000000000
+      internalID: -4987700050296106267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_3
+      rect:
+        serializedVersion: 2
+        x: 6637
+        y: 4220
+        width: 221
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51bbc5e5668c9bb30800000000000000
+      internalID: 4303691260924574485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_4
+      rect:
+        serializedVersion: 2
+        x: 6841
+        y: 4240
+        width: 159
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d343ff8b849bc280800000000000000
+      internalID: -9021954101370207276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_5
+      rect:
+        serializedVersion: 2
+        x: 7014
+        y: 4245
+        width: 270
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4b9408d66384c70800000000000000
+      internalID: 8955467702957880556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_6
+      rect:
+        serializedVersion: 2
+        x: 7290
+        y: 4245
+        width: 218
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b42474ec29af940800000000000000
+      internalID: 5330734523602848634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_7
+      rect:
+        serializedVersion: 2
+        x: 7514
+        y: 4245
+        width: 195
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e4b1cd32eb94aa00800000000000000
+      internalID: 766909232560846054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_8
+      rect:
+        serializedVersion: 2
+        x: 7728
+        y: 4245
+        width: 172
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672bcd34a9aaa85f0800000000000000
+      internalID: -753602408090914186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_9
+      rect:
+        serializedVersion: 2
+        x: 7915
+        y: 4245
+        width: 178
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c2f21048d7d43d0800000000000000
+      internalID: -3220780152591012784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_10
+      rect:
+        serializedVersion: 2
+        x: 3038
+        y: 4120
+        width: 204
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7b088b73d4b9720800000000000000
+      internalID: 2853959690583324609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_11
+      rect:
+        serializedVersion: 2
+        x: 3258
+        y: 4170
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 238d1a6cc3f5308f0800000000000000
+      internalID: -575511612738119630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_12
+      rect:
+        serializedVersion: 2
+        x: 3299
+        y: 4180
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b205d1223a800f0800000000000000
+      internalID: -1150490337877152874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_13
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 4184
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faba68c6b59925620800000000000000
+      internalID: 2761438139473374127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_14
+      rect:
+        serializedVersion: 2
+        x: 3368
+        y: 4184
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e89eadfa81a64040800000000000000
+      internalID: 4631566885130770657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_15
+      rect:
+        serializedVersion: 2
+        x: 3383
+        y: 4184
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fe80100b5daaf70800000000000000
+      internalID: 9199400140765982605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_16
+      rect:
+        serializedVersion: 2
+        x: 3402
+        y: 4086
+        width: 195
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c76e65addf5f5af0800000000000000
+      internalID: -405500035872167992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_17
+      rect:
+        serializedVersion: 2
+        x: 4981
+        y: 4050
+        width: 573
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae58b6f857635580800000000000000
+      internalID: -8839608011804090707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_18
+      rect:
+        serializedVersion: 2
+        x: 5468
+        y: 3327
+        width: 1713
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79335490ddabe2280800000000000000
+      internalID: -9066103541344160873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_19
+      rect:
+        serializedVersion: 2
+        x: 5568
+        y: 4145
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e032d9f59c9f93370800000000000000
+      internalID: 8302942031322096398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_20
+      rect:
+        serializedVersion: 2
+        x: 5593
+        y: 4141
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d0ba76cfea40990800000000000000
+      internalID: -7420613886905479890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_21
+      rect:
+        serializedVersion: 2
+        x: 5613
+        y: 4139
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc71b54ca3fcf5bf0800000000000000
+      internalID: -333319996092770355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_22
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 4105
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbf1df939e955cb0800000000000000
+      internalID: -4875816664679973937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_23
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 4109
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ea4911762fc4d10800000000000000
+      internalID: 2111328849820429908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_24
+      rect:
+        serializedVersion: 2
+        x: 3033
+        y: 4116
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86905e8e85678a810800000000000000
+      internalID: 1776800177234184552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_25
+      rect:
+        serializedVersion: 2
+        x: 2908
+        y: 4080
+        width: 52
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f196b665a905a70800000000000000
+      internalID: 8813714166723977004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_26
+      rect:
+        serializedVersion: 2
+        x: 2968
+        y: 4100
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1529d08709698c60800000000000000
+      internalID: 7820897708852978971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_27
+      rect:
+        serializedVersion: 2
+        x: 3599
+        y: 4066
+        width: 1384
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4085e2f5d03c8b0800000000000000
+      internalID: -5133244447821658940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_28
+      rect:
+        serializedVersion: 2
+        x: 2795
+        y: 4036
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1a8312f5ee5b630800000000000000
+      internalID: 3942319141179400609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_29
+      rect:
+        serializedVersion: 2
+        x: 2806
+        y: 4045
+        width: 100
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e4e24632e730310800000000000000
+      internalID: 1370077402120474193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_30
+      rect:
+        serializedVersion: 2
+        x: 3111
+        y: 3968
+        width: 2118
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52883ba447f3c47d0800000000000000
+      internalID: -2932899488622999515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_31
+      rect:
+        serializedVersion: 2
+        x: 5236
+        y: 3998
+        width: 199
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 223ffed166025bca0800000000000000
+      internalID: -6001855305440300254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_32
+      rect:
+        serializedVersion: 2
+        x: 5438
+        y: 4036
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd719057cdec58a0800000000000000
+      internalID: -6314911137174291019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_33
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 3770
+        width: 284
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb71ee8bcb4bfe00800000000000000
+      internalID: 1079539873332952049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_34
+      rect:
+        serializedVersion: 2
+        x: 2772
+        y: 4032
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d455e467a6260b3e0800000000000000
+      internalID: -2040022421807934131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_35
+      rect:
+        serializedVersion: 2
+        x: 2786
+        y: 4032
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278ac70e83044f9e0800000000000000
+      internalID: -1588574155526330254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_36
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 3986
+        width: 66
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90c66cf1d9df3d80800000000000000
+      internalID: -8268650894922956643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_37
+      rect:
+        serializedVersion: 2
+        x: 3077
+        y: 4007
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad37a7308a5335670800000000000000
+      internalID: 8526217515271615450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_38
+      rect:
+        serializedVersion: 2
+        x: 3093
+        y: 4011
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 799f9b10656cf3390800000000000000
+      internalID: -7836326753902921321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_39
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 3961
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92270cf78d24806d0800000000000000
+      internalID: -3024093652155600343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_40
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 3973
+        width: 41
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15aa55a6024d85600800000000000000
+      internalID: 457348597866146385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_41
+      rect:
+        serializedVersion: 2
+        x: 2968
+        y: 3968
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b12f3b30599b4d70800000000000000
+      internalID: 9028478447864717752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_42
+      rect:
+        serializedVersion: 2
+        x: 2849
+        y: 3934
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3355123c85ecbe20800000000000000
+      internalID: 3367819011664728894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_43
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 3943
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4282a6d8acd7e3c00800000000000000
+      internalID: 882280885920606244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_44
+      rect:
+        serializedVersion: 2
+        x: 2347
+        y: 3593
+        width: 491
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58f4f60dbe95fbb0800000000000000
+      internalID: -4902838084620191652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_45
+      rect:
+        serializedVersion: 2
+        x: 2836
+        y: 3932
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b01ffcdd46fac440800000000000000
+      internalID: 4957045154155270324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_46
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 3235
+        width: 313
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15be1e454d8c3f5f0800000000000000
+      internalID: -724014300793803951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_47
+      rect:
+        serializedVersion: 2
+        x: 2343
+        y: 3611
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5bb4f4111fa5b010800000000000000
+      internalID: 1204060963292363613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_48
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 2802
+        width: 2417
+        height: 782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fd48da06e587e980800000000000000
+      internalID: -8509685747822342666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_49
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 3287
+        width: 159
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3243d421318f06300800000000000000
+      internalID: 243467140673123363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_50
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 3291
+        width: 218
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170b0db29bce43f90800000000000000
+      internalID: -6974689642841853839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_51
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 3291
+        width: 178
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c05d0b6a97783b0800000000000000
+      internalID: -5510301862226228112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_52
+      rect:
+        serializedVersion: 2
+        x: 2233
+        y: 3386
+        width: 105
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f2ba5e95238479b0800000000000000
+      internalID: -5083293881800674573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_53
+      rect:
+        serializedVersion: 2
+        x: 5202
+        y: 2970
+        width: 411
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a4943a1977cb2f0800000000000000
+      internalID: -955757553515935103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_54
+      rect:
+        serializedVersion: 2
+        x: 6470
+        y: 2493
+        width: 334
+        height: 929
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a1381bbafd77300800000000000000
+      internalID: 249914232852912736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_55
+      rect:
+        serializedVersion: 2
+        x: 3845
+        y: 3059
+        width: 265
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0cf9b43d6660a540800000000000000
+      internalID: 5017122604112804874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_56
+      rect:
+        serializedVersion: 2
+        x: 4636
+        y: 3059
+        width: 268
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69833ca8344f39b30800000000000000
+      internalID: 4293043440742250646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_57
+      rect:
+        serializedVersion: 2
+        x: 5933
+        y: 2950
+        width: 412
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038e0ce47205e54c0800000000000000
+      internalID: -4296908864709662672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_58
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 2023
+        width: 241
+        height: 831
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4331b1d5f2014cbc0800000000000000
+      internalID: -3763865592963329228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_59
+      rect:
+        serializedVersion: 2
+        x: 3174
+        y: 2030
+        width: 941
+        height: 736
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0792fb81af9ad76b0800000000000000
+      internalID: -5296890695095735952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_60
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 1905
+        width: 347
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a421179a43079c50800000000000000
+      internalID: 6671804991869625507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_61
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 1975
+        width: 768
+        height: 782
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d5796a5dde324c80800000000000000
+      internalID: -8340034439511181867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_62
+      rect:
+        serializedVersion: 2
+        x: 5563
+        y: 2602
+        width: 411
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c339e5efb5adef4c0800000000000000
+      internalID: -4251720909546679492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_63
+      rect:
+        serializedVersion: 2
+        x: 6777
+        y: 2464
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb78b6c54b81c78b0800000000000000
+      internalID: -5153216710694959173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_64
+      rect:
+        serializedVersion: 2
+        x: 6781
+        y: 1827
+        width: 179
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72cbea3571d179890800000000000000
+      internalID: -7451455072435782617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_65
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 1975
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc31623265e26c80800000000000000
+      internalID: -8330844150767207209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_66
+      rect:
+        serializedVersion: 2
+        x: 3258
+        y: 1845
+        width: 739
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e03d2d532e3e330800000000000000
+      internalID: 3739080836445834817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_67
+      rect:
+        serializedVersion: 2
+        x: 1783
+        y: 1907
+        width: 23
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c5e6219a5825270800000000000000
+      internalID: 8237793629619248229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_68
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 1852
+        width: 16
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ee4206da55a6ac0800000000000000
+      internalID: -3861179527386042849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_69
+      rect:
+        serializedVersion: 2
+        x: 1783
+        y: 1891
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b877b6ab4702d90800000000000000
+      internalID: -7124566266484389042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_70
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 1798
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7828216de528f0b20800000000000000
+      internalID: 3102842012111635079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_71
+      rect:
+        serializedVersion: 2
+        x: 6949
+        y: 1502
+        width: 71
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175b42c0166907340800000000000000
+      internalID: 4859549341492491633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_72
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 1718
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dee03e1d34984d30800000000000000
+      internalID: 4415942424857210580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_73
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 1734
+        width: 27
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9bc17aab9b1c1950800000000000000
+      internalID: 6421037524116949919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_74
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 1709
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0756397efe4345c0800000000000000
+      internalID: -4232452369935870194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_75
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1357
+        width: 61
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc42b8dd8a6e8560800000000000000
+      internalID: 7317903601982131394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_76
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 1689
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf48f4d0c49d83e0800000000000000
+      internalID: -2049818699456032821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_77
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 436
+        width: 2970
+        height: 1096
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ca76c828eabf640800000000000000
+      internalID: 5114873677533916178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_78
+      rect:
+        serializedVersion: 2
+        x: 4649
+        y: 1502
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a42049e27df74f00800000000000000
+      internalID: 1101127303896769698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_79
+      rect:
+        serializedVersion: 2
+        x: 4665
+        y: 1461
+        width: 757
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c04162a3a611b090800000000000000
+      internalID: -8020604569310379838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_80
+      rect:
+        serializedVersion: 2
+        x: 5420
+        y: 723
+        width: 745
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a10572577097460800000000000000
+      internalID: 7239826075726912096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_81
+      rect:
+        serializedVersion: 2
+        x: 6997
+        y: 1293
+        width: 43
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58aa1bc09d6e96730800000000000000
+      internalID: 3992976364535917189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_82
+      rect:
+        serializedVersion: 2
+        x: 6163
+        y: 711
+        width: 13
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fa26c0e9ed0ba40800000000000000
+      internalID: 5382046325101735821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_83
+      rect:
+        serializedVersion: 2
+        x: 6183
+        y: 618
+        width: 68
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b708484af4f9360800000000000000
+      internalID: 7178543899068103486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_84
+      rect:
+        serializedVersion: 2
+        x: 6272
+        y: 436
+        width: 773
+        height: 855
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564783898d30a5e70800000000000000
+      internalID: 9104593825484534885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming controls gamepad_85
+      rect:
+        serializedVersion: 2
+        x: 6254
+        y: 602
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd380e0d05d660f0800000000000000
+      internalID: -1123976804935647807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      brainstorming controls gamepad_0: 6405096707988345799
+      brainstorming controls gamepad_1: -2541150124825026029
+      brainstorming controls gamepad_10: 2853959690583324609
+      brainstorming controls gamepad_11: -575511612738119630
+      brainstorming controls gamepad_12: -1150490337877152874
+      brainstorming controls gamepad_13: 2761438139473374127
+      brainstorming controls gamepad_14: 4631566885130770657
+      brainstorming controls gamepad_15: 9199400140765982605
+      brainstorming controls gamepad_16: -405500035872167992
+      brainstorming controls gamepad_17: -8839608011804090707
+      brainstorming controls gamepad_18: -9066103541344160873
+      brainstorming controls gamepad_19: 8302942031322096398
+      brainstorming controls gamepad_2: -4987700050296106267
+      brainstorming controls gamepad_20: -7420613886905479890
+      brainstorming controls gamepad_21: -333319996092770355
+      brainstorming controls gamepad_22: -4875816664679973937
+      brainstorming controls gamepad_23: 2111328849820429908
+      brainstorming controls gamepad_24: 1776800177234184552
+      brainstorming controls gamepad_25: 8813714166723977004
+      brainstorming controls gamepad_26: 7820897708852978971
+      brainstorming controls gamepad_27: -5133244447821658940
+      brainstorming controls gamepad_28: 3942319141179400609
+      brainstorming controls gamepad_29: 1370077402120474193
+      brainstorming controls gamepad_3: 4303691260924574485
+      brainstorming controls gamepad_30: -2932899488622999515
+      brainstorming controls gamepad_31: -6001855305440300254
+      brainstorming controls gamepad_32: -6314911137174291019
+      brainstorming controls gamepad_33: 1079539873332952049
+      brainstorming controls gamepad_34: -2040022421807934131
+      brainstorming controls gamepad_35: -1588574155526330254
+      brainstorming controls gamepad_36: -8268650894922956643
+      brainstorming controls gamepad_37: 8526217515271615450
+      brainstorming controls gamepad_38: -7836326753902921321
+      brainstorming controls gamepad_39: -3024093652155600343
+      brainstorming controls gamepad_4: -9021954101370207276
+      brainstorming controls gamepad_40: 457348597866146385
+      brainstorming controls gamepad_41: 9028478447864717752
+      brainstorming controls gamepad_42: 3367819011664728894
+      brainstorming controls gamepad_43: 882280885920606244
+      brainstorming controls gamepad_44: -4902838084620191652
+      brainstorming controls gamepad_45: 4957045154155270324
+      brainstorming controls gamepad_46: -724014300793803951
+      brainstorming controls gamepad_47: 1204060963292363613
+      brainstorming controls gamepad_48: -8509685747822342666
+      brainstorming controls gamepad_49: 243467140673123363
+      brainstorming controls gamepad_5: 8955467702957880556
+      brainstorming controls gamepad_50: -6974689642841853839
+      brainstorming controls gamepad_51: -5510301862226228112
+      brainstorming controls gamepad_52: -5083293881800674573
+      brainstorming controls gamepad_53: -955757553515935103
+      brainstorming controls gamepad_54: 249914232852912736
+      brainstorming controls gamepad_55: 5017122604112804874
+      brainstorming controls gamepad_56: 4293043440742250646
+      brainstorming controls gamepad_57: -4296908864709662672
+      brainstorming controls gamepad_58: -3763865592963329228
+      brainstorming controls gamepad_59: -5296890695095735952
+      brainstorming controls gamepad_6: 5330734523602848634
+      brainstorming controls gamepad_60: 6671804991869625507
+      brainstorming controls gamepad_61: -8340034439511181867
+      brainstorming controls gamepad_62: -4251720909546679492
+      brainstorming controls gamepad_63: -5153216710694959173
+      brainstorming controls gamepad_64: -7451455072435782617
+      brainstorming controls gamepad_65: -8330844150767207209
+      brainstorming controls gamepad_66: 3739080836445834817
+      brainstorming controls gamepad_67: 8237793629619248229
+      brainstorming controls gamepad_68: -3861179527386042849
+      brainstorming controls gamepad_69: -7124566266484389042
+      brainstorming controls gamepad_7: 766909232560846054
+      brainstorming controls gamepad_70: 3102842012111635079
+      brainstorming controls gamepad_71: 4859549341492491633
+      brainstorming controls gamepad_72: 4415942424857210580
+      brainstorming controls gamepad_73: 6421037524116949919
+      brainstorming controls gamepad_74: -4232452369935870194
+      brainstorming controls gamepad_75: 7317903601982131394
+      brainstorming controls gamepad_76: -2049818699456032821
+      brainstorming controls gamepad_77: 5114873677533916178
+      brainstorming controls gamepad_78: 1101127303896769698
+      brainstorming controls gamepad_79: -8020604569310379838
+      brainstorming controls gamepad_8: -753602408090914186
+      brainstorming controls gamepad_80: 7239826075726912096
+      brainstorming controls gamepad_81: 3992976364535917189
+      brainstorming controls gamepad_82: 5382046325101735821
+      brainstorming controls gamepad_83: 7178543899068103486
+      brainstorming controls gamepad_84: 9104593825484534885
+      brainstorming controls gamepad_85: -1123976804935647807
+      brainstorming controls gamepad_9: -3220780152591012784
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

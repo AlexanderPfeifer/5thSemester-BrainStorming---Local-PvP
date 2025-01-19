@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 7155e3e9e48fa17458b4ef78d6c33eb2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8025460602631191576
+    second: brainstorming_credits_frame_0
+  - first:
+      213: 7294062350499257887
+    second: brainstorming_credits_frame_1
+  - first:
+      213: 7587073755497173961
+    second: brainstorming_credits_frame_2
+  - first:
+      213: 2471229419352593421
+    second: brainstorming_credits_frame_3
+  - first:
+      213: 8592518479631823041
+    second: brainstorming_credits_frame_4
+  - first:
+      213: -7388907752939017261
+    second: brainstorming_credits_frame_5
+  - first:
+      213: 2820753321836813236
+    second: brainstorming_credits_frame_6
+  - first:
+      213: -4445935214961482571
+    second: brainstorming_credits_frame_7
+  - first:
+      213: 687119721720373982
+    second: brainstorming_credits_frame_8
+  - first:
+      213: -3879955309984470194
+    second: brainstorming_credits_frame_9
+  - first:
+      213: -1763004878131018594
+    second: brainstorming_credits_frame_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_0
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 13
+        width: 1521
+        height: 2147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81c79bab5e9206f60800000000000000
+      internalID: 8025460602631191576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_1
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 2099
+        width: 6
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e1f0bef07b93560800000000000000
+      internalID: 7294062350499257887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_2
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 2070
+        width: 6
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c31911f163ba4960800000000000000
+      internalID: 7587073755497173961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_3
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1990
+        width: 6
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d04910350129b4220800000000000000
+      internalID: 2471229419352593421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_4
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 74
+        width: 6
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c03f683802ce3770800000000000000
+      internalID: 8592518479631823041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_5
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 68
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dba0fbfb83557990800000000000000
+      internalID: -7388907752939017261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_6
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 46
+        width: 6
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb16138334552720800000000000000
+      internalID: 2820753321836813236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_7
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 25
+        width: 6
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b422d14a7ddc42c0800000000000000
+      internalID: -4445935214961482571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_8
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 1
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed2ee431fb3298900800000000000000
+      internalID: 687119721720373982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_9
+      rect:
+        serializedVersion: 2
+        x: 2679
+        y: 2
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b2cf3d331a72ac0800000000000000
+      internalID: -3879955309984470194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brainstorming_credits_frame_10
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 20
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9448b5776c8887e0800000000000000
+      internalID: -1763004878131018594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      brainstorming_credits_frame_0: 8025460602631191576
+      brainstorming_credits_frame_1: 7294062350499257887
+      brainstorming_credits_frame_10: -1763004878131018594
+      brainstorming_credits_frame_2: 7587073755497173961
+      brainstorming_credits_frame_3: 2471229419352593421
+      brainstorming_credits_frame_4: 8592518479631823041
+      brainstorming_credits_frame_5: -7388907752939017261
+      brainstorming_credits_frame_6: 2820753321836813236
+      brainstorming_credits_frame_7: -4445935214961482571
+      brainstorming_credits_frame_8: 687119721720373982
+      brainstorming_credits_frame_9: -3879955309984470194
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

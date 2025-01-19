@@ -10,7 +10,7 @@ public class NecromanceHorde : MonoBehaviour
     [HideInInspector] public Transform InteractableBrain;
     [HideInInspector] public Collider[] zombiesNearBrainPlayer1;
     [HideInInspector] public Collider[] zombiesNearBrainPlayer2;
-    [SerializeField] private ParticleSystem interactCircle;
+    public ParticleSystem interactCircle;
 
 
     [SerializeField] private string necromantedZombieName;

@@ -56,6 +56,8 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
         if (playerIndex == 0)
         {
             showDirectionOfWinArea.players.Add(_player.transform);
+            necromanceHorde.interactCircle.transform.position = removableZombieAfterSpawn.transform.position;
+            necromanceHorde.interactCircle.Play();
             Destroy(removableZombieAfterSpawn);
         }
         else
