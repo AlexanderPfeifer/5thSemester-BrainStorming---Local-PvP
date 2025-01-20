@@ -152,6 +152,7 @@ public class DetectInteractable : MonoBehaviour
             {
                 if (_horde != null && cachedZombieData.NecromanceHorde.NecromancableZombieHorde.Add(_horde))
                 {
+                    Debug.Log(_horde);
                     ShowInteractableImageOnZombies(_horde, 1);
                 }
             }

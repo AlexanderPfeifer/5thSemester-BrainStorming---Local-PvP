@@ -77,18 +77,8 @@ public class NPCMovement : MonoBehaviour
                 GroupWithMainZombie();
                 return;
             case false when _zombieHit.Length > 0:
-                currentSpeed = runMoveSpeed;
-                
-                AudioManager.Instance.PlayWithRandomPitch("HumanShocked");
-                
-                _position = Vector3.MoveTowards(_position, 
-                    _position + (_position - _zombieHit[0].transform.position), 
-                    Time.deltaTime * currentSpeed);
-                
-                transform.position = _position;
-                
-                MoveDirection = _position + (_position - _zombieHit[0].transform.position);
-                return;
+                RunAwayFromZombies(_position, _zombieHit[0].transform.position);
+                break;
         }
         
         Vector3 _moveDirectionNormalized = MoveDirection.normalized;
@@ -114,6 +104,13 @@ public class NPCMovement : MonoBehaviour
                       + GetComponent<AutoAttack>().SeparationForce(), ref currentVelocity, speedSmoothTime);
     }
 
+    void RunAwayFromZombies(Vector3 position, Vector3 zombiePosition)
+    {
+        currentSpeed = runMoveSpeed;
+        AudioManager.Instance.PlayWithRandomPitch("HumanShocked");
+        MoveDirection = position + new Vector3(position.x, 0, position.z) - new Vector3(zombiePosition.x, 0, zombiePosition.z);
+    }
+    
     void GroupWithMainZombie()
     {
         Debug.Log("Grouping");

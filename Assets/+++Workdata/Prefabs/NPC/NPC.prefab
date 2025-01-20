@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 7881009047468724366}
   - component: {fileID: 5964679808164380984}
   - component: {fileID: 8569930542480960287}
-  - component: {fileID: 2494498066393212204}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44759213493734052}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -5, z: 0.5}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: -4.3, z: 0.5}
   m_LocalScale: {x: 7.5, y: 5, z: 0.12499999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1418794477348867743}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!33 &5964679808164380984
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2494498066393212204
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44759213493734052}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2003176208308402957
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +97,7 @@ GameObject:
   - component: {fileID: 694709492314438594}
   - component: {fileID: 4719103452424495271}
   - component: {fileID: 7335611130731136101}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: '[Particle System] ObtainPoints'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5063,7 @@ GameObject:
   - component: {fileID: 6582334606384599766}
   - component: {fileID: 4049270182189018637}
   - component: {fileID: 5372198275881966715}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX_Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5300,7 +5278,7 @@ MonoBehaviour:
   damage: 1
   maxTimeUntilNextAttack: 0.5
   attackRadius: 1.35
-  detectEnemyZombiesRadius: 3
+  detectEnemyZombiesRadius: 5
   attackSeparationRadius: 2
   turnedToZombie: {fileID: 6727201079542805930}
 --- !u!114 &3507419464144256148
@@ -5439,7 +5417,7 @@ GameObject:
   - component: {fileID: 7883207000049347054}
   - component: {fileID: 5016639435190100690}
   - component: {fileID: 8625123931559166085}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5561,7 +5539,7 @@ GameObject:
   - component: {fileID: 2082839517587554475}
   - component: {fileID: 702024706669131813}
   - component: {fileID: 6432723566749114502}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MoveParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5684,7 +5662,7 @@ GameObject:
   - component: {fileID: 5370187054992444712}
   - component: {fileID: 6727201079542805930}
   - component: {fileID: 2979483009730316428}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: '[Particle System] Necromance_Action'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10577,7 +10555,7 @@ GameObject:
   - component: {fileID: 4065423633336799706}
   - component: {fileID: 1963535186660369692}
   - component: {fileID: 7462376750620933248}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
