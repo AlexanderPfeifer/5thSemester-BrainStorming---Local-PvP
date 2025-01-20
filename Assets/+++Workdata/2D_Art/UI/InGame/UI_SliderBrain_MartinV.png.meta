@@ -3,8 +3,20 @@ guid: e7b1f9fa134ceb048a04482eb7261513
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5872688072157885868
-    second: brainstorming_pointsslider_brain_0
+      213: -4865751103005787748
+    second: UI_SliderBrain_MartinV_0
+  - first:
+      213: 6563265683768692893
+    second: UI_SliderBrain_MartinV_1
+  - first:
+      213: 3680861924747321573
+    second: UI_SliderBrain_MartinV_2
+  - first:
+      213: -7926252882804591525
+    second: UI_SliderBrain_MartinV_3
+  - first:
+      213: 6404919055929866779
+    second: UI_SliderBrain_MartinV_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +84,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,30 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brainstorming_pointsslider_brain_0
+      name: UI_SliderBrain_MartinV_0
       rect:
         serializedVersion: 2
-        x: 1239
-        y: 405
-        width: 1362
-        height: 1520
+        x: 1778
+        y: 1831
+        width: 284
+        height: 308
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca5f4a1dfaaff7150800000000000000
-      internalID: 5872688072157885868
+      spriteID: c99ffd3d621697cb0800000000000000
+      internalID: -4865751103005787748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SliderBrain_MartinV_1
+      rect:
+        serializedVersion: 2
+        x: 1552
+        y: 1561
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d905b8f9d57651b50800000000000000
+      internalID: 6563265683768692893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SliderBrain_MartinV_2
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1561
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e023d32b6c051330800000000000000
+      internalID: 3680861924747321573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SliderBrain_MartinV_3
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 1561
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5434888ffa400290800000000000000
+      internalID: -7926252882804591525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SliderBrain_MartinV_4
+      rect:
+        serializedVersion: 2
+        x: 2275
+        y: 1561
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a74d752f7d2e850800000000000000
+      internalID: 6404919055929866779
       vertices: []
       indices: 
       edges: []
@@ -148,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      brainstorming_pointsslider_brain_0: 5872688072157885868
+      UI_SliderBrain_MartinV_0: -4865751103005787748
+      UI_SliderBrain_MartinV_1: 6563265683768692893
+      UI_SliderBrain_MartinV_2: 3680861924747321573
+      UI_SliderBrain_MartinV_3: -7926252882804591525
+      UI_SliderBrain_MartinV_4: 6404919055929866779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
