@@ -1,16 +1,23 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowDirectionOfWinArea : MonoBehaviour
 {
-    [SerializeField] private RectTransform[] brainArrow;
+    private readonly List<RectTransform> brainArrow = new();
     
-    public List<Transform> players;
+    [HideInInspector] public List<Transform> players;
 
     [SerializeField] public WinningArea[] winningArea;
-    
+
+    private void Start()
+    {
+        for (int _i = 0; _i < transform.childCount; _i++)
+        {
+            brainArrow.Add(transform.GetChild(_i).GetComponent<RectTransform>());
+        }
+    }
+
     public IEnumerator RotateArrowToWinningArea()
     {
         Vector3 _winningAreaPosition = transform.position;

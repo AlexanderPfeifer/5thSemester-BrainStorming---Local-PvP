@@ -100,7 +100,6 @@ public class MenuUI : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
-        Debug.Log("game quit");
     }
 
     public void SetMasterVolume()
@@ -131,8 +130,6 @@ public class MenuUI : MonoBehaviour
 
     public void DisableButtons()
     {
-        Debug.Log("settings clicked");
-
         foreach (GameObject button in buttonList)
         {
             button.gameObject.GetComponent<Button>().enabled = false;
@@ -143,8 +140,6 @@ public class MenuUI : MonoBehaviour
 
     public void ResetButtons()
     {
-        Debug.Log("reset buttons");
-
         foreach (GameObject button in buttonList)
         {
             button.gameObject.GetComponent<Button>().enabled = true;
@@ -204,7 +199,6 @@ public class MenuUI : MonoBehaviour
     {
         audioSettingsPanel.SetActive(true);
         audioSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
-        Debug.Log("Pressed");
     }
 
     public void CloseSettings()
@@ -217,7 +211,6 @@ public class MenuUI : MonoBehaviour
     {
         pauseControlsPanel.SetActive(true);
         pauseControlsPanel.GetComponent<Animator>().SetTrigger("Pressed");
-        Debug.Log("Pressed");
     }
 
     public void CloseControls()

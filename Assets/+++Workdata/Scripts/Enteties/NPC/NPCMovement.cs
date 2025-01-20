@@ -113,8 +113,6 @@ public class NPCMovement : MonoBehaviour
     
     void GroupWithMainZombie()
     {
-        Debug.Log("Grouping");
-
         currentSpeed = groupingSpeed;
         transform.position = Vector3.MoveTowards(transform.position, MainZombieMovement.transform.position, Time.deltaTime * currentSpeed);
         MoveDirection = MainZombieMovement.transform.position - transform.position;

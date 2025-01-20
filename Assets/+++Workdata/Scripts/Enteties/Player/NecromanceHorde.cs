@@ -84,7 +84,7 @@ public class NecromanceHorde : MonoBehaviour
         {
             InteractableLever.GetComponentInChildren<Image>().fillAmount += .25f;
             
-            if (InteractableBrain.GetComponentInChildren<Image>().fillAmount >= 1)
+            if (InteractableLever.GetComponentInChildren<Image>().fillAmount >= 1)
             {
                 InteractableLever.GetComponentInChildren<Lever>().PullLever();
                 PlayParticleEffect();
