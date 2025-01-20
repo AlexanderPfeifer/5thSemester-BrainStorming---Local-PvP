@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float baseMoveSpeed;
     private Vector3 lastPosition;
     private bool movementAllowed;
+    [SerializeField] private float maxSpeedSubtraction;
     
     private CachedZombieData cachedZombieData;
 
@@ -64,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .5f;
 
-        currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, baseMoveSpeed - 3);
+        currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, maxSpeedSubtraction);
 
         float _moveDistance = currentMoveSpeed * Time.deltaTime;
         

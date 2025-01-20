@@ -26,15 +26,12 @@ public class NPCSpawner : MonoBehaviour
     {
         foreach (var _spawnPoint in spawnPoints)
         {
-            for (int _i = 0; _i < _spawnPoint.spawnNPCCount; _i++)
+            if (_spawnPoint.lampLight == null)
             {
-                if (_spawnPoint.lampLight == null)
-                {
-                    return;
-                }
-
-                _spawnPoint.lampLight.SetActive(!CheckZombiesInRange(_spawnPoint.transform));
+                return;
             }
+
+            _spawnPoint.lampLight.SetActive(!CheckZombiesInRange(_spawnPoint.transform));
         }
     }
 
@@ -82,13 +79,7 @@ public class NPCSpawner : MonoBehaviour
     {
         var _zombieHit = Physics.OverlapSphere(positionToCheck.position, zombiesInRangeRadius, zombieLayer);
 
-        if (_zombieHit.Length > 0)
-        {
-            //Deactivate Light
-            return true;
-        }
-
-        return false;
+        return _zombieHit.Length > 0;
     }
     
     private void OnDrawGizmos()

@@ -8,8 +8,8 @@ public class NecromanceHorde : MonoBehaviour
     public HashSet<Transform> NecromancableZombieHorde = new();
     [HideInInspector] public Transform InteractableLever;
     [HideInInspector] public Transform InteractableBrain;
-    [HideInInspector] public Collider[] zombiesNearBrainPlayer1;
-    [HideInInspector] public Collider[] zombiesNearBrainPlayer2;
+    [HideInInspector] public List<Collider> zombiesNearBrainPlayer1;
+    [HideInInspector] public List<Collider> zombiesNearBrainPlayer2;
     public ParticleSystem interactCircle;
 
 
@@ -50,8 +50,20 @@ public class NecromanceHorde : MonoBehaviour
 
             foreach(Transform _horde in _necromancableHordeSet)
             {
+                if (_horde == null) // Check if the Transform is destroyed
+                {
+                    Debug.LogWarning("A destroyed Transform was found in the horde.");
+                    continue; // Skip this entry
+                }
+                
                 foreach (Transform _zombie in _horde)
                 {
+                    if (_zombie == null) // Check if the Transform is destroyed
+                    {
+                        Debug.LogWarning("A destroyed Transform was found in the zombie.");
+                        continue; // Skip this entry
+                    }
+                    
                     _necromancableZombieSet.Add(_zombie.gameObject);
                 }
             }
@@ -94,7 +106,7 @@ public class NecromanceHorde : MonoBehaviour
     
     private void TryInteractingWithBrain()
     {
-        if (InteractableBrain != null)
+        if (InteractableBrain != null && InteractableBrain.GetComponentInChildren<CanvasGroup>().alpha >= 1)
         {
             InteractableBrain.GetComponentInChildren<Image>().fillAmount += .25f;
 
@@ -123,6 +135,7 @@ public class NecromanceHorde : MonoBehaviour
         //Use this weird function, because if I just set the gameobject.layer equal to the ownZombieLayer, it throws an error trying to set 2 different layers
         _necromancableZombieCachedData.AutoAttack.gameObject.layer = Mathf.RoundToInt(Mathf.Log(ownZombieLayer.value, 2));
         _necromancableZombieCachedData.AutoAttack.ResetAttack();
+        _necromancableZombieCachedData.AutoAttack.cachedZombieData.NecromanceHorde = this;
         _necromancableZombieCachedData.AutoAttack.enabled = true;
 
         //We can get the same zombie layer of this object because the zombie is going to join this zombies team

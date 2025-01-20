@@ -18,13 +18,19 @@ public class CachedZombieData : MonoBehaviour
     public DetectInteractable DetectNecromanceZombies => _detectNecromanceZombies ??= GetComponent<DetectInteractable>();
     public Animator Animator => _animator ??= GetComponentInChildren<Animator>();
     public MeshRenderer MeshRenderer => _meshRenderer ??= GetComponentInChildren<MeshRenderer>();
-    public NecromanceHorde NecromanceHorde => _necromanceHorde ??= GetComponentInParent<NecromanceHorde>();
 
     //Make zombiePlayerHordeRegistry as traditional getter/setter to pass a reference inside NecromanceHorde to an NPC
     public ZombiePlayerHordeRegistry ZombiePlayerHordeRegistry
     {
         get => _zombiePlayerHordeRegistry ??= GetComponentInParent<ZombiePlayerHordeRegistry>();
         set => _zombiePlayerHordeRegistry = value;
+    }
+    
+    //Make NecromanceHorde as traditional getter/setter to pass a reference inside NecromanceHorde to an NPC
+    public NecromanceHorde NecromanceHorde
+    {
+        get => _necromanceHorde ??= GetComponentInParent<NecromanceHorde>();
+        set => _necromanceHorde = value;
     }
 
     //If I ever need components to be cached on initialization, I can use this method

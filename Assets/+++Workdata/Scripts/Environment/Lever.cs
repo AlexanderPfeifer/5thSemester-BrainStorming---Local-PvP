@@ -53,8 +53,10 @@ public class Lever : MonoBehaviour
             }
             
             StartCoroutine(PullLeverMotion());
+
+            pullLeverImage.fillAmount = 0;
             
-            currentLeverCooldown = maxLeverCooldown;   
+            currentLeverCooldown = maxLeverCooldown;
         }
     }
 

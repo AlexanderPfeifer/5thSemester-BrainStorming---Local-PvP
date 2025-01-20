@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -74,12 +75,19 @@ public class Health : MonoBehaviour
             cachedZombieData.Animator.Rebind();
             GetComponentInChildren<Transform>().localRotation = startRotation;
             transform.localScale = startScale;
-
-            gameObject.layer = LayerMask.NameToLayer("Grave");
         }
         else
         {
             cachedZombieData.ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
+            if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Contains(transform.GetComponent<Collider>()))
+            {
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Remove(transform.GetComponent<Collider>());
+            }
+            
+            if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Contains(transform.GetComponent<Collider>()))
+            {
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Remove(transform.GetComponent<Collider>());
+            }
         }
     }
 

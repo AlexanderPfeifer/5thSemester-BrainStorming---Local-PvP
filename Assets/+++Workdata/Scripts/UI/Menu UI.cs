@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
+using UnityEngine.Rendering;
 
 public class MenuUI : MonoBehaviour
 {
@@ -27,6 +26,7 @@ public class MenuUI : MonoBehaviour
     
     [SerializeField] private GameObject audioSettingsPanel;
     [SerializeField] private GameObject visualSettingsPanel;
+    [SerializeField] private GameObject settingsControlsPanel;
     [SerializeField] private GameObject pauseControlsPanel;
 
     [SerializeField] private GameObject winPanel;
@@ -41,12 +41,9 @@ public class MenuUI : MonoBehaviour
     public void Start()
     {
         pausePanel.SetActive(false);
-        visualSettingsPanel.SetActive(false);
-        audioSettingsPanel.SetActive(false);
         
         pauseControlsPanel.SetActive(false);
         winPanel.SetActive(false);
-        creditsPanel.SetActive(false);
         
         SetMasterVolume();
         SetMusicVolume();
@@ -90,6 +87,22 @@ public class MenuUI : MonoBehaviour
         }
     }
 
+    private void CheckActivePanel()
+    {
+        if (audioSettingsPanel.activeSelf)
+        {
+            
+        }
+        else if(visualSettingsPanel.activeSelf)
+        {
+            
+        }
+        else if (settingsControlsPanel.activeSelf)
+        {
+            
+        }
+    }
+
     #region MAINMENU
 
     public void StartGame()
@@ -120,12 +133,17 @@ public class MenuUI : MonoBehaviour
         volumeMixer.SetFloat("SFX", Mathf.Log10(volume)*20);
     }
     
-    public void SetSelectedButton(GameObject gameObject)
+    public void SetSelectedButton(GameObject selectedObject)
     {
-        var eventSystem = FindAnyObjectByType<EventSystem>();
+        var _eventSystem = FindAnyObjectByType<EventSystem>();
 
-        eventSystem.SetSelectedGameObject(null);
-        eventSystem.SetSelectedGameObject(gameObject);
+        _eventSystem.SetSelectedGameObject(null);
+        _eventSystem.SetSelectedGameObject(selectedObject);
+
+        if (selectedObject.TryGetComponent(out Button _button))
+        {
+            _button.GetComponent<Animator>().SetTrigger("Highlighted");
+        }
     }
 
     public void DisableButtons()
@@ -145,19 +163,21 @@ public class MenuUI : MonoBehaviour
             button.gameObject.GetComponent<Button>().enabled = true;
             button.gameObject.GetComponent<EventTrigger>().enabled = true;
             button.gameObject.GetComponent<Animator>().enabled = true;
+            
+            button.gameObject.GetComponent<Animator>().Rebind();
+            
+            button.gameObject.GetComponent<Animator>().transform.GetChild(1).GetComponent<Animator>().Rebind();
         }
     }
 
     public void ChangeResolution()
     {
-        
         currentResolutionIndex = (currentResolutionIndex + 1) % resolutions.Length;
-            
 
-            if (currentResolutionIndex > resolutions.Length)
-            {
-                currentResolutionIndex = 0;
-            }
+        if (currentResolutionIndex > resolutions.Length)
+        {
+            currentResolutionIndex = 0;
+        }
             
         Debug.Log(resolutions.Length);    
         
@@ -241,14 +261,9 @@ public class MenuUI : MonoBehaviour
 
     #endregion
 
-    public void OpenCredits()
-    {
-        creditsPanel.SetActive(true);
-    }
-
     public void CloseCredits()
     {
-        creditsPanel.SetActive(false);
+        creditsPanel.GetComponentInChildren<Animator>().SetTrigger("Pressed");
+        ResetButtons();
     }
- 
 }

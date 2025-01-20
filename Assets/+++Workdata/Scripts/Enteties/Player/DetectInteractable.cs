@@ -86,15 +86,24 @@ public class DetectInteractable : MonoBehaviour
             {
                 ShowInteractableImageOnBrain(brain, 1, false);
                 cachedZombieData.NecromanceHorde.InteractableBrain = _brainHit[0].transform;
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = _player1Zombies;
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2 = _player2Zombies;
+                foreach (var _player1Zombie in _player1Zombies)
+                {
+                    if (!cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Contains(_player1Zombie))
+                        cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Add(_player1Zombie);
+                }
+                
+                foreach (var _player2Zombie in _player2Zombies)
+                {
+                    if (!cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Contains(_player2Zombie))
+                        cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Add(_player2Zombie);
+                }
             }
             else
             {
                 ShowInteractableImageOnBrain(brain, 0, true);
                 cachedZombieData.NecromanceHorde.InteractableBrain = null; 
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = Array.Empty<Collider>();
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1 = Array.Empty<Collider>();
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
             }
         }
     }

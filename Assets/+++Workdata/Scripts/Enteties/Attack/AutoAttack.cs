@@ -23,15 +23,19 @@ public class AutoAttack : MonoBehaviour
 
     [SerializeField] private ParticleSystem turnedToZombie;
 
-    private CachedZombieData cachedZombieData;
+    [HideInInspector] public CachedZombieData cachedZombieData;
 
-    private void Start()
+    private void Awake()
     {
         cachedZombieData = GetComponent<CachedZombieData>();
     }
 
     private void OnEnable()
     {
+        var _turnedToZombie = turnedToZombie.main;
+        var _interactCircle = cachedZombieData.NecromanceHorde.interactCircle.main;
+        _turnedToZombie.startColor = _interactCircle.startColor;
+        
         turnedToZombie.Play();
     }
 

@@ -60,7 +60,7 @@ public class NPCMovement : MonoBehaviour
 
             if (currentTimeUntilDespawn <= 0 && _zombieHit.Length <= 0)
             {
-                Destroy(gameObject);
+                Destroy(transform.parent.gameObject);
             }
         }
     }

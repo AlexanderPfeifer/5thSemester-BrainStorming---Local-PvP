@@ -386,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groupingRadius: 7
   baseMoveSpeed: 10
+  maxSpeedSubtraction: 6
 --- !u!114 &8793422471454182286
 MonoBehaviour:
   m_ObjectHideFlags: 0
