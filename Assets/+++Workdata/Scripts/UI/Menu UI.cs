@@ -5,60 +5,84 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 
 public class MenuUI : MonoBehaviour
 {
-    //its been a while since I had to code, dont mind me. feel free to optimize
-
     [SerializeField] private AudioMixer volumeMixer;
 
+    [Header("Sound Slider")]
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
+    [Header("Main Menu")]
     [SerializeField] private List<GameObject> buttonList;
-
-    [SerializeField] private bool fullscreenEnabled;
-    [SerializeField] private GameObject fullscreenCrossed;
-    
-    [SerializeField] private GameObject pausePanel;
-    
-    [SerializeField] private GameObject audioSettingsPanel;
-    [SerializeField] private GameObject visualSettingsPanel;
-    [SerializeField] private GameObject settingsControlsPanel;
-    [SerializeField] private GameObject pauseControlsPanel;
-
-    [SerializeField] private GameObject winPanel;
-
     [SerializeField] private GameObject creditsPanel;
 
-    [SerializeField] private Resolution[] resolutions;
+    [Header("Visual Settings")]
+    private bool fullscreenEnabled = true;
+    [SerializeField] private GameObject fullscreenCrossed;
+    private Resolution[] resolutions;
     [SerializeField] private List<TextMeshProUGUI> resolutionsText;
-    [SerializeField] private int currentResolutionIndex = 0;
-    [SerializeField] private int currentResolutionsText = 0;
+    private int currentResolutionIndex;
+    private int currentResolutionsText;
+
+    [Header("Settings Panels")]
+    [FormerlySerializedAs("audioSettingsPanel")] [SerializeField] private GameObject soundSettingsPanel;
+    [SerializeField] private GameObject visualSettingsPanel;
+    [FormerlySerializedAs("settingsControlsPanel")] [SerializeField] private GameObject controlsSettingsPanel;
+    private float coolDown = 1f;
+    [SerializeField] private GameObject firstSelectedSoundSettingsButton;
+    [SerializeField] private GameObject firstSelectedVisualsSettingsButton;
+    [SerializeField] private GameObject firstSelectedControlsSettingsButton;
+
+    [Header("InGame Panels")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private TextMeshProUGUI playerText;
+    [SerializeField] private GameObject firstSelectedWinScreenButton;
+    [SerializeField] private GameObject soundPauseSettingsPanel;
+    [SerializeField] private GameObject visualPauseSettingsPanel;
+    [SerializeField] private GameObject controlsPauseSettingsPanel;
+    [SerializeField] private GameObject firstSelectedPauseSoundSettingsButton;
+    [SerializeField] private GameObject firstSelectedPauseVisualsSettingsButton;
+    [SerializeField] private GameObject firstSelectedPauseControlsSettingsButton;
+    [SerializeField] private GameObject firstSelectedPauseButton;
+
+    public static MenuUI Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     
     public void Start()
     {
         pausePanel.SetActive(false);
-        
-        pauseControlsPanel.SetActive(false);
         winPanel.SetActive(false);
-        
+
         SetMasterVolume();
         SetMusicVolume();
         SetSFXVolume();
-
-        fullscreenEnabled = false;
+        
         fullscreenCrossed.SetActive(false);
 
         resolutions = Screen.resolutions;
         Screen.SetResolution(Mathf.RoundToInt(resolutions[0].width), Mathf.RoundToInt(resolutions[0].height), fullscreenEnabled);
         currentResolutionIndex = 0;
         
-        foreach (TextMeshProUGUI resText in resolutionsText)
+        foreach (TextMeshProUGUI _resText in resolutionsText)
         {
-            resText.gameObject.SetActive(false);
+            _resText.gameObject.SetActive(false);
         }
         
         resolutionsText[0].gameObject.SetActive(true);
@@ -66,41 +90,7 @@ public class MenuUI : MonoBehaviour
 
     public void Update()
     {
-        if (fullscreenEnabled)
-        {
-            Screen.fullScreen = true;
-            fullscreenCrossed.SetActive(true);
-            
-        }
-        else
-        {
-            Screen.fullScreen = false;
-            fullscreenCrossed.SetActive(false);
-        }
-
-        if (winPanel.activeSelf)
-        {
-            pausePanel.SetActive(false);
-            visualSettingsPanel.SetActive(false);
-            pauseControlsPanel.SetActive(false);
-            creditsPanel.SetActive(false);
-        }
-    }
-
-    private void CheckActivePanel()
-    {
-        if (audioSettingsPanel.activeSelf)
-        {
-            
-        }
-        else if(visualSettingsPanel.activeSelf)
-        {
-            
-        }
-        else if (settingsControlsPanel.activeSelf)
-        {
-            
-        }
+        coolDown -= Time.unscaledDeltaTime;
     }
 
     #region MAINMENU
@@ -113,6 +103,12 @@ public class MenuUI : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
+    }
+    
+    public void CloseCredits()
+    {
+        creditsPanel.GetComponentInChildren<Animator>().SetTrigger("Pressed");
+        ResetButtons();
     }
 
     public void SetMasterVolume()
@@ -140,9 +136,9 @@ public class MenuUI : MonoBehaviour
         _eventSystem.SetSelectedGameObject(null);
         _eventSystem.SetSelectedGameObject(selectedObject);
 
-        if (selectedObject.TryGetComponent(out Button _button))
+        if (selectedObject.TryGetComponent(out Button _button) && _button.TryGetComponent(out Animator _animator))
         {
-            _button.GetComponent<Animator>().SetTrigger("Highlighted");
+            _animator.SetTrigger("Highlighted");
         }
     }
 
@@ -178,11 +174,7 @@ public class MenuUI : MonoBehaviour
         {
             currentResolutionIndex = 0;
         }
-            
-        Debug.Log(resolutions.Length);    
-        
-        Debug.Log(Screen.currentResolution);
-        
+
         resolutionsText[currentResolutionsText].gameObject.SetActive(false);
         currentResolutionsText = (currentResolutionsText + 1) % resolutionsText.Count;
         resolutionsText[currentResolutionsText].gameObject.SetActive(true);
@@ -191,52 +183,142 @@ public class MenuUI : MonoBehaviour
         {
             currentResolutionsText = 0;
         }
-        
     }
 
     public void FullScreenToggle()
     {
-        fullscreenEnabled = !fullscreenEnabled;
+        if (fullscreenEnabled)
+        {
+            fullscreenEnabled = false;
+            Screen.fullScreen = false;
+            fullscreenCrossed.SetActive(false);
+        }
+        else
+        {
+            fullscreenEnabled = true;
+            Screen.fullScreen = true;
+            fullscreenCrossed.SetActive(true);
+        }
+    }
+
+    #endregion
+    
+    bool IsPlaying(Animator animator, string animationName)
+    {
+        if (!animator) 
+            return false;
+
+        AnimatorStateInfo _stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        return _stateInfo.IsName(animationName) && _stateInfo.normalizedTime < 1.0f;
     }
     
-    #endregion
+    bool IsInsideAnimation(Animator animator, string animationName)
+    {
+        if (!animator) 
+            return false;
+
+        AnimatorStateInfo _stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // Check if the animation name matches and it is playing
+        return _stateInfo.IsName(animationName);
+    }
+    
+    private void OnSwitchToLeftPanel()
+    {
+        if (Time.timeScale >= 1)
+        {
+            SetPanelsToLeftInSettings(soundSettingsPanel, visualSettingsPanel, controlsSettingsPanel, firstSelectedSoundSettingsButton, firstSelectedVisualsSettingsButton);
+        }
+        else
+        {
+            SetPanelsToLeftInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseSoundSettingsButton, firstSelectedPauseVisualsSettingsButton);
+        }
+    }
+    
+    private void OnSwitchToRightPanel()
+    {
+        if (Time.timeScale >= 1)
+        {
+            SetPanelsToRightInSettings(soundSettingsPanel, visualSettingsPanel, controlsSettingsPanel, firstSelectedVisualsSettingsButton, firstSelectedControlsSettingsButton);
+        }
+        else
+        {
+            SetPanelsToRightInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseVisualsSettingsButton, firstSelectedPauseControlsSettingsButton);
+        }
+    }
+
+    private bool AnimationRunning(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel)
+    {
+        return IsPlaying(_controlsSettingsPanel.GetComponent<Animator>(), "Panel_in") ||
+               IsPlaying(_soundSettingsPanel.GetComponent<Animator>(), "Panel_in") ||
+               IsPlaying(_visualSettingsPanel.GetComponent<Animator>(), "Panel_in") || coolDown > 0;
+    }
+
+    private void SetPanelsToLeftInSettings(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel, GameObject firstSelectedButtonSoundSettingsPanel, GameObject firstSelectedButtonVisualSettingsPanel)
+    {
+        if(AnimationRunning(_soundSettingsPanel, _visualSettingsPanel, _controlsSettingsPanel))
+        {
+            return;
+        }
+
+        if(IsInsideAnimation(_visualSettingsPanel.GetComponent<Animator>(), "Panel_out"))
+        {
+            _visualSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            _soundSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            SetSelectedButton(firstSelectedButtonSoundSettingsPanel);
+            coolDown = 1;
+        }
+        else if (IsInsideAnimation(_controlsSettingsPanel.GetComponent<Animator>(), "Panel_out"))
+        {
+            _visualSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            _controlsSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            SetSelectedButton(firstSelectedButtonVisualSettingsPanel);
+            coolDown = 1;
+        }
+    }
+
+    private void SetPanelsToRightInSettings(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel, GameObject firstSelectedButtonSoundSettingsPanel, GameObject firstSelectedButtonVisualSettingsPanel)
+    {
+        if (AnimationRunning(_soundSettingsPanel, _visualSettingsPanel, _controlsSettingsPanel))
+        {
+            return;
+        }
+        
+        if (IsInsideAnimation(_soundSettingsPanel.GetComponent<Animator>(), "Panel_out"))
+        {
+            _visualSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            _soundSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            SetSelectedButton(firstSelectedButtonSoundSettingsPanel);
+            coolDown = 1;
+        }
+        else if(IsInsideAnimation(_visualSettingsPanel.GetComponent<Animator>(), "Panel_out"))
+        {
+            _controlsSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            _visualSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+            SetSelectedButton(firstSelectedButtonVisualSettingsPanel);
+            coolDown = 1;
+        }
+    }
 
     #region PAUSE
-    
-    public void PauseGame()
-    {
-        pausePanel.SetActive(true);
-        Time.timeScale = 0;
-    }
 
-    public void ResumeGame()
+    public void OnPause()
     {
-        pausePanel.SetActive(false);
-        Time.timeScale = 1;
-    }
-    
-    public void OpenSettings()
-    {
-        audioSettingsPanel.SetActive(true);
-        audioSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
-    }
+        if (winPanel.activeSelf)
+            return;
 
-    public void CloseSettings()
-    {
-        audioSettingsPanel.SetActive(false);
-        audioSettingsPanel.GetComponent<Animator>().SetTrigger("Pressed");
-    }
-    
-    public void OpenControls()
-    {
-        pauseControlsPanel.SetActive(true);
-        pauseControlsPanel.GetComponent<Animator>().SetTrigger("Pressed");
-    }
-
-    public void CloseControls()
-    {
-        pauseControlsPanel.SetActive(false);
-        pauseControlsPanel.GetComponent<Animator>().SetTrigger("Pressed");
+        if (pausePanel.activeSelf)
+        {
+            pausePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            SetSelectedButton(firstSelectedPauseButton);
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;
+        }   
     }
 
     public void BackToMain()
@@ -248,10 +330,12 @@ public class MenuUI : MonoBehaviour
 
     #region WIN/LOSE
 
-    public void ShowWin()
+    public void ShowWin(string player)
     {
+        SetSelectedButton(firstSelectedWinScreenButton);
         Time.timeScale = 0;
         winPanel.SetActive(true);
+        playerText.text = player;
     }
 
     public void RestartGame()
@@ -260,10 +344,4 @@ public class MenuUI : MonoBehaviour
     }
 
     #endregion
-
-    public void CloseCredits()
-    {
-        creditsPanel.GetComponentInChildren<Animator>().SetTrigger("Pressed");
-        ResetButtons();
-    }
 }

@@ -61,7 +61,7 @@ public class WinningArea : MonoBehaviour
 
             if (player1Points >= pointsToWin)
             {
-                winScreen.SetActive(true);
+                MenuUI.Instance.ShowWin("PLAYER 1 WINS THIS ROUND!");
             }
             
             _brainActiveParticles.startColor = _player1Particles.startColor;
@@ -88,7 +88,7 @@ public class WinningArea : MonoBehaviour
 
             if (player2Points >= pointsToWin)
             {
-                winScreen.SetActive(true);
+                MenuUI.Instance.ShowWin("PLAYER 2 WINS THIS ROUND!");
             }    
             
             _brainActiveParticles.startColor = _player2Particles.startColor;
@@ -99,7 +99,7 @@ public class WinningArea : MonoBehaviour
 
         AudioManager.Instance.PlayWithRandomPitch("ObtainingPoints");
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

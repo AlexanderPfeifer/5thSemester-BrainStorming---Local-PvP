@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
@@ -9,11 +10,6 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public static AudioManager Instance;
-
-    private void Start()
-    {
-        Play("Music");
-    }
 
     //I make this a singleton class and delete it if already existing, then I apply every option for the sound that is 
     //adjustable in the inspector
@@ -34,15 +30,15 @@ public class AudioManager : MonoBehaviour
         {
             sound.audioSource = gameObject.AddComponent<AudioSource>();
             sound.audioSource.clip = sound.clip;
-
-            sound.audioSource.pitch = sound.pitch;
-
+            
             sound.audioSource.volume = sound.volume;
 
             sound.audioSource.loop = sound.loop;
             
             sound.audioSource.outputAudioMixerGroup = sound.audioMixer;
         }
+
+        Play("MainMenuMusic");
     }
 
     public void PlayWithRandomPitch(string soundName)
@@ -54,8 +50,14 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        s.pitch = Random.Range(.2f, .8f);
-
+        if (Random.value > .5f)
+        {
+            s.pitch += Random.Range(.2f, .5f);
+        }
+        else
+        {
+            s.pitch -= Random.Range(.2f, .5f);
+        }
         
         s.audioSource.Play();
     }
@@ -64,14 +66,12 @@ public class AudioManager : MonoBehaviour
     public void Play(string soundName)
     {
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
-        if (s == null)
+        if (s == null || s.audioSource == null)
         {
             Debug.LogWarning("Sound:" + soundName + "not found!");
             return;
         }
-
-        s.pitch = Random.Range(.2f, .8f);
-
+        
         s.audioSource.Play();
     }
     
