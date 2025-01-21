@@ -91,12 +91,16 @@ public class MenuUI : MonoBehaviour
     public void Update()
     {
         coolDown -= Time.unscaledDeltaTime;
+        
+        //if(Input.GetButton())
     }
 
     #region MAINMENU
 
     public void StartGame()
     {
+        AudioManager.Instance.FadeOut("MainMenuMusic");
+        AudioManager.Instance.FadeIn("InGameMusic");
         SceneManager.LoadScene("InGame");
     }
 
@@ -226,25 +230,27 @@ public class MenuUI : MonoBehaviour
     
     private void OnSwitchToLeftPanel()
     {
-        if (Time.timeScale >= 1)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
             SetPanelsToLeftInSettings(soundSettingsPanel, visualSettingsPanel, controlsSettingsPanel, firstSelectedSoundSettingsButton, firstSelectedVisualsSettingsButton);
         }
         else
         {
-            SetPanelsToLeftInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseSoundSettingsButton, firstSelectedPauseVisualsSettingsButton);
+            if(Time.timeScale >= 1)
+                SetPanelsToLeftInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseSoundSettingsButton, firstSelectedPauseVisualsSettingsButton);
         }
     }
     
     private void OnSwitchToRightPanel()
     {
-        if (Time.timeScale >= 1)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
             SetPanelsToRightInSettings(soundSettingsPanel, visualSettingsPanel, controlsSettingsPanel, firstSelectedVisualsSettingsButton, firstSelectedControlsSettingsButton);
         }
         else
         {
-            SetPanelsToRightInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseVisualsSettingsButton, firstSelectedPauseControlsSettingsButton);
+            if(Time.timeScale >= 1)
+                SetPanelsToRightInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseVisualsSettingsButton, firstSelectedPauseControlsSettingsButton);
         }
     }
 

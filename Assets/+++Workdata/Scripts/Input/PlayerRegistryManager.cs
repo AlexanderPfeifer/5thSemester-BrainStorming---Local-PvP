@@ -14,7 +14,7 @@ public class PlayerRegistryManager : MonoBehaviour
     public event Action AllPlayersReady;
 
     private PlayerInputManager playerInputManager;
-
+    
 
     void Awake()
     {
