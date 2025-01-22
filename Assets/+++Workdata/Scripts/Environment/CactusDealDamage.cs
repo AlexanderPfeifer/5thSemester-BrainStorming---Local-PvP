@@ -24,10 +24,10 @@ public class CactusDealDamage : MonoBehaviour
                 if (_attackableZombie.TryGetComponent(out Health _health))
                 {
                     _health.DamageIncome(1, transform);
+                    AudioManager.Instance.PlayWithRandomPitch("KaktusHit");
                 }
             }
             
-            AudioManager.Instance.PlayWithRandomPitch("KaktusHit");
             spikeParticles.Play();
             currentDamageCooldown = maxDamageCooldown;
         }

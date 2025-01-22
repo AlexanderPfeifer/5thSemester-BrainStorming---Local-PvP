@@ -14103,14 +14103,14 @@ MonoBehaviour:
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: f2f33b30e6f4b2b46b7a1247c7e78167, type: 3}
     audioMixer: {fileID: -3158049787650878923, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 1
     pitch: 0.5
     audioSource: {fileID: 0}
   - name: ButtonHover
     clip: {fileID: 8300000, guid: 66092aba27a21cc499ed07194a19c965, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
@@ -14124,77 +14124,77 @@ MonoBehaviour:
   - name: HumanShocked
     clip: {fileID: 8300000, guid: 42fb9db035338404ab28a60db49ab24b, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: Necromance
     clip: {fileID: 8300000, guid: 22355d3aaf074c84298ec0f789da2851, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: ObtainingPoints
     clip: {fileID: 8300000, guid: 395d5efaef3913746835edc401b9e7d6, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 0.4
+    volume: 0.2
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: ZombieBite
     clip: {fileID: 8300000, guid: cd35176afe80fae4c89af1cef8903d2d, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: ZombieDeath
     clip: {fileID: 8300000, guid: 0038fbe265821414d9f70e7c3ae49e9e, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: InGameMusic
     clip: {fileID: 8300000, guid: f1b99fe784acf9246bf0771130ce897e, type: 3}
     audioMixer: {fileID: -3158049787650878923, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 1
     pitch: 0
     audioSource: {fileID: 0}
   - name: Yeehaw
     clip: {fileID: 8300000, guid: 9fa6daaf85141d04c819729069f4b7d8, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: KaktusHit
     clip: {fileID: 8300000, guid: 65d377a6a53b64e4fb92c29b7022c585, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: LeverCrank
     clip: {fileID: 8300000, guid: 1b1baa6279700f54cac49a99f39e4124, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: SlidingPanel
     clip: {fileID: 8300000, guid: ed595f0c6ad520b41b9da3c2ff736571, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
   - name: SliderOnValueChanged
     clip: {fileID: 8300000, guid: 520835f57b93b7348b11662bca4036f9, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.5
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -26,11 +25,6 @@ public class NPCSpawner : MonoBehaviour
     {
         foreach (var _spawnPoint in spawnPoints)
         {
-            if (_spawnPoint.lampLight == null)
-            {
-                return;
-            }
-
             _spawnPoint.lampLight.SetActive(!CheckZombiesInRange(_spawnPoint.transform));
         }
     }

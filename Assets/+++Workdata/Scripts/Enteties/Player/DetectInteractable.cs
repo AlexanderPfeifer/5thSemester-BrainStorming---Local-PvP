@@ -51,8 +51,11 @@ public class DetectInteractable : MonoBehaviour
     
     private void ShowInteractableImageOnBrain(Transform brain, float visibility, bool resetFillAmout)
     {
-        if(!brain.GetComponent<WinningArea>().canObtainPoints)
+        if (!brain.GetComponent<WinningArea>().canObtainPoints)
+        {
+            GetComponentInChildren<CanvasGroup>().alpha = visibility;
             return;
+        }
         
         brain.GetComponent<WinningArea>().canvasGroup.alpha = visibility;
 

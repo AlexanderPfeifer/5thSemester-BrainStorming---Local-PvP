@@ -25,6 +25,9 @@ public class WinningArea : MonoBehaviour
 
     [HideInInspector] public CanvasGroup canvasGroup;
 
+    [SerializeField] private PointsVisualization player1PointsVisualization;
+    [SerializeField] private PointsVisualization player2PointsVisualization;
+
     private void Start()
     {
         brainActiveParticles = GetComponentInChildren<ParticleSystem>();
@@ -55,6 +58,9 @@ public class WinningArea : MonoBehaviour
                     _npcMovement.ObtainPointsParticles.Play();
                 }
             }
+
+            StartCoroutine(player1PointsVisualization.ShowPlusIcon());
+            
             player1Points += player1Zombies.Count;
             player1PointsSlider.value = (float)player1Points / pointsToWin;
 
@@ -85,6 +91,8 @@ public class WinningArea : MonoBehaviour
             }
             player2Points += player2Zombies.Count;
             player2PointsSlider.value = (float)player2Points / pointsToWin;
+            
+            StartCoroutine(player2PointsVisualization.ShowPlusIcon());
 
             if (player2Points >= pointsToWin)
             {
