@@ -23,7 +23,6 @@ public class MenuUI : MonoBehaviour
     [Header("Visual Settings")]
     private bool fullscreenEnabled = true;
     [SerializeField] private GameObject fullscreenCrossed;
-    private Resolution[] resolutions;
     [SerializeField] private List<TextMeshProUGUI> resolutionsText;
     private int currentResolutionIndex;
     private int currentResolutionsText;
@@ -52,6 +51,16 @@ public class MenuUI : MonoBehaviour
 
     public static MenuUI Instance;
 
+
+    private Resolution[] resolutions = new Resolution[]
+    {
+        new Resolution { width = 1920, height = 1080 },
+        new Resolution { width = 3840, height = 2160 },
+        new Resolution { width = 2560, height = 1440 }
+    };
+
+    private int selectedResolutionIndex;
+        
     private void Awake()
     {
         if (Instance == null)
@@ -75,8 +84,7 @@ public class MenuUI : MonoBehaviour
         SetSFXVolume();
         
         fullscreenCrossed.SetActive(false);
-
-        resolutions = Screen.resolutions;
+        
         Screen.SetResolution(Mathf.RoundToInt(resolutions[0].width), Mathf.RoundToInt(resolutions[0].height), fullscreenEnabled);
         currentResolutionIndex = 0;
         
@@ -182,16 +190,26 @@ public class MenuUI : MonoBehaviour
             button.gameObject.GetComponent<Animator>().transform.GetChild(1).GetComponent<Animator>().Rebind();
         }
     }
-
-    public void ChangeResolution()
+    void SetResolution(int index)
     {
-        currentResolutionIndex = (currentResolutionIndex + 1) % resolutions.Length;
-
-        if (currentResolutionIndex > resolutions.Length)
+        if (index >= 0 && index < resolutions.Length)
         {
-            currentResolutionIndex = 0;
+            Resolution res = resolutions[index];
+            Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+            Debug.Log($"Resolution set to: {res.width}x{res.height}");
         }
+    }
 
+    public void ChangeResolution(int newIndex)
+    {
+        if (newIndex >= 0 && newIndex < resolutions.Length)
+        {
+            selectedResolutionIndex = newIndex;
+            SetResolution(newIndex);
+        }
+    }
+    public void ChangeResolutionText()
+    {
         resolutionsText[currentResolutionsText].gameObject.SetActive(false);
         currentResolutionsText = (currentResolutionsText + 1) % resolutionsText.Count;
         resolutionsText[currentResolutionsText].gameObject.SetActive(true);
