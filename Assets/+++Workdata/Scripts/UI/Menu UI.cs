@@ -91,8 +91,21 @@ public class MenuUI : MonoBehaviour
     public void Update()
     {
         coolDown -= Time.unscaledDeltaTime;
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton4))
+        {
+            SwitchToLeftPanel();
+        }
         
-        //if(Input.GetButton())
+        if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        {
+            SwitchToRightPanel();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        {
+            OnPause();
+        }
     }
 
     #region MAINMENU
@@ -228,7 +241,7 @@ public class MenuUI : MonoBehaviour
         return _stateInfo.IsName(animationName);
     }
     
-    private void OnSwitchToLeftPanel()
+    private void SwitchToLeftPanel()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
@@ -236,12 +249,11 @@ public class MenuUI : MonoBehaviour
         }
         else
         {
-            if(Time.timeScale >= 1)
-                SetPanelsToLeftInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseSoundSettingsButton, firstSelectedPauseVisualsSettingsButton);
+            SetPanelsToLeftInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseSoundSettingsButton, firstSelectedPauseVisualsSettingsButton);
         }
     }
     
-    private void OnSwitchToRightPanel()
+    private void SwitchToRightPanel()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
@@ -249,8 +261,7 @@ public class MenuUI : MonoBehaviour
         }
         else
         {
-            if(Time.timeScale >= 1)
-                SetPanelsToRightInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseVisualsSettingsButton, firstSelectedPauseControlsSettingsButton);
+            SetPanelsToRightInSettings(soundPauseSettingsPanel, visualPauseSettingsPanel, controlsPauseSettingsPanel, firstSelectedPauseVisualsSettingsButton, firstSelectedPauseControlsSettingsButton);
         }
     }
 

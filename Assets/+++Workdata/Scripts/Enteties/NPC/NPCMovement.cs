@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
-    [NonSerialized] public bool IsNecromanced;
-    [SerializeField] private LayerMask zombieLayer;
-
     [Header("Movement")]
-    private float currentSpeed;
     [SerializeField] private float baseMoveSpeed;
     [SerializeField] private float runMoveSpeed;
     [SerializeField] private float speedSmoothTime = 1.0f;
+    private float currentSpeed;
     private Vector3 lastPosition;
     private Vector3 currentVelocity = new(0, 0, 0);
     [NonSerialized] public Vector3 MoveDirection;
@@ -22,10 +19,12 @@ public class NPCMovement : MonoBehaviour
 
     [Header("Grouping")]
     [SerializeField] private float groupingSpeed;
+    [NonSerialized] public bool IsNecromanced;
     [NonSerialized] public PlayerMovement MainZombieMovement;
     
     [Header("Collision")]
-    [SerializeField] private float collisionDetectionRadius;
+    [SerializeField] private LayerMask zombieLayer;
+    [DisplayColor(1, 0, 1), SerializeField] private float collisionDetectionRadius;
 
     private CachedZombieData cachedZombieData;
 
@@ -81,24 +80,25 @@ public class NPCMovement : MonoBehaviour
                 break;
         }
         
-        Vector3 _moveDirectionNormalized = MoveDirection.normalized;
-
+        int _layerMask = ~LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
+        
         // Detect collisions in front of the zombie using SphereCast
         bool _collisionDetected = Physics.SphereCast(
-            transform.position,                    // Starting point of the cast
-            collisionDetectionRadius,                   // Radius of the sphere
-            _moveDirectionNormalized,                   // Direction of the sphere cast
-            out var _hit,                               // Output the collision information
-            collisionDetectionRadius,         // Max distance for the sphere cast
-            ~0                                  // Layer mask (all layers by default)
+            transform.position,                   
+            collisionDetectionRadius,                   
+            MoveDirection.normalized,                 
+            out var _hit,                           
+            collisionDetectionRadius,         
+            _layerMask                               // exclude own layer
         );
 
         if (_collisionDetected) 
         {
-            currentTimeUntilDespawn = maxTimeUntilDespawn;
-            _moveDirectionNormalized = Vector3.Reflect(_moveDirectionNormalized, _hit.normal);
+            MoveDirection = _hit.normal;
         }
         
+        Vector3 _moveDirectionNormalized = MoveDirection.normalized;
+
         transform.position = Vector3.SmoothDamp(_position, 
             _position + (new Vector3(_moveDirectionNormalized.x, 0, _moveDirectionNormalized.z) * currentSpeed)
                       + GetComponent<AutoAttack>().SeparationForce(), ref currentVelocity, speedSmoothTime);
@@ -106,6 +106,7 @@ public class NPCMovement : MonoBehaviour
 
     void RunAwayFromZombies(Vector3 position, Vector3 zombiePosition)
     {
+        currentTimeUntilDespawn = maxTimeUntilDespawn;
         currentSpeed = runMoveSpeed;
         AudioManager.Instance.PlayWithRandomPitch("HumanShocked");
         MoveDirection = position + new Vector3(position.x, 0, position.z) - new Vector3(zombiePosition.x, 0, zombiePosition.z);
@@ -122,5 +123,8 @@ public class NPCMovement : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detectZombiesRadius);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, collisionDetectionRadius);
     }
 }

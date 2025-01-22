@@ -14,9 +14,8 @@ public class WinningArea : MonoBehaviour
     private int player2Points;
 
     [SerializeField] private int pointsToWin;
-    [SerializeField] private GameObject winScreen;
 
-    public bool canObtainPoints;
+    [HideInInspector] public bool canObtainPoints;
 
     [SerializeField] public float zombiesInRangeRadius;
 
@@ -66,7 +65,8 @@ public class WinningArea : MonoBehaviour
             
             _brainActiveParticles.startColor = _player1Particles.startColor;
         }
-        else
+        
+        if(player2Zombies.Count > 2)
         {
             foreach (var _player2Zombie in player2Zombies)
             {

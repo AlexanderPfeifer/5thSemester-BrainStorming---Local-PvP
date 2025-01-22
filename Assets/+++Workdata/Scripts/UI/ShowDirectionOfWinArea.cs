@@ -16,12 +16,20 @@ public class ShowDirectionOfWinArea : MonoBehaviour
         {
             brainArrow.Add(transform.GetChild(_i).GetComponent<RectTransform>());
         }
+        
+        int _randomIndex = Random.Range(0, winningArea.Length);
+
+        for (int _i = 0; _i < winningArea.Length; _i++)
+        {
+            winningArea[_i].canObtainPoints = false;
+            winningArea[_i].canObtainPoints = _i == _randomIndex;
+        }
     }
 
     public IEnumerator RotateArrowToWinningArea()
     {
         Vector3 _winningAreaPosition = transform.position;
-        
+
         foreach (var _winningArea in winningArea)
         {
             if (_winningArea.canObtainPoints)

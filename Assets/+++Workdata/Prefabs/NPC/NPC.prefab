@@ -5242,7 +5242,7 @@ MonoBehaviour:
   maxTimeUntilDespawn: 60
   ObtainPointsParticles: {fileID: 4719103452424495271}
   groupingSpeed: 10
-  collisionDetectionRadius: 1
+  collisionDetectionRadius: 1.6
 --- !u!114 &5058734882583348532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5281,6 +5281,7 @@ MonoBehaviour:
   detectEnemyZombiesRadius: 5
   attackSeparationRadius: 2
   turnedToZombie: {fileID: 6727201079542805930}
+  cachedZombieData: {fileID: 0}
 --- !u!114 &3507419464144256148
 MonoBehaviour:
   m_ObjectHideFlags: 0

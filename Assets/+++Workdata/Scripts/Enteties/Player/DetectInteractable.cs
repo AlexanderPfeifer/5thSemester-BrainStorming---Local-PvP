@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -52,6 +51,9 @@ public class DetectInteractable : MonoBehaviour
     
     private void ShowInteractableImageOnBrain(Transform brain, float visibility, bool resetFillAmout)
     {
+        if(!brain.GetComponent<WinningArea>().canObtainPoints)
+            return;
+        
         brain.GetComponent<WinningArea>().canvasGroup.alpha = visibility;
 
         if (resetFillAmout)
