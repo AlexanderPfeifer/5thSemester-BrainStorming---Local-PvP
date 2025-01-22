@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Prop_BigBrain_NeleP_Brain_MTL_Emission_0: 1477156167157093156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
