@@ -23193,7 +23193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 487.5, y: -466.80838}
+  m_AnchoredPosition: {x: 487.5, y: -385.5575}
   m_SizeDelta: {x: 419.99988, y: 85.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2374299201457939151
@@ -23735,7 +23735,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 487.5, y: -133.36168}
+  m_AnchoredPosition: {x: 487.5, y: -214.6125}
   m_SizeDelta: {x: 419.99988, y: 85.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4596718897087815456
@@ -23978,7 +23978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6385155404506166478
 GameObject:
   m_ObjectHideFlags: 0
@@ -23991,7 +23991,7 @@ GameObject:
   - component: {fileID: 249748513480789116}
   - component: {fileID: 9190606061898128958}
   m_Layer: 5
-  m_Name: Winning Text
+  m_Name: Player win text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24463,7 +24463,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -100
+  m_Spacing: -258.28
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

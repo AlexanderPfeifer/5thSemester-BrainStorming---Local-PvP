@@ -89,7 +89,7 @@ public class HudUIManager : MonoBehaviour
             _countDownText.fontSize = Mathf.RoundToInt(_targetFontSize);
         }
         
-        StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
+        //StartCoroutine(GetComponentInChildren<ShowDirectionOfWinArea>().RotateArrowToWinningArea());
 
         foreach (var _countDownText in countDownText)
         {

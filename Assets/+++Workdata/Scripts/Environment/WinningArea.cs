@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,6 +36,20 @@ public class WinningArea : MonoBehaviour
         obtainPointsImage = canvasGroup.GetComponentInChildren<Image>();
     }
 
+    private void Update()
+    {
+        
+        
+        if (canObtainPoints && !brainActiveParticles.isPlaying)
+        {
+            brainActiveParticles.Play();
+        }
+        else if(!canObtainPoints && brainActiveParticles.isPlaying)
+        {
+            brainActiveParticles.Stop();
+        }
+    }
+
     public void PlayerPointsAllocation(List<Collider> player1Zombies, List<Collider> player2Zombies)
     {
         var _brainActiveParticles = brainActiveParticles.main;
@@ -69,7 +84,7 @@ public class WinningArea : MonoBehaviour
                 MenuUI.Instance.ShowWin("PLAYER 1 WINS THIS ROUND!");
             }
             
-            _brainActiveParticles.startColor = _player1Particles.startColor;
+            //_brainActiveParticles.startColor = _player1Particles.startColor;
         }
         
         if(player2Zombies.Count > 2)
@@ -99,11 +114,11 @@ public class WinningArea : MonoBehaviour
                 MenuUI.Instance.ShowWin("PLAYER 2 WINS THIS ROUND!");
             }    
             
-            _brainActiveParticles.startColor = _player2Particles.startColor;
+            //_brainActiveParticles.startColor = _player2Particles.startColor;
         }
         
-        if(!brainActiveParticles.isPlaying)
-            brainActiveParticles.Play();
+        //if(!brainActiveParticles.isPlaying)
+            //brainActiveParticles.Play();
 
         AudioManager.Instance.PlayWithRandomPitch("ObtainingPoints");
     }
