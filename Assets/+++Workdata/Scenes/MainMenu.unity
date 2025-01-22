@@ -14138,7 +14138,7 @@ MonoBehaviour:
   - name: ObtainingPoints
     clip: {fileID: 8300000, guid: 395d5efaef3913746835edc401b9e7d6, type: 3}
     audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
-    volume: 1
+    volume: 0.4
     loop: 0
     pitch: 0
     audioSource: {fileID: 0}
@@ -14161,6 +14161,41 @@ MonoBehaviour:
     audioMixer: {fileID: -3158049787650878923, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
     volume: 1
     loop: 1
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: Yeehaw
+    clip: {fileID: 8300000, guid: 9fa6daaf85141d04c819729069f4b7d8, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: KaktusHit
+    clip: {fileID: 8300000, guid: 65d377a6a53b64e4fb92c29b7022c585, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: LeverCrank
+    clip: {fileID: 8300000, guid: 1b1baa6279700f54cac49a99f39e4124, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: SlidingPanel
+    clip: {fileID: 8300000, guid: ed595f0c6ad520b41b9da3c2ff736571, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
+    pitch: 0
+    audioSource: {fileID: 0}
+  - name: SliderOnValueChanged
+    clip: {fileID: 8300000, guid: 520835f57b93b7348b11662bca4036f9, type: 3}
+    audioMixer: {fileID: -7172321883817637035, guid: 9f0d9f17ba6f0954f96dd4519a34635d, type: 2}
+    volume: 1
+    loop: 0
     pitch: 0
     audioSource: {fileID: 0}
 --- !u!4 &1212150280
@@ -16682,6 +16717,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466246523}
   m_CullTransparentMesh: 1
+--- !u!1 &1466460742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466460744}
+  - component: {fileID: 1466460743}
+  m_Layer: 0
+  m_Name: AddButtonSoundEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1466460743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466460742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aca44ae8f5bb642afa19881fa2182f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1466460744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466460742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 977.41754, y: 675.6485, z: 139.90045}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479491120
 GameObject:
   m_ObjectHideFlags: 0
@@ -24545,3 +24624,4 @@ SceneRoots:
   - {fileID: 643358933}
   - {fileID: 1505179861}
   - {fileID: 1212150280}
+  - {fileID: 1466460744}

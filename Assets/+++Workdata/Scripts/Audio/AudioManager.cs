@@ -50,6 +50,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        var _initialPitch = s.pitch;
+
         if (Random.value > .5f)
         {
             s.pitch += Random.Range(.2f, .5f);
@@ -60,6 +62,8 @@ public class AudioManager : MonoBehaviour
         }
         
         s.audioSource.Play();
+
+        s.pitch = _initialPitch;
     }
 
     //Here I Search for a sound in the sound array that has the according string as a name with lambda method, then I play the sound

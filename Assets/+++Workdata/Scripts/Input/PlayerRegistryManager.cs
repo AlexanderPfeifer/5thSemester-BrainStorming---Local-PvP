@@ -7,7 +7,7 @@ using System.Collections;
 
 public class PlayerRegistryManager : MonoBehaviour
 {
-    private List<PlayerRegistry> playerRegistry = new List<PlayerRegistry>();
+    private List<PlayerRegistry> playerRegistry = new();
 
     public static PlayerRegistryManager Instance;
     
@@ -18,7 +18,6 @@ public class PlayerRegistryManager : MonoBehaviour
 
     void Awake()
     {
-        //Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -28,9 +27,7 @@ public class PlayerRegistryManager : MonoBehaviour
             Debug.LogWarning("Trying to create another Instance of PlayerRegistryManager!");
             Destroy(gameObject);
         }
-
-
-
+        
         playerInputManager = GetComponent<PlayerInputManager>();
     }
 
@@ -38,15 +35,11 @@ public class PlayerRegistryManager : MonoBehaviour
     {
         Debug.Log("Player " + playerInput.playerIndex + " Joined!");
 
-
-
         if (playerRegistry.Any(player => player.PlayerIndex == playerInput.playerIndex))
         {
             Debug.LogWarning($"Player {playerInput.playerIndex} is already registered.");
             return;
         }
-
-
 
         playerRegistry.Add(new PlayerRegistry(playerInput));
         

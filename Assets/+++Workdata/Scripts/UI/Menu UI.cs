@@ -327,11 +327,13 @@ public class MenuUI : MonoBehaviour
 
         if (pausePanel.activeSelf)
         {
+            AudioManager.Instance.FadeIn("InGameMusic");
             pausePanel.SetActive(false);
             Time.timeScale = 1;
         }
         else
         {
+            AudioManager.Instance.FadeOut("InGameMusic");
             SetSelectedButton(firstSelectedPauseButton);
             pausePanel.SetActive(true);
             Time.timeScale = 0;

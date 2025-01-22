@@ -68,6 +68,8 @@ public class HudUIManager : MonoBehaviour
             _targetFontSize = 140f;
             initialFontSize = 100f;
         }
+        
+        AudioManager.Instance.Play("Yeehaw");
 
         while (_elapsedTime < _duration)
         {

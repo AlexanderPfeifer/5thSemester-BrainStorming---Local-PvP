@@ -27,6 +27,7 @@ public class CactusDealDamage : MonoBehaviour
                 }
             }
             
+            AudioManager.Instance.PlayWithRandomPitch("KaktusHit");
             spikeParticles.Play();
             currentDamageCooldown = maxDamageCooldown;
         }
