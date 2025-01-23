@@ -122,7 +122,6 @@ public class MenuUI : MonoBehaviour
     public void StartGame()
     {
         AudioManager.Instance.FadeOut("MainMenuMusic");
-        AudioManager.Instance.FadeIn("InGameMusic");
         StartCoroutine("StartGameTransition");
     }
 

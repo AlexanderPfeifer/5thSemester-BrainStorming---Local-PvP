@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 
@@ -9,8 +10,7 @@ public class NecromanceHorde : MonoBehaviour
     public HashSet<Transform> NecromancableZombieHorde = new();
     [HideInInspector] public Transform InteractableLever;
     [HideInInspector] public Transform InteractableBrain;
-    [HideInInspector] public List<Collider> zombiesNearBrainPlayer1;
-    [HideInInspector] public List<Collider> zombiesNearBrainPlayer2;
+    [FormerlySerializedAs("zombiesNearBrainPlayer1")] [HideInInspector] public List<Collider> zombiesNearBrainPlayer;
     public ParticleSystem interactCircle;
 
 
@@ -123,7 +123,7 @@ public class NecromanceHorde : MonoBehaviour
 
             if (_brainImage.fillAmount >= 0.9f)
             {
-                InteractableBrain.GetComponentInChildren<WinningArea>().PlayerPointsAllocation(zombiesNearBrainPlayer1, zombiesNearBrainPlayer2, this);
+                InteractableBrain.GetComponentInChildren<WinningArea>().PlayerPointsAllocation(zombiesNearBrainPlayer, this);
 
                 _brainImage.fillAmount = 0f;
             }

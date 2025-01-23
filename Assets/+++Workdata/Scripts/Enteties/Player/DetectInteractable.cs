@@ -70,26 +70,19 @@ public class DetectInteractable : MonoBehaviour
         if(brain == null)
             return;
         
-        var _player1Zombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player1Layer);
-        var _player2Zombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player2Layer);
+        var _playerZombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player1Layer);
 
-        if (_player1Zombies.Length > 1 || _player2Zombies.Length > 1)
+        if (_playerZombies.Length > 1)
         {
             if (Vector3.Distance(transform.position, brain.position) < detectInteractableRadius && 
                 brain.GetComponent<WinningArea>().canObtainPoints)
             {
                 ShowInteractableImageOnBrain(brain, 1, false);
                 cachedZombieData.NecromanceHorde.InteractableBrain = _brainHit[0].transform;
-                foreach (var _player1Zombie in _player1Zombies)
+                foreach (var _player1Zombie in _playerZombies)
                 {
-                    if (!cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Contains(_player1Zombie))
-                        cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Add(_player1Zombie);
-                }
-                
-                foreach (var _player2Zombie in _player2Zombies)
-                {
-                    if (!cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Contains(_player2Zombie))
-                        cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Add(_player2Zombie);
+                    if (!cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Contains(_player1Zombie))
+                        cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Add(_player1Zombie);
                 }
             }
             else
@@ -97,12 +90,11 @@ public class DetectInteractable : MonoBehaviour
                 GetComponentInChildren<CanvasGroup>().alpha = 0;
                 ShowInteractableImageOnBrain(brain, 0, true);
                 cachedZombieData.NecromanceHorde.InteractableBrain = null; 
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Clear();
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Clear();
             }
             
-            if (((player1Layer.value & (1 << gameObject.layer)) != 0 && _player1Zombies.Length == 1) ||
-                (player2Layer.value & (1 << gameObject.layer)) != 0 && _player2Zombies.Length == 1 && brain.GetComponent<WinningArea>().canObtainPoints)
+            if ((player1Layer.value & (1 << gameObject.layer)) != 0 && _playerZombies.Length == 1 && brain.GetComponent<WinningArea>().canObtainPoints)
             {
                 if (brain.GetComponent<WinningArea>().canObtainPoints)
                 {
@@ -119,8 +111,8 @@ public class DetectInteractable : MonoBehaviour
             GetComponentInChildren<CanvasGroup>().alpha = 0;
             ShowInteractableImageOnBrain(brain, 0, true);
             cachedZombieData.NecromanceHorde.InteractableBrain = null; 
-            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
-            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
+            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Clear();
+            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Clear();
         }
     }
 

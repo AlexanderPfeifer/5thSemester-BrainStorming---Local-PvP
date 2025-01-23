@@ -11,6 +11,8 @@ public class WinningArea : MonoBehaviour
     [SerializeField] private ParticleSystem player1Particles;
     [SerializeField] private ParticleSystem player2Particles;
 
+    [SerializeField] private NecromanceHorde player1NecromanceHorde;
+
     private int player1Points;
     private int player2Points;
 
@@ -26,10 +28,7 @@ public class WinningArea : MonoBehaviour
     [HideInInspector] public Image obtainPointsImage;
 
     [HideInInspector] public CanvasGroup canvasGroup;
-
-    [SerializeField] private PointsVisualization player1PointsVisualization;
-    [SerializeField] private PointsVisualization player2PointsVisualization;
-
+    
     private void Start()
     {
         canObtainPoints = false;
@@ -50,17 +49,17 @@ public class WinningArea : MonoBehaviour
         }
     }
 
-    public void PlayerPointsAllocation(List<Collider> player1Zombies, List<Collider> player2Zombies, NecromanceHorde necromanceHorde)
+    public void PlayerPointsAllocation(List<Collider> playerZombies, NecromanceHorde necromanceHorde)
     {
         var _brainActiveParticles = brainObtainPointsParticle.main;
         var _player1Particles = player1Particles.main;
         var _player2Particles = player2Particles.main;
 
-        List<Collider> _playerCollider = new (player1Zombies);
+        List<Collider> _playerCollider = new (playerZombies);
 
-        if (player1Zombies.Count > 1)
+        if (playerZombies.Count > 1)
         {
-            foreach (var _player1Zombie in player1Zombies)
+            foreach (var _player1Zombie in playerZombies)
             {
                 if (_player1Zombie == null) // Check if the Transform is destroyed
                 {
@@ -77,72 +76,47 @@ public class WinningArea : MonoBehaviour
                 }
             }
 
-            necromanceHorde.zombiesNearBrainPlayer1 = _playerCollider;
-            player1Zombies = _playerCollider;
+            necromanceHorde.zombiesNearBrainPlayer.Clear();
+            necromanceHorde.zombiesNearBrainPlayer = _playerCollider;
+            playerZombies = _playerCollider;
 
-            //StartCoroutine(player1PointsVisualization.ShowPlusIcon());
-
-            foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+            if (necromanceHorde == player1NecromanceHorde)
             {
-                _winningArea.player1Points += player1Zombies.Count;
-            }
-            
-            player1PointsSlider.value = (float)player1Points / pointsToWin;
-
-            if (player1Points >= pointsToWin)
-            {
-                MenuUI.Instance.ShowWin("PLAYER 1 WINS THIS ROUND!");
-            }
-            
-            _brainActiveParticles.startColor = _player1Particles.startColor;
-            
-            brainObtainPointsParticle.Play();
-        }
-        
-        if(player2Zombies.Count > 2)
-        {
-            _playerCollider = new (player2Zombies);
-
-            foreach (var _player2Zombie in player2Zombies)
-            {
-                if (_player2Zombie == null) // Check if the Transform is destroyed
+                foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
                 {
-                    _playerCollider.Remove(_player2Zombie);
-                    Debug.LogWarning("A destroyed Transform was found in the _player2Zombie.");
-                    continue; // Skip this entry
+                    _winningArea.player1Points += playerZombies.Count;
                 }
-
-                if (_player2Zombie.TryGetComponent(out NPCMovement _npcMovement))
+                
+                player1PointsSlider.value = (float)player1Points / pointsToWin;
+                
+                _brainActiveParticles.startColor = _player1Particles.startColor;
+                
+                if (player1Points >= pointsToWin)
                 {
-                    var _obtainPointsParticles = _npcMovement.ObtainPointsParticles.main;
-                    _obtainPointsParticles.startColor = _player2Particles.startColor;
-                    _npcMovement.ObtainPointsParticles.Play();   
+                    MenuUI.Instance.ShowWin("PLAYER 1 WINS THIS ROUND!");
                 }
             }
-            
-            necromanceHorde.zombiesNearBrainPlayer2 = _playerCollider;
-            player2Zombies = _playerCollider;
-            
-            foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+            else
             {
-                _winningArea.player2Points += player2Zombies.Count;
+                foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+                {
+                    _winningArea.player2Points += playerZombies.Count;
+                }
+                
+                player2PointsSlider.value = (float)player2Points / pointsToWin;
+                
+                _brainActiveParticles.startColor = _player2Particles.startColor;
+                
+                if (player2Points >= pointsToWin)
+                {
+                    MenuUI.Instance.ShowWin("PLAYER 2 WINS THIS ROUND!");
+                } 
             }
             
-            player2PointsSlider.value = (float)player2Points / pointsToWin;
-            
-            //StartCoroutine(player2PointsVisualization.ShowPlusIcon());
-
-            if (player2Points >= pointsToWin)
-            {
-                MenuUI.Instance.ShowWin("PLAYER 2 WINS THIS ROUND!");
-            }    
-            
-            _brainActiveParticles.startColor = _player2Particles.startColor;
-            
             brainObtainPointsParticle.Play();
+            
+            AudioManager.Instance.PlayWithRandomPitch("ObtainingPoints");
         }
-
-        AudioManager.Instance.PlayWithRandomPitch("ObtainingPoints");
     }
 
     private void OnDrawGizmos()

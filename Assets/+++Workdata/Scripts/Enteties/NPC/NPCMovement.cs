@@ -109,7 +109,7 @@ public class NPCMovement : MonoBehaviour
         currentTimeUntilDespawn = maxTimeUntilDespawn;
         currentSpeed = runMoveSpeed;
         AudioManager.Instance.PlayWithRandomPitch("HumanShocked");
-        MoveDirection = position + new Vector3(position.x, 0, position.z) - new Vector3(zombiePosition.x, 0, zombiePosition.z);
+        MoveDirection = new Vector3(position.x, 0, position.z) - new Vector3(zombiePosition.x, 0, zombiePosition.z);
     }
     
     void GroupWithMainZombie()

@@ -37,8 +37,6 @@ public class AudioManager : MonoBehaviour
             
             sound.audioSource.outputAudioMixerGroup = sound.audioMixer;
         }
-
-        Play("MainMenuMusic");
     }
 
     public void PlayWithRandomPitch(string soundName)

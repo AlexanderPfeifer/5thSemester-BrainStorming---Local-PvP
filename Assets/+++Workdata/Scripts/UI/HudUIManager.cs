@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -8,6 +7,11 @@ public class HudUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] countDownText;
     [SerializeField] private GameObject[] arrows;
     private float initialFontSize;
+
+    private void Start()
+    {
+        AudioManager.Instance.FadeIn("InGameMusic");
+    }
 
     void OnEnable()
     {

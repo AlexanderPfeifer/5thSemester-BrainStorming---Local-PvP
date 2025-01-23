@@ -69,14 +69,9 @@ public class Health : MonoBehaviour
         else
         {
             cachedZombieData.ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
-            if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Contains(transform.GetComponent<Collider>()))
+            if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Contains(transform.GetComponent<Collider>()))
             {
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Remove(transform.GetComponent<Collider>());
-            }
-            
-            if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Contains(transform.GetComponent<Collider>()))
-            {
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer2.Remove(transform.GetComponent<Collider>());
+                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Remove(transform.GetComponent<Collider>());
             }
         }
     }
