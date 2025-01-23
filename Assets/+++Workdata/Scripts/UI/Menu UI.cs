@@ -59,7 +59,7 @@ public class MenuUI : MonoBehaviour
         new Resolution { width = 2560, height = 1440 }
     };
 
-    private int selectedResolutionIndex;
+    [SerializeField] private int selectedResolutionIndex;
         
     private void Awake()
     {
@@ -200,13 +200,15 @@ public class MenuUI : MonoBehaviour
         }
     }
 
-    public void ChangeResolution(int newIndex)
+    public void ChangeResolution(int selectedResolutionIndex)
     {
-        if (newIndex >= 0 && newIndex < resolutions.Length)
+        currentResolutionIndex++;
+        if (currentResolutionIndex >= resolutions.Length)
         {
-            selectedResolutionIndex = newIndex;
-            SetResolution(newIndex);
+            currentResolutionIndex = 0; 
         }
+        
+        SetResolution(currentResolutionIndex);
     }
     public void ChangeResolutionText()
     {
@@ -259,7 +261,7 @@ public class MenuUI : MonoBehaviour
         return _stateInfo.IsName(animationName);
     }
     
-    private void SwitchToLeftPanel()
+    public void SwitchToLeftPanel()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
@@ -271,7 +273,7 @@ public class MenuUI : MonoBehaviour
         }
     }
     
-    private void SwitchToRightPanel()
+    public void SwitchToRightPanel()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
         {
@@ -290,7 +292,7 @@ public class MenuUI : MonoBehaviour
                IsPlaying(_visualSettingsPanel.GetComponent<Animator>(), "Panel_in") || coolDown > 0;
     }
 
-    private void SetPanelsToLeftInSettings(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel, GameObject firstSelectedButtonSoundSettingsPanel, GameObject firstSelectedButtonVisualSettingsPanel)
+    public void SetPanelsToLeftInSettings(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel, GameObject firstSelectedButtonSoundSettingsPanel, GameObject firstSelectedButtonVisualSettingsPanel)
     {
         if(AnimationRunning(_soundSettingsPanel, _visualSettingsPanel, _controlsSettingsPanel))
         {
@@ -313,7 +315,7 @@ public class MenuUI : MonoBehaviour
         }
     }
 
-    private void SetPanelsToRightInSettings(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel, GameObject firstSelectedButtonSoundSettingsPanel, GameObject firstSelectedButtonVisualSettingsPanel)
+    public void SetPanelsToRightInSettings(GameObject _soundSettingsPanel, GameObject _visualSettingsPanel, GameObject _controlsSettingsPanel, GameObject firstSelectedButtonSoundSettingsPanel, GameObject firstSelectedButtonVisualSettingsPanel)
     {
         if (AnimationRunning(_soundSettingsPanel, _visualSettingsPanel, _controlsSettingsPanel))
         {
