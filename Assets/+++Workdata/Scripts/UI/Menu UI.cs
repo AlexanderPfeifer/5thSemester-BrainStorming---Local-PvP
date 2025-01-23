@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -61,6 +62,8 @@ public class MenuUI : MonoBehaviour
     };
 
     [SerializeField] private int selectedResolutionIndex;
+
+    [SerializeField] private Animator transitions;
         
     private void Awake()
     {
@@ -120,6 +123,13 @@ public class MenuUI : MonoBehaviour
     {
         AudioManager.Instance.FadeOut("MainMenuMusic");
         AudioManager.Instance.FadeIn("InGameMusic");
+        StartCoroutine("StartGameTransition");
+    }
+
+    private IEnumerator StartGameTransition()
+    {
+        transitions.SetTrigger("Start Crossfade");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("InGame");
     }
 
