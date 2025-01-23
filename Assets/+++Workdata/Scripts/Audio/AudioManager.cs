@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
@@ -18,7 +17,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this);
         }
         else
         {

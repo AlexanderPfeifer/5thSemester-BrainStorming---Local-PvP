@@ -114,6 +114,9 @@ public class HudUIManager : MonoBehaviour
         StartCoroutine(BlinkingArrows());
         
         FindAnyObjectByType<NPCSpawner>().OnSpawnSmallHordesOverTime();
+        
+        FindAnyObjectByType<Lever>().PullLever();
+        FindAnyObjectByType<Lever>().currentLeverCooldown = 0;
 
         foreach (var _playerMovement in FindObjectsByType<PlayerMovement>(FindObjectsSortMode.None))
         {

@@ -94,6 +94,8 @@ public class WinningArea : MonoBehaviour
                 if (player1Points >= pointsToWin)
                 {
                     MenuUI.Instance.ShowWin("PLAYER 1 WINS THIS ROUND!");
+                    AudioManager.Instance.FadeOut("InGameMusic");
+                    AudioManager.Instance.FadeIn("WinSound");
                 }
             }
             else
@@ -110,6 +112,8 @@ public class WinningArea : MonoBehaviour
                 if (player2Points >= pointsToWin)
                 {
                     MenuUI.Instance.ShowWin("PLAYER 2 WINS THIS ROUND!");
+                    AudioManager.Instance.FadeOut("InGameMusic");
+                    AudioManager.Instance.FadeIn("WinSound");
                 } 
             }
             
