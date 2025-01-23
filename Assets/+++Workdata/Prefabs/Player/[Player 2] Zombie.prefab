@@ -503,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groupingRadius: 7
   baseMoveSpeed: 10
-  maxSpeedSubtraction: 6
+  maxSpeedSubtraction: 3
 --- !u!114 &8793422471454182286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,10 +525,7 @@ MonoBehaviour:
   brainLayer:
     serializedVersion: 2
     m_Bits: 1024
-  player1Layer:
-    serializedVersion: 2
-    m_Bits: 64
-  player2Layer:
+  playerLayer:
     serializedVersion: 2
     m_Bits: 128
   detectInteractableRadius: 5.5

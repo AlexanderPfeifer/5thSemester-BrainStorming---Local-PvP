@@ -347,9 +347,9 @@ public class MenuUI : MonoBehaviour
 
     public void OnPause()
     {
-        if (winPanel.activeSelf)
+        if (winPanel.activeSelf && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("MainMenu"))
             return;
-
+        
         if (pausePanel.activeSelf)
         {
             AudioManager.Instance.FadeIn("InGameMusic");

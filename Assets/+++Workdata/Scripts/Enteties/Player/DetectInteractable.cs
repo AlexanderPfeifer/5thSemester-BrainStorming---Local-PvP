@@ -9,8 +9,7 @@ public class DetectInteractable : MonoBehaviour
     [SerializeField] private LayerMask humanLayer;
     [SerializeField] private LayerMask leverLayer;
     [SerializeField] private LayerMask brainLayer;
-    [SerializeField] private LayerMask player1Layer;
-    [SerializeField] private LayerMask player2Layer;
+    [SerializeField] private LayerMask playerLayer;
     [FormerlySerializedAs("detectNecromancableHordeRadius")] [DisplayColor(0, 1, 0), SerializeField] private float detectInteractableRadius;
     private CachedZombieData cachedZombieData;
     
@@ -70,7 +69,7 @@ public class DetectInteractable : MonoBehaviour
         if(brain == null)
             return;
         
-        var _playerZombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player1Layer);
+        var _playerZombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, playerLayer);
 
         if (_playerZombies.Length > 1)
         {
@@ -94,7 +93,7 @@ public class DetectInteractable : MonoBehaviour
                 cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Clear();
             }
             
-            if ((player1Layer.value & (1 << gameObject.layer)) != 0 && _playerZombies.Length == 1 && brain.GetComponent<WinningArea>().canObtainPoints)
+            if ((playerLayer.value & (1 << gameObject.layer)) != 0 && _playerZombies.Length == 1 && brain.GetComponent<WinningArea>().canObtainPoints)
             {
                 if (brain.GetComponent<WinningArea>().canObtainPoints)
                 {

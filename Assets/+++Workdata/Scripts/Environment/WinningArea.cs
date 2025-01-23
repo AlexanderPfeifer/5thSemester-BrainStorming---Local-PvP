@@ -71,7 +71,7 @@ public class WinningArea : MonoBehaviour
                 if (_player1Zombie.TryGetComponent(out NPCMovement _npcMovement))
                 {
                     var _obtainPointsParticles = _npcMovement.ObtainPointsParticles.main;
-                    _obtainPointsParticles.startColor = _player1Particles.startColor;
+                    _obtainPointsParticles.startColor = necromanceHorde == player1NecromanceHorde ? _player1Particles.startColor : _player2Particles.startColor;
                     _npcMovement.ObtainPointsParticles.Play();
                 }
             }
