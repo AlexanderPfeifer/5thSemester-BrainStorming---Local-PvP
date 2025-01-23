@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class NecromanceHorde : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class NecromanceHorde : MonoBehaviour
 
 
     [SerializeField] private string necromantedZombieName;
+
+    [SerializeField] private VisualEffect bloodEffect;
 
     public Transform ParentObject;
     [SerializeField] private LayerMask attackableZombieLayer;
@@ -71,15 +74,17 @@ public class NecromanceHorde : MonoBehaviour
 
         NecromancableZombieHorde.Clear();
 
-        foreach(var _zombie in _necromancableZombieSet)
+        foreach(var _humans in _necromancableZombieSet)
         {
-            _zombie.GetComponentInChildren<Image>().fillAmount += .25f;
-            if (_zombie.GetComponentInChildren<Image>().fillAmount >= 1)
+            Image _humanImage = _humans.GetComponentInChildren<Image>();
+
+            _humanImage.fillAmount += .25f;
+            if (_humanImage.fillAmount >= 1)
             {
                 PlayParticleEffect();
                 AudioManager.Instance.PlayWithRandomPitch("Necromance");
-                NecromanceZombie(_zombie);
-                _zombie.transform.parent = ParentObject;   
+                NecromanceZombie(_humans);
+                _humans.transform.parent = ParentObject;   
             }
         }
     }
@@ -94,12 +99,17 @@ public class NecromanceHorde : MonoBehaviour
     {
         if (InteractableLever != null)
         {
-            InteractableLever.GetComponentInChildren<Image>().fillAmount += .25f;
+            Image _leverImage = InteractableLever.GetComponentInChildren<Image>();
+            _leverImage.fillAmount += .25f;
             
-            if (InteractableLever.GetComponentInChildren<Image>().fillAmount >= 1)
+            if (_leverImage.fillAmount >= .9f)
             {
                 InteractableLever.GetComponentInChildren<Lever>().PullLever();
+                var _mainModule = interactCircle.main;
+                ParticleSystem.MinMaxCurve _initialSize = _mainModule.startSize;
+                _mainModule.startSize = 20;
                 PlayParticleEffect();
+                _mainModule.startSize = _initialSize;
             }
         }
     }
@@ -108,12 +118,14 @@ public class NecromanceHorde : MonoBehaviour
     {
         if (InteractableBrain != null && InteractableBrain.GetComponentInChildren<CanvasGroup>().alpha >= 1)
         {
-            InteractableBrain.GetComponentInChildren<Image>().fillAmount += .25f;
+            Image _brainImage = InteractableBrain.GetComponentInChildren<Image>();
+            _brainImage.fillAmount += 0.25f;
 
-            if (InteractableBrain.GetComponentInChildren<Image>().fillAmount >= 1)
+            if (_brainImage.fillAmount >= 0.9f)
             {
-                InteractableBrain.GetComponentInChildren<WinningArea>().PlayerPointsAllocation(zombiesNearBrainPlayer1, zombiesNearBrainPlayer2);
-                InteractableBrain.GetComponentInChildren<Image>().fillAmount = 0;
+                InteractableBrain.GetComponentInChildren<WinningArea>().PlayerPointsAllocation(zombiesNearBrainPlayer1, zombiesNearBrainPlayer2, this);
+
+                _brainImage.fillAmount = 0f;
             }
         }
     }
@@ -146,6 +158,7 @@ public class NecromanceHorde : MonoBehaviour
         
         _necromancableZombieCachedData.Health.ResetHealth();
         _necromancableZombieCachedData.Health.IsPlayerZombie = true;
+        _necromancableZombieCachedData.Health.bloodEffect = bloodEffect;
 
         _necromancableZombieCachedData.Animator.enabled = true;
     }

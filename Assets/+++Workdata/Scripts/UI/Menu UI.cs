@@ -23,9 +23,8 @@ public class MenuUI : MonoBehaviour
     [Header("Visual Settings")]
     private bool fullscreenEnabled = true;
     [SerializeField] private GameObject fullscreenCrossed;
-    [SerializeField] private List<TextMeshProUGUI> resolutionsText;
     private int currentResolutionIndex;
-    private int currentResolutionsText;
+    [SerializeField] private TextMeshProUGUI currentResolutionsText;
 
     [Header("Settings Panels")]
     [FormerlySerializedAs("audioSettingsPanel")] [SerializeField] private GameObject soundSettingsPanel;
@@ -52,11 +51,13 @@ public class MenuUI : MonoBehaviour
     public static MenuUI Instance;
 
 
-    private Resolution[] resolutions = new Resolution[]
-    {
-        new Resolution { width = 1920, height = 1080 },
-        new Resolution { width = 3840, height = 2160 },
-        new Resolution { width = 2560, height = 1440 }
+    private Resolution[] resolutions = {
+        new() { width = 1024, height = 768 },
+        new() { width = 1280, height = 1024 },
+        new() { width = 1366, height = 768 },
+        new() { width = 1920, height = 1080 },
+        new() { width = 2560, height = 1440 },
+        new() { width = 3840, height = 2160 }
     };
 
     [SerializeField] private int selectedResolutionIndex;
@@ -72,6 +73,9 @@ public class MenuUI : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        SetResolution(3);
+        currentResolutionIndex = 0;
     }
     
     public void Start()
@@ -86,16 +90,8 @@ public class MenuUI : MonoBehaviour
         SetSFXVolume();
         
         fullscreenCrossed.SetActive(false);
-        
-        Screen.SetResolution(Mathf.RoundToInt(resolutions[0].width), Mathf.RoundToInt(resolutions[0].height), fullscreenEnabled);
-        currentResolutionIndex = 0;
-        
-        foreach (TextMeshProUGUI _resText in resolutionsText)
-        {
-            _resText.gameObject.SetActive(false);
-        }
-        
-        resolutionsText[0].gameObject.SetActive(true);
+
+        ChangeResolutionText();
     }
 
     public void Update()
@@ -196,9 +192,8 @@ public class MenuUI : MonoBehaviour
     {
         if (index >= 0 && index < resolutions.Length)
         {
-            Resolution res = resolutions[index];
-            Screen.SetResolution(res.width, res.height, Screen.fullScreen);
-            Debug.Log($"Resolution set to: {res.width}x{res.height}");
+            Resolution _res = resolutions[index];
+            Screen.SetResolution(_res.width, _res.height, Screen.fullScreen);
         }
     }
 
@@ -212,16 +207,15 @@ public class MenuUI : MonoBehaviour
         
         SetResolution(currentResolutionIndex);
     }
+    
     public void ChangeResolutionText()
     {
-        resolutionsText[currentResolutionsText].gameObject.SetActive(false);
-        currentResolutionsText = (currentResolutionsText + 1) % resolutionsText.Count;
-        resolutionsText[currentResolutionsText].gameObject.SetActive(true);
-        
-        if (currentResolutionsText > resolutionsText.Count)
-        {
-            currentResolutionsText = 0;
+        if (currentResolutionIndex > resolutions.Length)
+        { 
+            currentResolutionIndex = 0;
         }
+        
+        currentResolutionsText.text = resolutions[currentResolutionIndex].width + " x "+ resolutions[currentResolutionIndex].height;
     }
 
     public void FullScreenToggle()
@@ -230,13 +224,13 @@ public class MenuUI : MonoBehaviour
         {
             fullscreenEnabled = false;
             Screen.fullScreen = false;
-            fullscreenCrossed.SetActive(false);
+            fullscreenCrossed.SetActive(true);
         }
         else
         {
             fullscreenEnabled = true;
             Screen.fullScreen = true;
-            fullscreenCrossed.SetActive(true);
+            fullscreenCrossed.SetActive(false);
         }
     }
 
@@ -381,6 +375,7 @@ public class MenuUI : MonoBehaviour
 
     public void RestartGame()
     {
+        winPanel.SetActive(false);
         SceneManager.LoadScene("InGame");
     }
 

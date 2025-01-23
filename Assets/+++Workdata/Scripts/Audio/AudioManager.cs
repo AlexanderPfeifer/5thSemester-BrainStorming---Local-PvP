@@ -122,7 +122,7 @@ public class AudioManager : MonoBehaviour
 
         while (s.audioSource.volume > 0.01f)
         {
-            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 0, Time.deltaTime);
+            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 0, Time.unscaledTime);
             yield return null;
         }
 
@@ -156,7 +156,7 @@ public class AudioManager : MonoBehaviour
         
         while (s.audioSource.volume < .9f)
         {
-            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 1, Time.deltaTime);
+            s.audioSource.volume = Mathf.Lerp(s.audioSource.volume, 1, Time.unscaledTime);
             yield return null;
         }
     }

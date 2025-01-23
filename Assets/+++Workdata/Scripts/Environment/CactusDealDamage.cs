@@ -17,7 +17,7 @@ public class CactusDealDamage : MonoBehaviour
 
         if (currentDamageCooldown <= 0)
         {
-            Collider[] _attackableZombiesHit = Physics.OverlapSphere(transform.position, dealDamageRange, zombiesLayer);
+            Collider[] _attackableZombiesHit = Physics.OverlapSphere(transform.position + Vector3.up, dealDamageRange, zombiesLayer);
 
             foreach (var _attackableZombie in _attackableZombiesHit)
             {
@@ -36,6 +36,6 @@ public class CactusDealDamage : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, dealDamageRange);
+        Gizmos.DrawWireSphere(transform.position + Vector3.up, dealDamageRange);
     }
 }

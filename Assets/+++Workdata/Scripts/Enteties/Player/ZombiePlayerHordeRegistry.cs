@@ -24,7 +24,7 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
     {
         necromanceHorde = GetComponent<NecromanceHorde>();
     }
-
+    
     public void RegisterZombie(GameObject zombie)
     {
         if(!Zombies.Contains(zombie))

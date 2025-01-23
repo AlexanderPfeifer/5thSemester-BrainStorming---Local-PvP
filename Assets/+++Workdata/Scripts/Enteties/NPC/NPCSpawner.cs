@@ -10,16 +10,6 @@ public class NPCSpawner : MonoBehaviour
     [SerializeField] private float zombiesInRangeRadius;
     [SerializeField] private LayerMask zombieLayer;
     [SerializeField] private Transform NPCParent;
-        
-    private void OnEnable()
-    {
-        PlayerRegistryManager.Instance.AllPlayersReady += OnSpawnSmallHordesOverTime;
-    }
-
-    private void OnDisable()
-    {
-        PlayerRegistryManager.Instance.AllPlayersReady -= OnSpawnSmallHordesOverTime;
-    }
 
     private void Update()
     {
@@ -29,7 +19,7 @@ public class NPCSpawner : MonoBehaviour
         }
     }
 
-    private void OnSpawnSmallHordesOverTime()
+    public void OnSpawnSmallHordesOverTime()
     {
         StartCoroutine(SpawnSmallHordesOverTime());
     }
@@ -38,9 +28,9 @@ public class NPCSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(smallHordeSpawnTime);
-
             SpawnEnemy();
+            
+            yield return new WaitForSeconds(smallHordeSpawnTime);
         }
     }
 

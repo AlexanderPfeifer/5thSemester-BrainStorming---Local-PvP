@@ -21,17 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         cachedZombieData = GetComponent<CachedZombieData>();
     }
-
-    private void OnEnable()
-    {
-        PlayerRegistryManager.Instance.AllPlayersReady += OnAllowMovement;
-    }
     
-    private void OnDisable()
-    {
-        PlayerRegistryManager.Instance.AllPlayersReady -= OnAllowMovement;
-    }
-
     private void Update()
     {
         if(movementAllowed)
@@ -44,15 +34,8 @@ public class PlayerMovement : MonoBehaviour
             MoveAnimationLateUpdate();
     }
 
-    private void OnAllowMovement()
+    public void AllowMovement()
     {
-        StartCoroutine(DelayedMovementAllowance());
-    }
-
-    private IEnumerator DelayedMovementAllowance()
-    {
-        yield return new WaitForSeconds(3);
-
         movementAllowed = true;
     }
 
@@ -63,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveZombie()
     {
-        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .5f;
+        float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .25f;
 
         currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, maxSpeedSubtraction);
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class HudUIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI[] countDownText;
+    [SerializeField] private GameObject[] arrows;
     private float initialFontSize;
 
     void OnEnable()
@@ -57,10 +59,41 @@ public class HudUIManager : MonoBehaviour
             }
         }
         
-        _duration = 2f;
         _elapsedTime = 0f;
+
+        var _timeBetweenText = .5f;
         
         //Changed the font size here because the text is too big and would look weird when scaling
+        foreach (var _countDownText in countDownText)
+        {
+            _countDownText.text = "BRING";
+            _countDownText.fontSize = 100;
+            _targetFontSize = 140f;
+            initialFontSize = 100f;
+        }
+        
+        yield return new WaitForSeconds(_timeBetweenText);
+
+        foreach (var _countDownText in countDownText)
+        {
+            _countDownText.text = "BRING \n ZOMBIES";
+            _countDownText.fontSize = 100;
+            _targetFontSize = 140f;
+            initialFontSize = 100f;
+        }
+        
+        yield return new WaitForSeconds(_timeBetweenText);
+
+        foreach (var _countDownText in countDownText)
+        {
+            _countDownText.text = "BRING \n ZOMBIES \n TO THE";
+            _countDownText.fontSize = 100;
+            _targetFontSize = 140f;
+            initialFontSize = 100f;
+        }
+        
+        yield return new WaitForSeconds(_timeBetweenText);
+        
         foreach (var _countDownText in countDownText)
         {
             _countDownText.text = "BRING \n ZOMBIES \n TO THE \n BRAIN!";
@@ -69,16 +102,33 @@ public class HudUIManager : MonoBehaviour
             initialFontSize = 100f;
         }
         
+        foreach (var _arrow in arrows)
+        {
+            _arrow.SetActive(true);
+        }
+
+        StartCoroutine(BlinkingArrows());
+        
+        FindAnyObjectByType<NPCSpawner>().OnSpawnSmallHordesOverTime();
+
+        foreach (var _playerMovement in FindObjectsByType<PlayerMovement>(FindObjectsSortMode.None))
+        {
+            _playerMovement.AllowMovement();
+        }
+
         AudioManager.Instance.Play("Yeehaw");
 
         while (_elapsedTime < _duration)
         {
             _elapsedTime += Time.deltaTime;
             float _newFontSize = Mathf.Lerp(initialFontSize, _targetFontSize, _elapsedTime / _duration);
+            
+            float _newAlpha = Mathf.Lerp(1, 0, _elapsedTime / _duration);
 
             foreach (var _countDownText in countDownText)
             {
                 _countDownText.fontSize = Mathf.RoundToInt(_newFontSize);
+                _countDownText.alpha = _newAlpha;
             }
 
             yield return null;
@@ -94,6 +144,44 @@ public class HudUIManager : MonoBehaviour
         foreach (var _countDownText in countDownText)
         {
             _countDownText.text = "";
+        }
+    }
+
+    private IEnumerator BlinkingArrows()
+    {
+        yield return new WaitForSeconds(.5f);
+        
+        foreach (var _arrow in arrows)
+        {
+            _arrow.SetActive(false);
+        }
+
+        yield return new WaitForSeconds(.5f);
+        
+        foreach (var _arrow in arrows)
+        {
+            _arrow.SetActive(true);
+        }
+        
+        yield return new WaitForSeconds(.5f);
+        
+        foreach (var _arrow in arrows)
+        {
+            _arrow.SetActive(false);
+        }
+        
+        yield return new WaitForSeconds(.5f);
+        
+        foreach (var _arrow in arrows)
+        {
+            _arrow.SetActive(true);
+        }
+        
+        yield return new WaitForSeconds(.5f);
+        
+        foreach (var _arrow in arrows)
+        {
+            _arrow.SetActive(false);
         }
     }
 }

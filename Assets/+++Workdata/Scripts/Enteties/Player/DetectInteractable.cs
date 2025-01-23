@@ -39,24 +39,13 @@ public class DetectInteractable : MonoBehaviour
         horde.GetComponent<ShowNecromanceText>().CanvasGroupVisibility(visibility);
     }
 
-    private void ShowInteractableImageOnLever(Transform lever, float visibility, bool resetFillAmout)
+    private void ShowInteractableImageOnLever(Transform lever, float visibility)
     {
         lever.GetComponent<Lever>().canvasGroup.alpha = visibility;
-
-        if (resetFillAmout)
-        {
-            lever.GetComponent<Lever>().pullLeverImage.fillAmount = 0;
-        }
     }
     
     private void ShowInteractableImageOnBrain(Transform brain, float visibility, bool resetFillAmout)
     {
-        if (!brain.GetComponent<WinningArea>().canObtainPoints)
-        {
-            GetComponentInChildren<CanvasGroup>().alpha = visibility;
-            return;
-        }
-        
         brain.GetComponent<WinningArea>().canvasGroup.alpha = visibility;
 
         if (resetFillAmout)
@@ -84,10 +73,10 @@ public class DetectInteractable : MonoBehaviour
         var _player1Zombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player1Layer);
         var _player2Zombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, player2Layer);
 
-        //Check if there are more than 1 zombie to get points because the first one could be only the main zombie, which does not count
-        if ((_player1Zombies.Length > 1 && _player2Zombies.Length <= 1) || (_player2Zombies.Length > 1 && _player1Zombies.Length <= 1))
+        if (_player1Zombies.Length > 1 || _player2Zombies.Length > 1)
         {
-            if (Vector3.Distance(transform.position, brain.position) < detectInteractableRadius)
+            if (Vector3.Distance(transform.position, brain.position) < detectInteractableRadius && 
+                brain.GetComponent<WinningArea>().canObtainPoints)
             {
                 ShowInteractableImageOnBrain(brain, 1, false);
                 cachedZombieData.NecromanceHorde.InteractableBrain = _brainHit[0].transform;
@@ -105,11 +94,33 @@ public class DetectInteractable : MonoBehaviour
             }
             else
             {
+                GetComponentInChildren<CanvasGroup>().alpha = 0;
                 ShowInteractableImageOnBrain(brain, 0, true);
                 cachedZombieData.NecromanceHorde.InteractableBrain = null; 
                 cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
                 cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
             }
+            
+            if (((player1Layer.value & (1 << gameObject.layer)) != 0 && _player1Zombies.Length == 1) ||
+                (player2Layer.value & (1 << gameObject.layer)) != 0 && _player2Zombies.Length == 1 && brain.GetComponent<WinningArea>().canObtainPoints)
+            {
+                if (brain.GetComponent<WinningArea>().canObtainPoints)
+                {
+                    GetComponentInChildren<CanvasGroup>().alpha = 1;
+                }
+            }
+            else
+            {
+                GetComponentInChildren<CanvasGroup>().alpha = 0;
+            }
+        }
+        else
+        {
+            GetComponentInChildren<CanvasGroup>().alpha = 0;
+            ShowInteractableImageOnBrain(brain, 0, true);
+            cachedZombieData.NecromanceHorde.InteractableBrain = null; 
+            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
+            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer1.Clear();
         }
     }
 
@@ -121,19 +132,24 @@ public class DetectInteractable : MonoBehaviour
         {
             lever = _leverHit[0].transform;
         }
+        else
+        {
+            lever = null;
+        }
 
         if(lever == null)
             return;
         
-        if (Vector3.Distance(transform.position, lever.position) < detectInteractableRadius && _leverHit[0].GetComponent<Lever>().currentLeverCooldown <= 0)
+        if (Vector3.Distance(transform.position, lever.position) < detectInteractableRadius)
         {
-            ShowInteractableImageOnLever(lever, 1, false);
+            ShowInteractableImageOnLever(lever, 1);
             cachedZombieData.NecromanceHorde.InteractableLever = _leverHit[0].transform;
         }
         else
         {
-            ShowInteractableImageOnLever(lever, 0, true);
-            cachedZombieData.NecromanceHorde.InteractableLever = null; 
+            ShowInteractableImageOnLever(lever, 0);
+            cachedZombieData.NecromanceHorde.InteractableLever = null;
+            lever = null;
         }
     }
 

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -14,7 +13,8 @@ public class Health : MonoBehaviour
 
     [Header("Hit")] 
     [SerializeField] private float changeColorOnHitTime = .3f;
-    [SerializeField] private VisualEffect bloodEffect;
+
+    [HideInInspector] public VisualEffect bloodEffect;
 
     [Header("Death")]
     private Vector3 startScale;
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
         ResetHealth();
         cachedZombieData = GetComponent<CachedZombieData>();
         startRotation = GetComponentInChildren<Transform>().rotation;
-
+        
         if(!IsPlayerZombie)
         {
             startScale = transform.localScale;
@@ -40,22 +40,12 @@ public class Health : MonoBehaviour
             return;
         
         currentHealth -= damageDealt;
-        
-        Vector3 _enemy = sender.position;
-        _enemy.y = 0f;
-
-        Vector3 _player = transform.position;
-        _enemy.x -= _player.x;
-        _enemy.z -= _player.z;
-
-        float _angle = Mathf.Atan2(_enemy.x, _enemy.z) * Mathf.Rad2Deg;
-        
-        bloodEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
-        bloodEffect.transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
-        bloodEffect.Play();
 
         if (currentHealth <= 0)
         {
+            bloodEffect.transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
+            bloodEffect.Play();
+            
             AudioManager.Instance.PlayWithRandomPitch("ZombieDeath");
             Die();
             if(sender.TryGetComponent(out AutoAttack _autoAttack))

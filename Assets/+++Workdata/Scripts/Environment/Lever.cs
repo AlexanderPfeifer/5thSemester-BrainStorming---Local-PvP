@@ -17,8 +17,12 @@ public class Lever : MonoBehaviour
  
     private void Update()
     {
-        if(currentLeverCooldown >= 0)
+        if (currentLeverCooldown >= 0)
+        {
+            pullLeverImage.fillAmount = currentLeverCooldown / maxLeverCooldown;
+
             currentLeverCooldown -= Time.deltaTime;
+        }
     }
 
     public void PullLever()
@@ -52,33 +56,33 @@ public class Lever : MonoBehaviour
                 _deactivatedWinningArea[1].canObtainPoints = true;
             }
             
-            StartCoroutine(PullLeverMotion());
-
-            pullLeverImage.fillAmount = 0;
+            StartCoroutine(PullLeverMotionCoroutine());
             
             currentLeverCooldown = maxLeverCooldown;
         }
     }
 
-    private IEnumerator PullLeverMotion()
+    private IEnumerator PullLeverMotionCoroutine()
     {
-        Quaternion _startRotation = lever.localRotation;                     // Current rotation
-        Quaternion _targetRotation = Quaternion.Euler(-lever.localRotation.eulerAngles.x, 
-            lever.localRotation.eulerAngles.y, 
-            lever.localRotation.eulerAngles.z); // Desired rotation
-        const float duration = 1f;                                          // Time for the motion
-        float elapsedTime = 0f;                                             // Track elapsed time
+        var _rotation = lever.rotation;
+        Vector3 _localEulerAngles = _rotation.eulerAngles;
 
-        while (elapsedTime < duration)
-        {
-            // Interpolate between the start and target rotation using Quaternion.Lerp
-            lever.localRotation = Quaternion.Lerp(_startRotation, _targetRotation, elapsedTime / duration);
+        // Define the start and target rotations using Euler angles
+        Quaternion _startRotation = _rotation;
+        Quaternion _targetRotation = Quaternion.Euler(-_localEulerAngles.x, _localEulerAngles.y, _localEulerAngles.z);
+
         
-            elapsedTime += Time.deltaTime; // Increment elapsed time
-            yield return null;            // Wait until the next frame
+        const float duration = 1f;                                         
+        float _elapsedTime = 0f;                                             
+
+        while (_elapsedTime < duration)
+        {
+            lever.rotation = Quaternion.Lerp(_startRotation, _targetRotation, _elapsedTime / duration);
+        
+            _elapsedTime += Time.deltaTime; 
+            yield return null;          
         }
 
-        // Ensure it ends exactly at the target
-        lever.localRotation = _targetRotation;
+        lever.rotation = _targetRotation;
     }
 }
