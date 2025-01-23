@@ -76,6 +76,8 @@ public class MenuUI : MonoBehaviour
     
     public void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        
         pausePanel.SetActive(false);
         winPanel.SetActive(false);
 
@@ -100,17 +102,17 @@ public class MenuUI : MonoBehaviour
     {
         coolDown -= Time.unscaledDeltaTime;
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton4))
+        if (Input.GetKeyDown(KeyCode.JoystickButton4) || Input.GetKeyDown(KeyCode.Q))
         {
             SwitchToLeftPanel();
         }
         
-        if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetKeyDown(KeyCode.E))
         {
             SwitchToRightPanel();
         }
         
-        if (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        if (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Escape))
         {
             OnPause();
         }
