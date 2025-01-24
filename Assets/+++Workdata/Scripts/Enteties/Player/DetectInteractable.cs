@@ -71,7 +71,8 @@ public class DetectInteractable : MonoBehaviour
         
         var _playerZombies = Physics.OverlapSphere(transform.position, brain.GetComponent<WinningArea>().zombiesInRangeRadius, playerLayer);
 
-        if (_playerZombies.Length > 1 && brain.GetComponent<WinningArea>().canObtainPoints && Vector3.Distance(transform.position, brain.position) < detectInteractableRadius)
+        if (_playerZombies.Length > 1 && brain.GetComponent<WinningArea>().canObtainPoints 
+                                      && Vector3.Distance(transform.position, brain.position) < detectInteractableRadius)
         {
             ShowInteractableImageOnBrain(brain, 1, false);
             cachedZombieData.NecromanceHorde.InteractableBrain = _brainHit[0].transform;
@@ -82,7 +83,10 @@ public class DetectInteractable : MonoBehaviour
                     cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Add(_player1Zombie);
             }
         }
-        else if ((playerLayer.value & (1 << gameObject.layer)) != 0 && _playerZombies.Length == 1 && brain.GetComponent<WinningArea>().canObtainPoints)
+        else if ((playerLayer.value & (1 << gameObject.layer)) != 0 
+                 && _playerZombies.Length == 1 
+                 && brain.GetComponent<WinningArea>().canObtainPoints 
+                 && Vector3.Distance(transform.position, brain.position) < detectInteractableRadius)
         {
             if (brain.GetComponent<WinningArea>().canObtainPoints)
             {
