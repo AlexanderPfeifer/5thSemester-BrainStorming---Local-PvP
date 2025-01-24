@@ -104,7 +104,7 @@ public class NecromanceHorde : MonoBehaviour
             
             if (_leverImage.fillAmount >= .9f)
             {
-                InteractableLever.GetComponentInChildren<Lever>().PullLever();
+                InteractableLever.GetComponentInChildren<Lever>().PullLever(false);
                 var _mainModule = interactCircle.main;
                 ParticleSystem.MinMaxCurve _initialSize = _mainModule.startSize;
                 _mainModule.startSize = 20;

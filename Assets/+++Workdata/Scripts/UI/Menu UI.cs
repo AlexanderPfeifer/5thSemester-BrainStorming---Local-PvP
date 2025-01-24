@@ -17,7 +17,7 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-    [Header("Main Menu")]
+    [Header("Main Menu")] 
     [SerializeField] private List<GameObject> buttonList;
     [SerializeField] private GameObject creditsPanel;
 
@@ -347,7 +347,7 @@ public class MenuUI : MonoBehaviour
 
     public void OnPause()
     {
-        if (winPanel.activeSelf && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("MainMenu"))
+        if (winPanel.activeSelf || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu"))
             return;
         
         if (pausePanel.activeSelf)
@@ -367,6 +367,8 @@ public class MenuUI : MonoBehaviour
 
     public void BackToMain()
     {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
     
@@ -384,6 +386,7 @@ public class MenuUI : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         winPanel.SetActive(false);
         SceneManager.LoadScene("InGame");
     }

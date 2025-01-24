@@ -25,7 +25,7 @@ public class Lever : MonoBehaviour
         }
     }
 
-    public void PullLever()
+    public void PullLever(bool keepCooldown)
     {
         if (pullLeverImage.fillAmount >= 1 && currentLeverCooldown <= 0)
         {
@@ -58,7 +58,8 @@ public class Lever : MonoBehaviour
             
             StartCoroutine(PullLeverMotionCoroutine());
             
-            currentLeverCooldown = maxLeverCooldown;
+            if (keepCooldown)
+                currentLeverCooldown = maxLeverCooldown;
         }
     }
 

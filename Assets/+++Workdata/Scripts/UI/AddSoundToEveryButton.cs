@@ -6,9 +6,14 @@ public class AddSoundToEveryButton : MonoBehaviour
 {
     private Button[] buttons;
     private Slider[] sliders;
+    
+    public GameObject firstSelectedMainMenuButton;
 
     private void Start()
     {
+        if(firstSelectedMainMenuButton != null)
+            FindAnyObjectByType<MenuUI>().SetSelectedButton(firstSelectedMainMenuButton);
+
         buttons = FindObjectsByType<Button>(FindObjectsSortMode.None);
 
         foreach (Button _button in buttons)
