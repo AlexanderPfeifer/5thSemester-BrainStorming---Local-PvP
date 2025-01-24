@@ -1,19 +1,22 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Grouping")]
-    private Vector2 moveInput;
     [DisplayColor(0, 0, 1), SerializeField] public float groupingRadius;
 
-    [Header("Movement")] 
-    private float currentMoveSpeed;
+    [Header("Speed")] 
     [SerializeField] private float baseMoveSpeed;
-    private Vector3 lastPosition;
-    private bool movementAllowed;
     [SerializeField] private float maxSpeedSubtraction;
+    private float currentSpeed;
+    
+    [Header("Animation")]
+    private Vector3 lastPosition;
+    
+    [Header("Input")]
+    private Vector2 moveInput;
+    public bool movementAllowed;
     
     private CachedZombieData cachedZombieData;
 
@@ -34,11 +37,6 @@ public class PlayerMovement : MonoBehaviour
             MoveAnimationLateUpdate();
     }
 
-    public void AllowMovement()
-    {
-        movementAllowed = true;
-    }
-
     public void OnMove(InputValue inputValue)
     {
         moveInput = inputValue.Get<Vector2>().normalized;
@@ -46,18 +44,19 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveZombie()
     {
+        //Subtract speed depending on how many zombies the player has as a horde
         float _speedSubtraction = cachedZombieData.ZombiePlayerHordeRegistry.Zombies.Count * .25f;
+        currentSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, maxSpeedSubtraction);
 
-        currentMoveSpeed = baseMoveSpeed - Mathf.Clamp(_speedSubtraction, .5f, maxSpeedSubtraction);
-
-        float _moveDistance = currentMoveSpeed * Time.deltaTime;
+        float _moveDistance = currentSpeed * Time.deltaTime;
         
         Vector3 _moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         float _playerHeight = transform.localScale.z;
         float _playerRadius = transform.localScale.x;
 
+        //The rest is just a check in which direction the player can move if collider are in front
         bool _canMove = !Physics.CapsuleCast(transform.position,transform.position + Vector3.up * _playerHeight, _playerRadius, _moveDirection, _moveDistance);
-
+        
         if (!_canMove)
         {
             Vector3 _moveDirectionX = new Vector3(_moveDirection.x, 0, 0);
@@ -78,9 +77,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        
-        if(_canMove)
+
+        if (_canMove)
+        {
             transform.position += _moveDirection * _moveDistance;
+        }
     }
 
     void MoveAnimationLateUpdate()

@@ -3,24 +3,29 @@ using UnityEngine;
 
 public class AutoAttack : MonoBehaviour
 {
-    [Header("Speed")] 
-    [SerializeField] private float moveToEnemySpeed;
     
-    [Header("Attack")]
-    [SerializeField] public LayerMask attackableZombieLayer;
-    [SerializeField] private int damage;
+    [Header("Attack Time")]
     [SerializeField] private float maxTimeUntilNextAttack;
-    [NonSerialized] public bool IsAttacking;
     private float currentTimeUntilNextAttack;
-    private Transform closestAttackableZombie;
+    
+    [Header("Attack Detection")]
+    [SerializeField] public LayerMask attackableZombieLayer;
     [DisplayColor(1, 0, 0), SerializeField] private float attackRadius;
+    [NonSerialized] public bool IsAttacking;
+    
+    [Header("Attack Damage")]
+    [SerializeField] private int damage;
+    
+    [Header("Enemy Detection")]
+    [SerializeField] private float moveToEnemySpeed;
     [DisplayColor(1, 1, 0), SerializeField] private float detectEnemyZombiesRadius;
+    private Transform closestAttackableZombie;
 
-    [Header("Separation")]
-    float updateTimer;
-    Collider[] cachedGroupingZombies;
+    [Header("Attack Separation")]
     [DisplayColor(0, 0, 1), SerializeField] private float attackSeparationRadius;
+    Collider[] cachedGroupingZombies;
 
+    [Header("VFX")]
     [SerializeField] private ParticleSystem turnedToZombie;
 
     [HideInInspector] public CachedZombieData cachedZombieData;
@@ -54,7 +59,7 @@ public class AutoAttack : MonoBehaviour
             {
                 foreach (Collider _zombie in _attackableZombieHit)
                 {
-                    if (_zombie.TryGetComponent(out NPCMovement _npcMovement))
+                    if (_zombie.TryGetComponent(out NPCMovement _))
                     {
                         closestAttackableZombie = _zombie.transform;
                             
@@ -85,14 +90,7 @@ public class AutoAttack : MonoBehaviour
 
         if (Vector3.Distance(transform.position, closestAttackableZombie.position) < attackRadius)
         {
-            currentTimeUntilNextAttack -= Time.deltaTime;
-
-            if (currentTimeUntilNextAttack <= 0)
-            {
-                AudioManager.Instance.PlayWithRandomPitch("ZombieBite");
-                cachedZombieData.Animator.SetTrigger("attack");
-                currentTimeUntilNextAttack = maxTimeUntilNextAttack;
-            }
+            AttackEnemy();
         }
         else
         {
@@ -100,10 +98,24 @@ public class AutoAttack : MonoBehaviour
         }
     }
 
+    private void AttackEnemy()
+    {
+        currentTimeUntilNextAttack -= Time.deltaTime;
+
+        if (currentTimeUntilNextAttack <= 0)
+        {
+            AudioManager.Instance.PlayWithRandomPitch("ZombieBite");
+            cachedZombieData.Animator.SetTrigger("attack");
+            currentTimeUntilNextAttack = maxTimeUntilNextAttack;
+        }
+    }
+
     private void MoveTowardsClosestEnemy()
     {
         Vector3 _directionToEnemy = closestAttackableZombie.position - transform.position;
-        if (closestAttackableZombie == null || (Physics.Raycast(transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 1 << gameObject.layer) && _hit.collider.gameObject != gameObject))
+        if (closestAttackableZombie == null || (Physics.Raycast(
+                transform.position, _directionToEnemy.normalized, out var _hit, _directionToEnemy.magnitude, 
+                1 << gameObject.layer) && _hit.collider.gameObject != gameObject))
         {
             IsAttacking = false;
             return; 

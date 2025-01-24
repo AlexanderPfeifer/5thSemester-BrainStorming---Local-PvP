@@ -11,7 +11,6 @@ public class PlayerInputAllocation : MonoBehaviour
 
     private bool canTakeInput;
 
-
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -21,7 +20,7 @@ public class PlayerInputAllocation : MonoBehaviour
     {
         zombiePlayerHordeRegistry = FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex);
 
-        necromanceHorde = FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex).necromanceHorde;
+        necromanceHorde = FindObjectsByType<ZombiePlayerHordeRegistry>(FindObjectsSortMode.None).FirstOrDefault(aZM => aZM.GetPlayerIndex() == playerInput.playerIndex).GetComponent<NecromanceHorde>();
 
         necromanceHorde.GetComponent<ZombiePlayerHordeRegistry>().SpawnPlayerZombie();
 
@@ -33,7 +32,7 @@ public class PlayerInputAllocation : MonoBehaviour
         if(!canTakeInput) 
             return;
 
-        zombiePlayerHordeRegistry.mainZombie.transform.GetComponent<PlayerMovement>().OnMove(inputValue);
+        zombiePlayerHordeRegistry.MainZombie.transform.GetComponent<PlayerMovement>().OnMove(inputValue);
     }
 
     public void OnNecromance()
@@ -41,6 +40,6 @@ public class PlayerInputAllocation : MonoBehaviour
         if (!canTakeInput)
             return;
 
-        necromanceHorde.OnNecromance();
+        necromanceHorde.OnInteract();
     }
 }

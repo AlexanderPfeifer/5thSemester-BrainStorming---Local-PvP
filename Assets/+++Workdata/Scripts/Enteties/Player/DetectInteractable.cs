@@ -5,19 +5,24 @@ using UnityEngine.Serialization;
 
 public class DetectInteractable : MonoBehaviour
 {
-    [Header("Detect Necromance")]
-    [SerializeField] private LayerMask humanLayer;
-    [SerializeField] private LayerMask leverLayer;
-    [SerializeField] private LayerMask brainLayer;
-    [SerializeField] private LayerMask playerLayer;
+    [Header("Detection")]
     [FormerlySerializedAs("detectNecromancableHordeRadius")] [DisplayColor(0, 1, 0), SerializeField] private float detectInteractableRadius;
-    private CachedZombieData cachedZombieData;
     
-    private readonly HashSet<Transform> necromancableHordeSet = new();
+    [Header("Necromance")]
+    [SerializeField] private LayerMask humanLayer;
     private readonly HashSet<Transform> necromancableZombie = new();
+    private readonly HashSet<Transform> necromancableHordeSet = new();
+    [SerializeField] private LayerMask playerLayer;
     
-    private Transform lever;
+    [Header("Brain")]
+    [SerializeField] private LayerMask brainLayer;
     private Transform brain;
+    
+    [Header("Lever")]
+    [SerializeField] private LayerMask leverLayer;
+    private Transform lever;
+    
+    private CachedZombieData cachedZombieData;
     
     private void Start()
     {
@@ -35,7 +40,7 @@ public class DetectInteractable : MonoBehaviour
 
     private void ShowInteractableImageOnZombies(Transform horde, float visibility)
     {
-        horde.GetComponent<ShowNecromanceText>().CanvasGroupVisibility(visibility);
+        horde.GetComponent<ShowNecromanceTriangle>().CanvasGroupVisibility(visibility);
     }
 
     private void ShowInteractableImageOnLever(Transform lever, float visibility)
@@ -49,7 +54,7 @@ public class DetectInteractable : MonoBehaviour
 
         if (resetFillAmout)
         {
-            brain.GetComponent<WinningArea>().obtainPointsImage.fillAmount = 0;
+            brain.GetComponent<WinningArea>().interactImage.fillAmount = 0;
         }
     }
     
@@ -57,14 +62,7 @@ public class DetectInteractable : MonoBehaviour
     {
         var _brainHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, brainLayer);
 
-        if (_brainHit.Length > 0)
-        {
-            brain = _brainHit[0].transform;
-        }
-        else
-        {
-            brain = null;
-        }
+        brain = _brainHit.Length > 0 ? _brainHit[0].transform : null;
         
         if(brain == null)
             return;
@@ -107,14 +105,7 @@ public class DetectInteractable : MonoBehaviour
     {
         var _leverHit = Physics.OverlapSphere(transform.position, detectInteractableRadius, leverLayer);
 
-        if (_leverHit.Length > 0)
-        {
-            lever = _leverHit[0].transform;
-        }
-        else
-        {
-            lever = null;
-        }
+        lever = _leverHit.Length > 0 ? _leverHit[0].transform : null;
 
         if(lever == null)
             return;
@@ -153,8 +144,8 @@ public class DetectInteractable : MonoBehaviour
 
         foreach (var _horde in _tempHordeSet)
         {
-            bool _isZombieInRange = necromancableZombie.Any(_zombie =>
-                _zombie != null && Vector3.Distance(_zombie.position, transform.position) < detectInteractableRadius);
+            bool _isZombieInRange = necromancableZombie.Any(zombie =>
+                zombie != null && Vector3.Distance(zombie.position, transform.position) < detectInteractableRadius);
 
             // Activate or deactivate necromance text based on zombies in range
             if (_isZombieInRange)
@@ -176,7 +167,7 @@ public class DetectInteractable : MonoBehaviour
         necromancableZombie.Clear();
         
         // Remove hordes marked as removable
-        necromancableHordeSet.RemoveWhere(_horde => !_tempHordeSet.Contains(_horde));
+        necromancableHordeSet.RemoveWhere(horde => !_tempHordeSet.Contains(horde));
     }
 
     private void OnDrawGizmos()

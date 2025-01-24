@@ -7,7 +7,7 @@ using System.Collections;
 
 public class PlayerRegistryManager : MonoBehaviour
 {
-    private List<PlayerRegistry> playerRegistry = new();
+    private readonly List<PlayerRegistry> playerRegistry = new();
 
     public static PlayerRegistryManager Instance;
     
@@ -33,11 +33,8 @@ public class PlayerRegistryManager : MonoBehaviour
 
     public void HandlePlayerJoin(PlayerInput playerInput)
     {
-        Debug.Log("Player " + playerInput.playerIndex + " Joined!");
-
         if (playerRegistry.Any(player => player.PlayerIndex == playerInput.playerIndex))
         {
-            Debug.LogWarning($"Player {playerInput.playerIndex} is already registered.");
             return;
         }
 
@@ -62,9 +59,8 @@ public class PlayerRegistryManager : MonoBehaviour
         public PlayerRegistry(PlayerInput playerInput)
         {
             PlayerIndex = playerInput.playerIndex;
-            PlayerInput = playerInput;
         }
-        public PlayerInput PlayerInput { get; set; }
-        public int PlayerIndex { get; set; }
+
+        public int PlayerIndex { get; }
     }
     

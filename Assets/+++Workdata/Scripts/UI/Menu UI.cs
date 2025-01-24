@@ -51,7 +51,6 @@ public class MenuUI : MonoBehaviour
 
     public static MenuUI Instance;
 
-
     private Resolution[] resolutions = {
         new() { width = 1024, height = 768 },
         new() { width = 1280, height = 1024 },
@@ -197,6 +196,7 @@ public class MenuUI : MonoBehaviour
             button.gameObject.GetComponent<Animator>().transform.GetChild(1).GetComponent<Animator>().Rebind();
         }
     }
+    
     void SetResolution(int index)
     {
         if (index >= 0 && index < resolutions.Length)

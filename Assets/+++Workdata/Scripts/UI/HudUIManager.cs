@@ -115,12 +115,13 @@ public class HudUIManager : MonoBehaviour
         
         FindAnyObjectByType<NPCSpawner>().OnSpawnSmallHordesOverTime();
 
-        FindAnyObjectByType<Lever>().pullLeverImage.fillAmount = 1;
-        FindAnyObjectByType<Lever>().PullLever(true);
+        FindAnyObjectByType<Lever>().interactionImage.fillAmount = 1;
+        FindAnyObjectByType<Lever>().PullLever(false);
+        FindAnyObjectByType<Lever>().interactionImage.fillAmount = 0;
 
         foreach (var _playerMovement in FindObjectsByType<PlayerMovement>(FindObjectsSortMode.None))
         {
-            _playerMovement.AllowMovement();
+            _playerMovement.movementAllowed = true;
         }
 
         AudioManager.Instance.Play("Yeehaw");

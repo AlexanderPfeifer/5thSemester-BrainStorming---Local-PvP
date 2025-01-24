@@ -28,7 +28,7 @@ public class AddSoundToEveryButton : MonoBehaviour
         // Attach the value changed sound to each slider
         foreach (Slider _slider in sliders)
         {
-            _slider.onValueChanged.AddListener((value) => AudioManager.Instance.Play("SliderOnValueChanged"));
+            _slider.onValueChanged.AddListener((_) => AudioManager.Instance.Play("SliderOnValueChanged"));
         }
     }
 
@@ -53,7 +53,7 @@ public class AddSoundToEveryButton : MonoBehaviour
         };
 
         // Add a listener to play the hover sound
-        _entry.callback.AddListener((eventData) => AudioManager.Instance.Play("ButtonHover"));
+        _entry.callback.AddListener((_) => AudioManager.Instance.Play("ButtonHover"));
         _eventTrigger.triggers.Add(_entry);
     }
     
@@ -73,7 +73,7 @@ public class AddSoundToEveryButton : MonoBehaviour
         };
 
         // Add a listener to play the selected sound
-        _entry.callback.AddListener((eventData) => AudioManager.Instance.Play("ButtonHover"));
+        _entry.callback.AddListener((_) => AudioManager.Instance.Play("ButtonHover"));
         _eventTrigger.triggers.Add(_entry);
     }
 }

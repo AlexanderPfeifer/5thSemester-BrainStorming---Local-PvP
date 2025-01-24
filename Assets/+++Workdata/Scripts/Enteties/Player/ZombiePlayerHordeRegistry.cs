@@ -2,37 +2,34 @@ using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ZombiePlayerHordeRegistry : MonoBehaviour
 {
-    public List<GameObject> Zombies { get; private set; } = new List<GameObject>();
+    public List<GameObject> Zombies { get; } = new();
 
+    [Header("Multiplayer")]
     [SerializeField] private int playerIndex;
-    [NonSerialized] public NecromanceHorde necromanceHorde;
-    
-    [NonSerialized] public GameObject mainZombie;
-    
-    [SerializeField] private GameObject zombiePrefab;
 
+    [Header("Movement")]
+    [NonSerialized] public GameObject MainZombie;
+    
+    [Header("GameStart")]
+    [SerializeField] private GameObject zombiePrefab;
+    [FormerlySerializedAs("removableZombieAfterSpawn")] [SerializeField] private GameObject grave;
+
+    [Header("Camera")]
     [SerializeField] private CinemachineCamera cineCam;
 
-    [SerializeField] private ShowDirectionOfWinArea showDirectionOfWinArea;
-
-    [SerializeField] private GameObject removableZombieAfterSpawn;
-
-    private void Start()
-    {
-        necromanceHorde = GetComponent<NecromanceHorde>();
-    }
-    
     public void RegisterZombie(GameObject zombie)
     {
         if(!Zombies.Contains(zombie))
         {
-            if (mainZombie == null)
+            if (MainZombie == null)
             {
-                mainZombie = zombie;
+                MainZombie = zombie;
             }
+            
             Zombies.Add(zombie);
         }
     }
@@ -49,23 +46,28 @@ public class ZombiePlayerHordeRegistry : MonoBehaviour
 
     public void SpawnPlayerZombie()
     {
-        var _player = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, necromanceHorde.ParentObject);
+        var _necromanceHorde = GetComponent<NecromanceHorde>();
+        var _position = transform.position;
+        
+        var _player = Instantiate(zombiePrefab, 
+            new Vector3(_position.x, _position.y, _position.z), Quaternion.identity, _necromanceHorde.ParentObject);
+        
         RegisterZombie(_player);
+        
         cineCam.Target.TrackingTarget = _player.transform;
 
+        //Check for player index to destroy the right grave according to the player 
         if (playerIndex == 0)
         {
-            showDirectionOfWinArea.players.Add(_player.transform);
-            necromanceHorde.interactCircle.transform.position = removableZombieAfterSpawn.transform.position;
-            necromanceHorde.interactCircle.Play();
-            Destroy(removableZombieAfterSpawn);
+            _necromanceHorde.interactCircle.transform.position = grave.transform.position;
+            _necromanceHorde.interactCircle.Play();
+            Destroy(grave);
         }
         else
         {
-            showDirectionOfWinArea.players.Add(_player.transform);
-            necromanceHorde.interactCircle.transform.position = removableZombieAfterSpawn.transform.position;
-            necromanceHorde.interactCircle.Play();
-            Destroy(removableZombieAfterSpawn);
+            _necromanceHorde.interactCircle.transform.position = grave.transform.position;
+            _necromanceHorde.interactCircle.Play();
+            Destroy(grave);
         }
     }
 

@@ -13,25 +13,14 @@ public class Health : MonoBehaviour
 
     [Header("Hit")] 
     [SerializeField] private float changeColorOnHitTime = .3f;
-
     [HideInInspector] public VisualEffect bloodEffect;
 
-    [Header("Death")]
-    private Vector3 startScale;
-    private Quaternion startRotation;
-    
     private CachedZombieData cachedZombieData;
 
     private void Start()
     {
         ResetHealth();
         cachedZombieData = GetComponent<CachedZombieData>();
-        startRotation = GetComponentInChildren<Transform>().rotation;
-        
-        if(!IsPlayerZombie)
-        {
-            startScale = transform.localScale;
-        }
     }
 
     public void DamageIncome(int damageDealt, Transform sender)
@@ -43,13 +32,19 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            bloodEffect.transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
+            var _position = transform.position;
+            bloodEffect.transform.position = new Vector3(_position.x, .5f, _position.z);
             bloodEffect.Play();
             
             AudioManager.Instance.PlayWithRandomPitch("ZombieDeath");
+            
             Die();
-            if(sender.TryGetComponent(out AutoAttack _autoAttack))
+            
+            //Resets attack so the NPC does not try to attack in the frame they died
+            if (sender.TryGetComponent(out AutoAttack _autoAttack))
+            {
                 _autoAttack.ResetAttack();
+            }
         }
         
         StartCoroutine(ChangeColorOnHitCoroutine());
@@ -57,22 +52,10 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        if (!IsPlayerZombie)
+        cachedZombieData.ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
+        if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Contains(transform.GetComponent<Collider>()))
         {
-            cachedZombieData.Animator.enabled = false;
-            
-            //Need to reset the animator because it still has effect on the rotation even after disabling it
-            cachedZombieData.Animator.Rebind();
-            GetComponentInChildren<Transform>().localRotation = startRotation;
-            transform.localScale = startScale;
-        }
-        else
-        {
-            cachedZombieData.ZombiePlayerHordeRegistry.UnregisterZombie(gameObject);
-            if (cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Contains(transform.GetComponent<Collider>()))
-            {
-                cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Remove(transform.GetComponent<Collider>());
-            }
+            cachedZombieData.NecromanceHorde.zombiesNearBrainPlayer.Remove(transform.GetComponent<Collider>());
         }
     }
 
@@ -83,10 +66,12 @@ public class Health : MonoBehaviour
 
     private IEnumerator ChangeColorOnHitCoroutine()
     {
-        cachedZombieData.MeshRenderer.material.color = Color.red;
+        var _material = cachedZombieData.MeshRenderer.material;
+        
+        _material.color = Color.red;
 
         yield return new WaitForSeconds(changeColorOnHitTime);
         
-        cachedZombieData.MeshRenderer.material.color = Color.white;
+        _material.color = Color.white;
     }
 }

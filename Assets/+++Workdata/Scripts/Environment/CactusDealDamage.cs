@@ -2,20 +2,34 @@ using UnityEngine;
 
 public class CactusDealDamage : MonoBehaviour
 {
+    [Header("HitDetection")]
     [SerializeField] private float dealDamageRange;
     [SerializeField] private LayerMask zombiesLayer;
+    
+    [Header("Cooldown")]
     [SerializeField] private float maxDamageCooldown;
     private float currentDamageCooldown;
+    
+    [Header("VFX")]
     private ParticleSystem spikeParticles;
 
-    private void Start() => spikeParticles = GetComponentInChildren<ParticleSystem>();
+    private void Start()
+    {
+        spikeParticles = GetComponentInChildren<ParticleSystem>();
+    }
     
     private void Update()
     {
-        if(currentDamageCooldown > 0)
-            currentDamageCooldown -= Time.deltaTime;
+        ThrowSpikesAfterTime();
+    }
 
-        if (currentDamageCooldown <= 0)
+    private void ThrowSpikesAfterTime()
+    {
+        if (currentDamageCooldown > 0)
+        {
+            currentDamageCooldown -= Time.deltaTime;
+        }
+        else
         {
             Collider[] _attackableZombiesHit = Physics.OverlapSphere(transform.position + Vector3.up, dealDamageRange, zombiesLayer);
 
@@ -29,6 +43,7 @@ public class CactusDealDamage : MonoBehaviour
             }
             
             spikeParticles.Play();
+            
             currentDamageCooldown = maxDamageCooldown;
         }
     }

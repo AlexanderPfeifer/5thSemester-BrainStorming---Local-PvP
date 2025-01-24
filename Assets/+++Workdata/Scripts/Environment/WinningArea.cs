@@ -1,51 +1,59 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WinningArea : MonoBehaviour
 {
+    [Header("Points Slider")]
     [SerializeField] private Slider player1PointsSlider;
     [SerializeField] private Slider player2PointsSlider;
 
+    [Header("Particles")]
     [SerializeField] private ParticleSystem player1Particles;
     [SerializeField] private ParticleSystem player2Particles;
-
-    [SerializeField] private NecromanceHorde player1NecromanceHorde;
-
-    private int player1Points;
-    private int player2Points;
-
-    [SerializeField] private int pointsToWin;
-
-    public bool canObtainPoints;
-
-    [SerializeField] public float zombiesInRangeRadius;
-
-    [SerializeField] private ParticleSystem brainActiveParticles;
+    [FormerlySerializedAs("brainActiveParticles")] [SerializeField] private ParticleSystem brainMiniMapActiveParticles;
     [SerializeField] private ParticleSystem brainObtainPointsParticle;
 
-    [HideInInspector] public Image obtainPointsImage;
+    [Header("Player Check")]
+    [SerializeField] private NecromanceHorde player1NecromanceHorde;
 
+    [Header("Points")]
+    [SerializeField] private int pointsToWin;
+    private int player1Points;
+    private int player2Points;
+    [HideInInspector] public bool canObtainPoints;
+
+    [Header("Zombie Detection")]
+    [SerializeField] public float zombiesInRangeRadius;
+
+    [Header("UI")]
+    [FormerlySerializedAs("obtainPointsImage")] [HideInInspector] public Image interactImage;
     [HideInInspector] public CanvasGroup canvasGroup;
     
     private void Start()
     {
         canObtainPoints = false;
-        brainActiveParticles = GetComponentInChildren<ParticleSystem>();
+        brainMiniMapActiveParticles = GetComponentInChildren<ParticleSystem>();
         canvasGroup = GetComponentInChildren<CanvasGroup>();
-        obtainPointsImage = canvasGroup.GetComponentInChildren<Image>();
+        interactImage = canvasGroup.GetComponentInChildren<Image>();
     }
 
     private void Update()
     {
-        if (canObtainPoints && !brainActiveParticles.isPlaying)
+        SetBrainMiniMapParticles();
+    }
+
+    private void SetBrainMiniMapParticles()
+    {
+        switch (canObtainPoints)
         {
-            brainActiveParticles.Play();
-        }
-        else if(!canObtainPoints && brainActiveParticles.isPlaying)
-        {
-            brainActiveParticles.Stop();
+            case true when !brainMiniMapActiveParticles.isPlaying:
+                brainMiniMapActiveParticles.Play();
+                break;
+            case false when brainMiniMapActiveParticles.isPlaying:
+                brainMiniMapActiveParticles.Stop();
+                break;
         }
     }
 
@@ -55,20 +63,22 @@ public class WinningArea : MonoBehaviour
         var _player1Particles = player1Particles.main;
         var _player2Particles = player2Particles.main;
 
-        List<Collider> _playerCollider = new (playerZombies);
+        List<Collider> _removedDestroyedZombiesList = new (playerZombies);
 
         if (playerZombies.Count > 1)
         {
-            foreach (var _player1Zombie in playerZombies)
+            foreach (var _playerZombie in playerZombies)
             {
-                if (_player1Zombie == null) // Check if the Transform is destroyed
+                //Some zombies are always destroyed but I do not know why so I reassure nothing unintended happens
+                if (_playerZombie == null) 
                 {
-                    _playerCollider.Remove(_player1Zombie);
+                    _removedDestroyedZombiesList.Remove(_playerZombie);
                     Debug.LogWarning("A destroyed Transform was found in the _player1Zombie.");
-                    continue; // Skip this entry
+                    continue; 
                 }
                 
-                if (_player1Zombie.TryGetComponent(out NPCMovement _npcMovement))
+                //Ask for NPCMovement so the main zombie does not play any VFX because it is always inside the zombie list
+                if (_playerZombie.TryGetComponent(out NPCMovement _npcMovement))
                 {
                     var _obtainPointsParticles = _npcMovement.ObtainPointsParticles.main;
                     _obtainPointsParticles.startColor = necromanceHorde == player1NecromanceHorde ? _player1Particles.startColor : _player2Particles.startColor;
@@ -76,13 +86,14 @@ public class WinningArea : MonoBehaviour
                 }
             }
 
+            //Always clearing the zombie list because I assign the new list after checking for all the destroyed zombies and it would otherwise just add upon it
             necromanceHorde.zombiesNearBrainPlayer.Clear();
-            necromanceHorde.zombiesNearBrainPlayer = _playerCollider;
-            playerZombies = _playerCollider;
+            necromanceHorde.zombiesNearBrainPlayer = _removedDestroyedZombiesList;
+            playerZombies = _removedDestroyedZombiesList;
 
             if (necromanceHorde == player1NecromanceHorde)
             {
-                foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+                foreach (var _winningArea in FindAnyObjectByType<WinningAreas>().winningArea)
                 {
                     _winningArea.player1Points += playerZombies.Count;
                 }
@@ -100,7 +111,7 @@ public class WinningArea : MonoBehaviour
             }
             else
             {
-                foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+                foreach (var _winningArea in FindAnyObjectByType<WinningAreas>().winningArea)
                 {
                     _winningArea.player2Points += playerZombies.Count;
                 }

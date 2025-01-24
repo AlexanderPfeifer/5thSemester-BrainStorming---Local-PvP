@@ -1,39 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Lever : MonoBehaviour
 {
+    [Header("Cooldown Time")]
     [SerializeField] private float maxLeverCooldown;
     [HideInInspector] public float currentLeverCooldown;
     
-    public Image pullLeverImage;
+    [Header("UI")]
+    [FormerlySerializedAs("pullLeverImage")] public Image interactionImage;
     public CanvasGroup canvasGroup;
 
+    [Header("VFX")]
     [SerializeField] private ParticleSystem interactionParticles;
 
+    [Header("Lever")]
     [SerializeField] private Transform lever;
  
     private void Update()
     {
-        if (currentLeverCooldown >= 0)
-        {
-            pullLeverImage.fillAmount = currentLeverCooldown / maxLeverCooldown;
-
-            currentLeverCooldown -= Time.deltaTime;
-        }
+        CooldownTime();
     }
 
-    public void PullLever(bool keepCooldown)
+    public void PullLever(bool changeCooldown)
     {
-        if (pullLeverImage.fillAmount >= 1 && currentLeverCooldown <= 0)
+        if (interactionImage.fillAmount >= 1 && currentLeverCooldown <= 0)
         {
             AudioManager.Instance.Play("LeverCrank");
             
             List<WinningArea> _deactivatedWinningArea = new();
             
-            foreach (var _winningArea in FindAnyObjectByType<ShowDirectionOfWinArea>().winningArea)
+            foreach (var _winningArea in FindAnyObjectByType<WinningAreas>().winningArea)
             {
                 if (_winningArea.canObtainPoints)
                 {
@@ -58,7 +58,8 @@ public class Lever : MonoBehaviour
             
             StartCoroutine(PullLeverMotionCoroutine());
             
-            if (keepCooldown)
+            //keep cooldown is only used at the start so the game does not start with the lever having a cooldown
+            if (changeCooldown)
                 currentLeverCooldown = maxLeverCooldown;
         }
     }
@@ -68,8 +69,8 @@ public class Lever : MonoBehaviour
         var _rotation = lever.rotation;
         Vector3 _localEulerAngles = _rotation.eulerAngles;
 
-        // Define the start and target rotations using Euler angles
         Quaternion _startRotation = _rotation;
+        //The target rotation is just always getting the minus X transform because it rotates back and forth always when pulled
         Quaternion _targetRotation = Quaternion.Euler(-_localEulerAngles.x, _localEulerAngles.y, _localEulerAngles.z);
 
         
@@ -85,5 +86,15 @@ public class Lever : MonoBehaviour
         }
 
         lever.rotation = _targetRotation;
+    }
+    
+    private void CooldownTime()
+    {
+        if (currentLeverCooldown >= 0)
+        {
+            interactionImage.fillAmount = currentLeverCooldown / maxLeverCooldown;
+
+            currentLeverCooldown -= Time.deltaTime;
+        }
     }
 }

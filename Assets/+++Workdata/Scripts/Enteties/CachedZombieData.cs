@@ -15,7 +15,6 @@ public class CachedZombieData : MonoBehaviour
     public AutoAttack AutoAttack => _autoAttack ??= GetComponent<AutoAttack>();
     public NPCMovement NPCMovement => _npcMovement ??= GetComponent<NPCMovement>();
     public Health Health => _health ??= GetComponent<Health>();
-    public DetectInteractable DetectNecromanceZombies => _detectNecromanceZombies ??= GetComponent<DetectInteractable>();
     public Animator Animator => _animator ??= GetComponentInChildren<Animator>();
     public MeshRenderer MeshRenderer => _meshRenderer ??= GetComponentInChildren<MeshRenderer>();
 
@@ -31,18 +30,5 @@ public class CachedZombieData : MonoBehaviour
     {
         get => _necromanceHorde ??= GetComponentInParent<NecromanceHorde>();
         set => _necromanceHorde = value;
-    }
-
-    //If I ever need components to be cached on initialization, I can use this method
-    public void PreCacheComponents()
-    {
-        _ = AutoAttack;
-        _ = NPCMovement;
-        _ = Health;
-        _ = DetectNecromanceZombies;
-        _ = Animator;
-        _ = MeshRenderer;
-        _ = NecromanceHorde;
-        _ = ZombiePlayerHordeRegistry;
     }
 }
