@@ -369,6 +369,7 @@ public class MenuUI : MonoBehaviour
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+        winPanel.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
     

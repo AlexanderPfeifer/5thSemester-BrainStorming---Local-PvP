@@ -1,0 +1,2028 @@
+fileFormatVersion: 2
+guid: 3a59cd6e385937249aa3495b0529687e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8865474233450956415
+    second: Gamepad_Required_Screen_0
+  - first:
+      213: -7937421500501443880
+    second: Gamepad_Required_Screen_1
+  - first:
+      213: 7320830546852407850
+    second: Gamepad_Required_Screen_2
+  - first:
+      213: 7295425272964684036
+    second: Gamepad_Required_Screen_3
+  - first:
+      213: -3239925110406855580
+    second: Gamepad_Required_Screen_4
+  - first:
+      213: -8746680915052421441
+    second: Gamepad_Required_Screen_5
+  - first:
+      213: -3738603650752569777
+    second: Gamepad_Required_Screen_6
+  - first:
+      213: -4457123148603870282
+    second: Gamepad_Required_Screen_7
+  - first:
+      213: 5435818858434782829
+    second: Gamepad_Required_Screen_8
+  - first:
+      213: 2898844585497273245
+    second: Gamepad_Required_Screen_9
+  - first:
+      213: 778867148838084131
+    second: Gamepad_Required_Screen_10
+  - first:
+      213: 5843741972338739913
+    second: Gamepad_Required_Screen_11
+  - first:
+      213: -838937417793965853
+    second: Gamepad_Required_Screen_12
+  - first:
+      213: 4574528058468096092
+    second: Gamepad_Required_Screen_13
+  - first:
+      213: -1324041230249982728
+    second: Gamepad_Required_Screen_14
+  - first:
+      213: 8479134425399966379
+    second: Gamepad_Required_Screen_15
+  - first:
+      213: 6236616883890843019
+    second: Gamepad_Required_Screen_16
+  - first:
+      213: -4646551878200740567
+    second: Gamepad_Required_Screen_17
+  - first:
+      213: 6868259373832865883
+    second: Gamepad_Required_Screen_18
+  - first:
+      213: -9140278002440281291
+    second: Gamepad_Required_Screen_19
+  - first:
+      213: -1225124178409701823
+    second: Gamepad_Required_Screen_20
+  - first:
+      213: -8539023832037986724
+    second: Gamepad_Required_Screen_21
+  - first:
+      213: -5256817408893680834
+    second: Gamepad_Required_Screen_22
+  - first:
+      213: 2722579091764854681
+    second: Gamepad_Required_Screen_23
+  - first:
+      213: -5445272413136262666
+    second: Gamepad_Required_Screen_24
+  - first:
+      213: -7578541936849356704
+    second: Gamepad_Required_Screen_25
+  - first:
+      213: 4944206195896152888
+    second: Gamepad_Required_Screen_26
+  - first:
+      213: -8646500137113434453
+    second: Gamepad_Required_Screen_27
+  - first:
+      213: 911478449999020749
+    second: Gamepad_Required_Screen_28
+  - first:
+      213: 6584994933156898330
+    second: Gamepad_Required_Screen_29
+  - first:
+      213: -6661047839852499398
+    second: Gamepad_Required_Screen_30
+  - first:
+      213: -6527167007536845288
+    second: Gamepad_Required_Screen_31
+  - first:
+      213: 4202560015359716109
+    second: Gamepad_Required_Screen_32
+  - first:
+      213: 920302560699406211
+    second: Gamepad_Required_Screen_33
+  - first:
+      213: 9100386024863273776
+    second: Gamepad_Required_Screen_34
+  - first:
+      213: 7750587622084172934
+    second: Gamepad_Required_Screen_35
+  - first:
+      213: 7745568235992644040
+    second: Gamepad_Required_Screen_36
+  - first:
+      213: 1436420699452333899
+    second: Gamepad_Required_Screen_37
+  - first:
+      213: 7333251575797213067
+    second: Gamepad_Required_Screen_38
+  - first:
+      213: 2799287229047509795
+    second: Gamepad_Required_Screen_39
+  - first:
+      213: 6386873958770522352
+    second: Gamepad_Required_Screen_40
+  - first:
+      213: 2755844901441819535
+    second: Gamepad_Required_Screen_41
+  - first:
+      213: -5845083986964407508
+    second: Gamepad_Required_Screen_42
+  - first:
+      213: 6389005926075366958
+    second: Gamepad_Required_Screen_43
+  - first:
+      213: -4542401388689099806
+    second: Gamepad_Required_Screen_44
+  - first:
+      213: -214510507379715400
+    second: Gamepad_Required_Screen_45
+  - first:
+      213: -4100225923297886388
+    second: Gamepad_Required_Screen_46
+  - first:
+      213: 5182034115707979965
+    second: Gamepad_Required_Screen_47
+  - first:
+      213: 585107273056089592
+    second: Gamepad_Required_Screen_48
+  - first:
+      213: -4899244363964340956
+    second: Gamepad_Required_Screen_49
+  - first:
+      213: -546418994074880303
+    second: Gamepad_Required_Screen_50
+  - first:
+      213: 7273755552220858771
+    second: Gamepad_Required_Screen_51
+  - first:
+      213: 4068868308127283704
+    second: Gamepad_Required_Screen_52
+  - first:
+      213: 4909368225078098392
+    second: Gamepad_Required_Screen_53
+  - first:
+      213: -6173305245693112214
+    second: Gamepad_Required_Screen_54
+  - first:
+      213: -3588411133088257150
+    second: Gamepad_Required_Screen_55
+  - first:
+      213: -8409519845407265068
+    second: Gamepad_Required_Screen_56
+  - first:
+      213: 3194080798516444130
+    second: Gamepad_Required_Screen_57
+  - first:
+      213: 1516561496973920746
+    second: Gamepad_Required_Screen_58
+  - first:
+      213: 6941451020599846601
+    second: Gamepad_Required_Screen_59
+  - first:
+      213: -2505247314318193189
+    second: Gamepad_Required_Screen_60
+  - first:
+      213: -7904243121250313242
+    second: Gamepad_Required_Screen_61
+  - first:
+      213: -453595253671919093
+    second: Gamepad_Required_Screen_62
+  - first:
+      213: 9204617478471301479
+    second: Gamepad_Required_Screen_63
+  - first:
+      213: -6724469985905762066
+    second: Gamepad_Required_Screen_64
+  - first:
+      213: -6147906785499933083
+    second: Gamepad_Required_Screen_65
+  - first:
+      213: -140334353962242233
+    second: Gamepad_Required_Screen_66
+  - first:
+      213: 9060421643381338917
+    second: Gamepad_Required_Screen_67
+  - first:
+      213: -9017243661254814376
+    second: Gamepad_Required_Screen_68
+  - first:
+      213: -8678968475764677376
+    second: Gamepad_Required_Screen_69
+  - first:
+      213: -1678449279038188395
+    second: Gamepad_Required_Screen_70
+  - first:
+      213: -5445691105334836679
+    second: Gamepad_Required_Screen_71
+  - first:
+      213: -6976677778933641724
+    second: Gamepad_Required_Screen_72
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_0
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 6475
+        width: 434
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 189f6cde72287f480800000000000000
+      internalID: -8865474233450956415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_1
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 6475
+        width: 488
+        height: 698
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da3016133d98d190800000000000000
+      internalID: -7937421500501443880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_2
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 6475
+        width: 191
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a67fd4890d89560800000000000000
+      internalID: 7320830546852407850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_3
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 6475
+        width: 435
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 409977802ae8e3560800000000000000
+      internalID: 7295425272964684036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_4
+      rect:
+        serializedVersion: 2
+        x: 3159
+        y: 6475
+        width: 191
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464c45727497903d0800000000000000
+      internalID: -3239925110406855580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_5
+      rect:
+        serializedVersion: 2
+        x: 3451
+        y: 6475
+        width: 435
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe9c96bc0c8d9680800000000000000
+      internalID: -8746680915052421441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_6
+      rect:
+        serializedVersion: 2
+        x: 4339
+        y: 6475
+        width: 567
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e1ae0a9cfcd1cc0800000000000000
+      internalID: -3738603650752569777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_7
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 6475
+        width: 619
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3bb477c1e1522c0800000000000000
+      internalID: -4457123148603870282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_8
+      rect:
+        serializedVersion: 2
+        x: 6081
+        y: 6475
+        width: 476
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66ef589378ef6b40800000000000000
+      internalID: 5435818858434782829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_9
+      rect:
+        serializedVersion: 2
+        x: 6658
+        y: 6475
+        width: 432
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9321a1bac3ca3820800000000000000
+      internalID: 2898844585497273245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_10
+      rect:
+        serializedVersion: 2
+        x: 7191
+        y: 6475
+        width: 435
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e17b59b871fca00800000000000000
+      internalID: 778867148838084131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_11
+      rect:
+        serializedVersion: 2
+        x: 7727
+        y: 6475
+        width: 191
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca8a44cc54291150800000000000000
+      internalID: 5843741972338739913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_12
+      rect:
+        serializedVersion: 2
+        x: 8019
+        y: 6475
+        width: 454
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e07b970dde7b54f0800000000000000
+      internalID: -838937417793965853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_13
+      rect:
+        serializedVersion: 2
+        x: 8576
+        y: 6475
+        width: 432
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c585c04480dfb7f30800000000000000
+      internalID: 4574528058468096092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_14
+      rect:
+        serializedVersion: 2
+        x: 9109
+        y: 6475
+        width: 567
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f48af2248f00ade0800000000000000
+      internalID: -1324041230249982728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_15
+      rect:
+        serializedVersion: 2
+        x: 9612
+        y: 6475
+        width: 551
+        height: 697
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa30c4e5dfeba570800000000000000
+      internalID: 8479134425399966379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_16
+      rect:
+        serializedVersion: 2
+        x: 10264
+        y: 6475
+        width: 432
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8d648c430aec8650800000000000000
+      internalID: 6236616883890843019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_17
+      rect:
+        serializedVersion: 2
+        x: 10797
+        y: 6475
+        width: 487
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925bb6d6fa1248fb0800000000000000
+      internalID: -4646551878200740567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_18
+      rect:
+        serializedVersion: 2
+        x: 11737
+        y: 6475
+        width: 433
+        height: 697
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b580e8ac285f05f50800000000000000
+      internalID: 6868259373832865883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_19
+      rect:
+        serializedVersion: 2
+        x: 12271
+        y: 6475
+        width: 567
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533ea348595372180800000000000000
+      internalID: -9140278002440281291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_20
+      rect:
+        serializedVersion: 2
+        x: 12940
+        y: 6475
+        width: 620
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14eb52cfc0c7ffee0800000000000000
+      internalID: -1225124178409701823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_21
+      rect:
+        serializedVersion: 2
+        x: 13661
+        y: 6475
+        width: 432
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ee7c2011b4f7980800000000000000
+      internalID: -8539023832037986724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_22
+      rect:
+        serializedVersion: 2
+        x: 4724
+        y: 1790
+        width: 5524
+        height: 3918
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e338dcd1b680c07b0800000000000000
+      internalID: -5256817408893680834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_23
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 74
+        width: 311
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99fbc85524b88c520800000000000000
+      internalID: 2722579091764854681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_24
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 74
+        width: 97
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f967cd27918e64b0800000000000000
+      internalID: -5445272413136262666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_25
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 74
+        width: 251
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06871b2e24c93d690800000000000000
+      internalID: -7578541936849356704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_26
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 74
+        width: 97
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833fca2f6595d9440800000000000000
+      internalID: 4944206195896152888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_27
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 74
+        width: 312
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba6ccf8bfe5710880800000000000000
+      internalID: -8646500137113434453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_28
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 74
+        width: 240
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc28d9032d836ac00800000000000000
+      internalID: 911478449999020749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_29
+      rect:
+        serializedVersion: 2
+        x: 1628
+        y: 74
+        width: 311
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16609eb00a926b50800000000000000
+      internalID: 6584994933156898330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_30
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 74
+        width: 219
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e65b908443f83a0800000000000000
+      internalID: -6661047839852499398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_31
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 74
+        width: 217
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81eed166038da65a0800000000000000
+      internalID: -6527167007536845288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_32
+      rect:
+        serializedVersion: 2
+        x: 2874
+        y: 74
+        width: 171
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ba6ce511e725a30800000000000000
+      internalID: 4202560015359716109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_33
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 74
+        width: 285
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387de509d4295cc00800000000000000
+      internalID: 920302560699406211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_34
+      rect:
+        serializedVersion: 2
+        x: 3604
+        y: 74
+        width: 227
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03397eaafd01b4e70800000000000000
+      internalID: 9100386024863273776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_35
+      rect:
+        serializedVersion: 2
+        x: 3880
+        y: 74
+        width: 226
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68cdddeb06e9f8b60800000000000000
+      internalID: 7750587622084172934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_36
+      rect:
+        serializedVersion: 2
+        x: 4156
+        y: 74
+        width: 97
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9f3e9d549cd7b60800000000000000
+      internalID: 7745568235992644040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_37
+      rect:
+        serializedVersion: 2
+        x: 4302
+        y: 74
+        width: 219
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4fdfd204013fe310800000000000000
+      internalID: 1436420699452333899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_38
+      rect:
+        serializedVersion: 2
+        x: 4570
+        y: 74
+        width: 97
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8767f77471f4c560800000000000000
+      internalID: 7333251575797213067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_39
+      rect:
+        serializedVersion: 2
+        x: 4716
+        y: 74
+        width: 218
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3231aaf47e019d620800000000000000
+      internalID: 2799287229047509795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_40
+      rect:
+        serializedVersion: 2
+        x: 4983
+        y: 74
+        width: 252
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8b5b1c60cb2a850800000000000000
+      internalID: 6386873958770522352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_41
+      rect:
+        serializedVersion: 2
+        x: 5284
+        y: 74
+        width: 285
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83d286365abe3620800000000000000
+      internalID: 2755844901441819535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_42
+      rect:
+        serializedVersion: 2
+        x: 5619
+        y: 74
+        width: 217
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b99aa151712eea0800000000000000
+      internalID: -5845083986964407508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_43
+      rect:
+        serializedVersion: 2
+        x: 6061
+        y: 74
+        width: 218
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e76931a0f4aa850800000000000000
+      internalID: 6389005926075366958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_44
+      rect:
+        serializedVersion: 2
+        x: 6328
+        y: 74
+        width: 285
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e3f1ffe00626f0c0800000000000000
+      internalID: -4542401388689099806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_45
+      rect:
+        serializedVersion: 2
+        x: 6663
+        y: 74
+        width: 311
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b21b0f74d7e50df0800000000000000
+      internalID: -214510507379715400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_46
+      rect:
+        serializedVersion: 2
+        x: 7023
+        y: 74
+        width: 217
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f3bf62f321917c0800000000000000
+      internalID: -4100225923297886388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_47
+      rect:
+        serializedVersion: 2
+        x: 7290
+        y: 74
+        width: 229
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8cab892984ae740800000000000000
+      internalID: 5182034115707979965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_48
+      rect:
+        serializedVersion: 2
+        x: 7527
+        y: 74
+        width: 285
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5710ef6f7be1800800000000000000
+      internalID: 585107273056089592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_49
+      rect:
+        serializedVersion: 2
+        x: 7861
+        y: 74
+        width: 226
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42522125533620cb0800000000000000
+      internalID: -4899244363964340956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_50
+      rect:
+        serializedVersion: 2
+        x: 8313
+        y: 74
+        width: 244
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6f3a7e1daba68f0800000000000000
+      internalID: -546418994074880303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_51
+      rect:
+        serializedVersion: 2
+        x: 8607
+        y: 74
+        width: 217
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3994621032291f460800000000000000
+      internalID: 7273755552220858771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_52
+      rect:
+        serializedVersion: 2
+        x: 8873
+        y: 19
+        width: 222
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f975cf1b26877830800000000000000
+      internalID: 4068868308127283704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_53
+      rect:
+        serializedVersion: 2
+        x: 9144
+        y: 74
+        width: 240
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9be57c364912440800000000000000
+      internalID: 4909368225078098392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_54
+      rect:
+        serializedVersion: 2
+        x: 9433
+        y: 74
+        width: 97
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a60186c2693045aa0800000000000000
+      internalID: -6173305245693112214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_55
+      rect:
+        serializedVersion: 2
+        x: 9579
+        y: 74
+        width: 244
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ba7303617633ec0800000000000000
+      internalID: -3588411133088257150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_56
+      rect:
+        serializedVersion: 2
+        x: 9873
+        y: 74
+        width: 217
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dee6e291426b4b80800000000000000
+      internalID: -8409519845407265068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_57
+      rect:
+        serializedVersion: 2
+        x: 10139
+        y: 74
+        width: 227
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebf7733097a35c20800000000000000
+      internalID: 3194080798516444130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_58
+      rect:
+        serializedVersion: 2
+        x: 10591
+        y: 74
+        width: 219
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae94a2b75a8eb0510800000000000000
+      internalID: 1516561496973920746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_59
+      rect:
+        serializedVersion: 2
+        x: 10859
+        y: 74
+        width: 218
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c660a40decf45060800000000000000
+      internalID: 6941451020599846601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_60
+      rect:
+        serializedVersion: 2
+        x: 11302
+        y: 74
+        width: 229
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd009b47d29b3dd0800000000000000
+      internalID: -2505247314318193189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_61
+      rect:
+        serializedVersion: 2
+        x: 11580
+        y: 74
+        width: 218
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ebdc8b72cc7e4290800000000000000
+      internalID: -7904243121250313242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_62
+      rect:
+        serializedVersion: 2
+        x: 11847
+        y: 74
+        width: 285
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b020511258184b9f0800000000000000
+      internalID: -453595253671919093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_63
+      rect:
+        serializedVersion: 2
+        x: 12098
+        y: 74
+        width: 277
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76932a914de5dbf70800000000000000
+      internalID: 9204617478471301479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_64
+      rect:
+        serializedVersion: 2
+        x: 12600
+        y: 74
+        width: 219
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0af43fc22eda2a0800000000000000
+      internalID: -6724469985905762066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_65
+      rect:
+        serializedVersion: 2
+        x: 12868
+        y: 74
+        width: 245
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56610120a5f3eaaa0800000000000000
+      internalID: -6147906785499933083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_66
+      rect:
+        serializedVersion: 2
+        x: 13162
+        y: 74
+        width: 218
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74feb4a06ae6d0ef0800000000000000
+      internalID: -140334353962242233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_67
+      rect:
+        serializedVersion: 2
+        x: 13604
+        y: 74
+        width: 219
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52371010b751dbd70800000000000000
+      internalID: 9060421643381338917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_68
+      rect:
+        serializedVersion: 2
+        x: 13871
+        y: 74
+        width: 285
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85593cd5aa05cd280800000000000000
+      internalID: -9017243661254814376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_69
+      rect:
+        serializedVersion: 2
+        x: 14206
+        y: 74
+        width: 311
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005ab39872c1e8780800000000000000
+      internalID: -8678968475764677376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_70
+      rect:
+        serializedVersion: 2
+        x: 14567
+        y: 74
+        width: 217
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5941b650643f4b8e0800000000000000
+      internalID: -1678449279038188395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_71
+      rect:
+        serializedVersion: 2
+        x: 14833
+        y: 74
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932430ecac40d64b0800000000000000
+      internalID: -5445691105334836679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gamepad_Required_Screen_72
+      rect:
+        serializedVersion: 2
+        x: 14935
+        y: 74
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e8c4a268cdd2f90800000000000000
+      internalID: -6976677778933641724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Gamepad_Required_Screen_0: -8865474233450956415
+      Gamepad_Required_Screen_1: -7937421500501443880
+      Gamepad_Required_Screen_10: 778867148838084131
+      Gamepad_Required_Screen_11: 5843741972338739913
+      Gamepad_Required_Screen_12: -838937417793965853
+      Gamepad_Required_Screen_13: 4574528058468096092
+      Gamepad_Required_Screen_14: -1324041230249982728
+      Gamepad_Required_Screen_15: 8479134425399966379
+      Gamepad_Required_Screen_16: 6236616883890843019
+      Gamepad_Required_Screen_17: -4646551878200740567
+      Gamepad_Required_Screen_18: 6868259373832865883
+      Gamepad_Required_Screen_19: -9140278002440281291
+      Gamepad_Required_Screen_2: 7320830546852407850
+      Gamepad_Required_Screen_20: -1225124178409701823
+      Gamepad_Required_Screen_21: -8539023832037986724
+      Gamepad_Required_Screen_22: -5256817408893680834
+      Gamepad_Required_Screen_23: 2722579091764854681
+      Gamepad_Required_Screen_24: -5445272413136262666
+      Gamepad_Required_Screen_25: -7578541936849356704
+      Gamepad_Required_Screen_26: 4944206195896152888
+      Gamepad_Required_Screen_27: -8646500137113434453
+      Gamepad_Required_Screen_28: 911478449999020749
+      Gamepad_Required_Screen_29: 6584994933156898330
+      Gamepad_Required_Screen_3: 7295425272964684036
+      Gamepad_Required_Screen_30: -6661047839852499398
+      Gamepad_Required_Screen_31: -6527167007536845288
+      Gamepad_Required_Screen_32: 4202560015359716109
+      Gamepad_Required_Screen_33: 920302560699406211
+      Gamepad_Required_Screen_34: 9100386024863273776
+      Gamepad_Required_Screen_35: 7750587622084172934
+      Gamepad_Required_Screen_36: 7745568235992644040
+      Gamepad_Required_Screen_37: 1436420699452333899
+      Gamepad_Required_Screen_38: 7333251575797213067
+      Gamepad_Required_Screen_39: 2799287229047509795
+      Gamepad_Required_Screen_4: -3239925110406855580
+      Gamepad_Required_Screen_40: 6386873958770522352
+      Gamepad_Required_Screen_41: 2755844901441819535
+      Gamepad_Required_Screen_42: -5845083986964407508
+      Gamepad_Required_Screen_43: 6389005926075366958
+      Gamepad_Required_Screen_44: -4542401388689099806
+      Gamepad_Required_Screen_45: -214510507379715400
+      Gamepad_Required_Screen_46: -4100225923297886388
+      Gamepad_Required_Screen_47: 5182034115707979965
+      Gamepad_Required_Screen_48: 585107273056089592
+      Gamepad_Required_Screen_49: -4899244363964340956
+      Gamepad_Required_Screen_5: -8746680915052421441
+      Gamepad_Required_Screen_50: -546418994074880303
+      Gamepad_Required_Screen_51: 7273755552220858771
+      Gamepad_Required_Screen_52: 4068868308127283704
+      Gamepad_Required_Screen_53: 4909368225078098392
+      Gamepad_Required_Screen_54: -6173305245693112214
+      Gamepad_Required_Screen_55: -3588411133088257150
+      Gamepad_Required_Screen_56: -8409519845407265068
+      Gamepad_Required_Screen_57: 3194080798516444130
+      Gamepad_Required_Screen_58: 1516561496973920746
+      Gamepad_Required_Screen_59: 6941451020599846601
+      Gamepad_Required_Screen_6: -3738603650752569777
+      Gamepad_Required_Screen_60: -2505247314318193189
+      Gamepad_Required_Screen_61: -7904243121250313242
+      Gamepad_Required_Screen_62: -453595253671919093
+      Gamepad_Required_Screen_63: 9204617478471301479
+      Gamepad_Required_Screen_64: -6724469985905762066
+      Gamepad_Required_Screen_65: -6147906785499933083
+      Gamepad_Required_Screen_66: -140334353962242233
+      Gamepad_Required_Screen_67: 9060421643381338917
+      Gamepad_Required_Screen_68: -9017243661254814376
+      Gamepad_Required_Screen_69: -8678968475764677376
+      Gamepad_Required_Screen_7: -4457123148603870282
+      Gamepad_Required_Screen_70: -1678449279038188395
+      Gamepad_Required_Screen_71: -5445691105334836679
+      Gamepad_Required_Screen_72: -6976677778933641724
+      Gamepad_Required_Screen_8: 5435818858434782829
+      Gamepad_Required_Screen_9: 2898844585497273245
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
